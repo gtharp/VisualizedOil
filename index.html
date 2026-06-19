@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Oil, Visualized — Texas oil and gas concepts, drawn. Start with the surface and mineral estates and build toward the complex.">
+<title>Oil, Visualized — the Texas mineral estate, drawn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Spectral:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --paper:#F4F2EC;
+  --paper-2:#ECE9DF;
+  --ink:#1B1A17;
+  --muted:#6B675E;
+  --hair:#D8D3C7;
+  --hair-2:#C7C1B2;
+
+  /* geological strata — the identity */
+  --surface:#C8A45E;       /* ochre / topsoil */
+  --surface-lite:#E7D3A8;
+  --mineral:#243A35;       /* deep petroleum slate */
+  --mineral-lite:#DBE3DE;
+
+  /* owners */
+  --carl:#B06A3B;          /* copper */
+  --susan:#2F7E86;         /* teal */
+
+  --survey:#A23A2A;        /* survey-corner red, used sparingly */
+
+  --radius:10px;
+  --radius-lg:16px;
+
+  --display:"Bricolage Grotesque", system-ui, sans-serif;
+  --body:"Spectral", Georgia, serif;
+  --mono:"JetBrains Mono", ui-monospace, monospace;
+
+  --maxw:1180px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:clamp(1rem,0.96rem + 0.2vw,1.125rem);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit}
+:focus-visible{outline:2.5px solid var(--survey);outline-offset:3px;border-radius:3px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1rem,4vw,3rem)}
+
+.eyebrow{
+  font-family:var(--mono);font-size:.72rem;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+}
+.mono{font-family:var(--mono)}
+
+/* ============ HEADER ============ */
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--hair);
+}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:62px}
+.brand{display:flex;align-items:baseline;gap:.55rem;text-decoration:none}
+.brand .mark{font-family:var(--display);font-weight:800;font-size:1.18rem;letter-spacing:-.01em}
+.brand .mark .dot{color:var(--survey)}
+.brand .sub{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.brand .sub.hide-sm{display:none}
+
+/* ============ TABS ============ */
+nav.tabs{border-bottom:1px solid var(--hair);background:var(--paper)}
+.tablist{display:flex;gap:.25rem;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding:.4rem 0}
+.tablist::-webkit-scrollbar{display:none}
+.tab{
+  flex:0 0 auto;display:flex;align-items:baseline;gap:.5rem;
+  background:none;border:0;cursor:pointer;white-space:nowrap;
+  font-family:var(--display);font-weight:600;font-size:.95rem;color:var(--muted);
+  padding:.55rem .85rem;border-radius:8px;position:relative;transition:color .15s,background .15s;
+}
+.tab .num{font-family:var(--mono);font-size:.68rem;font-weight:500;opacity:.7}
+.tab:hover{color:var(--ink);background:var(--paper-2)}
+.tab[aria-selected="true"]{color:var(--ink)}
+.tab[aria-selected="true"]::after{
+  content:"";position:absolute;left:.85rem;right:.85rem;bottom:-.42rem;height:2.5px;background:var(--survey);border-radius:2px;
+}
+.tab .badge{font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--hair-2);border-radius:20px;padding:.1rem .4rem;opacity:.85}
+
+/* ============ PANELS ============ */
+.panel{display:none;animation:fade .35s ease both}
+.panel[data-active="true"]{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ============ HERO ============ */
+.hero{padding:clamp(2.2rem,6vw,4.5rem) 0 clamp(1.5rem,3vw,2.5rem)}
+.hero .eyebrow{margin-bottom:1.1rem}
+.hero h1{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(2.2rem,1.4rem + 4.4vw,4.3rem);
+  line-height:1.02;letter-spacing:-.025em;max-width:18ch;
+}
+.hero h1 em{font-style:normal;color:var(--survey)}
+.hero p.lede{font-size:clamp(1.06rem,1rem + .4vw,1.3rem);max-width:54ch;margin-top:1.3rem;color:#322f29}
+
+/* ============ STUDIO (interactive) ============ */
+.studio{
+  margin-top:2.4rem;border:1px solid var(--hair);border-radius:var(--radius-lg);
+  background:linear-gradient(var(--paper),var(--paper));overflow:hidden;
+}
+.studio-head{
+  display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;
+  padding:1rem clamp(1rem,3vw,1.6rem);border-bottom:1px solid var(--hair);background:var(--paper-2);
+}
+.controls{display:flex;gap:.6rem;flex-wrap:wrap}
+.seg{display:inline-flex;background:var(--paper);border:1px solid var(--hair-2);border-radius:30px;padding:3px}
+.seg button{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;
+  border:0;background:none;cursor:pointer;color:var(--muted);padding:.42rem .8rem;border-radius:24px;transition:all .15s;
+}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.viewseg button[aria-pressed="true"]{background:var(--survey);color:#fff}
+
+.studio-body{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:880px){.studio-body{grid-template-columns:1.45fr .9fr}}
+
+.stage{padding:clamp(1.1rem,3vw,2rem);display:flex;align-items:center;justify-content:center;min-height:340px;background:
+  repeating-linear-gradient(0deg,transparent,transparent 31px,rgba(0,0,0,.025) 31px,rgba(0,0,0,.025) 32px);}
+.stage svg{width:100%;height:auto;max-width:560px}
+.stage .view{display:none}
+.stage .view[data-show="true"]{display:block}
+
+.sidepanel{border-top:1px solid var(--hair);padding:clamp(1.1rem,3vw,1.6rem)}
+@media(min-width:880px){.sidepanel{border-top:0;border-left:1px solid var(--hair)}}
+.sidepanel h3{font-family:var(--display);font-weight:700;font-size:1.05rem;margin-bottom:.2rem;letter-spacing:-.01em}
+.sidepanel .hint{font-size:.92rem;color:var(--muted);margin-bottom:1.1rem}
+
+.ownerbar{margin:.85rem 0 1.1rem}
+.ownerbar .lbl{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;margin-bottom:.3rem}
+.ownerbar .track{display:flex;height:26px;border-radius:7px;overflow:hidden;border:1px solid var(--hair-2)}
+.ownerbar .track span{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.68rem;font-weight:700;color:#fff}
+.seg-carl{background:var(--carl)}
+.seg-susan{background:var(--susan)}
+
+.undiv{font-size:.82rem;color:var(--muted);font-style:italic;border-left:2px solid var(--hair-2);padding-left:.7rem;margin-top:.4rem}
+
+.legend{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:1.2rem;font-family:var(--mono);font-size:.7rem;color:var(--muted);letter-spacing:.03em}
+.legend i{display:inline-block;width:13px;height:13px;border-radius:3px;margin-right:.4rem;vertical-align:-2px}
+
+/* ============ LEDGER ============ */
+.ledger-wrap{margin-top:3rem}
+.ledger-wrap h2,.section h2{font-family:var(--display);font-weight:700;font-size:clamp(1.4rem,1.2rem+1vw,1.9rem);letter-spacing:-.02em}
+.table-scroll{overflow-x:auto;margin-top:1.1rem;border:1px solid var(--hair);border-radius:var(--radius)}
+table.ledger{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.82rem;min-width:520px}
+table.ledger th,table.ledger td{text-align:left;padding:.7rem .9rem;border-bottom:1px solid var(--hair)}
+table.ledger thead th{background:var(--paper-2);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+table.ledger td.r,table.ledger th.r{text-align:right}
+table.ledger tr.tot td{border-top:2px solid var(--hair-2);font-weight:700;border-bottom:0;background:color-mix(in srgb,var(--paper-2) 60%, transparent)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:.5rem;vertical-align:0}
+.d-carl{background:var(--carl)}.d-susan{background:var(--susan)}
+
+/* ============ PROSE SECTIONS ============ */
+.section{padding:clamp(2.4rem,5vw,3.6rem) 0;border-top:1px solid var(--hair);margin-top:3rem}
+.section:first-of-type{border-top:0}
+.grid2{display:grid;grid-template-columns:1fr;gap:clamp(1.4rem,3vw,2.6rem);margin-top:1.4rem}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--survey);margin-bottom:.5rem}
+.section h3{font-family:var(--display);font-weight:600;font-size:1.25rem;margin-bottom:.5rem;letter-spacing:-.01em}
+.section p+p{margin-top:.8rem}
+
+.callout{
+  margin-top:1.6rem;border:1px solid var(--hair-2);border-left:4px solid var(--survey);
+  border-radius:0 var(--radius) var(--radius) 0;background:var(--paper-2);padding:1.2rem 1.4rem;
+}
+.callout .kicker{color:var(--survey)}
+.callout strong{font-weight:500}
+
+/* ============ ROADMAP / PLACEHOLDER PANELS ============ */
+.comingsoon{padding:clamp(2.6rem,7vw,5rem) 0;max-width:62ch}
+.comingsoon .status{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.68rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border:1px solid var(--hair-2);border-radius:30px;padding:.32rem .8rem;margin-bottom:1.3rem}
+.comingsoon .status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--surface)}
+.comingsoon h2{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,1.4rem+2.4vw,3rem);letter-spacing:-.025em;line-height:1.05}
+.comingsoon p{margin-top:1.1rem;color:#322f29}
+.willcover{margin-top:1.6rem;display:grid;gap:.6rem}
+.willcover li{list-style:none;display:flex;gap:.7rem;align-items:baseline;font-size:.98rem}
+.willcover li::before{content:"—";color:var(--survey);font-family:var(--mono)}
+
+/* ============ ROADMAP TAB ============ */
+.roadmap{padding:clamp(2.4rem,5vw,3.5rem) 0}
+.roadmap .lede{max-width:60ch;margin:1rem 0 2.4rem;color:#322f29}
+.tier{border-top:1px solid var(--hair);padding:1.6rem 0}
+.tier-head{display:flex;gap:1rem;align-items:baseline;flex-wrap:wrap}
+.tier-num{font-family:var(--mono);font-size:.72rem;color:var(--survey);letter-spacing:.1em}
+.tier h3{font-family:var(--display);font-weight:700;font-size:1.3rem;letter-spacing:-.015em}
+.tier .tier-sub{color:var(--muted);font-size:.95rem;flex-basis:100%;margin-top:.1rem}
+.steps{margin-top:1rem;display:grid;gap:.55rem}
+.step{display:flex;gap:.8rem;align-items:center;font-size:.97rem;padding:.55rem .8rem;border:1px solid var(--hair);border-radius:var(--radius);background:var(--paper)}
+.step .chip{font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .5rem;border-radius:20px;flex:0 0 auto}
+.chip.live{background:var(--mineral);color:var(--paper)}
+.chip.next{background:var(--surface);color:#3a2c10}
+.chip.later{background:var(--paper-2);color:var(--muted);border:1px solid var(--hair-2)}
+.step .t{flex:1}
+.step .t small{display:block;color:var(--muted);font-size:.82rem;margin-top:.1rem}
+
+/* ============ FOOTER ============ */
+footer.site{border-top:1px solid var(--hair);margin-top:4rem;padding:2.2rem 0 3rem;color:var(--muted)}
+footer.site .row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em}
+footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin-top:1rem;font-style:italic}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top">
+      <span class="mark">Oil, Visualized<span class="dot">.</span></span>
+      <span class="sub hide-sm">the mineral estate, drawn</span>
+    </a>
+    <span class="eyebrow mono">Texas · v0.1</span>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Concepts">
+  <div class="wrap">
+    <div class="tablist" role="tablist" aria-label="Oil and gas concepts">
+      <button class="tab" role="tab" id="t-surface" aria-controls="p-surface" aria-selected="true"><span class="num">01</span> Surface &amp; minerals</button>
+      <button class="tab" role="tab" id="t-tracts" aria-controls="p-tracts" aria-selected="false"><span class="num">02</span> Separate tracts <span class="badge">soon</span></button>
+      <button class="tab" role="tab" id="t-fraction" aria-controls="p-fraction" aria-selected="false"><span class="num">03</span> Fractional interests <span class="badge">soon</span></button>
+      <button class="tab" role="tab" id="t-lease" aria-controls="p-lease" aria-selected="false"><span class="num">04</span> The lease <span class="badge">soon</span></button>
+      <button class="tab" role="tab" id="t-pooling" aria-controls="p-pooling" aria-selected="false"><span class="num">05</span> Pooling <span class="badge">soon</span></button>
+      <button class="tab" role="tab" id="t-roadmap" aria-controls="p-roadmap" aria-selected="false"><span class="num">→</span> Roadmap</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+
+  <!-- ============ PANEL 01 — SURFACE & MINERALS ============ -->
+  <section class="panel" id="p-surface" role="tabpanel" aria-labelledby="t-surface" data-active="true" tabindex="0">
+
+    <div class="hero">
+      <p class="eyebrow">Concept 01 — the two estates</p>
+      <h1>The land you <em>see</em> isn't the land you <em>own</em>.</h1>
+      <p class="lede">A single piece of ground is really two pieces of property stacked on top of each other: the <strong>surface estate</strong> and the <strong>mineral estate</strong>. They can be owned by entirely different people — and the minerals can be split into separate tracts even when the surface above them is whole.</p>
+    </div>
+
+    <!-- INTERACTIVE STUDIO -->
+    <div class="studio" id="studio">
+      <div class="studio-head">
+        <div class="controls">
+          <div class="seg estateseg" role="group" aria-label="Which estate to show">
+            <button data-estate="surface" aria-pressed="false">Surface</button>
+            <button data-estate="mineral" aria-pressed="true">Minerals</button>
+            <button data-estate="both" aria-pressed="false">Severed</button>
+          </div>
+        </div>
+        <div class="controls">
+          <div class="seg viewseg" role="group" aria-label="View type">
+            <button data-view="section" aria-pressed="true">Cross-section</button>
+            <button data-view="plan" aria-pressed="false">Plan view</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="studio-body">
+        <div class="stage">
+
+          <!-- ===== CROSS-SECTION VIEW ===== -->
+          <svg class="view" data-view-svg="section" data-show="true" viewBox="0 0 560 420" role="img" aria-label="Cross-section showing Bob's surface estate above two mineral tracts, West 80 and East 80">
+            <defs>
+              <pattern id="strata" width="560" height="20" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="0" x2="560" y2="0" stroke="#000" stroke-opacity="0.10" stroke-width="1"/>
+              </pattern>
+            </defs>
+
+            <!-- sky / air -->
+            <text x="40" y="34" font-family="JetBrains Mono" font-size="11" letter-spacing="2" fill="#6B675E">SURFACE ▲</text>
+
+            <!-- SURFACE ESTATE band -->
+            <g id="sx-surface" style="transition:transform .5s ease, opacity .35s ease">
+              <rect x="40" y="56" width="480" height="70" rx="6" fill="#C8A45E"/>
+              <rect x="40" y="56" width="480" height="70" rx="6" fill="url(#strata)"/>
+              <text x="280" y="88" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="700" font-size="15" fill="#3a2c10">BOB</text>
+              <text x="280" y="107" text-anchor="middle" font-family="JetBrains Mono" font-size="10.5" letter-spacing="1" fill="#5a4516">SURFACE ESTATE · 160 ACRES · ONE TRACT</text>
+            </g>
+
+            <!-- severance plane -->
+            <line id="sx-plane" x1="40" y1="138" x2="520" y2="138" stroke="#A23A2A" stroke-width="1.5" stroke-dasharray="6 5" opacity="0"/>
+
+            <!-- MINERAL ESTATE -->
+            <g id="sx-minerals">
+              <!-- West 80 -->
+              <g id="sx-w80" class="tract" tabindex="0" role="button" aria-label="West 80 mineral tract" style="cursor:pointer">
+                <rect x="40" y="150" width="240" height="230" rx="6" fill="#243A35"/>
+                <rect x="40" y="150" width="240" height="230" rx="6" fill="url(#strata)"/>
+                <text x="160" y="186" text-anchor="middle" font-family="JetBrains Mono" font-size="10.5" letter-spacing="2" fill="#9fb3ac">WEST 80</text>
+                <text x="160" y="206" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="600" font-size="13" fill="#EDF0EE">80 acres</text>
+                <!-- ownership chip -->
+                <rect x="78" y="230" width="164" height="22" rx="4" fill="#2F7E86"/>
+                <rect x="78" y="230" width="54.7" height="22" rx="4" fill="#B06A3B"/>
+                <line x1="132.7" y1="230" x2="132.7" y2="252" stroke="#243A35" stroke-width="1"/>
+                <text x="105" y="245" text-anchor="middle" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#fff">⅓ C</text>
+                <text x="187" y="245" text-anchor="middle" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#fff">⅔ Susan</text>
+                <text x="160" y="276" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing=".5" fill="#80938c">tap to inspect</text>
+              </g>
+              <!-- East 80 -->
+              <g id="sx-e80" class="tract" tabindex="0" role="button" aria-label="East 80 mineral tract" style="cursor:pointer">
+                <rect x="280" y="150" width="240" height="230" rx="6" fill="#243A35"/>
+                <rect x="280" y="150" width="240" height="230" rx="6" fill="url(#strata)"/>
+                <line x1="280" y1="150" x2="280" y2="380" stroke="#A23A2A" stroke-width="2"/>
+                <text x="400" y="186" text-anchor="middle" font-family="JetBrains Mono" font-size="10.5" letter-spacing="2" fill="#9fb3ac">EAST 80</text>
+                <text x="400" y="206" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="600" font-size="13" fill="#EDF0EE">80 acres</text>
+                <rect x="318" y="230" width="164" height="22" rx="4" fill="#2F7E86"/>
+                <rect x="318" y="230" width="109.3" height="22" rx="4" fill="#B06A3B"/>
+                <line x1="427.3" y1="230" x2="427.3" y2="252" stroke="#243A35" stroke-width="1"/>
+                <text x="372" y="245" text-anchor="middle" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#fff">⅔ Carl</text>
+                <text x="455" y="245" text-anchor="middle" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#fff">⅓ S</text>
+                <text x="400" y="276" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing=".5" fill="#80938c">tap to inspect</text>
+              </g>
+              <text x="40" y="404" font-family="JetBrains Mono" font-size="11" letter-spacing="2" fill="#6B675E">MINERALS ▼ · TWO TRACTS</text>
+            </g>
+          </svg>
+
+          <!-- ===== PLAN VIEW ===== -->
+          <svg class="view" data-view-svg="plan" data-show="false" viewBox="0 0 460 460" role="img" aria-label="Plan view (looking down) of the 160-acre tract split into West 80 and East 80 mineral tracts">
+            <defs>
+              <pattern id="hatchC" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="0" x2="0" y2="8" stroke="#B06A3B" stroke-width="2.4"/>
+              </pattern>
+              <pattern id="hatchS" width="8" height="8" patternTransform="rotate(-45)" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="0" x2="0" y2="8" stroke="#2F7E86" stroke-width="2.4"/>
+              </pattern>
+            </defs>
+
+            <!-- north arrow -->
+            <g transform="translate(415,40)">
+              <line x1="0" y1="18" x2="0" y2="-14" stroke="#1B1A17" stroke-width="1.5"/>
+              <path d="M0,-20 L5,-9 L-5,-9 Z" fill="#A23A2A"/>
+              <text x="0" y="34" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#6B675E">N</text>
+            </g>
+
+            <!-- corner ticks -->
+            <g stroke="#A23A2A" stroke-width="2">
+              <path d="M50,68 h-12 M58,60 v-12" fill="none"/>
+              <path d="M410,68 h12 M402,60 v-12" fill="none"/>
+              <path d="M50,392 h-12 M58,400 v12" fill="none"/>
+              <path d="M410,392 h12 M402,400 v12" fill="none"/>
+            </g>
+
+            <!-- PLAN: surface single tract -->
+            <g id="pl-surface" data-show="false" style="display:none">
+              <rect x="60" y="60" width="340" height="340" fill="#E7D3A8" stroke="#C8A45E" stroke-width="2"/>
+              <text x="230" y="222" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="700" font-size="20" fill="#3a2c10">BOB</text>
+              <text x="230" y="248" text-anchor="middle" font-family="JetBrains Mono" font-size="11" letter-spacing="1" fill="#5a4516">SURFACE · 160 AC · ONE TRACT</text>
+            </g>
+
+            <!-- PLAN: mineral two tracts -->
+            <g id="pl-minerals" data-show="true">
+              <!-- West 80 -->
+              <g id="pl-w80" class="tract" tabindex="0" role="button" aria-label="West 80 mineral tract" style="cursor:pointer">
+                <rect x="60" y="60" width="170" height="340" fill="#DBE3DE" stroke="#243A35" stroke-width="1.5"/>
+                <rect x="60" y="60" width="170" height="340" fill="url(#hatchS)" opacity="0.55"/>
+                <rect x="60" y="60" width="170" height="113" fill="url(#hatchC)" opacity="0.55"/>
+                <text x="145" y="32" text-anchor="middle" font-family="JetBrains Mono" font-size="11" letter-spacing="2" fill="#6B675E">WEST 80</text>
+                <rect x="98" y="210" width="94" height="44" rx="6" fill="#F4F2EC" stroke="#243A35" stroke-width="1"/>
+                <text x="145" y="228" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="700" font-size="12" fill="#1B1A17">80 ac</text>
+                <text x="145" y="245" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#6B675E">S ⅔ · C ⅓</text>
+              </g>
+              <!-- East 80 -->
+              <g id="pl-e80" class="tract" tabindex="0" role="button" aria-label="East 80 mineral tract" style="cursor:pointer">
+                <rect x="230" y="60" width="170" height="340" fill="#DBE3DE" stroke="#243A35" stroke-width="1.5"/>
+                <rect x="230" y="60" width="170" height="340" fill="url(#hatchC)" opacity="0.55"/>
+                <rect x="230" y="60" width="170" height="113" fill="url(#hatchS)" opacity="0.55"/>
+                <text x="315" y="32" text-anchor="middle" font-family="JetBrains Mono" font-size="11" letter-spacing="2" fill="#6B675E">EAST 80</text>
+                <rect x="268" y="210" width="94" height="44" rx="6" fill="#F4F2EC" stroke="#243A35" stroke-width="1"/>
+                <text x="315" y="228" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="700" font-size="12" fill="#1B1A17">80 ac</text>
+                <text x="315" y="245" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#6B675E">C ⅔ · S ⅓</text>
+              </g>
+              <line x1="230" y1="60" x2="230" y2="400" stroke="#A23A2A" stroke-width="2.5"/>
+              <text x="230" y="424" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#A23A2A">center line — N 0°00′ E</text>
+            </g>
+          </svg>
+        </div>
+
+        <!-- SIDE PANEL -->
+        <aside class="sidepanel" id="sidepanel">
+          <h3 id="sp-title">Two mineral tracts</h3>
+          <p class="hint" id="sp-hint">Bob owns all 160 surface acres. Beneath him, the minerals are split into two 80-acre tracts with different owners. Tap a tract to inspect it.</p>
+
+          <div id="sp-detail" hidden>
+            <div class="ownerbar">
+              <div class="lbl"><span id="ob-c-lbl">Carl</span><span id="ob-c-val"></span></div>
+              <div class="track">
+                <span class="seg-carl" id="ob-c-bar"></span>
+                <span class="seg-susan" id="ob-s-bar"></span>
+              </div>
+              <div class="lbl" style="margin-top:.35rem"><span id="ob-s-lbl">Susan</span><span id="ob-s-val"></span></div>
+            </div>
+            <p class="undiv">Undivided interest — each owner shares <em>every</em> acre of the tract, not a fenced-off piece of it.</p>
+          </div>
+
+          <div class="legend">
+            <span><i style="background:#C8A45E"></i>Surface · Bob</span>
+            <span><i style="background:#B06A3B"></i>Carl</span>
+            <span><i style="background:#2F7E86"></i>Susan</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- LEDGER -->
+    <div class="ledger-wrap">
+      <h2>Ownership ledger</h2>
+      <p class="eyebrow" style="margin-top:.5rem">Net mineral acres — interest × tract acres</p>
+      <div class="table-scroll">
+        <table class="ledger">
+          <thead>
+            <tr><th>Tract</th><th>Owner</th><th class="r">Interest</th><th class="r">Tract acres</th><th class="r">Net mineral acres</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>West 80</td><td><span class="dot d-susan"></span>Susan</td><td class="r">2/3</td><td class="r">80.00</td><td class="r">53.33</td></tr>
+            <tr><td>West 80</td><td><span class="dot d-carl"></span>Carl</td><td class="r">1/3</td><td class="r">80.00</td><td class="r">26.67</td></tr>
+            <tr><td>East 80</td><td><span class="dot d-carl"></span>Carl</td><td class="r">2/3</td><td class="r">80.00</td><td class="r">53.33</td></tr>
+            <tr><td>East 80</td><td><span class="dot d-susan"></span>Susan</td><td class="r">1/3</td><td class="r">80.00</td><td class="r">26.67</td></tr>
+            <tr class="tot"><td>Totals</td><td><span class="dot d-carl"></span>Carl</td><td class="r">—</td><td class="r">160.00</td><td class="r">80.00</td></tr>
+            <tr class="tot"><td></td><td><span class="dot d-susan"></span>Susan</td><td class="r">—</td><td class="r">160.00</td><td class="r">80.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PROSE -->
+    <div class="section">
+      <div class="grid2">
+        <div>
+          <p class="kicker">Severance</p>
+          <h3>One ground, two estates</h3>
+          <p>When minerals are sold or reserved apart from the surface, the tract is <em>severed</em>. From that moment there are two estates that can be owned, leased, taxed, and sold independently.</p>
+          <p>The mineral estate is the <strong>dominant estate</strong>: it carries the implied right to use as much of the surface as reasonably necessary to find and produce the minerals. Bob owns the dirt, but Carl and Susan own what's under it — and the right to come get it.</p>
+        </div>
+        <div>
+          <p class="kicker">What makes a tract</p>
+          <h3>Common ownership draws the line</h3>
+          <p>A "tract" isn't defined by a fence — it's defined by who owns it. Where the ownership is the same, you have one tract. Where the ownership <em>changes</em>, a new tract begins.</p>
+          <p>Bob's surface is a single tract because one person owns the whole 160 acres. The minerals are two tracts because the East 80 and the West 80 carry different ownership splits — so each must be examined, leased, and paid on its own.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p class="kicker">The point that trips everyone up</p>
+        <p>Add it up and Carl owns <strong>80 net mineral acres</strong> and Susan owns <strong>80 net mineral acres</strong> — they're even across the whole 160. So why isn't this just one 50/50 tract? Because ownership is measured <strong>tract by tract</strong>, not in aggregate. On the East 80 Carl holds 2/3; on the West 80 he holds 1/3. Those are different ownership pictures, so they're different tracts — and a single lease or division order can't treat them as one. Same totals, two tracts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PLACEHOLDER PANELS ============ -->
+  <section class="panel" id="p-tracts" role="tabpanel" aria-labelledby="t-tracts" tabindex="0">
+    <div class="comingsoon">
+      <span class="status">Next up</span>
+      <h2>Separate tracts &amp; the runsheet</h2>
+      <p>We'll take the two-tract example further: how a chain of deeds creates, splits, and merges tracts over time, and how a title examiner walks a runsheet to prove who owns what today.</p>
+      <ul class="willcover">
+        <li>Severed vs. unsevered tracts and how to spot a severance in the records</li>
+        <li>Why differing fractions force separate division-order treatment</li>
+        <li>Reading a runsheet from sovereignty to the present owner</li>
+        <li>Aliquot calls (N/2, SE/4) vs. metes-and-bounds descriptions</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="panel" id="p-fraction" role="tabpanel" aria-labelledby="t-fraction" tabindex="0">
+    <div class="comingsoon">
+      <span class="status">On the roadmap</span>
+      <h2>Fractional &amp; undivided interests</h2>
+      <p>An interactive look at how interests splinter across generations — and the difference between owning an <em>undivided</em> fraction of the whole and owning a specific piece of ground.</p>
+      <ul class="willcover">
+        <li>Undivided co-tenancy: sharing every acre vs. partition</li>
+        <li>Fractions through inheritance and conveyance</li>
+        <li>Net mineral acres and the 1/8 royalty math</li>
+        <li>NPRI vs. mineral interest vs. royalty interest</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="panel" id="p-lease" role="tabpanel" aria-labelledby="t-lease" tabindex="0">
+    <div class="comingsoon">
+      <span class="status">On the roadmap</span>
+      <h2>The oil &amp; gas lease</h2>
+      <p>What a lease actually <em>is</em> — a fee simple determinable with a possibility of reverter — and the clauses that decide whether it lives or dies.</p>
+      <ul class="willcover">
+        <li>Granting, habendum, primary vs. secondary term</li>
+        <li>Royalty, bonus, delay rental, and paid-up leases</li>
+        <li>Held by production and the savings clauses</li>
+        <li>Pugh clauses, shut-in royalty, and retained acreage</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="panel" id="p-pooling" role="tabpanel" aria-labelledby="t-pooling" tabindex="0">
+    <div class="comingsoon">
+      <span class="status">On the roadmap</span>
+      <h2>Pooling &amp; the unit</h2>
+      <p>How small tracts combine so a single well can hold them all — and how production gets shared by acreage. (We've already prototyped this one; it'll move here next.)</p>
+      <ul class="willcover">
+        <li>Voluntary pooling by lease clause vs. compulsory RRC pooling</li>
+        <li>Size limits: 160-acre oil units, 640-acre gas units, +10% tolerance</li>
+        <li>Allocation on a pro-rata acreage basis</li>
+        <li>Proration units, allowables, and unitization for secondary recovery</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ ROADMAP TAB ============ -->
+  <section class="panel" id="p-roadmap" role="tabpanel" aria-labelledby="t-roadmap" tabindex="0">
+    <div class="roadmap">
+      <p class="eyebrow">The build</p>
+      <h2 style="font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,1.4rem+2.4vw,3rem);letter-spacing:-.025em;line-height:1.05">From the simplest idea to the deep end.</h2>
+      <p class="lede">Each concept builds on the one before it. We ship the foundations first — the things every owner and every new hire has to understand — then layer in the machinery, then the edge cases and other jurisdictions.</p>
+
+      <div class="tier">
+        <div class="tier-head"><span class="tier-num">TIER 1</span><h3>The estate</h3><span class="tier-sub">What ownership even means underground.</span></div>
+        <div class="steps">
+          <div class="step"><span class="chip live">Live</span><span class="t">Surface vs. mineral estate · severance<small>The two stacked estates and the dominant-estate rule</small></span></div>
+          <div class="step"><span class="chip next">Next</span><span class="t">Separate tracts &amp; common ownership<small>Why differing fractions create separate tracts</small></span></div>
+          <div class="step"><span class="chip later">Planned</span><span class="t">Fractional &amp; undivided interests<small>Co-tenancy, net mineral acres, partition</small></span></div>
+          <div class="step"><span class="chip later">Planned</span><span class="t">Accommodation doctrine &amp; surface use<small>How the dominant estate must treat the surface owner</small></span></div>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head"><span class="tier-num">TIER 2</span><h3>The lease</h3><span class="tier-sub">Turning ownership into production.</span></div>
+        <div class="steps">
+          <div class="step"><span class="chip later">Planned</span><span class="t">What a lease is — FSD + reverter<small>Granting, habendum, term</small></span></div>
+          <div class="step"><span class="chip later">Planned</span><span class="t">Royalty vs. working interest<small>Who bears cost, who doesn't</small></span></div>
+          <div class="step"><span class="chip later">Planned</span><span class="t">Held by production &amp; savings clauses<small>Shut-in, cessation, continuous operations</small></span></div>
+          <div class="step"><span class="chip later">Planned</span><span class="t">Pugh clauses &amp; retained acreage<small>Releasing the acreage a well doesn't develop</small></span></div>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head"><span class="tier-num">TIER 3</span><h3>Combining tracts</h3><span class="tier-sub">Many owners, one well.</span></div>
+        <div class="steps">
+          <div class="step"><span class="chip later">Planned</span><span class="t">Pooling — voluntary &amp; compulsory<small>Prototype already built</small></span></div>
+          <div class="step"><span class="chip later">Planned</span><span class="t">Proration units &amp; allowables<small>Prototype already built</small></span></div>
+          <div class="step"><span class="chip later">Planned</span><span class="t">Unitization &amp; secondary recovery<small>Waterfloods, EOR, participation formulas</small></span></div>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head"><span class="tier-num">TIER 4</span><h3>Getting paid</h3><span class="tier-sub">From the wellhead to the check.</span></div>
+        <div class="steps">
+          <div class="step"><span class="chip later">Planned</span><span class="t">Division orders &amp; decimal interests<small>Prototype math already built</small></span></div>
+          <div class="step"><span class="chip later">Planned</span><span class="t">Net revenue interest &amp; the burden stack<small>ORRI, NPRI, production payments</small></span></div>
+          <div class="step"><span class="chip later">Planned</span><span class="t">Suspense, escheat &amp; unclaimed property<small>Where unpaid royalties go</small></span></div>
+          <div class="step"><span class="chip later">Planned</span><span class="t">Post-production costs<small>What can and can't be netted out</small></span></div>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head"><span class="tier-num">TIER 5</span><h3>Title &amp; risk</h3><span class="tier-sub">Proving and protecting ownership.</span></div>
+        <div class="steps">
+          <div class="step"><span class="chip later">Planned</span><span class="t">Chain of title &amp; title examination standards<small>Sovereignty to present, BFP status</small></span></div>
+          <div class="step"><span class="chip later">Planned</span><span class="t">HBP monitoring &amp; lease termination risk<small>When old leases quietly fall</small></span></div>
+          <div class="step"><span class="chip later">Planned</span><span class="t">Operator transfers, P-4s &amp; bankruptcy<small>Following the leasehold through changes</small></span></div>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head"><span class="tier-num">TIER 6</span><h3>The deep end</h3><span class="tier-sub">Advanced topics &amp; other jurisdictions.</span></div>
+        <div class="steps">
+          <div class="step"><span class="chip later">Future</span><span class="t">Offshore &amp; federal leasing — OCS / BLM<small>State waters, federal waters, the OCSLA regime</small></span></div>
+          <div class="step"><span class="chip later">Future</span><span class="t">Ohio Dormant Mineral Act (ODMA)<small>Abandonment &amp; reunification with the surface</small></span></div>
+          <div class="step"><span class="chip later">Future</span><span class="t">New Mexico statutory unitization<small>Compulsory unitization for recovery operations</small></span></div>
+          <div class="step"><span class="chip later">Future</span><span class="t">Texas Relinquishment Act lands<small>The state-as-mineral-owner / surface-owner-as-agent split</small></span></div>
+          <div class="step"><span class="chip later">Future</span><span class="t">Produced water, CO₂, helium &amp; "other minerals"<small>Ownership of substances the lease never named</small></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="row">
+      <span>Oil, Visualized · v0.1 · built for teaching, not title</span>
+      <span>Texas oil &amp; gas · concept 01 of many</span>
+    </div>
+    <p class="disc">These visualizations are simplified teaching tools. They are not legal advice, a title opinion, or a substitute for examining the actual records. Ownership in any real tract turns on the instruments of record.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- TABS ---------- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('[role="tabpanel"]'));
+
+  function selectTab(tab){
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', t===tab ? 'true':'false'); });
+    panels.forEach(function(p){
+      var on = p.id === tab.getAttribute('aria-controls');
+      p.setAttribute('data-active', on ? 'true':'false');
+    });
+    window.scrollTo({top:0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto':'smooth'});
+  }
+  tabs.forEach(function(tab, i){
+    tab.addEventListener('click', function(){ selectTab(tab); });
+    tab.addEventListener('keydown', function(e){
+      var dir = e.key==='ArrowRight'?1 : e.key==='ArrowLeft'?-1 : 0;
+      if(!dir) return;
+      e.preventDefault();
+      var next = tabs[(i+dir+tabs.length)%tabs.length];
+      next.focus(); selectTab(next);
+    });
+  });
+
+  /* ---------- STUDIO: view + estate toggles ---------- */
+  var studio = document.getElementById('studio');
+  if(!studio) return;
+
+  function setView(view){
+    studio.querySelectorAll('.viewseg button').forEach(function(b){
+      b.setAttribute('aria-pressed', b.dataset.view===view ? 'true':'false');
+    });
+    studio.querySelectorAll('[data-view-svg]').forEach(function(svg){
+      svg.setAttribute('data-show', svg.dataset.viewSvg===view ? 'true':'false');
+    });
+  }
+  studio.querySelectorAll('.viewseg button').forEach(function(b){
+    b.addEventListener('click', function(){ setView(b.dataset.view); });
+  });
+
+  var sxSurface = document.getElementById('sx-surface');
+  var sxPlane   = document.getElementById('sx-plane');
+  var sxMin     = document.getElementById('sx-minerals');
+  var plSurface = document.getElementById('pl-surface');
+  var plMin     = document.getElementById('pl-minerals');
+
+  function setEstate(mode){
+    studio.querySelectorAll('.estateseg button').forEach(function(b){
+      b.setAttribute('aria-pressed', b.dataset.estate===mode ? 'true':'false');
+    });
+
+    // cross-section
+    if(mode==='surface'){
+      sxSurface.style.opacity='1'; sxSurface.style.transform='none';
+      sxMin.style.opacity='.18'; sxPlane.style.opacity='0';
+    } else if(mode==='mineral'){
+      sxSurface.style.opacity='.18'; sxSurface.style.transform='none';
+      sxMin.style.opacity='1'; sxPlane.style.opacity='0';
+    } else { // both / severed
+      sxSurface.style.opacity='1'; sxSurface.style.transform='translateY(-42px)';
+      sxMin.style.opacity='1'; sxPlane.style.opacity='1';
+    }
+
+    // plan view
+    var showSurface = (mode==='surface' || mode==='both');
+    var showMin = (mode==='mineral' || mode==='both');
+    plSurface.style.display = showSurface ? '' : 'none';
+    plSurface.setAttribute('data-show', showSurface?'true':'false');
+    plMin.style.display = showMin ? '' : 'none';
+    plMin.setAttribute('data-show', showMin?'true':'false');
+    plSurface.style.opacity = (mode==='both') ? '0.45' : '1';
+  }
+  studio.querySelectorAll('.estateseg button').forEach(function(b){
+    b.addEventListener('click', function(){ setEstate(b.dataset.estate); });
+  });
+
+  /* ---------- TRACT INSPECTION ---------- */
+  var TRACTS = {
+    w80:{ title:'West 80 — mineral tract', carl:{f:'1/3', pct:33.3, net:'26.67'}, susan:{f:'2/3', pct:66.7, net:'53.33'} },
+    e80:{ title:'East 80 — mineral tract', carl:{f:'2/3', pct:66.7, net:'53.33'}, susan:{f:'1/3', pct:33.3, net:'26.67'} }
+  };
+  var spTitle=document.getElementById('sp-title'),
+      spHint=document.getElementById('sp-hint'),
+      spDetail=document.getElementById('sp-detail'),
+      obCval=document.getElementById('ob-c-val'), obSval=document.getElementById('ob-s-val'),
+      obCbar=document.getElementById('ob-c-bar'), obSbar=document.getElementById('ob-s-bar'),
+      obClbl=document.getElementById('ob-c-lbl'), obSlbl=document.getElementById('ob-s-lbl');
+
+  function inspect(key){
+    var d=TRACTS[key]; if(!d) return;
+    spTitle.textContent=d.title;
+    spHint.textContent='Each owner holds an undivided fractional interest in the whole 80 acres.';
+    spDetail.hidden=false;
+    obClbl.textContent='Carl'; obSlbl.textContent='Susan';
+    obCval.textContent=d.carl.f+' · '+d.carl.net+' net ac';
+    obSval.textContent=d.susan.f+' · '+d.susan.net+' net ac';
+    obCbar.style.width=d.carl.pct+'%'; obCbar.textContent=d.carl.f;
+    obSbar.style.width=d.susan.pct+'%'; obSbar.textContent=d.susan.f;
+    // highlight
+    clearHL();
+    ['sx-'+key,'pl-'+key].forEach(function(id){
+      var g=document.getElementById(id); if(!g) return;
+      var r=g.querySelector('rect');
+      if(r){ r.dataset.prevStroke=r.getAttribute('stroke')||''; r.setAttribute('stroke','#A23A2A'); r.setAttribute('stroke-width','4'); }
+    });
+  }
+  function clearHL(){
+    ['sx-w80','sx-e80','pl-w80','pl-e80'].forEach(function(id){
+      var g=document.getElementById(id); if(!g) return;
+      var r=g.querySelector('rect');
+      if(r && r.dataset.prevStroke!==undefined){
+        if(id.indexOf('pl-')===0){ r.setAttribute('stroke','#243A35'); r.setAttribute('stroke-width','1.5'); }
+        else { r.removeAttribute('stroke'); r.removeAttribute('stroke-width'); }
+      }
+    });
+  }
+  ['w80','e80'].forEach(function(key){
+    ['sx-'+key,'pl-'+key].forEach(function(id){
+      var el=document.getElementById(id); if(!el) return;
+      el.addEventListener('click', function(){ inspect(key); });
+      el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); inspect(key);} });
+    });
+  });
+
+  // init
+  setView('section');
+  setEstate('mineral');
+})();
+</script>
+</body>
+</html>
