@@ -216,6 +216,53 @@ footer.site{border-top:1px solid var(--hair);margin-top:4rem;padding:2.2rem 0 3r
 footer.site .row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em}
 footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin-top:1rem;font-style:italic}
 
+/* ===== POOLING / DILUTION ===== */
+.dil{margin-top:2.4rem;border:1px solid var(--hair);border-radius:var(--radius-lg);overflow:hidden;background:var(--paper)}
+.dil-head{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;padding:1.1rem clamp(1rem,3vw,1.6rem);border-bottom:1px solid var(--hair);background:var(--paper-2)}
+.dil-control{display:flex;align-items:center;gap:.8rem;flex:1;min-width:240px}
+.dil-control label{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.dil-control input[type=range]{flex:1;accent-color:var(--survey);min-width:120px}
+.dil-control output{font-family:var(--mono);font-weight:700;font-size:.85rem;min-width:60px;text-align:right}
+.dil-state{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--survey)}
+.dil-body{padding:clamp(1.2rem,3vw,2rem)}
+.unit-wrap{margin-bottom:1.6rem}
+.wellmark{font-family:var(--mono);font-size:.66rem;letter-spacing:.03em;color:var(--ink);margin-bottom:.35rem}
+.wellmark span{display:inline-block;background:var(--paper-2);border:1px solid var(--hair-2);border-radius:6px;padding:.22rem .55rem}
+.unitbar{display:flex;height:54px;border-radius:8px;overflow:hidden;border:1px solid var(--hair-2)}
+.unitbar span{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.72rem;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;transition:width .35s ease}
+.seg-big{background:#C0613A}
+.seg-small{background:#2F7E86}
+.seg-others{background:#A39C8E;color:#2c2a25}
+.unitscale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.66rem;color:var(--muted);margin-top:.35rem}
+.dil-metrics{display:grid;grid-template-columns:1fr;gap:12px;margin:0 0 1.3rem}
+@media(min-width:620px){.dil-metrics{grid-template-columns:1fr 1fr}}
+.metric{background:var(--paper-2);border:1px solid var(--hair);padding:1.1rem 1.2rem;border-radius:0 var(--radius) var(--radius) 0}
+.metric-big{border-left:4px solid #C0613A}
+.metric-small{border-left:4px solid #2F7E86}
+.m-label{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0}
+.m-num{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,1.4rem+2vw,2.7rem);line-height:1.04;letter-spacing:-.02em;margin:.15rem 0 .1rem}
+.m-delta{font-family:var(--mono);font-size:.72rem;margin:0;color:var(--muted)}
+.m-delta.down{color:#A23A2A}
+.m-delta.up{color:#1D7A52}
+.m-delta.warn{color:#A23A2A}
+.dil-readout{font-size:1.02rem;line-height:1.6;color:#322f29;border-top:1px solid var(--hair);padding-top:1.1rem;margin:0}
+.dil-readout strong{font-weight:500}
+.decision{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1.3rem}
+@media(min-width:680px){.decision{grid-template-columns:1fr 1fr}}
+.dcol{border:1px solid var(--hair);padding:1.3rem 1.4rem;background:var(--paper);border-radius:0 0 var(--radius-lg) var(--radius-lg)}
+.dcol-for{border-top:4px solid #1D7A52}
+.dcol-against{border-top:4px solid #A23A2A}
+.dcol-h{font-family:var(--display);font-weight:600;font-size:1.1rem;margin:0 0 .7rem}
+.dcol-h strong{font-weight:800}
+.dcol-for .dcol-h strong{color:#1D7A52}
+.dcol-against .dcol-h strong{color:#A23A2A}
+.dcol ul{list-style:none;display:grid;gap:.55rem;padding:0;margin:0}
+.dcol li{display:flex;gap:.6rem;align-items:baseline;font-size:.97rem;line-height:1.45}
+.dcol li::before{content:"";flex:0 0 auto;width:6px;height:6px;border-radius:50%;margin-top:.45rem}
+.dcol-for li::before{background:#1D7A52}
+.dcol-against li::before{background:#A23A2A}
+.aside-note{margin-top:1.6rem;font-size:.92rem;color:var(--muted);font-style:italic;border-left:2px solid var(--hair-2);padding-left:.9rem;line-height:1.55}
+
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
@@ -240,7 +287,7 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
       <button class="tab" role="tab" id="t-tracts" aria-controls="p-tracts" aria-selected="false"><span class="num">02</span> Separate tracts <span class="badge">soon</span></button>
       <button class="tab" role="tab" id="t-fraction" aria-controls="p-fraction" aria-selected="false"><span class="num">03</span> Fractional interests <span class="badge">soon</span></button>
       <button class="tab" role="tab" id="t-lease" aria-controls="p-lease" aria-selected="false"><span class="num">04</span> The lease <span class="badge">soon</span></button>
-      <button class="tab" role="tab" id="t-pooling" aria-controls="p-pooling" aria-selected="false"><span class="num">05</span> Pooling <span class="badge">soon</span></button>
+      <button class="tab" role="tab" id="t-pooling" aria-controls="p-pooling" aria-selected="false"><span class="num">05</span> Pooling &amp; dilution</button>
       <button class="tab" role="tab" id="t-roadmap" aria-controls="p-roadmap" aria-selected="false"><span class="num">→</span> Roadmap</button>
     </div>
   </div>
@@ -510,17 +557,87 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
   </section>
 
   <section class="panel" id="p-pooling" role="tabpanel" aria-labelledby="t-pooling" tabindex="0">
-    <div class="comingsoon">
-      <span class="status">On the roadmap</span>
-      <h2>Pooling &amp; the unit</h2>
-      <p>How small tracts combine so a single well can hold them all — and how production gets shared by acreage. (We've already prototyped this one; it'll move here next.)</p>
-      <ul class="willcover">
-        <li>Voluntary pooling by lease clause vs. compulsory RRC pooling</li>
-        <li>Size limits: 160-acre oil units, 640-acre gas units, +10% tolerance</li>
-        <li>Allocation on a pro-rata acreage basis</li>
-        <li>Proration units, allowables, and unitization for secondary recovery</li>
-      </ul>
+
+    <div class="hero">
+      <p class="eyebrow">Concept 05 — pooling &amp; dilution</p>
+      <h1>The same well, split two very <em>different</em> ways.</h1>
+      <p class="lede">Pooling shares one well's production across every tract in the unit, by acreage — no matter where the well actually sits. That single rule rescues the owner too small to ever drill, and dilutes the owner big enough to go it alone. Drag the slider and watch it happen.</p>
     </div>
+
+    <div class="dil" id="dil">
+      <div class="dil-head">
+        <div class="dil-control">
+          <label for="unit-acres">Acres in the unit</label>
+          <input type="range" id="unit-acres" min="80" max="640" step="10" value="160" aria-describedby="dil-readout">
+          <output id="unit-out" for="unit-acres">160 ac</output>
+        </div>
+        <p class="dil-state" id="dil-state">Pooled unit</p>
+      </div>
+
+      <div class="dil-body">
+        <div class="unit-wrap">
+          <div class="wellmark"><span>▾ well drilled here · on the big owner's tract</span></div>
+          <div class="unitbar" id="unitbar" role="img" aria-label="Unit composition by acreage share">
+            <span class="seg-big" id="seg-big"></span>
+            <span class="seg-small" id="seg-small"></span>
+            <span class="seg-others" id="seg-others"></span>
+          </div>
+          <div class="unitscale"><span>unit composition by acreage</span><span id="unitscale-end">160 ac unit</span></div>
+        </div>
+
+        <div class="dil-metrics">
+          <div class="metric metric-big">
+            <p class="m-label">Big owner · 80-ac tract</p>
+            <p class="m-num" id="big-num">50.0%</p>
+            <p class="m-delta" id="big-delta"></p>
+          </div>
+          <div class="metric metric-small">
+            <p class="m-label">Small owner · 2-ac tract</p>
+            <p class="m-num" id="small-num">1.25%</p>
+            <p class="m-delta" id="small-delta"></p>
+          </div>
+        </div>
+
+        <p class="dil-readout" id="dil-readout"></p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>So — for it, or against it?</h2>
+      <p class="eyebrow" style="margin-top:.5rem">It's a decision, not a rule</p>
+      <div class="decision">
+        <div class="dcol dcol-for">
+          <p class="dcol-h">Lean <strong>for</strong> pooling when…</p>
+          <ul>
+            <li>Your tract is too small to host its own well or earn an allowable</li>
+            <li>Left out, you'd be drained by neighboring wells and share in nothing</li>
+            <li>No well gets drilled at all unless the operator can build the unit</li>
+            <li>A pooled, longer-lateral well simply recovers more — 50% of a great well beats 100% of none</li>
+          </ul>
+        </div>
+        <div class="dcol dcol-against">
+          <p class="dcol-h">Lean <strong>against</strong> pooling when…</p>
+          <ul>
+            <li>Your tract alone is big enough to be the whole proration unit</li>
+            <li>A well on your land would pay you ~100% if you stand alone</li>
+            <li>A broad, no-Pugh lease would let one unit well hold all your acreage</li>
+            <li>You believe your tract is the sweet spot and don't want to average down</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">What the law says</p>
+      <p>Texas's <strong>Mineral Interest Pooling Act</strong> (Nat. Res. Code Ch. 102) exists largely to protect the small owner — it lets a fair, structured pooling happen so a tract too small to drill still gets a fair share. But it cuts the other way for the big owner too: under <strong>§ 102.014</strong>, an owner whose productive acreage is at least the standard proration unit generally <em>cannot be forced to pool</em> — unless an adjoining small-tract owner who wasn't given a fair chance to pool voluntarily asks for it. The self-sufficient owner has a statutory right to go it alone.</p>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">The point that trips everyone up</p>
+      <p>"The well is on <em>my</em> land — so it's my well." Not once you're pooled. Inside a unit, production is split by acreage across <em>every</em> tract, wherever the wellbore happens to sit. Being the ground under the rig doesn't get you a bigger check — your acreage share does.</p>
+    </div>
+
+    <p class="aside-note">A note for modern wells: long horizontal laterals rarely fit on a single tract, so today's units are large and cross many owners — and some split production by perforated lateral length rather than flat acreage. The "go it alone" play was strongest in the vertical-well era. A vertical-vs-horizontal toggle is on the build list.</p>
   </section>
 
   <!-- ============ ROADMAP TAB ============ -->
@@ -733,6 +850,71 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
   // init
   setView('section');
   setEstate('mineral');
+})();
+
+/* ---------- POOLING / DILUTION ---------- */
+(function(){
+  "use strict";
+  var slider=document.getElementById('unit-acres');
+  if(!slider) return;
+  var BIG=80, SMALL=2;
+  var out=document.getElementById('unit-out'),
+      state=document.getElementById('dil-state'),
+      segBig=document.getElementById('seg-big'),
+      segSmall=document.getElementById('seg-small'),
+      segOthers=document.getElementById('seg-others'),
+      bigNum=document.getElementById('big-num'),
+      smallNum=document.getElementById('small-num'),
+      bigDelta=document.getElementById('big-delta'),
+      smallDelta=document.getElementById('small-delta'),
+      readout=document.getElementById('dil-readout'),
+      scaleEnd=document.getElementById('unitscale-end');
+
+  function r1(n){ return (Math.round(n*10)/10).toFixed(1); }
+  function r2(n){ return (Math.round(n*100)/100).toFixed(2); }
+
+  function update(){
+    var U=parseInt(slider.value,10);
+    out.textContent=U+' ac';
+    scaleEnd.textContent=U+' ac unit';
+    var standalone=(U<=BIG);
+
+    var big, small, others;
+    if(standalone){ big=100; small=0; others=0; }
+    else {
+      big=BIG/U*100;
+      small=SMALL/U*100;
+      others=Math.max(0,(U-BIG-SMALL))/U*100;
+    }
+
+    segBig.style.width=big+'%';
+    segSmall.style.width=small+'%';
+    segOthers.style.width=others+'%';
+    segBig.textContent = big>14 ? 'Big owner' : '';
+    segSmall.textContent = small>9 ? 'Small' : '';
+    segOthers.textContent = others>16 ? 'Other tracts' : '';
+
+    bigNum.textContent = standalone ? '100%' : r1(big)+'%';
+    smallNum.textContent = standalone ? '0%' : r2(small)+'%';
+
+    if(standalone){
+      bigDelta.textContent='keeps the whole well';
+      bigDelta.className='m-delta';
+      smallDelta.textContent='left out · drainage risk';
+      smallDelta.className='m-delta warn';
+      state.textContent='Stand-alone · no pooling';
+      readout.innerHTML='Standing alone, the big owner\u2019s 80-acre tract <strong>is</strong> the whole unit, so they keep <strong>100%</strong> of the well. The small owner is shut out entirely \u2014 and exposed to drainage from the wells next door.';
+    } else {
+      bigDelta.textContent='\u25BC '+r1(100-big)+' pts from 100% (diluted)';
+      bigDelta.className='m-delta down';
+      smallDelta.textContent='\u25B2 from 0% \u2014 now included';
+      smallDelta.className='m-delta up';
+      state.textContent='Pooled unit';
+      readout.innerHTML='Pool '+U+' acres into the unit and the well still sits on the big owner\u2019s land \u2014 but their share is cut to <strong>'+r1(big)+'%</strong>. The small owner, who could never drill alone, goes from nothing to <strong>'+r2(small)+'%</strong>.';
+    }
+  }
+  slider.addEventListener('input', update);
+  update();
 })();
 </script>
 </body>
