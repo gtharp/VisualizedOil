@@ -71,7 +71,7 @@ Ownership in any real tract turns on the documents on file.
 
 ## License
 
-© 2026 [Your name or business entity]. All rights reserved.
+© 2026 [HydroThorpe LLC]. All rights reserved.
 
 This is **proprietary software**. No permission is granted to use, copy, modify, or
 distribute any part of this project without prior written consent. See
