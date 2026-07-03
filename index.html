@@ -262,6 +262,11 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
 .dcol-for li::before{background:#1D7A52}
 .dcol-against li::before{background:#A23A2A}
 .aside-note{margin-top:1.6rem;font-size:.92rem;color:var(--muted);font-style:italic;border-left:2px solid var(--hair-2);padding-left:.9rem;line-height:1.55}
+.glossary{display:grid;grid-template-columns:1fr;gap:12px;margin-top:1.6rem}
+@media(min-width:620px){.glossary{grid-template-columns:1fr 1fr}}
+.term{border:1px solid var(--hair);border-left:4px solid var(--surface);border-radius:0 var(--radius) var(--radius) 0;background:var(--paper-2);padding:.9rem 1.1rem}
+.term .t{display:block;font-family:var(--display);font-weight:700;font-size:1rem;margin-bottom:.2rem}
+.term .d{display:block;font-size:.92rem;color:#3a372f;line-height:1.5}
 
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -302,6 +307,22 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
       <p class="eyebrow">Concept 01 — the two estates</p>
       <h1>The land you <em>see</em> isn't the land you <em>own</em>.</h1>
       <p class="lede">A single piece of ground is really two pieces of property stacked on top of each other: the <strong>surface estate</strong> and the <strong>mineral estate</strong>. They can be owned by entirely different people — and the minerals can be split into separate tracts even when the surface above them is whole.</p>
+    </div>
+
+    <div class="section" style="border-top:0;padding-top:1rem">
+      <p class="kicker">Start here</p>
+      <h2>First — what's an "estate"?</h2>
+      <p>In property law, an <strong>estate</strong> is just a set of ownership rights. The key thing about land is that it can hold more than one estate at once — and they can belong to different people. The two that matter here are the <strong>surface estate</strong> (the ground itself: soil, buildings, crops, roads, most water) and the <strong>mineral estate</strong> (the oil, gas, and other minerals below, plus the right to use the surface to reach them).</p>
+      <p>When those two are owned together, nobody thinks about it. But the moment the minerals are sold off or reserved apart from the surface — a <strong>severance</strong> — you have two separate properties stacked on the same spot, each free to be owned, leased, taxed, and sold on its own.</p>
+
+      <div class="glossary">
+        <div class="term"><span class="t">Estate</span><span class="d">A set of ownership rights in property. One piece of land can hold more than one, owned by different people.</span></div>
+        <div class="term"><span class="t">Surface estate</span><span class="d">The ground itself — soil, buildings, crops, roads, and most water. The land you see and stand on.</span></div>
+        <div class="term"><span class="t">Mineral estate</span><span class="d">The oil, gas, and minerals beneath — plus the right to use the surface to reach them.</span></div>
+        <div class="term"><span class="t">Severance</span><span class="d">When the mineral estate is owned apart from the surface, making them two separate properties.</span></div>
+      </div>
+
+      <p style="margin-top:1.6rem">Below is a single 160-acre tract. Bob owns the surface; beneath him, the minerals belong to Carl and Susan. Switch between the estates — and pull them apart — to see how they stack, and how the minerals divide into two tracts while the surface stays whole.</p>
     </div>
 
     <!-- INTERACTIVE STUDIO -->
@@ -561,7 +582,57 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
     <div class="hero">
       <p class="eyebrow">Concept 05 — pooling &amp; dilution</p>
       <h1>The same well, split two very <em>different</em> ways.</h1>
-      <p class="lede">Pooling shares one well's production across every tract in the unit, by acreage — no matter where the well actually sits. That single rule rescues the owner too small to ever drill, and dilutes the owner big enough to go it alone. Drag the slider and watch it happen.</p>
+      <p class="lede">Mineral ownership is a patchwork of separate tracts — most far too small, on their own, to justify a well. The fix is to combine them into a <em>unit</em>. But combining isn't neutral: it can quietly shrink a big owner's share while handing a small owner one they'd never get otherwise. Let's build it from the ground up.</p>
+    </div>
+
+    <div class="section" style="border-top:0;padding-top:1rem">
+      <p class="kicker">Start here</p>
+      <h2>First — what's a unit?</h2>
+      <p>Minerals under a field are almost never owned by one person. They're a patchwork of separate tracts, each with its own owners and fractions. On its own, most any single tract is the wrong size or shape to drill — and an operator can't just drill wherever they like. The Railroad Commission assigns every well a <strong>proration unit</strong>: a set amount of acreage that "belongs" to that well for spacing and production (roughly 160 acres for oil, 640 for gas).</p>
+      <p><strong>Pooling</strong> is simply the act of combining those separate tracts into one <strong>unit</strong> so a single well can be drilled — and everyone in the unit shares that well's production, normally in proportion to the acreage they brought in. <strong>Unitization</strong> is the same idea at a larger scale: combining a whole field or reservoir, usually to run enhanced recovery across it.</p>
+
+      <svg viewBox="0 0 680 250" role="img" aria-label="Separate tracts on the left combine into a single pooled unit with one shared well on the right" style="width:100%;height:auto;max-width:640px;display:block;margin:1.8rem auto .4rem">
+        <text x="150" y="26" text-anchor="middle" font-family="JetBrains Mono" font-size="11" letter-spacing="2" fill="#6B675E">SEPARATE TRACTS</text>
+        <g stroke="#C7C1B2" stroke-width="1">
+          <rect x="20" y="42" width="90" height="80" fill="#E7D3A8"/>
+          <rect x="110" y="42" width="90" height="80" fill="#DBE3DE"/>
+          <rect x="200" y="42" width="80" height="80" fill="#ECE9DF"/>
+          <rect x="20" y="122" width="130" height="80" fill="#E1EDE9"/>
+          <rect x="150" y="122" width="130" height="80" fill="#F0E4CE"/>
+        </g>
+        <g font-family="JetBrains Mono" font-size="13" fill="#3a372f" text-anchor="middle" font-weight="700">
+          <text x="65" y="87">A</text><text x="155" y="87">B</text><text x="240" y="87">C</text>
+          <text x="85" y="167">D</text><text x="215" y="167">E</text>
+        </g>
+        <text x="150" y="226" text-anchor="middle" font-family="Spectral" font-size="12" fill="#6B675E">Each too small or awkward to drill alone</text>
+
+        <line x1="300" y1="122" x2="376" y2="122" stroke="#A23A2A" stroke-width="2"/>
+        <path d="M376,122 l-10,-6 l0,12 z" fill="#A23A2A"/>
+        <text x="338" y="112" text-anchor="middle" font-family="JetBrains Mono" font-size="10" letter-spacing="1" fill="#A23A2A">POOL</text>
+
+        <text x="530" y="26" text-anchor="middle" font-family="JetBrains Mono" font-size="11" letter-spacing="2" fill="#6B675E">ONE UNIT</text>
+        <g stroke="#C7C1B2" stroke-width="0.75" stroke-dasharray="3 3">
+          <rect x="400" y="42" width="90" height="80" fill="#DBE3DE"/>
+          <rect x="490" y="42" width="90" height="80" fill="#DBE3DE"/>
+          <rect x="580" y="42" width="80" height="80" fill="#DBE3DE"/>
+          <rect x="400" y="122" width="130" height="80" fill="#DBE3DE"/>
+          <rect x="530" y="122" width="130" height="80" fill="#DBE3DE"/>
+        </g>
+        <rect x="400" y="42" width="260" height="160" fill="none" stroke="#A23A2A" stroke-width="2" stroke-dasharray="7 4"/>
+        <circle cx="530" cy="118" r="15" fill="#243A35" opacity="0.14"/>
+        <circle cx="530" cy="118" r="7" fill="#243A35"/>
+        <text x="530" y="150" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing="1" fill="#0f2e28">WELL</text>
+        <text x="530" y="226" text-anchor="middle" font-family="Spectral" font-size="12" fill="#6B675E">One well · production shared by acreage</text>
+      </svg>
+
+      <div class="glossary">
+        <div class="term"><span class="t">Unit</span><span class="d">The block of acreage one well is assigned to. Everyone inside shares that well's production.</span></div>
+        <div class="term"><span class="t">Pooling</span><span class="d">Combining separate tracts into one unit so a single well can be drilled and shared.</span></div>
+        <div class="term"><span class="t">Unitization</span><span class="d">Pooling at field scale — combining a whole reservoir, often for secondary recovery.</span></div>
+        <div class="term"><span class="t">Proration unit</span><span class="d">The standard acreage the RRC assigns per well (≈160 ac oil, 640 ac gas). The unit is built to match.</span></div>
+      </div>
+
+      <p style="margin-top:1.6rem">So far, so good — pooling gets a well drilled that might never happen otherwise. But notice that one word: <em>proportion</em>. Your share is your acreage ÷ the whole unit. That means the size of your tract decides whether pooling is the best thing that ever happened to you, or a haircut you'd rather avoid. Drag the slider below to see both at once.</p>
     </div>
 
     <div class="dil" id="dil">
@@ -599,6 +670,21 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
         </div>
 
         <p class="dil-readout" id="dil-readout"></p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="grid2">
+        <div>
+          <p class="kicker" style="color:#A23A2A">The big owner's problem</p>
+          <h3>Dilution</h3>
+          <p>An owner whose tract is already big enough to be the whole unit gets nearly 100% of a well on their land. Pool that tract into a larger unit and their share is spread across everyone else's acreage — 100% becomes 50%, then 25% — even though the wellbore never moved an inch. For the big owner, every acre added to the unit is a slice taken off their check. That's dilution, and it's why a self-sufficient owner often resists being pooled at all.</p>
+        </div>
+        <div>
+          <p class="kicker" style="color:#1D7A52">The small owner's win</p>
+          <h3>A seat at the table</h3>
+          <p>A 2-acre owner can't drill, can't earn an allowable, and — worst of all — can be drained dry by a neighbor's well while collecting nothing under the rule of capture. Pooling changes that overnight: the tiny tract is folded into the unit and starts earning a cost-free share of every barrel the well produces. It's a small share, but it's real, and it beats watching the oil leave from under their feet. That's why pooling is a lifeline for the small owner.</p>
+        </div>
       </div>
     </div>
 
