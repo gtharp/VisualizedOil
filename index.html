@@ -267,6 +267,26 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
 .term{border:1px solid var(--hair);border-left:4px solid var(--surface);border-radius:0 var(--radius) var(--radius) 0;background:var(--paper-2);padding:.9rem 1.1rem}
 .term .t{display:block;font-family:var(--display);font-weight:700;font-size:1rem;margin-bottom:.2rem}
 .term .d{display:block;font-size:.92rem;color:#3a372f;line-height:1.5}
+/* ===== SEPARATE TRACTS TIMELINE ===== */
+.tl{margin-top:2.4rem;border:1px solid var(--hair);border-radius:var(--radius-lg);overflow:hidden;background:var(--paper)}
+.tl-head{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;padding:1rem clamp(1rem,3vw,1.6rem);border-bottom:1px solid var(--hair);background:var(--paper-2)}
+.tl-steps{display:flex;gap:.5rem;align-items:center}
+.tl-dot{width:9px;height:9px;border-radius:50%;background:var(--hair-2);transition:background .2s,transform .2s}
+.tl-dot.on{background:var(--survey);transform:scale(1.3)}
+.tl-nav{display:flex;gap:.5rem}
+.tl-nav button{font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--hair-2);background:var(--paper);color:var(--ink);padding:.42rem .85rem;border-radius:24px;cursor:pointer;transition:all .15s}
+.tl-nav button:hover:not(:disabled){background:var(--ink);color:var(--paper)}
+.tl-nav button:disabled{opacity:.38;cursor:not-allowed}
+.tl-body{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:820px){.tl-body{grid-template-columns:1.05fr .95fr}}
+.tl-stage{padding:clamp(1.2rem,3vw,2rem);display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(0deg,transparent,transparent 31px,rgba(0,0,0,.025) 31px,rgba(0,0,0,.025) 32px)}
+.tl-stage svg{width:100%;height:auto;max-width:340px}
+.tl-stage svg [id]{transition:opacity .35s ease,fill .35s ease}
+.tl-info{padding:clamp(1.3rem,3vw,1.7rem);border-top:1px solid var(--hair);display:flex;flex-direction:column;justify-content:center}
+@media(min-width:820px){.tl-info{border-top:0;border-left:1px solid var(--hair)}}
+.tl-badge{align-self:flex-start;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;background:var(--mineral);color:var(--paper);border-radius:20px;padding:.26rem .7rem;margin-bottom:.85rem}
+.tl-title{font-family:var(--display);font-weight:700;font-size:1.25rem;margin-bottom:.55rem;letter-spacing:-.01em}
+.tl-cap{font-size:1rem;line-height:1.62;color:#322f29;margin:0}
 
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -289,7 +309,7 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
   <div class="wrap">
     <div class="tablist" role="tablist" aria-label="Oil and gas concepts">
       <button class="tab" role="tab" id="t-surface" aria-controls="p-surface" aria-selected="true"><span class="num">01</span> Surface &amp; minerals</button>
-      <button class="tab" role="tab" id="t-tracts" aria-controls="p-tracts" aria-selected="false"><span class="num">02</span> Separate tracts <span class="badge">soon</span></button>
+      <button class="tab" role="tab" id="t-tracts" aria-controls="p-tracts" aria-selected="false"><span class="num">02</span> Separate tracts</button>
       <button class="tab" role="tab" id="t-fraction" aria-controls="p-fraction" aria-selected="false"><span class="num">03</span> Fractional interests <span class="badge">soon</span></button>
       <button class="tab" role="tab" id="t-lease" aria-controls="p-lease" aria-selected="false"><span class="num">04</span> The lease <span class="badge">soon</span></button>
       <button class="tab" role="tab" id="t-pooling" aria-controls="p-pooling" aria-selected="false"><span class="num">05</span> Pooling &amp; dilution</button>
@@ -536,16 +556,115 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
 
   <!-- ============ PLACEHOLDER PANELS ============ -->
   <section class="panel" id="p-tracts" role="tabpanel" aria-labelledby="t-tracts" tabindex="0">
-    <div class="comingsoon">
-      <span class="status">Next up</span>
-      <h2>Separate tracts &amp; the runsheet</h2>
-      <p>We'll take the two-tract example further: how a chain of deeds creates, splits, and merges tracts over time, and how a title examiner walks a runsheet to prove who owns what today.</p>
-      <ul class="willcover">
-        <li>Severed vs. unsevered tracts and how to spot a severance in the records</li>
-        <li>Why differing fractions force separate division-order treatment</li>
-        <li>Reading a runsheet from sovereignty to the present owner</li>
-        <li>Aliquot calls (N/2, SE/4) vs. metes-and-bounds descriptions</li>
-      </ul>
+
+    <div class="hero">
+      <p class="eyebrow">Concept 02 — separate tracts</p>
+      <h1>How one tract becomes <em>many</em>.</h1>
+      <p class="lede">In Concept 01 we saw one surface owner sitting over two mineral tracts. Here's the missing piece: how a single stretch of land quietly becomes several separate "tracts" over the years — and why each one then has to be handled on its own.</p>
+    </div>
+
+    <div class="section" style="border-top:0;padding-top:1rem">
+      <p class="kicker">Start here</p>
+      <h2>First — what's a "tract"?</h2>
+      <p>A <strong>tract</strong> is a parcel of land defined by <em>ownership</em>, not by fences. If the same people own an area in the same shares, it's one tract. The instant the ownership differs from one part to the next, you have separate tracts — even if the ground looks identical and there's not a fence in sight.</p>
+      <p>So tracts aren't fixed forever. Every time land is sold, gifted, or inherited, the ownership pattern can change — and a single tract can divide into two, three, or a dozen separate ones. Following that history is how you prove who owns what today.</p>
+
+      <div class="glossary">
+        <div class="term"><span class="t">Tract</span><span class="d">A parcel defined by who owns it and in what shares. Same ownership throughout = one tract; different ownership = separate tracts.</span></div>
+        <div class="term"><span class="t">Conveyance (deed)</span><span class="d">A transfer of ownership from one person to another, written in a signed document called a deed.</span></div>
+        <div class="term"><span class="t">Reservation</span><span class="d">When someone selling land keeps part of it — most often the minerals — instead of passing everything to the buyer.</span></div>
+        <div class="term"><span class="t">Chain of title</span><span class="d">The full record of every owner of a tract, from the first owner down to today. Examined to prove present ownership.</span></div>
+      </div>
+
+      <p style="margin-top:1.6rem">Let's watch it happen. Step through the years and see one mineral tract divide into two — arriving exactly at the picture from Concept 01.</p>
+    </div>
+
+    <div class="tl" id="tl">
+      <div class="tl-head">
+        <div class="tl-steps" aria-hidden="true">
+          <span class="tl-dot"></span><span class="tl-dot"></span><span class="tl-dot"></span><span class="tl-dot"></span>
+        </div>
+        <div class="tl-nav">
+          <button id="tl-back" aria-label="Previous step">◀ Back</button>
+          <button id="tl-next" aria-label="Next step">Next ▶</button>
+        </div>
+      </div>
+      <div class="tl-body">
+        <div class="tl-stage">
+          <svg id="tl-plat" viewBox="0 0 320 330" role="img" aria-label="Plat of a 160-acre mineral estate that divides into separate tracts over time">
+            <g transform="translate(288,28)">
+              <line x1="0" y1="13" x2="0" y2="-9" stroke="#1B1A17" stroke-width="1.5"/>
+              <path d="M0,-14 L4,-6 L-4,-6 Z" fill="#A23A2A"/>
+              <text x="0" y="26" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#6B675E">N</text>
+            </g>
+            <g stroke="#A23A2A" stroke-width="2" fill="none">
+              <path d="M40,34 v-8 M34,40 h-8"/>
+              <path d="M280,34 v-8 M286,40 h8"/>
+              <path d="M40,286 v8 M34,280 h-8"/>
+              <path d="M280,286 v8 M286,280 h8"/>
+            </g>
+            <rect id="tl-wfill" x="40" y="40" width="120" height="240" fill="#E3E7DF" stroke="#243A35" stroke-width="1.25"/>
+            <rect id="tl-efill" x="160" y="40" width="120" height="240" fill="#E3E7DF" stroke="#243A35" stroke-width="1.25"/>
+            <line id="tl-divide" x1="160" y1="40" x2="160" y2="280" stroke="#A23A2A" stroke-width="2.5" opacity="0"/>
+            <g id="tl-whole" opacity="1">
+              <text id="tl-whole-name" x="160" y="154" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="700" font-size="16" fill="#1B1A17">Ada Reyes</text>
+              <text id="tl-whole-sub" x="160" y="176" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#6B675E">160 ac · one tract</text>
+            </g>
+            <g id="tl-wlabel" opacity="0">
+              <text x="100" y="116" text-anchor="middle" font-family="JetBrains Mono" font-size="10" letter-spacing="1.5" fill="#6B675E">WEST 80</text>
+              <text id="tl-w1" x="100" y="148" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="600" font-size="13" fill="#1B1A17">—</text>
+              <text id="tl-w2" x="100" y="167" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#5a5648">—</text>
+            </g>
+            <g id="tl-elabel" opacity="0">
+              <text x="220" y="116" text-anchor="middle" font-family="JetBrains Mono" font-size="10" letter-spacing="1.5" fill="#6B675E">EAST 80</text>
+              <text id="tl-e1" x="220" y="148" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="600" font-size="13" fill="#1B1A17">—</text>
+              <text id="tl-e2" x="220" y="167" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#5a5648">—</text>
+            </g>
+            <text id="tl-count" x="160" y="306" text-anchor="middle" font-family="JetBrains Mono" font-size="11" letter-spacing="1.5" fill="#A23A2A">ONE TRACT</text>
+          </svg>
+        </div>
+        <div class="tl-info" aria-live="polite">
+          <span class="tl-badge" id="tl-badge">Step 1 of 4</span>
+          <p class="tl-title" id="tl-title">The whole</p>
+          <p class="tl-cap" id="tl-cap">One owner holds the entire 160-acre mineral estate. Because the same person owns every acre, it's a single tract.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="grid2">
+        <div>
+          <p class="kicker">Why it matters</p>
+          <h3>Separate leases, separate terms</h3>
+          <p>Each tract is leased on its own. Two tracts sitting side by side can be leased to different companies, for different royalties, signed years apart. One can be under a live lease while the other stays wide open. Treating them as "one farm" is how owners accidentally sign away far more than they meant to.</p>
+        </div>
+        <div>
+          <p class="kicker">Why it matters</p>
+          <h3>Separate checks, separate math</h3>
+          <p>Production is divided tract by tract. Each one gets its own division order and its own royalty decimal, and a well that touches both pays each separately — you can't average them into a single share. That's the Concept 01 lesson in practice: same totals, still two tracts.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">The point that trips everyone up</p>
+      <p>"It's all one farm, so it's one deal." Not underground. The boundaries that matter here are <em>ownership</em> lines, and they're invisible — no fence, no marker, nothing you can walk off. Two people can look at one unbroken field and be standing on three, four, or ten separate tracts. The records, not the landscape, tell you where the lines are.</p>
+    </div>
+
+    <div class="ledger-wrap">
+      <h2>Where we ended up</h2>
+      <p class="eyebrow" style="margin-top:.5rem">Two tracts · today's owners</p>
+      <div class="table-scroll">
+        <table class="ledger">
+          <thead>
+            <tr><th>Tract</th><th>Today's owners</th><th>Why it's a separate tract</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>West 80</td><td>Susan 2/3 · Carl 1/3</td><td>Different owners and shares than the East 80</td></tr>
+            <tr><td>East 80</td><td>Carl 2/3 · Susan 1/3</td><td>Different owners and shares than the West 80</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
@@ -799,10 +918,10 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
 <footer class="site">
   <div class="wrap">
     <div class="row">
-      <span>Oil, Visualized · v0.1 · built for teaching, not title</span>
-      <span>Texas oil &amp; gas · concept 01 of many</span>
+      <span>Oil, Visualized · v0.1 · built for teaching</span>
+      <span>Texas oil &amp; gas</span>
     </div>
-    <p class="disc">These visualizations are simplified teaching tools. They are not legal advice, a title opinion, or a substitute for examining the actual records. Ownership in any real tract turns on the instruments of record.</p>
+    <p class="disc">These visualizations are simplified teaching tools. They are not legal advice. Created by George Tharp, JD.</p>
   </div>
 </footer>
 
@@ -1001,6 +1120,67 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
   }
   slider.addEventListener('input', update);
   update();
+})();
+
+/* ---------- SEPARATE TRACTS TIMELINE ---------- */
+(function(){
+  "use strict";
+  var back=document.getElementById('tl-back');
+  if(!back) return;
+  var next=document.getElementById('tl-next'),
+      dots=Array.prototype.slice.call(document.querySelectorAll('#tl .tl-dot')),
+      badge=document.getElementById('tl-badge'),
+      title=document.getElementById('tl-title'),
+      cap=document.getElementById('tl-cap'),
+      divide=document.getElementById('tl-divide'),
+      wholeG=document.getElementById('tl-whole'),
+      wholeName=document.getElementById('tl-whole-name'),
+      wholeSub=document.getElementById('tl-whole-sub'),
+      wlabel=document.getElementById('tl-wlabel'),
+      elabel=document.getElementById('tl-elabel'),
+      w1=document.getElementById('tl-w1'), w2=document.getElementById('tl-w2'),
+      e1=document.getElementById('tl-e1'), e2=document.getElementById('tl-e2'),
+      wfill=document.getElementById('tl-wfill'), efill=document.getElementById('tl-efill'),
+      count=document.getElementById('tl-count');
+
+  var NEUTRAL='#E3E7DF', WEST='#DCEAE4', EAST='#EDE4D2';
+  var STEPS=[
+    {t:'The whole', whole:true, name:'Ada Reyes', sub:'160 ac \u00B7 one tract',
+     cap:'One owner holds the entire 160-acre mineral estate. Because the same person owns every acre, it\u2019s a single tract.'},
+    {t:'A deed splits it', west:['Ada Reyes','keeps W 80'], east:['A buyer','buys E 80'],
+     cap:'Ada sells the minerals under the east half to a buyer and keeps the west. The instant ownership differs across that line, one tract becomes two.'},
+    {t:'Heirs divide the shares', west:['Two heirs','\u00BD + \u00BD'], east:['Buyer + partner','\u00BD + \u00BD'],
+     cap:'Years pass. The west half is inherited by two children equally; the buyer sells half his east interest to a partner. Each tract now has co-owners holding fractions \u2014 but they\u2019re still two separate tracts.'},
+    {t:'The patterns diverge', west:['Susan \u2154','Carl \u2153'], east:['Carl \u2154','Susan \u2153'],
+     cap:'Another generation inherits in unequal shares. Today both halves are owned by Carl and Susan \u2014 but in different proportions on each. That difference is exactly the two-tract split from Concept 01.'}
+  ];
+  var i=0;
+  function render(){
+    var s=STEPS[i];
+    title.textContent=s.t; cap.textContent=s.cap;
+    badge.textContent='Step '+(i+1)+' of '+STEPS.length;
+    dots.forEach(function(d,k){ d.classList.toggle('on', k===i); });
+    back.disabled=(i===0); next.disabled=(i===STEPS.length-1);
+    if(s.whole){
+      divide.setAttribute('opacity','0');
+      wholeG.setAttribute('opacity','1');
+      wlabel.setAttribute('opacity','0'); elabel.setAttribute('opacity','0');
+      wfill.setAttribute('fill',NEUTRAL); efill.setAttribute('fill',NEUTRAL);
+      wholeName.textContent=s.name; wholeSub.textContent=s.sub;
+      count.textContent='ONE TRACT';
+    } else {
+      divide.setAttribute('opacity','1');
+      wholeG.setAttribute('opacity','0');
+      wlabel.setAttribute('opacity','1'); elabel.setAttribute('opacity','1');
+      wfill.setAttribute('fill',WEST); efill.setAttribute('fill',EAST);
+      w1.textContent=s.west[0]; w2.textContent=s.west[1];
+      e1.textContent=s.east[0]; e2.textContent=s.east[1];
+      count.textContent='TWO TRACTS';
+    }
+  }
+  back.addEventListener('click',function(){ if(i>0){i--;render();} });
+  next.addEventListener('click',function(){ if(i<STEPS.length-1){i++;render();} });
+  render();
 })();
 </script>
 </body>
