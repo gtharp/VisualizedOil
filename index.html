@@ -78,7 +78,7 @@ header.site{
 
 /* ============ TABS ============ */
 nav.tabs{border-bottom:1px solid var(--hair);background:var(--paper)}
-.tablist{display:flex;gap:.25rem;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding:.4rem 0}
+.tablist{display:flex;gap:.25rem;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding:.4rem 0;touch-action:pan-x;overscroll-behavior-x:contain}
 .tablist::-webkit-scrollbar{display:none}
 .tab{
   flex:0 0 auto;display:flex;align-items:baseline;gap:.5rem;
@@ -319,11 +319,17 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
 .ds-dec{font-family:var(--mono);font-weight:700;font-size:clamp(1.5rem,1.1rem+2vw,2.2rem);letter-spacing:.01em;color:var(--ink);margin:0}
 .ds-dec small{display:block;font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.25rem}
 .ds-note{font-size:.9rem;color:var(--muted);margin:.8rem 0 0;line-height:1.5}
-.doi-shrink{display:flex;gap:10px;align-items:flex-end;margin-top:2.2rem;flex-wrap:wrap}
-.doi-shrink .bar{flex:1;min-width:120px;text-align:center}
-.doi-shrink .col{margin:0 auto;width:64%;background:var(--mineral);border-radius:6px 6px 0 0}
-.doi-shrink .v{font-family:var(--mono);font-weight:700;font-size:.8rem;margin-top:.4rem}
-.doi-shrink .k{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.doi-shrink{margin-top:2.2rem;display:flex;flex-direction:column;gap:0}
+.doi-shrink .ds-brow{padding:.15rem 0}
+.doi-shrink .ds-bar-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.4rem}
+.doi-shrink .ds-bar-stage{font-family:var(--display);font-weight:600;font-size:.98rem;color:var(--ink)}
+.doi-shrink .ds-bar-num{font-family:var(--mono);font-weight:700;font-size:.92rem;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.doi-shrink .ds-track{height:24px;background:var(--paper-2);border:1px solid var(--hair-2);border-radius:6px;overflow:hidden}
+.doi-shrink .ds-fill{height:100%;background:var(--mineral);min-width:4px;border-radius:5px 0 0 5px;transition:width .45s ease}
+.doi-shrink .ds-mult{font-family:var(--mono);font-size:.74rem;letter-spacing:.01em;color:var(--survey);padding:.55rem 0 .55rem 1.5rem;position:relative;line-height:1.4}
+.doi-shrink .ds-mult::before{content:"↓ ×";position:absolute;left:0;top:.5rem;font-weight:700}
+.doi-shrink .ds-mult b{font-weight:700}
+.doi-shrink .ds-mult span{color:var(--muted)}
 /* ===== CHECK STUB (07) ===== */
 .stub{margin-top:2rem;border:1px solid var(--hair-2);border-radius:var(--radius-lg);overflow:hidden;background:#FBFAF6;box-shadow:0 1px 0 var(--hair)}
 .stub-top{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1.1rem 1.4rem;border-bottom:2px solid var(--ink);background:var(--paper-2)}
@@ -361,7 +367,7 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
       <span class="mark">Oil, Visualized<span class="dot">.</span></span>
       <span class="sub hide-sm">the mineral estate, drawn</span>
     </a>
-    <span class="eyebrow mono">Texas · v0.1</span>
+    <span class="eyebrow mono">Texas</span>
   </div>
 </header>
 
@@ -1037,12 +1043,12 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
     <div class="section" style="border-top:0;padding-top:1rem">
       <p class="kicker">Start here</p>
       <h2>First — what's a division order?</h2>
-      <p>Before a well pays anyone, the operator maps out exactly who gets what share of production. Each owner's share is written as a decimal — the <strong>decimal interest</strong> — and sent to them on a <strong>division order (DOI)</strong>: a statement that says "we show you owning 0.0…X of this well; confirm and we'll start paying."</p>
+      <p>Before a well pays anyone, the operator maps out exactly who gets what share of production. Each owner's share is written as a decimal — the <strong>decimal interest</strong>, also called the <strong>division of interest (DOI)</strong> — and sent to them on a document called a <strong>division order (DO)</strong>: a statement that says "we show you owning 0.0…X of this well; confirm and we'll start paying."</p>
       <p>The decimal isn't invented — it's built by multiplying a few simple fractions together. Each fraction answers one question. Let's build yours from scratch, starting simple and adding one real-world layer at a time.</p>
 
       <div class="glossary">
-        <div class="term"><span class="t">Division order (DO)</span><span class="d">The operator's statement of your exact decimal share of a well, sent for you to confirm before payments start.</span></div>
-        <div class="term"><span class="t">Decimal interest</span><span class="d">Your share of the well's revenue written as a decimal — all owners' decimals add up to 1.00000000.</span></div>
+        <div class="term"><span class="t">Division order (DO)</span><span class="d">The document the operator sends stating your exact decimal share of a well, for you to confirm before payments start.</span></div>
+        <div class="term"><span class="t">Division of interest (DOI)</span><span class="d">Your share of the well's revenue written as a decimal — your "decimal interest." Every owner's DOI on a well adds up to 1.00000000.</span></div>
         <div class="term"><span class="t">Royalty fraction</span><span class="d">The share your lease reserves for you, free of costs — 1/4 in our example.</span></div>
         <div class="term"><span class="t">Allocation well</span><span class="d">A horizontal well drilled across separate tracts or units, with production split by how much of the lateral crosses each.</span></div>
       </div>
@@ -1053,13 +1059,26 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
       <div class="ds-head"><span class="n">Stage 1 · the simple case</span><span class="t">A well on your own tract</span></div>
       <div class="ds-body">
         <div class="ds-viz">
-          <svg viewBox="0 0 300 220" role="img" aria-label="A 40-acre tract with one vertical well; you own an undivided one quarter of the minerals">
-            <rect x="60" y="30" width="180" height="160" fill="#DCEAE4" stroke="#243A35" stroke-width="1.5"/>
-            <rect x="60" y="30" width="45" height="160" fill="#2F7E86" opacity=".55"/>
-            <circle cx="150" cy="110" r="8" fill="#243A35"/>
-            <text x="150" y="132" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#243A35">WELL</text>
+          <svg viewBox="0 0 300 236" role="img" aria-label="A 40-acre tract filled light blue for everyone's shared minerals, overlaid with a light-pink cross-hatch spread evenly across the entire tract that stands for your undivided one-quarter interest — your quarter is everywhere at once, not a corner. One vertical well sits in the middle.">
+            <defs>
+              <pattern id="ownHatch" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <line x1="0" y1="0" x2="0" y2="16" stroke="#E29AAF" stroke-width="2.2"/>
+                <line x1="0" y1="0" x2="16" y2="0" stroke="#E29AAF" stroke-width="2.2"/>
+              </pattern>
+            </defs>
             <text x="150" y="20" text-anchor="middle" font-family="JetBrains Mono" font-size="10" letter-spacing="1.5" fill="#6B675E">YOUR 40-AC TRACT</text>
-            <text x="150" y="210" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#2F7E86">shaded = your undivided 1/4 (everywhere at once)</text>
+            <rect x="60" y="30" width="180" height="160" fill="#DCEAE4" stroke="#243A35" stroke-width="1.5"/>
+            <rect x="60" y="30" width="180" height="160" fill="url(#ownHatch)" stroke="#243A35" stroke-width="1.5"/>
+            <circle cx="150" cy="110" r="8" fill="#243A35"/>
+            <text x="150" y="131" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#243A35">WELL</text>
+            <g font-family="JetBrains Mono" font-size="8.5" fill="#6B675E">
+              <rect x="64" y="202" width="13" height="13" fill="#DCEAE4" stroke="#243A35" stroke-width="0.75"/>
+              <text x="82" y="212">the rest</text>
+              <rect x="150" y="202" width="13" height="13" fill="#DCEAE4" stroke="#243A35" stroke-width="0.75"/>
+              <rect x="150" y="202" width="13" height="13" fill="url(#ownHatch)"/>
+              <text x="168" y="212">your undivided 1/4</text>
+            </g>
+            <text x="150" y="230" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#6B675E">spread evenly across every acre — never a corner</text>
           </svg>
         </div>
         <div class="ds-math">
@@ -1123,10 +1142,21 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
     <div class="section">
       <h2>The whole story in one picture</h2>
       <p class="eyebrow" style="margin-top:.5rem">Same ownership, same royalty — each layer of sharing shrinks the decimal</p>
-      <div class="doi-shrink" role="img" aria-label="Bar chart showing the decimal shrinking from 0.0625 to 0.0078125 to 0.00488281 across the three stages">
-        <div class="bar"><div class="col" style="height:150px"></div><div class="v">0.06250000</div><div class="k">Own tract</div></div>
-        <div class="bar"><div class="col" style="height:19px"></div><div class="v">0.00781250</div><div class="k">Pooled 320-ac</div></div>
-        <div class="bar"><div class="col" style="height:12px"></div><div class="v">0.00488281</div><div class="k">Allocation well</div></div>
+      <div class="doi-shrink" role="img" aria-label="The decimal shrinks across three stages: 0.06250000 on your own tract; multiplied by 40 over 320 it becomes 0.00781250 once pooled into a 320-acre unit; multiplied by 7,500 over 12,000 it becomes 0.00488281 as an allocation well.">
+        <div class="ds-brow">
+          <div class="ds-bar-head"><span class="ds-bar-stage">Well on your own tract</span><span class="ds-bar-num">0.06250000</span></div>
+          <div class="ds-track"><div class="ds-fill" style="width:100%"></div></div>
+        </div>
+        <div class="ds-mult"><b>40 / 320</b> <span>— your tract's slice of the unit</span></div>
+        <div class="ds-brow">
+          <div class="ds-bar-head"><span class="ds-bar-stage">Pooled into a 320-ac unit</span><span class="ds-bar-num">0.00781250</span></div>
+          <div class="ds-track"><div class="ds-fill" style="width:12.5%"></div></div>
+        </div>
+        <div class="ds-mult"><b>7,500 / 12,000</b> <span>— lateral length inside your unit</span></div>
+        <div class="ds-brow">
+          <div class="ds-bar-head"><span class="ds-bar-stage">Allocation well</span><span class="ds-bar-num">0.00488281</span></div>
+          <div class="ds-track"><div class="ds-fill" style="width:7.8%"></div></div>
+        </div>
       </div>
       <p style="margin-top:1.4rem">Each stage multiplied in one more honest fraction. A small decimal usually doesn't mean anyone shorted you — it means the pie you're sharing got bigger. But because a division order is only the <em>operator's math</em>, checking those fractions against your own deed, lease, and the unit's plat is exactly how owners catch real errors.</p>
     </div>
@@ -1363,7 +1393,7 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
 <footer class="site">
   <div class="wrap">
     <div class="row">
-      <span>Oil, Visualized · v0.1 · built for teaching</span>
+      <span>Oil, Visualized · built for teaching</span>
       <span>Texas oil &amp; gas</span>
     </div>
     <p class="disc">These visualizations are simplified teaching tools. They are not legal advice. Created by George Tharp, JD.</p>
