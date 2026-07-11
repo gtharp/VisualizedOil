@@ -287,6 +287,66 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
 .tl-badge{align-self:flex-start;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;background:var(--mineral);color:var(--paper);border-radius:20px;padding:.26rem .7rem;margin-bottom:.85rem}
 .tl-title{font-family:var(--display);font-weight:700;font-size:1.25rem;margin-bottom:.55rem;letter-spacing:-.01em}
 .tl-cap{font-size:1rem;line-height:1.62;color:#322f29;margin:0}
+/* ===== FRACTION BARS (03) ===== */
+.fracbar{margin:1.1rem 0}
+.fracbar .lbl{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-bottom:.3rem}
+.fracbar .track{display:flex;height:34px;border-radius:8px;overflow:hidden;border:1px solid var(--hair-2)}
+.fracbar .track span{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.7rem;font-weight:700;color:#fff;border-right:1px solid rgba(255,255,255,.5)}
+.fracbar .track span:last-child{border-right:0}
+/* ===== LEASE TIMELINE (04) ===== */
+.lease-tl{margin-top:2rem;display:grid;gap:0;position:relative;padding-left:26px}
+.lease-tl::before{content:"";position:absolute;left:8px;top:10px;bottom:10px;width:2px;background:var(--hair-2)}
+.lt-item{position:relative;padding:0 0 1.5rem 1rem}
+.lt-item::before{content:"";position:absolute;left:-24px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--surface)}
+.lt-item.alive::before{border-color:#1D7A52}
+.lt-item.dead::before{border-color:#A23A2A}
+.lt-item .when{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.lt-item h4{font-family:var(--display);font-weight:700;font-size:1.08rem;margin:.2rem 0 .3rem;letter-spacing:-.01em}
+.lt-item p{font-size:.96rem;color:#322f29;margin:0;line-height:1.55}
+/* ===== DOI STAGES (06) ===== */
+.doi-stage{margin-top:2rem;border:1px solid var(--hair);border-radius:var(--radius-lg);overflow:hidden}
+.doi-stage .ds-head{padding:.85rem 1.3rem;background:var(--paper-2);border-bottom:1px solid var(--hair);display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap}
+.doi-stage .ds-head .n{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--survey)}
+.doi-stage .ds-head .t{font-family:var(--display);font-weight:700;font-size:1.1rem}
+.ds-body{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:780px){.ds-body{grid-template-columns:1fr 1fr}}
+.ds-viz{padding:clamp(1rem,3vw,1.6rem);display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(0deg,transparent,transparent 31px,rgba(0,0,0,.02) 31px,rgba(0,0,0,.02) 32px)}
+.ds-viz svg{width:100%;height:auto;max-width:330px}
+.ds-math{padding:clamp(1.1rem,3vw,1.6rem);border-top:1px solid var(--hair);display:flex;flex-direction:column;justify-content:center}
+@media(min-width:780px){.ds-math{border-top:0;border-left:1px solid var(--hair)}}
+.ds-formula{font-family:var(--mono);font-size:.82rem;line-height:1.9;color:#3a372f;margin:0 0 .8rem}
+.ds-formula b{font-weight:700;color:var(--ink)}
+.ds-dec{font-family:var(--mono);font-weight:700;font-size:clamp(1.5rem,1.1rem+2vw,2.2rem);letter-spacing:.01em;color:var(--ink);margin:0}
+.ds-dec small{display:block;font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.25rem}
+.ds-note{font-size:.9rem;color:var(--muted);margin:.8rem 0 0;line-height:1.5}
+.doi-shrink{display:flex;gap:10px;align-items:flex-end;margin-top:2.2rem;flex-wrap:wrap}
+.doi-shrink .bar{flex:1;min-width:120px;text-align:center}
+.doi-shrink .col{margin:0 auto;width:64%;background:var(--mineral);border-radius:6px 6px 0 0}
+.doi-shrink .v{font-family:var(--mono);font-weight:700;font-size:.8rem;margin-top:.4rem}
+.doi-shrink .k{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+/* ===== CHECK STUB (07) ===== */
+.stub{margin-top:2rem;border:1px solid var(--hair-2);border-radius:var(--radius-lg);overflow:hidden;background:#FBFAF6;box-shadow:0 1px 0 var(--hair)}
+.stub-top{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1.1rem 1.4rem;border-bottom:2px solid var(--ink);background:var(--paper-2)}
+.stub-top .co{font-family:var(--display);font-weight:800;font-size:1.05rem}
+.stub-top .meta{font-family:var(--mono);font-size:.7rem;color:var(--muted);text-align:right;line-height:1.6}
+.stub table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.8rem}
+.stub th,.stub td{padding:.6rem 1.4rem;text-align:left;border-bottom:1px dashed var(--hair-2)}
+.stub th{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.stub td.r,.stub th.r{text-align:right}
+.stub td.neg{color:#A23A2A}
+.stub tr.net td{border-top:2px solid var(--ink);border-bottom:0;font-weight:700;font-size:.9rem;background:#F0EDE3}
+/* ===== TAXES (08) ===== */
+.taxgrid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:2rem}
+@media(min-width:760px){.taxgrid{grid-template-columns:1fr 1fr}}
+.taxcard{border:1px solid var(--hair);border-radius:var(--radius-lg);overflow:hidden;background:var(--paper)}
+.taxcard .tc-head{padding:1rem 1.3rem;border-bottom:1px solid var(--hair)}
+.taxcard.sev .tc-head{background:#EAF0F5;border-left:4px solid #2F7E86}
+.taxcard.adv .tc-head{background:#F5EFE2;border-left:4px solid #C8A45E}
+.taxcard .tc-head .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.taxcard .tc-head h3{font-family:var(--display);font-weight:700;font-size:1.15rem;margin:.15rem 0 0}
+.taxcard .tc-viz{padding:1.2rem 1.3rem .4rem;display:flex;justify-content:center}
+.taxcard .tc-viz svg{width:100%;max-width:300px;height:auto}
+.taxcard .tc-body{padding:.8rem 1.3rem 1.3rem;font-size:.95rem;line-height:1.6;color:#322f29}
 
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -310,9 +370,12 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
     <div class="tablist" role="tablist" aria-label="Oil and gas concepts">
       <button class="tab" role="tab" id="t-surface" aria-controls="p-surface" aria-selected="true"><span class="num">01</span> Surface &amp; minerals</button>
       <button class="tab" role="tab" id="t-tracts" aria-controls="p-tracts" aria-selected="false"><span class="num">02</span> Separate tracts</button>
-      <button class="tab" role="tab" id="t-fraction" aria-controls="p-fraction" aria-selected="false"><span class="num">03</span> Fractional interests <span class="badge">soon</span></button>
-      <button class="tab" role="tab" id="t-lease" aria-controls="p-lease" aria-selected="false"><span class="num">04</span> The lease <span class="badge">soon</span></button>
+      <button class="tab" role="tab" id="t-fraction" aria-controls="p-fraction" aria-selected="false"><span class="num">03</span> Fractional interests</button>
+      <button class="tab" role="tab" id="t-lease" aria-controls="p-lease" aria-selected="false"><span class="num">04</span> The lease</button>
       <button class="tab" role="tab" id="t-pooling" aria-controls="p-pooling" aria-selected="false"><span class="num">05</span> Pooling &amp; dilution</button>
+      <button class="tab" role="tab" id="t-doi" aria-controls="p-doi" aria-selected="false"><span class="num">06</span> Your decimal (DOI)</button>
+      <button class="tab" role="tab" id="t-check" aria-controls="p-check" aria-selected="false"><span class="num">07</span> The royalty check</button>
+      <button class="tab" role="tab" id="t-tax" aria-controls="p-tax" aria-selected="false"><span class="num">08</span> The two taxes</button>
       <button class="tab" role="tab" id="t-roadmap" aria-controls="p-roadmap" aria-selected="false"><span class="num">→</span> Roadmap</button>
     </div>
   </div>
@@ -669,30 +732,147 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
   </section>
 
   <section class="panel" id="p-fraction" role="tabpanel" aria-labelledby="t-fraction" tabindex="0">
-    <div class="comingsoon">
-      <span class="status">On the roadmap</span>
-      <h2>Fractional &amp; undivided interests</h2>
-      <p>An interactive look at how interests splinter across generations — and the difference between owning an <em>undivided</em> fraction of the whole and owning a specific piece of ground.</p>
-      <ul class="willcover">
-        <li>Undivided co-tenancy: sharing every acre vs. partition</li>
-        <li>Fractions through inheritance and conveyance</li>
-        <li>Net mineral acres and the 1/8 royalty math</li>
-        <li>NPRI vs. mineral interest vs. royalty interest</li>
-      </ul>
+
+    <div class="hero">
+      <p class="eyebrow">Concept 03 — fractional interests</p>
+      <h1>You own a fraction of <em>everything</em> — not a piece of something.</h1>
+      <p class="lede">When several people own minerals together, nobody gets "the north corner" or "the good part." Each person owns a fraction of <em>every acre at once</em>. Here's what that really means, and why the fractions keep getting smaller with every generation.</p>
+    </div>
+
+    <div class="section" style="border-top:0;padding-top:1rem">
+      <p class="kicker">Start here</p>
+      <h2>First — what's an "undivided" interest?</h2>
+      <p>An <strong>undivided interest</strong> means your fraction applies to the whole tract, everywhere, all at once. Own an undivided 1/4 of 80 acres and you don't own any particular 20 acres — you own 1/4 of every single acre, side by side with your co-owners. There is no line on the ground separating "yours" from "theirs."</p>
+      <p>To talk about how <em>much</em> that is, the industry converts it to <strong>net mineral acres</strong>: your fraction × the tract's acres. An undivided 1/4 of 80 acres = 20 net mineral acres — a measure of quantity, not a location.</p>
+
+      <div class="glossary">
+        <div class="term"><span class="t">Undivided interest</span><span class="d">A fraction of every acre of the tract at once — not a mapped-off piece of it.</span></div>
+        <div class="term"><span class="t">Co-tenant</span><span class="d">Each of the people who co-own the tract together. All share the whole; none owns a specific part.</span></div>
+        <div class="term"><span class="t">Net mineral acres</span><span class="d">Your fraction × the tract's acres. A 1/4 interest in 80 acres = 20 net mineral acres.</span></div>
+        <div class="term"><span class="t">Partition</span><span class="d">The legal process to convert shared fractions into separately owned pieces — the exception, not the rule.</span></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="kicker">Watch it splinter</p>
+      <h2>Three generations, one 80-acre tract</h2>
+      <p>Fractions rarely stay simple. Every inheritance and every sale splits them further. Watch one owner's 100% become eighths in two generations — this is called <strong>fractionalization</strong>, and it's why some tracts today have hundreds of owners holding slivers like 1/256.</p>
+
+      <div class="fracbar">
+        <div class="lbl"><span>Generation 1 — Maria owns it all</span><span>1 owner</span></div>
+        <div class="track"><span style="flex:1;background:#243A35">Maria · 1/1 · 80 net ac</span></div>
+      </div>
+      <div class="fracbar">
+        <div class="lbl"><span>Generation 2 — her two children inherit equally</span><span>2 owners</span></div>
+        <div class="track">
+          <span style="flex:1;background:#2F7E86">Ana · 1/2 · 40 net ac</span>
+          <span style="flex:1;background:#B06A3B">Luis · 1/2 · 40 net ac</span>
+        </div>
+      </div>
+      <div class="fracbar">
+        <div class="lbl"><span>Generation 3 — Ana leaves hers to two kids; Luis to three</span><span>5 owners</span></div>
+        <div class="track">
+          <span style="flex:3;background:#2F7E86">1/4</span>
+          <span style="flex:3;background:#4C99A0">1/4</span>
+          <span style="flex:2;background:#B06A3B">1/6</span>
+          <span style="flex:2;background:#C08355">1/6</span>
+          <span style="flex:2;background:#CE9C74">1/6</span>
+        </div>
+      </div>
+      <p style="margin-top:1rem;font-size:.95rem;color:var(--muted)">Every bar is the same 80 acres. The fractions always add back up to 1 — there's never more or less land, just more names on it. By generation three, a 1/6 owner holds 13.33 net mineral acres they could never point to on a map.</p>
+    </div>
+
+    <div class="section">
+      <div class="grid2">
+        <div>
+          <p class="kicker">The practical effect</p>
+          <h3>Everyone signs, everyone gets paid</h3>
+          <p>Because every co-owner owns a share of every acre, an operator who wants the tract fully leased needs a signature from <em>each</em> of them — and each gets their own lease terms, their own royalty, and their own check. One holdout doesn't block the others: a co-tenant can lease their own undivided share, and the operator simply accounts to the rest.</p>
+        </div>
+        <div>
+          <p class="kicker">The family trap</p>
+          <h3>Small fractions get lost</h3>
+          <p>As shares shrink generation after generation, owners of tiny slivers stop being worth an operator's time to find — and stop noticing what they own. Unpaid royalties pile up in suspense; heirs never learn the minerals exist. Keeping title updated when someone passes away is the single best thing a mineral-owning family can do.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">The point that trips everyone up</p>
+      <p>"I own a quarter, so I'll take the northeast 20 acres." That's not how it works. An undivided 1/4 is a fraction of <em>every</em> acre — you and your co-owners overlap everywhere. Nobody can fence off "their part" unless the owners formally partition the tract, which for minerals is rare. Your quarter lives in the math, not on the map.</p>
     </div>
   </section>
 
   <section class="panel" id="p-lease" role="tabpanel" aria-labelledby="t-lease" tabindex="0">
-    <div class="comingsoon">
-      <span class="status">On the roadmap</span>
-      <h2>The oil &amp; gas lease</h2>
-      <p>What a lease actually <em>is</em> — a fee simple determinable with a possibility of reverter — and the clauses that decide whether it lives or dies.</p>
-      <ul class="willcover">
-        <li>Granting, habendum, primary vs. secondary term</li>
-        <li>Royalty, bonus, delay rental, and paid-up leases</li>
-        <li>Held by production and the savings clauses</li>
-        <li>Pugh clauses, shut-in royalty, and retained acreage</li>
-      </ul>
+
+    <div class="hero">
+      <p class="eyebrow">Concept 04 — the lease</p>
+      <h1>Not a rental — a deal that lives as long as the <em>well</em> does.</h1>
+      <p class="lede">An oil and gas lease isn't like renting an apartment. It's a trade: the mineral owner hands over the right to drill, and in exchange keeps a cost-free slice of everything produced. And its lifespan isn't a number of years — it's however long the oil keeps flowing.</p>
+    </div>
+
+    <div class="section" style="border-top:0;padding-top:1rem">
+      <p class="kicker">Start here</p>
+      <h2>First — what does "leasing" your minerals mean?</h2>
+      <p>Owning minerals doesn't produce a single barrel — someone has to drill, and drilling costs millions. So the mineral owner signs a <strong>lease</strong>: a company (the <strong>lessee</strong>) gets the exclusive right to explore and produce, and the owner (the <strong>lessor</strong>) gets paid two ways — a <strong>bonus</strong> up front just for signing, and a <strong>royalty</strong>: a fraction of production, free of drilling costs, for as long as the lease lasts.</p>
+      <p>How long is that? Every lease has two clocks. The <strong>primary term</strong> is a fixed window (often 3 years) for the company to drill. If it drills and finds production, the lease rolls into the <strong>secondary term</strong> — which has no end date at all. It simply lasts as long as the well keeps producing. That's called being <strong>held by production</strong>.</p>
+
+      <div class="glossary">
+        <div class="term"><span class="t">Lessor / lessee</span><span class="d">Lessor = the mineral owner who signs. Lessee = the oil company that gets the right to drill.</span></div>
+        <div class="term"><span class="t">Bonus</span><span class="d">Cash paid up front, per acre, just for signing — the owner keeps it even if no well is ever drilled.</span></div>
+        <div class="term"><span class="t">Royalty</span><span class="d">The owner's fraction of production (commonly 1/8 to 1/4), free of drilling and operating costs.</span></div>
+        <div class="term"><span class="t">Held by production (HBP)</span><span class="d">Once a well produces, the lease stays alive indefinitely — as long as production continues.</span></div>
+      </div>
+
+      <p style="margin-top:1.6rem">The easiest way to understand a lease is to follow one through its life:</p>
+
+      <div class="lease-tl">
+        <div class="lt-item">
+          <span class="when">Day one</span>
+          <h4>Signing — the bonus</h4>
+          <p>The company pays the owner a per-acre bonus in cash. The primary-term clock (say, 3 years) starts ticking. The owner has been paid something no matter what happens next.</p>
+        </div>
+        <div class="lt-item">
+          <span class="when">Years 1–3 · primary term</span>
+          <h4>The company's window to drill</h4>
+          <p>The lease is alive while the company decides. If the clock runs out with no well and no production, the lease simply <em>expires</em> — the minerals return to the owner, free to lease again (and keep the bonus).</p>
+        </div>
+        <div class="lt-item alive">
+          <span class="when">Year 2 · a well is drilled</span>
+          <h4>Production begins — royalty checks start</h4>
+          <p>The well produces, and the owner starts receiving their royalty share of every barrel, cost-free. The lease rolls from the primary term into the secondary term.</p>
+        </div>
+        <div class="lt-item alive">
+          <span class="when">Years 2–40+ · secondary term</span>
+          <h4>Held by production</h4>
+          <p>No end date. As long as the well produces (in more than trivial amounts), the lease — often covering <em>all</em> the leased acres, not just the well's spot — stays alive. Decades can pass on the strength of one well.</p>
+        </div>
+        <div class="lt-item dead">
+          <span class="when">Someday</span>
+          <h4>Production stops — the lease dies</h4>
+          <p>When production permanently ceases, the lease terminates on its own. Full rights snap back to the mineral owner (or their heirs), who can sign a brand-new lease — new bonus, new royalty, new terms.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="grid2">
+        <div>
+          <p class="kicker">Why owners care</p>
+          <h3>The terms are set once</h3>
+          <p>Everything that matters — the royalty fraction, how big a unit your acres can be pooled into, whether one well can hold <em>all</em> your acreage or just part of it — is locked in at signing. There's no renegotiating while a lease is held by production. The moment of maximum power for a mineral owner is the moment before they sign.</p>
+        </div>
+        <div>
+          <p class="kicker">Why companies care</p>
+          <h3>HBP is the prize</h3>
+          <p>For the company, one producing well can hold a large block of acreage indefinitely at the old terms — no new bonus, no new negotiation. That's why operators watch expiring primary terms so closely, and why a flurry of drilling often happens right before leases would otherwise die.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">The point that trips everyone up</p>
+      <p>"My lease was for 3 years, and that was 30 years ago — surely it's over." Maybe not. If a well drilled back then is <em>still producing</em>, that lease is most likely still alive, still on its original terms, and still covering the acreage it held. The 3 years was only the drilling window. Production, not the calendar, decides when an oil and gas lease ends.</p>
     </div>
   </section>
 
@@ -843,6 +1023,271 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
     </div>
 
     <p class="aside-note">A note for modern wells: long horizontal laterals rarely fit on a single tract, so today's units are large and cross many owners — and some split production by perforated lateral length rather than flat acreage. The "go it alone" play was strongest in the vertical-well era. A vertical-vs-horizontal toggle is on the build list.</p>
+  </section>
+
+  <!-- ============ PANEL 06 — DOI ============ -->
+  <section class="panel" id="p-doi" role="tabpanel" aria-labelledby="t-doi" tabindex="0">
+
+    <div class="hero">
+      <p class="eyebrow">Concept 06 — your decimal (DOI)</p>
+      <h1>Why your share of the well is <em>0.00488281</em>.</h1>
+      <p class="lede">When a well starts paying, you receive a document with a long decimal on it — your exact share of every dollar the well earns. That number can look bafflingly small. Here's where it comes from, one honest multiplication at a time.</p>
+    </div>
+
+    <div class="section" style="border-top:0;padding-top:1rem">
+      <p class="kicker">Start here</p>
+      <h2>First — what's a division order?</h2>
+      <p>Before a well pays anyone, the operator maps out exactly who gets what share of production. Each owner's share is written as a decimal — the <strong>decimal interest</strong> — and sent to them on a <strong>division order (DOI)</strong>: a statement that says "we show you owning 0.0…X of this well; confirm and we'll start paying."</p>
+      <p>The decimal isn't invented — it's built by multiplying a few simple fractions together. Each fraction answers one question. Let's build yours from scratch, starting simple and adding one real-world layer at a time.</p>
+
+      <div class="glossary">
+        <div class="term"><span class="t">Division order (DO)</span><span class="d">The operator's statement of your exact decimal share of a well, sent for you to confirm before payments start.</span></div>
+        <div class="term"><span class="t">Decimal interest</span><span class="d">Your share of the well's revenue written as a decimal — all owners' decimals add up to 1.00000000.</span></div>
+        <div class="term"><span class="t">Royalty fraction</span><span class="d">The share your lease reserves for you, free of costs — 1/4 in our example.</span></div>
+        <div class="term"><span class="t">Allocation well</span><span class="d">A horizontal well drilled across separate tracts or units, with production split by how much of the lateral crosses each.</span></div>
+      </div>
+    </div>
+
+    <!-- STAGE 1 -->
+    <div class="doi-stage">
+      <div class="ds-head"><span class="n">Stage 1 · the simple case</span><span class="t">A well on your own tract</span></div>
+      <div class="ds-body">
+        <div class="ds-viz">
+          <svg viewBox="0 0 300 220" role="img" aria-label="A 40-acre tract with one vertical well; you own an undivided one quarter of the minerals">
+            <rect x="60" y="30" width="180" height="160" fill="#DCEAE4" stroke="#243A35" stroke-width="1.5"/>
+            <rect x="60" y="30" width="45" height="160" fill="#2F7E86" opacity=".55"/>
+            <circle cx="150" cy="110" r="8" fill="#243A35"/>
+            <text x="150" y="132" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#243A35">WELL</text>
+            <text x="150" y="20" text-anchor="middle" font-family="JetBrains Mono" font-size="10" letter-spacing="1.5" fill="#6B675E">YOUR 40-AC TRACT</text>
+            <text x="150" y="210" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#2F7E86">shaded = your undivided 1/4 (everywhere at once)</text>
+          </svg>
+        </div>
+        <div class="ds-math">
+          <p class="ds-formula">your minerals <b>1/4</b><br>× lease royalty <b>1/4</b></p>
+          <p class="ds-dec">0.06250000<small>your decimal — stage 1</small></p>
+          <p class="ds-note">You own 1/4 of the minerals; your lease reserves a 1/4 royalty. Two fractions, one multiplication. This is the whole formula when the well sits on your tract alone.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 2 -->
+    <div class="doi-stage">
+      <div class="ds-head"><span class="n">Stage 2 · pooled</span><span class="t">Your tract joins a 320-acre unit</span></div>
+      <div class="ds-body">
+        <div class="ds-viz">
+          <svg viewBox="0 0 300 220" role="img" aria-label="The 40-acre tract now sits inside a 320-acre pooled unit with one shared well">
+            <rect x="30" y="30" width="240" height="160" fill="#E3E7DF" stroke="#A23A2A" stroke-width="2" stroke-dasharray="7 4"/>
+            <rect x="30" y="30" width="60" height="80" fill="#DCEAE4" stroke="#243A35" stroke-width="1.25"/>
+            <text x="60" y="75" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#243A35">YOURS</text>
+            <text x="60" y="88" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#6B675E">40 ac</text>
+            <circle cx="185" cy="120" r="8" fill="#243A35"/>
+            <text x="185" y="142" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#243A35">UNIT WELL</text>
+            <text x="150" y="20" text-anchor="middle" font-family="JetBrains Mono" font-size="10" letter-spacing="1.5" fill="#6B675E">320-AC POOLED UNIT</text>
+            <text x="150" y="210" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#A23A2A">your tract = 40/320 = 1/8 of the unit</text>
+          </svg>
+        </div>
+        <div class="ds-math">
+          <p class="ds-formula">your minerals <b>1/4</b><br>× lease royalty <b>1/4</b><br>× tract share of unit <b>40/320</b></p>
+          <p class="ds-dec">0.00781250<small>your decimal — stage 2</small></p>
+          <p class="ds-note">From Concept 05: pooled production is shared by acreage. One new fraction joins the multiplication — your tract's slice of the unit — and the decimal drops to an eighth of what it was. Nothing was taken; your share is just of a much bigger whole.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 3 -->
+    <div class="doi-stage">
+      <div class="ds-head"><span class="n">Stage 3 · allocation well</span><span class="t">A long lateral crosses your unit — and keeps going</span></div>
+      <div class="ds-body">
+        <div class="ds-viz">
+          <svg viewBox="0 0 300 220" role="img" aria-label="A horizontal wellbore crossing two units, with only part of its lateral inside your unit">
+            <rect x="20" y="40" width="130" height="140" fill="#E3E7DF" stroke="#A23A2A" stroke-width="1.75" stroke-dasharray="6 4"/>
+            <rect x="150" y="40" width="130" height="140" fill="#EDE4D2" stroke="#C8A45E" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="85" y="30" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing="1" fill="#6B675E">YOUR UNIT</text>
+            <text x="215" y="30" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing="1" fill="#6B675E">NEIGHBOR UNIT</text>
+            <circle cx="38" cy="110" r="6" fill="#243A35"/>
+            <line x1="38" y1="110" x2="262" y2="110" stroke="#243A35" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="38" y1="110" x2="150" y2="110" stroke="#2F7E86" stroke-width="3.5" stroke-linecap="round"/>
+            <text x="94" y="100" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#2F7E86">7,500 ft in your unit</text>
+            <text x="206" y="100" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#6B675E">4,500 ft beyond</text>
+            <text x="150" y="205" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#243A35">12,000-ft lateral · your unit's share = 7,500/12,000</text>
+          </svg>
+        </div>
+        <div class="ds-math">
+          <p class="ds-formula">your minerals <b>1/4</b><br>× lease royalty <b>1/4</b><br>× tract share of unit <b>40/320</b><br>× lateral in your unit <b>7,500/12,000</b></p>
+          <p class="ds-dec">0.00488281<small>your decimal — stage 3</small></p>
+          <p class="ds-note">Modern laterals don't stop at unit lines. When one wellbore crosses two units, production is commonly allocated by how many feet of the lateral lie in each — one more fraction in the chain. (Texas courts haven't fully settled allocation-well rules; this is the common industry approach.)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>The whole story in one picture</h2>
+      <p class="eyebrow" style="margin-top:.5rem">Same ownership, same royalty — each layer of sharing shrinks the decimal</p>
+      <div class="doi-shrink" role="img" aria-label="Bar chart showing the decimal shrinking from 0.0625 to 0.0078125 to 0.00488281 across the three stages">
+        <div class="bar"><div class="col" style="height:150px"></div><div class="v">0.06250000</div><div class="k">Own tract</div></div>
+        <div class="bar"><div class="col" style="height:19px"></div><div class="v">0.00781250</div><div class="k">Pooled 320-ac</div></div>
+        <div class="bar"><div class="col" style="height:12px"></div><div class="v">0.00488281</div><div class="k">Allocation well</div></div>
+      </div>
+      <p style="margin-top:1.4rem">Each stage multiplied in one more honest fraction. A small decimal usually doesn't mean anyone shorted you — it means the pie you're sharing got bigger. But because a division order is only the <em>operator's math</em>, checking those fractions against your own deed, lease, and the unit's plat is exactly how owners catch real errors.</p>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">The point that trips everyone up</p>
+      <p>"My lease says a 1/4 royalty — why is my check decimal 0.0048?" Because 1/4 was never the whole formula. It's 1/4 <em>of your fraction of the minerals</em>, <em>of your tract's share of the unit</em>, <em>of the lateral's share in your unit</em>. The royalty didn't shrink; it's being applied through every layer of sharing between you and the wellbore.</p>
+    </div>
+  </section>
+
+  <!-- ============ PANEL 07 — ROYALTY CHECK ============ -->
+  <section class="panel" id="p-check" role="tabpanel" aria-labelledby="t-check" tabindex="0">
+
+    <div class="hero">
+      <p class="eyebrow">Concept 07 — the royalty check</p>
+      <h1>Anatomy of a <em>$1,000</em> royalty check.</h1>
+      <p class="lede">A royalty check arrives with a statement full of codes, columns, and deductions. Strip the jargon away and it's simple: what the oil sold for, your slice of it, and a couple of subtractions on the way to your bank account. Let's walk one month's check.</p>
+    </div>
+
+    <div class="section" style="border-top:0;padding-top:1rem">
+      <p class="kicker">Start here</p>
+      <h2>First — what are you actually being paid for?</h2>
+      <p>Your well produced oil this month; the operator sold it. Your <strong>gross royalty</strong> is your decimal share of that sale money — before anything is taken out. From there, two kinds of subtractions can appear on the stub: <strong>severance tax</strong>, which the state charges on minerals when they're produced and sold (more on this in Concept 08), and <strong>post-production costs</strong> — the well's share of getting the product treated, moved, and to market, which many (not all) leases let the operator deduct.</p>
+      <p>What's left is your <strong>net</strong> — the number that actually lands in your account.</p>
+
+      <div class="glossary">
+        <div class="term"><span class="t">Gross royalty</span><span class="d">Your decimal × the well's sales for the month, before any deductions.</span></div>
+        <div class="term"><span class="t">Severance tax</span><span class="d">The state's tax on produced minerals — taken out before the money reaches you.</span></div>
+        <div class="term"><span class="t">Post-production costs</span><span class="d">Treating, transporting, and marketing charges. Whether they come out of your royalty depends on your lease's wording.</span></div>
+        <div class="term"><span class="t">Net (take-home)</span><span class="d">Gross minus taxes and any deductions — the amount actually paid to you.</span></div>
+      </div>
+
+      <p style="margin-top:1.6rem">Here's a whole month on one stub — a clean $1,000 gross so the math is easy to follow:</p>
+
+      <div class="stub" role="img" aria-label="Sample royalty check stub showing $1,000 gross royalty reduced by severance tax and post-production deductions to a net deposit of $900">
+        <div class="stub-top">
+          <span class="co">Example Operating Co.</span>
+          <span class="meta">Owner: YOU · Decimal: 0.00488281<br>Well: SAMPLE UNIT 1H · Prod. month: June</span>
+        </div>
+        <table>
+          <thead><tr><th>Line</th><th>What it means</th><th class="r">Amount</th></tr></thead>
+          <tbody>
+            <tr><td>Gross royalty</td><td>Your decimal share of this month's oil sales</td><td class="r">$1,000.00</td></tr>
+            <tr><td>Severance tax</td><td>State production tax on oil (4.6%) — withheld for the state</td><td class="r neg">− $46.00</td></tr>
+            <tr><td>Post-production</td><td>Your share of treating &amp; transport (per your lease)</td><td class="r neg">− $54.00</td></tr>
+            <tr class="net"><td>Net deposit</td><td>What reaches your bank</td><td class="r">$900.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:1.2rem;font-size:.95rem;color:var(--muted)">Real stubs split this across products (oil, gas, liquids) and months, and often correct earlier months — but every line on them is one of these three things: gross, a subtraction, or net.</p>
+    </div>
+
+    <div class="section">
+      <div class="grid2">
+        <div>
+          <p class="kicker">Why checks bounce around</p>
+          <h3>Two moving parts: price × barrels</h3>
+          <p>Your decimal never changes month to month — but the oil price and the well's output both do. Wells naturally decline over time, and prices swing. A check that's half what it was last year usually reflects those two things, not a change in your ownership.</p>
+        </div>
+        <div>
+          <p class="kicker">What to check</p>
+          <h3>The lease controls the deductions</h3>
+          <p>Severance tax comes out for everyone. Post-production costs are different — some leases make royalty free of them, others allow them. If a "deducts" column looks heavy, the answer lives in your lease's royalty clause. It's the single most valuable clause to understand on the whole document.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">The point that trips everyone up</p>
+      <p>"The well made $1,000 for me but I only got $900 — someone's skimming." Look at the stub before assuming. The $46 went to the state as severance tax — the operator never kept it. The $54 is post-production cost your lease may allow. The stub exists precisely so you can trace every dollar: gross, minus lines you can name, equals net.</p>
+    </div>
+  </section>
+
+  <!-- ============ PANEL 08 — THE TWO TAXES ============ -->
+  <section class="panel" id="p-tax" role="tabpanel" aria-labelledby="t-tax" tabindex="0">
+
+    <div class="hero">
+      <p class="eyebrow">Concept 08 — the two taxes</p>
+      <h1>One tax on the <em>candy</em>, one tax on the <em>store</em>.</h1>
+      <p class="lede">Mineral owners meet two very different taxes: severance tax and ad valorem (property) tax. They confuse everyone — until you picture a candy store. One tax is charged on each candy bar as it sells. The other is charged on the store itself, just for being valuable.</p>
+    </div>
+
+    <div class="section" style="border-top:0;padding-top:1rem">
+      <p class="kicker">Start here</p>
+      <h2>First — the candy store</h2>
+      <p>Imagine your minerals are a candy store, and every barrel of oil is a candy bar. Two different tax collectors visit — at different times, measuring different things.</p>
+
+      <div class="glossary">
+        <div class="term"><span class="t">Severance tax</span><span class="d">A state tax on each unit of oil or gas as it's produced ("severed" from the ground) and sold. No production, no tax.</span></div>
+        <div class="term"><span class="t">Ad valorem tax</span><span class="d">Latin for "on the value." The county's annual property tax on what your mineral interest itself is worth.</span></div>
+        <div class="term"><span class="t">Appraisal</span><span class="d">The county's yearly estimate of your interest's value — based mostly on what the well is expected to produce.</span></div>
+        <div class="term"><span class="t">Withheld at source</span><span class="d">Taken out before the money reaches you — how severance tax is collected on your royalty.</span></div>
+      </div>
+
+      <div class="taxgrid">
+        <div class="taxcard sev">
+          <div class="tc-head"><span class="k">Tax № 1 · on the candy</span><h3>Severance tax</h3></div>
+          <div class="tc-viz">
+            <svg viewBox="0 0 300 170" role="img" aria-label="Candy bars crossing a store counter with a small tax slice taken from each sale">
+              <rect x="20" y="120" width="260" height="10" rx="3" fill="#C8A45E"/>
+              <text x="150" y="150" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing="1" fill="#6B675E">THE COUNTER · CHARGED AT EACH SALE</text>
+              <g>
+                <rect x="40" y="88" width="52" height="24" rx="4" fill="#B06A3B"/>
+                <rect x="110" y="88" width="52" height="24" rx="4" fill="#B06A3B"/>
+                <rect x="180" y="88" width="52" height="24" rx="4" fill="#B06A3B"/>
+                <rect x="180" y="88" width="12" height="24" rx="3" fill="#2F7E86"/>
+              </g>
+              <text x="66" y="104" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#fff">BAR</text>
+              <text x="136" y="104" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#fff">BAR</text>
+              <text x="216" y="104" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#fff">BAR</text>
+              <line x1="186" y1="84" x2="164" y2="50" stroke="#2F7E86" stroke-width="1.25"/>
+              <text x="160" y="42" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#2F7E86">the state's slice · taken at the register</text>
+            </svg>
+          </div>
+          <div class="tc-body">
+            <p>Charged on <strong>each candy bar as it sells</strong>. The slice comes off at the register — the store never touches that money. If no candy sells this month, this tax is zero.</p>
+            <p style="margin-top:.6rem"><strong>For your minerals:</strong> the state taxes each barrel as it's produced and sold (in Texas, 4.6% for oil). It's withheld from the revenue before your royalty is paid — that's the severance line on your check stub from Concept 07. You never owe it separately; it never reached you to begin with.</p>
+          </div>
+        </div>
+
+        <div class="taxcard adv">
+          <div class="tc-head"><span class="k">Tax № 2 · on the store</span><h3>Ad valorem (property) tax</h3></div>
+          <div class="tc-viz">
+            <svg viewBox="0 0 300 170" role="img" aria-label="A candy store building with a county appraisal tag on it, taxed annually on its value">
+              <rect x="70" y="60" width="160" height="80" fill="#E7D3A8" stroke="#C8A45E" stroke-width="1.5"/>
+              <path d="M60,60 L150,22 L240,60 Z" fill="#C8A45E"/>
+              <rect x="130" y="98" width="40" height="42" fill="#8a6a2e"/>
+              <text x="150" y="86" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="700" font-size="12" fill="#3a2c10">CANDY STORE</text>
+              <rect x="196" y="104" width="72" height="26" rx="4" fill="#F4F2EC" stroke="#A23A2A" stroke-width="1.25" transform="rotate(-6 232 117)"/>
+              <text x="232" y="120" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#A23A2A" transform="rotate(-6 232 117)">APPRAISED $$</text>
+              <text x="150" y="160" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing="1" fill="#6B675E">TAXED YEARLY ON WHAT IT'S WORTH</text>
+            </svg>
+          </div>
+          <div class="tc-body">
+            <p>Charged on <strong>the store itself</strong> — the county appraises what the business is worth and sends a bill once a year, whether it sold much candy or not. A valuable store on a busy corner pays more.</p>
+            <p style="margin-top:.6rem"><strong>For your minerals:</strong> once a well produces, your county appraises your interest's value (based mostly on expected future production) and sends <em>you</em> an annual property tax bill — the same way it taxes a house. This one isn't withheld from your check: it arrives in the mail, and it's yours to pay.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Side by side</h2>
+      <div class="table-scroll" style="margin-top:1.1rem">
+        <table class="ledger">
+          <thead><tr><th></th><th>Severance ("the candy")</th><th>Ad valorem ("the store")</th></tr></thead>
+          <tbody>
+            <tr><td>Taxed on</td><td>Each barrel produced &amp; sold</td><td>The value of your interest itself</td></tr>
+            <tr><td>Who levies it</td><td>The state</td><td>Your county (schools, roads, etc.)</td></tr>
+            <tr><td>How it's collected</td><td>Withheld from revenue before your check</td><td>A yearly bill mailed to you</td></tr>
+            <tr><td>If the well stops</td><td>Drops to zero — nothing sold, nothing taxed</td><td>Shrinks as appraised value falls, but is billed while value remains</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">The point that trips everyone up</p>
+      <p>"I already paid tax on my royalty — why is the county billing me too?" Because they're two different taxes on two different things. The severance tax was charged on the <em>candy</em> — each barrel as it sold, taken before your check. The county's bill is on the <em>store</em> — the value of owning the interest at all. Paying one doesn't cover the other, and only the second one ever arrives in your mailbox.</p>
+    </div>
   </section>
 
   <!-- ============ ROADMAP TAB ============ -->
