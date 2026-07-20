@@ -1,10 +1,25 @@
 <!DOCTYPE html>
+<!--
+  ============================================================
+  Oil, Visualized  ·  index.html
+  Version:      1.0.0
+  Last updated: 2026-07-19
+  Consolidated build: DOI polish (cross-hatch tract, DO/DOI
+  glossary split, horizontal waterfall) + mobile tab-strip fix
+  + Support/donations tab + canonical tag + roadmap sync.
+  NOTE: bump "Version" and "Last updated" on every commit so the
+  newest index.html is always identifiable at a glance.
+  ============================================================
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Oil, Visualized — Texas oil and gas concepts, drawn. Start with the surface and mineral estates and build toward the complex.">
+<meta name="version" content="1.0.0">
+<meta name="last-updated" content="2026-07-19">
 <title>Oil, Visualized — the Texas mineral estate, drawn</title>
+<link rel="canonical" href="https://visualizedoil.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Spectral:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -354,6 +369,25 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
 .taxcard .tc-viz svg{width:100%;max-width:300px;height:auto}
 .taxcard .tc-body{padding:.8rem 1.3rem 1.3rem;font-size:.95rem;line-height:1.6;color:#322f29}
 
+/* ===== SUPPORT / DONATE (tab ♥) ===== */
+.support-card{max-width:540px;margin:2.2rem auto 0;border:1px solid var(--hair-2);border-radius:var(--radius-lg);background:var(--paper-2);overflow:hidden}
+.support-card .sc-head{padding:1.4rem 1.4rem .3rem;text-align:center}
+.support-card .sc-head .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--survey)}
+.support-card .sc-head h3{font-family:var(--display);font-weight:800;font-size:1.4rem;letter-spacing:-.015em;margin:.25rem 0 0}
+.support-card .handle{font-family:var(--mono);font-size:.9rem;color:var(--muted);text-align:center;margin:.2rem 0 0}
+.support-card .qr{display:flex;justify-content:center;padding:1.3rem 1.4rem .4rem}
+.support-card .qr img{width:210px;height:210px;display:block;background:#fff;border:1px solid var(--hair);border-radius:12px;padding:12px;image-rendering:pixelated}
+.support-card .qr-cap{text-align:center;font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:.2rem 0 0}
+.support-cta{display:flex;justify-content:center;padding:1.2rem 1.4rem 1.6rem}
+.support-btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--display);font-weight:700;font-size:1.02rem;text-decoration:none;background:var(--mineral);color:var(--paper);padding:.8rem 1.6rem;border-radius:30px;transition:transform .15s ease,background .15s ease}
+.support-btn:hover{background:#16241f;transform:translateY(-1px)}
+.support-note{max-width:60ch;margin:1.7rem auto 0;text-align:center;font-size:.95rem;color:var(--muted);line-height:1.62}
+.support-foot{font-style:normal!important;margin-top:.9rem}
+.support-foot a{color:var(--survey);text-decoration:underline}
+.first-support{margin-top:2rem;text-align:center;font-size:.92rem;color:var(--muted);border-top:1px solid var(--hair);padding-top:1.4rem}
+.first-support a{color:var(--survey);text-decoration:underline;font-weight:500}
+.foot-ver{font-style:normal!important;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;opacity:.75}
+
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
@@ -382,6 +416,7 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
       <button class="tab" role="tab" id="t-doi" aria-controls="p-doi" aria-selected="false"><span class="num">06</span> Your decimal (DOI)</button>
       <button class="tab" role="tab" id="t-check" aria-controls="p-check" aria-selected="false"><span class="num">07</span> The royalty check</button>
       <button class="tab" role="tab" id="t-tax" aria-controls="p-tax" aria-selected="false"><span class="num">08</span> The two taxes</button>
+      <button class="tab" role="tab" id="t-support" aria-controls="p-support" aria-selected="false"><span class="num">♥</span> Support</button>
       <button class="tab" role="tab" id="t-roadmap" aria-controls="p-roadmap" aria-selected="false"><span class="num">→</span> Roadmap</button>
     </div>
   </div>
@@ -621,6 +656,11 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
         <p>Add it up and Carl owns <strong>80 net mineral acres</strong> and Susan owns <strong>80 net mineral acres</strong> — they're even across the whole 160. So why isn't this just one 50/50 tract? Because ownership is measured <strong>tract by tract</strong>, not in aggregate. On the East 80 Carl holds 2/3; on the West 80 he holds 1/3. Those are different ownership pictures, so they're different tracts — and a single lease or division order can't treat them as one. Same totals, two tracts.</p>
       </div>
     </div>
+
+    <p class="first-support">
+      Oil, Visualized is free to use. If it helps you understand what you own, you can
+      <a href="#top" data-goto-tab="t-support">support the site</a>.
+    </p>
   </section>
 
   <!-- ============ PLACEHOLDER PANELS ============ -->
@@ -1320,27 +1360,66 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
     </div>
   </section>
 
+  <!-- ============ SUPPORT TAB ============ -->
+  <section class="panel" id="p-support" role="tabpanel" aria-labelledby="t-support" tabindex="0">
+
+    <div class="hero">
+      <p class="eyebrow">Support the project</p>
+      <h1>This site is <em>free</em> — and meant to stay that way.</h1>
+      <p class="lede">My goal with Oil, Visualized is a plain one: free, easy-to-reach education on mineral ownership and oil &amp; gas production and exploration, drawn from a <strong>mineral owner's</strong> perspective — turning the concepts that trip up Texas and greater American mineral and royalty owners into pictures that finally make sense. No paywall, no login, no ads.</p>
+    </div>
+
+    <div class="section" style="border-top:0;padding-top:1rem">
+      <p class="kicker">Why it's free</p>
+      <h2>Made for mineral owners, by a mineral owner</h2>
+      <p>Oil and gas ownership is one of the most counterintuitive corners of property law, and most of what's written about it is aimed at operators, landmen, or attorneys — not at the person who actually owns the minerals. This project exists to close that gap: to give owners and newcomers the intuition <em>before</em> the jargon, one clear visual at a time. That mission comes first, and it doesn't depend on anyone paying a cent.</p>
+      <p>That said, keeping a site online isn't free — there's a domain to renew, hosting to maintain, and real time behind every new concept. If Oil, Visualized has helped you understand what you own and you'd like to help keep it running and growing, a donation of any amount is genuinely appreciated. It's entirely optional, and everything here stays free either way.</p>
+
+      <div class="support-card">
+        <div class="sc-head">
+          <p class="k">Donate via Venmo</p>
+          <h3>Chip in whatever feels right</h3>
+          <p class="handle">@George-Tharp</p>
+        </div>
+        <div class="qr">
+          <img src="data:image/png;base64,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" width="210" height="210" alt="Venmo QR code — scan to send a donation to @George-Tharp">
+        </div>
+        <p class="qr-cap">Scan with your phone camera to pay</p>
+        <div class="support-cta">
+          <a class="support-btn" href="https://venmo.com/code?user_id=1805312839385088329&amp;created=1784511754.007084&amp;printed=1" target="_blank" rel="noopener">Open my Venmo →</a>
+        </div>
+      </div>
+
+      <p class="support-note">On a computer? Scan the code with your phone. On your phone? Tap "Open my Venmo," or search <strong>@George-Tharp</strong> in the Venmo app. Any amount is a real help — thank you for reading.</p>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">A note on what this is</p>
+      <p>Oil, Visualized is a personal, educational project — a set of simplified teaching tools, not legal advice, a title opinion, or a substitute for the actual instruments of record. Donations support the site itself; they don't buy advice, a consultation, or any professional service.</p>
+    </div>
+  </section>
+
   <!-- ============ ROADMAP TAB ============ -->
   <section class="panel" id="p-roadmap" role="tabpanel" aria-labelledby="t-roadmap" tabindex="0">
     <div class="roadmap">
       <p class="eyebrow">The build</p>
       <h2 style="font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,1.4rem+2.4vw,3rem);letter-spacing:-.025em;line-height:1.05">From the simplest idea to the deep end.</h2>
-      <p class="lede">Each concept builds on the one before it. We ship the foundations first — the things every owner and every new hire has to understand — then layer in the machinery, then the edge cases and other jurisdictions.</p>
+      <p class="lede">Each concept builds on the one before it. We ship the foundations first — the things every owner and every new hire has to understand — then layer in the machinery, then the edge cases and other jurisdictions. Eight concepts are live today, carrying you from what you own all the way through leasing, pooling, and getting paid — with more on the way.</p>
 
       <div class="tier">
         <div class="tier-head"><span class="tier-num">TIER 1</span><h3>The estate</h3><span class="tier-sub">What ownership even means underground.</span></div>
         <div class="steps">
           <div class="step"><span class="chip live">Live</span><span class="t">Surface vs. mineral estate · severance<small>The two stacked estates and the dominant-estate rule</small></span></div>
-          <div class="step"><span class="chip next">Next</span><span class="t">Separate tracts &amp; common ownership<small>Why differing fractions create separate tracts</small></span></div>
-          <div class="step"><span class="chip later">Planned</span><span class="t">Fractional &amp; undivided interests<small>Co-tenancy, net mineral acres, partition</small></span></div>
-          <div class="step"><span class="chip later">Planned</span><span class="t">Accommodation doctrine &amp; surface use<small>How the dominant estate must treat the surface owner</small></span></div>
+          <div class="step"><span class="chip live">Live</span><span class="t">Separate tracts &amp; common ownership<small>Why differing fractions create separate tracts</small></span></div>
+          <div class="step"><span class="chip live">Live</span><span class="t">Fractional &amp; undivided interests<small>Co-tenancy, net mineral acres, partition</small></span></div>
+          <div class="step"><span class="chip next">Next</span><span class="t">Accommodation doctrine &amp; surface use<small>How the dominant estate must treat the surface owner</small></span></div>
         </div>
       </div>
 
       <div class="tier">
         <div class="tier-head"><span class="tier-num">TIER 2</span><h3>The lease</h3><span class="tier-sub">Turning ownership into production.</span></div>
         <div class="steps">
-          <div class="step"><span class="chip later">Planned</span><span class="t">What a lease is — FSD + reverter<small>Granting, habendum, term</small></span></div>
+          <div class="step"><span class="chip live">Live</span><span class="t">The lease — signing to termination<small>Bonus, royalty, primary vs. secondary term, held by production</small></span></div>
           <div class="step"><span class="chip later">Planned</span><span class="t">Royalty vs. working interest<small>Who bears cost, who doesn't</small></span></div>
           <div class="step"><span class="chip later">Planned</span><span class="t">Held by production &amp; savings clauses<small>Shut-in, cessation, continuous operations</small></span></div>
           <div class="step"><span class="chip later">Planned</span><span class="t">Pugh clauses &amp; retained acreage<small>Releasing the acreage a well doesn't develop</small></span></div>
@@ -1350,8 +1429,8 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
       <div class="tier">
         <div class="tier-head"><span class="tier-num">TIER 3</span><h3>Combining tracts</h3><span class="tier-sub">Many owners, one well.</span></div>
         <div class="steps">
-          <div class="step"><span class="chip later">Planned</span><span class="t">Pooling — voluntary &amp; compulsory<small>Prototype already built</small></span></div>
-          <div class="step"><span class="chip later">Planned</span><span class="t">Proration units &amp; allowables<small>Prototype already built</small></span></div>
+          <div class="step"><span class="chip live">Live</span><span class="t">Pooling &amp; dilution<small>Units, the dilution slider, the MIPA §102.014 backbone</small></span></div>
+          <div class="step"><span class="chip later">Planned</span><span class="t">Proration units &amp; allowables<small>RRC field rules; prototype already built</small></span></div>
           <div class="step"><span class="chip later">Planned</span><span class="t">Unitization &amp; secondary recovery<small>Waterfloods, EOR, participation formulas</small></span></div>
         </div>
       </div>
@@ -1359,10 +1438,12 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
       <div class="tier">
         <div class="tier-head"><span class="tier-num">TIER 4</span><h3>Getting paid</h3><span class="tier-sub">From the wellhead to the check.</span></div>
         <div class="steps">
-          <div class="step"><span class="chip later">Planned</span><span class="t">Division orders &amp; decimal interests<small>Prototype math already built</small></span></div>
+          <div class="step"><span class="chip live">Live</span><span class="t">Your decimal — division orders (DOI)<small>Building one decimal across tract, unit &amp; lateral</small></span></div>
+          <div class="step"><span class="chip live">Live</span><span class="t">The royalty check<small>A worked $1,000 stub: gross → tax → costs → net</small></span></div>
+          <div class="step"><span class="chip live">Live</span><span class="t">Severance tax vs. ad valorem tax<small>The candy-store analogy for the two taxes</small></span></div>
           <div class="step"><span class="chip later">Planned</span><span class="t">Net revenue interest &amp; the burden stack<small>ORRI, NPRI, production payments</small></span></div>
           <div class="step"><span class="chip later">Planned</span><span class="t">Suspense, escheat &amp; unclaimed property<small>Where unpaid royalties go</small></span></div>
-          <div class="step"><span class="chip later">Planned</span><span class="t">Post-production costs<small>What can and can't be netted out</small></span></div>
+          <div class="step"><span class="chip later">Planned</span><span class="t">Post-production costs (deep dive)<small>What can and can't be netted out</small></span></div>
         </div>
       </div>
 
@@ -1397,6 +1478,8 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
       <span>Texas oil &amp; gas</span>
     </div>
     <p class="disc">These visualizations are simplified teaching tools. They are not legal advice. Created by George Tharp, JD.</p>
+    <p class="disc support-foot">Free to use, always. If it helped you, you can <a href="#top" data-goto-tab="t-support">support the site</a> — thank you.</p>
+    <p class="disc foot-ver">v1.0 · updated July 19, 2026</p>
   </div>
 </footer>
 
@@ -1424,6 +1507,14 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
       e.preventDefault();
       var next = tabs[(i+dir+tabs.length)%tabs.length];
       next.focus(); selectTab(next);
+    });
+  });
+
+  /* footer / in-page links that jump to a specific tab */
+  document.querySelectorAll('[data-goto-tab]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      var t = document.getElementById(link.getAttribute('data-goto-tab'));
+      if(t){ e.preventDefault(); selectTab(t); }
     });
   });
 
