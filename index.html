@@ -2,9 +2,15 @@
 <!--
   ============================================================
   Oil, Visualized  ·  index.html
-  Version:      1.0.0
-  Last updated: 2026-07-19
-  Consolidated build: DOI polish (cross-hatch tract, DO/DOI
+  Version:      1.1.0
+  Last updated: 2026-07-20
+  This build: NEW Concept 09 — Allocation & PSA wells (Tier 3):
+  three-way permit toggle (pooled / PSA / allocation), footage
+  ledger, tract-participation-factor worked example, Opiela
+  settlement status. Also: script modernized to ES2015+
+  (const/let, arrow fns, template literals) and reorganized into
+  guarded init functions; cross-links added from Concepts 05 & 06.
+  Prior build (1.0.0): DOI polish (cross-hatch tract, DO/DOI
   glossary split, horizontal waterfall) + mobile tab-strip fix
   + Support/donations tab + canonical tag + roadmap sync.
   NOTE: bump "Version" and "Last updated" on every commit so the
@@ -16,8 +22,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Oil, Visualized — Texas oil and gas concepts, drawn. Start with the surface and mineral estates and build toward the complex.">
-<meta name="version" content="1.0.0">
-<meta name="last-updated" content="2026-07-19">
+<meta name="version" content="1.1.0">
+<meta name="last-updated" content="2026-07-20">
 <title>Oil, Visualized — the Texas mineral estate, drawn</title>
 <link rel="canonical" href="https://visualizedoil.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -416,6 +422,7 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
       <button class="tab" role="tab" id="t-doi" aria-controls="p-doi" aria-selected="false"><span class="num">06</span> Your decimal (DOI)</button>
       <button class="tab" role="tab" id="t-check" aria-controls="p-check" aria-selected="false"><span class="num">07</span> The royalty check</button>
       <button class="tab" role="tab" id="t-tax" aria-controls="p-tax" aria-selected="false"><span class="num">08</span> The two taxes</button>
+      <button class="tab" role="tab" id="t-alloc" aria-controls="p-alloc" aria-selected="false"><span class="num">09</span> Allocation wells</button>
       <button class="tab" role="tab" id="t-support" aria-controls="p-support" aria-selected="false"><span class="num">♥</span> Support</button>
       <button class="tab" role="tab" id="t-roadmap" aria-controls="p-roadmap" aria-selected="false"><span class="num">→</span> Roadmap</button>
     </div>
@@ -1068,7 +1075,7 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
       <p>"The well is on <em>my</em> land — so it's my well." Not once you're pooled. Inside a unit, production is split by acreage across <em>every</em> tract, wherever the wellbore happens to sit. Being the ground under the rig doesn't get you a bigger check — your acreage share does.</p>
     </div>
 
-    <p class="aside-note">A note for modern wells: long horizontal laterals rarely fit on a single tract, so today's units are large and cross many owners — and some split production by perforated lateral length rather than flat acreage. The "go it alone" play was strongest in the vertical-well era. A vertical-vs-horizontal toggle is on the build list.</p>
+    <p class="aside-note">A note for modern wells: long horizontal laterals rarely fit on a single tract, so today's units are large and cross many owners — and some split production by perforated lateral length rather than flat acreage. The "go it alone" play was strongest in the vertical-well era. How those multi-tract laterals get permitted and divided when pooling <em>isn’t</em> the answer — PSA and allocation wells — is Concept 09.</p>
   </section>
 
   <!-- ============ PANEL 06 — DOI ============ -->
@@ -1174,7 +1181,7 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
         <div class="ds-math">
           <p class="ds-formula">your minerals <b>1/4</b><br>× lease royalty <b>1/4</b><br>× tract share of unit <b>40/320</b><br>× lateral in your unit <b>7,500/12,000</b></p>
           <p class="ds-dec">0.00488281<small>your decimal — stage 3</small></p>
-          <p class="ds-note">Modern laterals don't stop at unit lines. When one wellbore crosses two units, production is commonly allocated by how many feet of the lateral lie in each — one more fraction in the chain. (Texas courts haven't fully settled allocation-well rules; this is the common industry approach.)</p>
+          <p class="ds-note">Modern laterals don't stop at unit lines. When one wellbore crosses two units, production is commonly allocated by how many feet of the lateral lie in each — one more fraction in the chain. (Texas courts haven't fully settled allocation-well rules; this is the common industry approach — Concept 09 takes it apart in full.)</p>
         </div>
       </div>
     </div>
@@ -1360,6 +1367,182 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
     </div>
   </section>
 
+  <!-- ============ PANEL 09 — ALLOCATION & PSA WELLS ============ -->
+  <section class="panel" id="p-alloc" role="tabpanel" aria-labelledby="t-alloc" tabindex="0">
+
+    <div class="hero">
+      <p class="eyebrow">Concept 09 — allocation &amp; PSA wells</p>
+      <h1>Two miles of well, three leases — and no pooling <em>at all</em>.</h1>
+      <p class="lede">Concept 05 showed separate tracts combining into a pooled unit and sharing one well by acreage. But plenty of leases cap pooled units far below what a modern two-mile lateral needs — and some forbid pooling outright. Texas's answer: let the wellbore cross the lease lines anyway, and divide the production a different way. Here's how a well with no unit pays its owners.</p>
+    </div>
+
+    <div class="section" style="border-top:0;padding-top:1rem">
+      <p class="kicker">Start here</p>
+      <h2>First — why would a well <em>not</em> be pooled?</h2>
+      <p>Spacing rules are the reason multi-tract wells need special treatment at all. The Railroad Commission's Statewide Rule 37 keeps wells a minimum distance from any lease line — and a wellbore obviously can't stay 467 feet away from a line it drills straight through. Pooling solves that by erasing the lines: once tracts are pooled, the Commission treats the whole unit as a single lease, so there are no interior lines to violate.</p>
+      <p>But pooling only happens if each lease <em>grants</em> the authority — and many don't grant enough. Older pooling clauses often cap units at 40 or 80 acres for oil, sizes written for the vertical-well era; a 10,000-foot lateral can't live inside that. Other leases prohibit pooling entirely. So since around 2008, the Commission has issued permits for two other kinds of multi-tract horizontal well: the <strong>PSA well</strong> and the <strong>allocation well</strong>. In both, the lease lines survive — only the sharing formula changes.</p>
+
+      <div class="glossary">
+        <div class="term"><span class="t">Take point</span><span class="d">A perforation — a spot along the lateral where oil and gas actually enter the wellbore. The <em>productive lateral</em> runs from the first take point to the last.</span></div>
+        <div class="term"><span class="t">PSA well</span><span class="d">A multi-tract well where at least 65% of the mineral and working interest owners in <em>each</em> tract signed a production sharing agreement — a contract setting the split.</span></div>
+        <div class="term"><span class="t">Allocation well</span><span class="d">A multi-tract well with no such agreement. The operator allocates production itself — most commonly by the lateral footage in each tract.</span></div>
+        <div class="term"><span class="t">Tract participation factor</span><span class="d">A tract's slice of a shared well's production — by acreage in a pooled unit, by footage in an allocation well. One more fraction in your decimal.</span></div>
+      </div>
+
+      <p style="margin-top:1.6rem">Below is one well: a 10,000-foot productive lateral crossing three tracts. Switch between the three ways Texas lets an operator permit it — and watch what happens to the lease lines, and to each tract's share of the same oil.</p>
+    </div>
+
+    <!-- PERMIT-MODE TOGGLE -->
+    <div class="dil" id="aw">
+      <div class="dil-head">
+        <div class="seg permitseg" role="group" aria-label="How the well is permitted">
+          <button data-mode="pooled" aria-pressed="true">Pooled unit</button>
+          <button data-mode="psa" aria-pressed="false">PSA well</button>
+          <button data-mode="alloc" aria-pressed="false">Allocation well</button>
+        </div>
+        <p class="dil-state" id="aw-state">Pooled unit well</p>
+      </div>
+      <div class="dil-body">
+        <svg viewBox="0 0 640 244" role="img" aria-label="One horizontal lateral crossing three tracts — A, B, and C. In pooled-unit mode a red dashed boundary surrounds all three and interior lease lines fade; in PSA and allocation modes the boundary disappears and the lease lines return, with each tract's share shown beneath it." style="width:100%;height:auto;max-width:640px;display:block;margin:0 auto .4rem">
+          <!-- mode captions (top) -->
+          <g id="aw-m-pooled">
+            <text x="320" y="20" text-anchor="middle" font-family="JetBrains Mono" font-size="10" letter-spacing="1.5" fill="#A23A2A">ONE POOLED UNIT — THE RRC TREATS IT AS A SINGLE LEASE</text>
+          </g>
+          <g id="aw-m-psa" opacity="0">
+            <text x="320" y="20" text-anchor="middle" font-family="JetBrains Mono" font-size="10" letter-spacing="1.5" fill="#1D7A52">PSA ON FILE — 65%+ OF OWNERS IN EACH TRACT SIGNED</text>
+          </g>
+          <g id="aw-m-alloc" opacity="0">
+            <text x="320" y="20" text-anchor="middle" font-family="JetBrains Mono" font-size="10" letter-spacing="1.5" fill="#6B675E">NO UNIT · NO AGREEMENT — THE OPERATOR ALLOCATES</text>
+          </g>
+
+          <!-- pooled-unit boundary -->
+          <rect id="aw-unit" x="32" y="46" width="576" height="154" fill="none" stroke="#A23A2A" stroke-width="2" stroke-dasharray="7 4"/>
+
+          <!-- tracts: 3,000 / 5,000 / 2,000 ft of a 10,000-ft lateral -->
+          <g stroke="#C7C1B2" stroke-width="1">
+            <rect x="40" y="54" width="168" height="138" fill="#F0E4CE"/>
+            <rect x="208" y="54" width="280" height="138" fill="#DBE3DE"/>
+            <rect x="488" y="54" width="112" height="138" fill="#ECE9DF"/>
+          </g>
+          <g id="aw-lines" stroke="#A23A2A" stroke-width="2" opacity="0.15">
+            <line x1="208" y1="54" x2="208" y2="192"/>
+            <line x1="488" y1="54" x2="488" y2="192"/>
+          </g>
+          <g font-family="JetBrains Mono" font-size="10.5" letter-spacing="2" fill="#6B675E" text-anchor="middle">
+            <text x="124" y="80">TRACT A</text>
+            <text x="348" y="80">TRACT B</text>
+            <text x="544" y="80">TRACT C</text>
+          </g>
+
+          <!-- lateral: heel on A, toe on C -->
+          <circle cx="58" cy="136" r="6" fill="#243A35"/>
+          <line x1="58" y1="136" x2="592" y2="136" stroke="#243A35" stroke-width="3.5" stroke-linecap="round"/>
+          <g fill="#F4F2EC">
+            <circle cx="84" cy="136" r="2.3"/><circle cx="126" cy="136" r="2.3"/><circle cx="168" cy="136" r="2.3"/>
+            <circle cx="210" cy="136" r="2.3"/><circle cx="252" cy="136" r="2.3"/><circle cx="294" cy="136" r="2.3"/>
+            <circle cx="336" cy="136" r="2.3"/><circle cx="378" cy="136" r="2.3"/><circle cx="420" cy="136" r="2.3"/>
+            <circle cx="462" cy="136" r="2.3"/><circle cx="504" cy="136" r="2.3"/><circle cx="546" cy="136" r="2.3"/>
+            <circle cx="586" cy="136" r="2.3"/>
+          </g>
+          <g font-family="JetBrains Mono" font-size="9" fill="#3a372f" text-anchor="middle">
+            <text x="124" y="122">3,000 ft</text>
+            <text x="348" y="122">5,000 ft</text>
+            <text x="544" y="122">2,000 ft</text>
+          </g>
+          <text x="124" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#6B675E">heel · dots = take points</text>
+
+          <!-- per-mode shares (bottom row) -->
+          <g id="aw-b-pooled" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#A23A2A" text-anchor="middle">
+            <text x="124" y="226">160 ac → 40%</text>
+            <text x="348" y="226">160 ac → 40%</text>
+            <text x="544" y="226">80 ac → 20%</text>
+          </g>
+          <g id="aw-b-psa" opacity="0" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#1D7A52" text-anchor="middle">
+            <text x="124" y="226">✓ per the PSA</text>
+            <text x="348" y="226">✓ per the PSA</text>
+            <text x="544" y="226">✓ per the PSA</text>
+          </g>
+          <g id="aw-b-alloc" opacity="0" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#243A35" text-anchor="middle">
+            <text x="124" y="226">3,000 ft → 30%</text>
+            <text x="348" y="226">5,000 ft → 50%</text>
+            <text x="544" y="226">2,000 ft → 20%</text>
+          </g>
+        </svg>
+        <p class="dil-readout" id="aw-readout"></p>
+      </div>
+    </div>
+
+    <!-- LEDGER -->
+    <div class="ledger-wrap">
+      <h2>The allocation-well math</h2>
+      <p class="eyebrow" style="margin-top:.5rem">Tract participation factor — footage in tract ÷ total productive lateral</p>
+      <div class="table-scroll">
+        <table class="ledger">
+          <thead>
+            <tr><th>Tract</th><th class="r">Productive lateral</th><th class="r">Fraction</th><th class="r">Tract participation factor</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Tract A (heel)</td><td class="r">3,000 ft</td><td class="r">3,000 / 10,000</td><td class="r">0.30000000</td></tr>
+            <tr><td>Tract B</td><td class="r">5,000 ft</td><td class="r">5,000 / 10,000</td><td class="r">0.50000000</td></tr>
+            <tr><td>Tract C (toe)</td><td class="r">2,000 ft</td><td class="r">2,000 / 10,000</td><td class="r">0.20000000</td></tr>
+            <tr class="tot"><td>Whole well</td><td class="r">10,000 ft</td><td class="r">—</td><td class="r">1.00000000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1.2rem;font-size:.95rem;color:var(--muted)">Compare the toggle above: pooled by acreage, Tract A took 40% and Tract B took 40%. Allocated by footage, A drops to 30% and B rises to 50%. Same well, same oil — the legal wrapper picks the formula, and the formula picks the winners.</p>
+    </div>
+
+    <!-- TPF WORKED EXAMPLE -->
+    <div class="doi-stage">
+      <div class="ds-head"><span class="n">Worked example</span><span class="t">When "Tract B" is itself a pooled unit</span></div>
+      <div class="ds-body">
+        <div class="ds-viz">
+          <svg viewBox="0 0 300 200" role="img" aria-label="A second allocation well crossing three areas, where the middle area — Tract B — is itself the 320-acre pooled unit from Concept 06. Half the productive lateral lies inside Tract B.">
+            <rect x="20" y="40" width="78" height="120" fill="#ECE9DF" stroke="#C7C1B2" stroke-width="1" stroke-dasharray="5 4"/>
+            <rect x="98" y="40" width="130" height="120" fill="#E3E7DF" stroke="#2F7E86" stroke-width="2"/>
+            <rect x="228" y="40" width="52" height="120" fill="#ECE9DF" stroke="#C7C1B2" stroke-width="1" stroke-dasharray="5 4"/>
+            <text x="163" y="30" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing="1" fill="#2F7E86">TRACT B = YOUR 320-AC UNIT</text>
+            <circle cx="34" cy="100" r="5" fill="#243A35"/>
+            <line x1="34" y1="100" x2="272" y2="100" stroke="#243A35" stroke-width="3" stroke-linecap="round"/>
+            <line x1="98" y1="100" x2="228" y2="100" stroke="#2F7E86" stroke-width="3" stroke-linecap="round"/>
+            <text x="163" y="90" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#2F7E86">5,000 ft in your unit</text>
+            <text x="150" y="185" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#243A35">10,000-ft lateral · your unit's share = 5,000/10,000</text>
+          </svg>
+        </div>
+        <div class="ds-math">
+          <p class="ds-formula">your DOI inside the unit <b>0.00781250</b><br><span style="color:var(--muted)">(Concept 06, Stage 2)</span><br>× Tract B's participation factor <b>5,000/10,000</b></p>
+          <p class="ds-dec">0.00390625<small>your decimal — this well</small></p>
+          <p class="ds-note">In the real Permian, the "tracts" an allocation well crosses are often whole pooled units. Production is split among the tracts first — the participation factor — and then your unit decimal divides your tract's slice. This is Concept 06's Stage 3 seen from the other side, on a second well with a different lateral.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="grid2">
+        <div>
+          <p class="kicker">Lease life</p>
+          <h3>An allocation well holds less</h3>
+          <p>Pooling's superpower is that production anywhere on the unit counts as production on <em>every</em> tract in it — one well can hold a dozen leases, including tracts the wellbore never touches. An allocation well has no unit, so most commentators read it as holding only the leases it actually crosses. And timing turns knife-edge: if the drill bit hasn't reached your tract when your primary term runs out, nothing has happened <em>on your lease</em> yet — and it may simply expire while the well is being drilled toward you.</p>
+        </div>
+        <div>
+          <p class="kicker">Check the formula</p>
+          <h3>The split is a choice, not a law</h3>
+          <p>Footage-based allocation quietly assumes every foot of lateral produces equally — but frac stages aren't evenly spaced, rock isn't uniform, and some PSAs use acreage or a blend instead. Your division order shows the result as a single decimal, so ask what formula produced it. The operator's permit filings (the RRC's Form P-16 acreage designation and the plat) show the footage claimed for each tract — that's where you check the operator's math, just like Concept 06 taught.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">What the law says — honestly, not much yet</p>
+      <p>Texas courts have never squarely blessed or condemned allocation wells. The case built to answer it — <strong>Opiela v. Railroad Commission</strong> — reached the Texas Supreme Court on full briefing, then <strong>settled in early 2025 before any ruling</strong>, leaving the deepest questions open: is an allocation well just pooling without permission? Can the Commission keep permitting them without formally adopted rules? Meanwhile the RRC keeps issuing the permits, and thousands of these wells are producing. The closest things to guidance on the books: the Austin Court of Appeals' 2023 opinion in that case, saying a PSA well is <em>not</em> pooling — so a lease's no-pooling clause alone doesn't stop one — and <strong>Springer Ranch v. Jones</strong> (2013), which upheld dividing royalties by productive lateral footage.</p>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">The point that trips everyone up</p>
+      <p>"The well crosses my land, so I've been pooled." No — and the difference is the whole concept. Pooling cross-conveys interests and makes production anywhere on the unit count as production on your tract. An allocation well does neither: your lease lines survive, no unit exists to hold anyone's lease, and you're paid only on the production attributed to <em>your</em> tract by the allocation formula. Same rig, same lateral — entirely different legal machinery. Which one you're in is written on the permit, not visible from the road.</p>
+    </div>
+  </section>
+
   <!-- ============ SUPPORT TAB ============ -->
   <section class="panel" id="p-support" role="tabpanel" aria-labelledby="t-support" tabindex="0">
 
@@ -1404,7 +1587,7 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
     <div class="roadmap">
       <p class="eyebrow">The build</p>
       <h2 style="font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,1.4rem+2.4vw,3rem);letter-spacing:-.025em;line-height:1.05">From the simplest idea to the deep end.</h2>
-      <p class="lede">Each concept builds on the one before it. We ship the foundations first — the things every owner and every new hire has to understand — then layer in the machinery, then the edge cases and other jurisdictions. Eight concepts are live today, carrying you from what you own all the way through leasing, pooling, and getting paid — with more on the way.</p>
+      <p class="lede">Each concept builds on the one before it. We ship the foundations first — the things every owner and every new hire has to understand — then layer in the machinery, then the edge cases and other jurisdictions. Nine concepts are live today, carrying you from what you own all the way through leasing, pooling, and getting paid — with more on the way.</p>
 
       <div class="tier">
         <div class="tier-head"><span class="tier-num">TIER 1</span><h3>The estate</h3><span class="tier-sub">What ownership even means underground.</span></div>
@@ -1430,6 +1613,7 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
         <div class="tier-head"><span class="tier-num">TIER 3</span><h3>Combining tracts</h3><span class="tier-sub">Many owners, one well.</span></div>
         <div class="steps">
           <div class="step"><span class="chip live">Live</span><span class="t">Pooling &amp; dilution<small>Units, the dilution slider, the MIPA §102.014 backbone</small></span></div>
+          <div class="step"><span class="chip live">Live</span><span class="t">Allocation &amp; PSA wells<small>Multi-tract laterals without pooling; footage-based sharing; the unsettled law</small></span></div>
           <div class="step"><span class="chip later">Planned</span><span class="t">Proration units &amp; allowables<small>RRC field rules; prototype already built</small></span></div>
           <div class="step"><span class="chip later">Planned</span><span class="t">Unitization &amp; secondary recovery<small>Waterfloods, EOR, participation formulas</small></span></div>
         </div>
@@ -1479,274 +1663,329 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
     </div>
     <p class="disc">These visualizations are simplified teaching tools. They are not legal advice. Created by George Tharp, JD.</p>
     <p class="disc support-foot">Free to use, always. If it helped you, you can <a href="#top" data-goto-tab="t-support">support the site</a> — thank you.</p>
-    <p class="disc foot-ver">v1.0 · updated July 19, 2026</p>
+    <p class="disc foot-ver">v1.1 · updated July 20, 2026</p>
   </div>
 </footer>
 
 <script>
-(function(){
+(() => {
   "use strict";
+
+  /* ============================================================
+     Oil, Visualized — page script
+     Organized as guarded init modules: each returns early if its
+     markup isn't on the page, so tabs never depend on a concept's
+     internals and concepts can be added or removed independently.
+     ============================================================ */
+
+  const $ = (id) => document.getElementById(id);
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
   /* ---------- TABS ---------- */
-  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
-  var panels = Array.prototype.slice.call(document.querySelectorAll('[role="tabpanel"]'));
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  const panels = [...document.querySelectorAll('[role="tabpanel"]')];
 
-  function selectTab(tab){
-    tabs.forEach(function(t){ t.setAttribute('aria-selected', t===tab ? 'true':'false'); });
-    panels.forEach(function(p){
-      var on = p.id === tab.getAttribute('aria-controls');
-      p.setAttribute('data-active', on ? 'true':'false');
-    });
-    window.scrollTo({top:0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto':'smooth'});
-  }
-  tabs.forEach(function(tab, i){
-    tab.addEventListener('click', function(){ selectTab(tab); });
-    tab.addEventListener('keydown', function(e){
-      var dir = e.key==='ArrowRight'?1 : e.key==='ArrowLeft'?-1 : 0;
-      if(!dir) return;
-      e.preventDefault();
-      var next = tabs[(i+dir+tabs.length)%tabs.length];
-      next.focus(); selectTab(next);
-    });
-  });
-
-  /* footer / in-page links that jump to a specific tab */
-  document.querySelectorAll('[data-goto-tab]').forEach(function(link){
-    link.addEventListener('click', function(e){
-      var t = document.getElementById(link.getAttribute('data-goto-tab'));
-      if(t){ e.preventDefault(); selectTab(t); }
-    });
-  });
-
-  /* ---------- STUDIO: view + estate toggles ---------- */
-  var studio = document.getElementById('studio');
-  if(!studio) return;
-
-  function setView(view){
-    studio.querySelectorAll('.viewseg button').forEach(function(b){
-      b.setAttribute('aria-pressed', b.dataset.view===view ? 'true':'false');
-    });
-    studio.querySelectorAll('[data-view-svg]').forEach(function(svg){
-      svg.setAttribute('data-show', svg.dataset.viewSvg===view ? 'true':'false');
-    });
-  }
-  studio.querySelectorAll('.viewseg button').forEach(function(b){
-    b.addEventListener('click', function(){ setView(b.dataset.view); });
-  });
-
-  var sxSurface = document.getElementById('sx-surface');
-  var sxPlane   = document.getElementById('sx-plane');
-  var sxMin     = document.getElementById('sx-minerals');
-  var plSurface = document.getElementById('pl-surface');
-  var plMin     = document.getElementById('pl-minerals');
-
-  function setEstate(mode){
-    studio.querySelectorAll('.estateseg button').forEach(function(b){
-      b.setAttribute('aria-pressed', b.dataset.estate===mode ? 'true':'false');
-    });
-
-    // cross-section
-    if(mode==='surface'){
-      sxSurface.style.opacity='1'; sxSurface.style.transform='none';
-      sxMin.style.opacity='.18'; sxPlane.style.opacity='0';
-    } else if(mode==='mineral'){
-      sxSurface.style.opacity='.18'; sxSurface.style.transform='none';
-      sxMin.style.opacity='1'; sxPlane.style.opacity='0';
-    } else { // both / severed
-      sxSurface.style.opacity='1'; sxSurface.style.transform='translateY(-42px)';
-      sxMin.style.opacity='1'; sxPlane.style.opacity='1';
-    }
-
-    // plan view
-    var showSurface = (mode==='surface' || mode==='both');
-    var showMin = (mode==='mineral' || mode==='both');
-    plSurface.style.display = showSurface ? '' : 'none';
-    plSurface.setAttribute('data-show', showSurface?'true':'false');
-    plMin.style.display = showMin ? '' : 'none';
-    plMin.setAttribute('data-show', showMin?'true':'false');
-    plSurface.style.opacity = (mode==='both') ? '0.45' : '1';
-  }
-  studio.querySelectorAll('.estateseg button').forEach(function(b){
-    b.addEventListener('click', function(){ setEstate(b.dataset.estate); });
-  });
-
-  /* ---------- TRACT INSPECTION ---------- */
-  var TRACTS = {
-    w80:{ title:'West 80 — mineral tract', carl:{f:'1/3', pct:33.3, net:'26.67'}, susan:{f:'2/3', pct:66.7, net:'53.33'} },
-    e80:{ title:'East 80 — mineral tract', carl:{f:'2/3', pct:66.7, net:'53.33'}, susan:{f:'1/3', pct:33.3, net:'26.67'} }
+  const selectTab = (tab) => {
+    tabs.forEach((t) => t.setAttribute("aria-selected", String(t === tab)));
+    panels.forEach((p) =>
+      p.setAttribute("data-active", String(p.id === tab.getAttribute("aria-controls")))
+    );
+    window.scrollTo({ top: 0, behavior: reduceMotion.matches ? "auto" : "smooth" });
   };
-  var spTitle=document.getElementById('sp-title'),
-      spHint=document.getElementById('sp-hint'),
-      spDetail=document.getElementById('sp-detail'),
-      obCval=document.getElementById('ob-c-val'), obSval=document.getElementById('ob-s-val'),
-      obCbar=document.getElementById('ob-c-bar'), obSbar=document.getElementById('ob-s-bar'),
-      obClbl=document.getElementById('ob-c-lbl'), obSlbl=document.getElementById('ob-s-lbl');
 
-  function inspect(key){
-    var d=TRACTS[key]; if(!d) return;
-    spTitle.textContent=d.title;
-    spHint.textContent='Each owner holds an undivided fractional interest in the whole 80 acres.';
-    spDetail.hidden=false;
-    obClbl.textContent='Carl'; obSlbl.textContent='Susan';
-    obCval.textContent=d.carl.f+' · '+d.carl.net+' net ac';
-    obSval.textContent=d.susan.f+' · '+d.susan.net+' net ac';
-    obCbar.style.width=d.carl.pct+'%'; obCbar.textContent=d.carl.f;
-    obSbar.style.width=d.susan.pct+'%'; obSbar.textContent=d.susan.f;
-    // highlight
-    clearHL();
-    ['sx-'+key,'pl-'+key].forEach(function(id){
-      var g=document.getElementById(id); if(!g) return;
-      var r=g.querySelector('rect');
-      if(r){ r.dataset.prevStroke=r.getAttribute('stroke')||''; r.setAttribute('stroke','#A23A2A'); r.setAttribute('stroke-width','4'); }
+  const initTabs = () => {
+    tabs.forEach((tab, i) => {
+      tab.addEventListener("click", () => selectTab(tab));
+      tab.addEventListener("keydown", (e) => {
+        const dir = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if (!dir) return;
+        e.preventDefault();
+        const next = tabs[(i + dir + tabs.length) % tabs.length];
+        next.focus();
+        selectTab(next);
+      });
     });
-  }
-  function clearHL(){
-    ['sx-w80','sx-e80','pl-w80','pl-e80'].forEach(function(id){
-      var g=document.getElementById(id); if(!g) return;
-      var r=g.querySelector('rect');
-      if(r && r.dataset.prevStroke!==undefined){
-        if(id.indexOf('pl-')===0){ r.setAttribute('stroke','#243A35'); r.setAttribute('stroke-width','1.5'); }
-        else { r.removeAttribute('stroke'); r.removeAttribute('stroke-width'); }
+
+    /* footer / in-page links that jump to a specific tab */
+    document.querySelectorAll("[data-goto-tab]").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const t = $(link.getAttribute("data-goto-tab"));
+        if (t) { e.preventDefault(); selectTab(t); }
+      });
+    });
+  };
+
+  /* ---------- CONCEPT 01 · STUDIO: view + estate toggles ---------- */
+  const initStudio = () => {
+    const studio = $("studio");
+    if (!studio) return;
+
+    const setView = (view) => {
+      studio.querySelectorAll(".viewseg button").forEach((b) =>
+        b.setAttribute("aria-pressed", String(b.dataset.view === view))
+      );
+      studio.querySelectorAll("[data-view-svg]").forEach((svg) =>
+        svg.setAttribute("data-show", String(svg.dataset.viewSvg === view))
+      );
+    };
+    studio.querySelectorAll(".viewseg button").forEach((b) =>
+      b.addEventListener("click", () => setView(b.dataset.view))
+    );
+
+    const sxSurface = $("sx-surface");
+    const sxPlane = $("sx-plane");
+    const sxMin = $("sx-minerals");
+    const plSurface = $("pl-surface");
+    const plMin = $("pl-minerals");
+
+    const setEstate = (mode) => {
+      studio.querySelectorAll(".estateseg button").forEach((b) =>
+        b.setAttribute("aria-pressed", String(b.dataset.estate === mode))
+      );
+
+      // cross-section
+      if (mode === "surface") {
+        sxSurface.style.opacity = "1"; sxSurface.style.transform = "none";
+        sxMin.style.opacity = ".18"; sxPlane.style.opacity = "0";
+      } else if (mode === "mineral") {
+        sxSurface.style.opacity = ".18"; sxSurface.style.transform = "none";
+        sxMin.style.opacity = "1"; sxPlane.style.opacity = "0";
+      } else { // both / severed
+        sxSurface.style.opacity = "1"; sxSurface.style.transform = "translateY(-42px)";
+        sxMin.style.opacity = "1"; sxPlane.style.opacity = "1";
       }
+
+      // plan view
+      const showSurface = mode === "surface" || mode === "both";
+      const showMin = mode === "mineral" || mode === "both";
+      plSurface.style.display = showSurface ? "" : "none";
+      plSurface.setAttribute("data-show", String(showSurface));
+      plMin.style.display = showMin ? "" : "none";
+      plMin.setAttribute("data-show", String(showMin));
+      plSurface.style.opacity = mode === "both" ? "0.45" : "1";
+    };
+    studio.querySelectorAll(".estateseg button").forEach((b) =>
+      b.addEventListener("click", () => setEstate(b.dataset.estate))
+    );
+
+    /* tract inspection */
+    const TRACTS = {
+      w80: { title: "West 80 — mineral tract", carl: { f: "1/3", pct: 33.3, net: "26.67" }, susan: { f: "2/3", pct: 66.7, net: "53.33" } },
+      e80: { title: "East 80 — mineral tract", carl: { f: "2/3", pct: 66.7, net: "53.33" }, susan: { f: "1/3", pct: 33.3, net: "26.67" } }
+    };
+    const spTitle = $("sp-title"), spHint = $("sp-hint"), spDetail = $("sp-detail");
+    const obCval = $("ob-c-val"), obSval = $("ob-s-val");
+    const obCbar = $("ob-c-bar"), obSbar = $("ob-s-bar");
+    const obClbl = $("ob-c-lbl"), obSlbl = $("ob-s-lbl");
+
+    const clearHL = () => {
+      ["sx-w80", "sx-e80", "pl-w80", "pl-e80"].forEach((id) => {
+        const r = $(id)?.querySelector("rect");
+        if (r && r.dataset.prevStroke !== undefined) {
+          if (id.startsWith("pl-")) { r.setAttribute("stroke", "#243A35"); r.setAttribute("stroke-width", "1.5"); }
+          else { r.removeAttribute("stroke"); r.removeAttribute("stroke-width"); }
+        }
+      });
+    };
+
+    const inspect = (key) => {
+      const d = TRACTS[key];
+      if (!d) return;
+      spTitle.textContent = d.title;
+      spHint.textContent = "Each owner holds an undivided fractional interest in the whole 80 acres.";
+      spDetail.hidden = false;
+      obClbl.textContent = "Carl"; obSlbl.textContent = "Susan";
+      obCval.textContent = `${d.carl.f} · ${d.carl.net} net ac`;
+      obSval.textContent = `${d.susan.f} · ${d.susan.net} net ac`;
+      obCbar.style.width = `${d.carl.pct}%`; obCbar.textContent = d.carl.f;
+      obSbar.style.width = `${d.susan.pct}%`; obSbar.textContent = d.susan.f;
+      clearHL();
+      [`sx-${key}`, `pl-${key}`].forEach((id) => {
+        const r = $(id)?.querySelector("rect");
+        if (r) {
+          r.dataset.prevStroke = r.getAttribute("stroke") ?? "";
+          r.setAttribute("stroke", "#A23A2A");
+          r.setAttribute("stroke-width", "4");
+        }
+      });
+    };
+
+    ["w80", "e80"].forEach((key) => {
+      [`sx-${key}`, `pl-${key}`].forEach((id) => {
+        const el = $(id);
+        if (!el) return;
+        el.addEventListener("click", () => inspect(key));
+        el.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); inspect(key); }
+        });
+      });
     });
-  }
-  ['w80','e80'].forEach(function(key){
-    ['sx-'+key,'pl-'+key].forEach(function(id){
-      var el=document.getElementById(id); if(!el) return;
-      el.addEventListener('click', function(){ inspect(key); });
-      el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); inspect(key);} });
-    });
-  });
 
-  // init
-  setView('section');
-  setEstate('mineral');
-})();
+    setView("section");
+    setEstate("mineral");
+  };
 
-/* ---------- POOLING / DILUTION ---------- */
-(function(){
-  "use strict";
-  var slider=document.getElementById('unit-acres');
-  if(!slider) return;
-  var BIG=80, SMALL=2;
-  var out=document.getElementById('unit-out'),
-      state=document.getElementById('dil-state'),
-      segBig=document.getElementById('seg-big'),
-      segSmall=document.getElementById('seg-small'),
-      segOthers=document.getElementById('seg-others'),
-      bigNum=document.getElementById('big-num'),
-      smallNum=document.getElementById('small-num'),
-      bigDelta=document.getElementById('big-delta'),
-      smallDelta=document.getElementById('small-delta'),
-      readout=document.getElementById('dil-readout'),
-      scaleEnd=document.getElementById('unitscale-end');
+  /* ---------- CONCEPT 02 · SEPARATE TRACTS TIMELINE ---------- */
+  const initTimeline = () => {
+    const back = $("tl-back");
+    if (!back) return;
+    const next = $("tl-next");
+    const dots = [...document.querySelectorAll("#tl .tl-dot")];
+    const badge = $("tl-badge"), title = $("tl-title"), cap = $("tl-cap");
+    const divide = $("tl-divide"), wholeG = $("tl-whole");
+    const wholeName = $("tl-whole-name"), wholeSub = $("tl-whole-sub");
+    const wlabel = $("tl-wlabel"), elabel = $("tl-elabel");
+    const w1 = $("tl-w1"), w2 = $("tl-w2"), e1 = $("tl-e1"), e2 = $("tl-e2");
+    const wfill = $("tl-wfill"), efill = $("tl-efill"), count = $("tl-count");
 
-  function r1(n){ return (Math.round(n*10)/10).toFixed(1); }
-  function r2(n){ return (Math.round(n*100)/100).toFixed(2); }
+    const NEUTRAL = "#E3E7DF", WEST = "#DCEAE4", EAST = "#EDE4D2";
+    const STEPS = [
+      { t: "The whole", whole: true, name: "Ada Reyes", sub: "160 ac \u00B7 one tract",
+        cap: "One owner holds the entire 160-acre mineral estate. Because the same person owns every acre, it\u2019s a single tract." },
+      { t: "A deed splits it", west: ["Ada Reyes", "keeps W 80"], east: ["A buyer", "buys E 80"],
+        cap: "Ada sells the minerals under the east half to a buyer and keeps the west. The instant ownership differs across that line, one tract becomes two." },
+      { t: "Heirs divide the shares", west: ["Two heirs", "\u00BD + \u00BD"], east: ["Buyer + partner", "\u00BD + \u00BD"],
+        cap: "Years pass. The west half is inherited by two children equally; the buyer sells half his east interest to a partner. Each tract now has co-owners holding fractions \u2014 but they\u2019re still two separate tracts." },
+      { t: "The patterns diverge", west: ["Susan \u2154", "Carl \u2153"], east: ["Carl \u2154", "Susan \u2153"],
+        cap: "Another generation inherits in unequal shares. Today both halves are owned by Carl and Susan \u2014 but in different proportions on each. That difference is exactly the two-tract split from Concept 01." }
+    ];
 
-  function update(){
-    var U=parseInt(slider.value,10);
-    out.textContent=U+' ac';
-    scaleEnd.textContent=U+' ac unit';
-    var standalone=(U<=BIG);
+    let i = 0;
+    const render = () => {
+      const s = STEPS[i];
+      title.textContent = s.t;
+      cap.textContent = s.cap;
+      badge.textContent = `Step ${i + 1} of ${STEPS.length}`;
+      dots.forEach((d, k) => d.classList.toggle("on", k === i));
+      back.disabled = i === 0;
+      next.disabled = i === STEPS.length - 1;
+      if (s.whole) {
+        divide.setAttribute("opacity", "0");
+        wholeG.setAttribute("opacity", "1");
+        wlabel.setAttribute("opacity", "0"); elabel.setAttribute("opacity", "0");
+        wfill.setAttribute("fill", NEUTRAL); efill.setAttribute("fill", NEUTRAL);
+        wholeName.textContent = s.name; wholeSub.textContent = s.sub;
+        count.textContent = "ONE TRACT";
+      } else {
+        divide.setAttribute("opacity", "1");
+        wholeG.setAttribute("opacity", "0");
+        wlabel.setAttribute("opacity", "1"); elabel.setAttribute("opacity", "1");
+        wfill.setAttribute("fill", WEST); efill.setAttribute("fill", EAST);
+        [w1.textContent, w2.textContent] = s.west;
+        [e1.textContent, e2.textContent] = s.east;
+        count.textContent = "TWO TRACTS";
+      }
+    };
+    back.addEventListener("click", () => { if (i > 0) { i--; render(); } });
+    next.addEventListener("click", () => { if (i < STEPS.length - 1) { i++; render(); } });
+    render();
+  };
 
-    var big, small, others;
-    if(standalone){ big=100; small=0; others=0; }
-    else {
-      big=BIG/U*100;
-      small=SMALL/U*100;
-      others=Math.max(0,(U-BIG-SMALL))/U*100;
-    }
+  /* ---------- CONCEPT 05 · POOLING / DILUTION ---------- */
+  const initDilution = () => {
+    const slider = $("unit-acres");
+    if (!slider) return;
+    const BIG = 80, SMALL = 2;
+    const out = $("unit-out"), state = $("dil-state");
+    const segBig = $("seg-big"), segSmall = $("seg-small"), segOthers = $("seg-others");
+    const bigNum = $("big-num"), smallNum = $("small-num");
+    const bigDelta = $("big-delta"), smallDelta = $("small-delta");
+    const readout = $("dil-readout"), scaleEnd = $("unitscale-end");
 
-    segBig.style.width=big+'%';
-    segSmall.style.width=small+'%';
-    segOthers.style.width=others+'%';
-    segBig.textContent = big>14 ? 'Big owner' : '';
-    segSmall.textContent = small>9 ? 'Small' : '';
-    segOthers.textContent = others>16 ? 'Other tracts' : '';
+    const r1 = (n) => (Math.round(n * 10) / 10).toFixed(1);
+    const r2 = (n) => (Math.round(n * 100) / 100).toFixed(2);
 
-    bigNum.textContent = standalone ? '100%' : r1(big)+'%';
-    smallNum.textContent = standalone ? '0%' : r2(small)+'%';
+    const update = () => {
+      const U = Number(slider.value);
+      out.textContent = `${U} ac`;
+      scaleEnd.textContent = `${U} ac unit`;
+      const standalone = U <= BIG;
 
-    if(standalone){
-      bigDelta.textContent='keeps the whole well';
-      bigDelta.className='m-delta';
-      smallDelta.textContent='left out · drainage risk';
-      smallDelta.className='m-delta warn';
-      state.textContent='Stand-alone · no pooling';
-      readout.innerHTML='Standing alone, the big owner\u2019s 80-acre tract <strong>is</strong> the whole unit, so they keep <strong>100%</strong> of the well. The small owner is shut out entirely \u2014 and exposed to drainage from the wells next door.';
-    } else {
-      bigDelta.textContent='\u25BC '+r1(100-big)+' pts from 100% (diluted)';
-      bigDelta.className='m-delta down';
-      smallDelta.textContent='\u25B2 from 0% \u2014 now included';
-      smallDelta.className='m-delta up';
-      state.textContent='Pooled unit';
-      readout.innerHTML='Pool '+U+' acres into the unit and the well still sits on the big owner\u2019s land \u2014 but their share is cut to <strong>'+r1(big)+'%</strong>. The small owner, who could never drill alone, goes from nothing to <strong>'+r2(small)+'%</strong>.';
-    }
-  }
-  slider.addEventListener('input', update);
-  update();
-})();
+      const big = standalone ? 100 : (BIG / U) * 100;
+      const small = standalone ? 0 : (SMALL / U) * 100;
+      const others = standalone ? 0 : (Math.max(0, U - BIG - SMALL) / U) * 100;
 
-/* ---------- SEPARATE TRACTS TIMELINE ---------- */
-(function(){
-  "use strict";
-  var back=document.getElementById('tl-back');
-  if(!back) return;
-  var next=document.getElementById('tl-next'),
-      dots=Array.prototype.slice.call(document.querySelectorAll('#tl .tl-dot')),
-      badge=document.getElementById('tl-badge'),
-      title=document.getElementById('tl-title'),
-      cap=document.getElementById('tl-cap'),
-      divide=document.getElementById('tl-divide'),
-      wholeG=document.getElementById('tl-whole'),
-      wholeName=document.getElementById('tl-whole-name'),
-      wholeSub=document.getElementById('tl-whole-sub'),
-      wlabel=document.getElementById('tl-wlabel'),
-      elabel=document.getElementById('tl-elabel'),
-      w1=document.getElementById('tl-w1'), w2=document.getElementById('tl-w2'),
-      e1=document.getElementById('tl-e1'), e2=document.getElementById('tl-e2'),
-      wfill=document.getElementById('tl-wfill'), efill=document.getElementById('tl-efill'),
-      count=document.getElementById('tl-count');
+      segBig.style.width = `${big}%`;
+      segSmall.style.width = `${small}%`;
+      segOthers.style.width = `${others}%`;
+      segBig.textContent = big > 14 ? "Big owner" : "";
+      segSmall.textContent = small > 9 ? "Small" : "";
+      segOthers.textContent = others > 16 ? "Other tracts" : "";
 
-  var NEUTRAL='#E3E7DF', WEST='#DCEAE4', EAST='#EDE4D2';
-  var STEPS=[
-    {t:'The whole', whole:true, name:'Ada Reyes', sub:'160 ac \u00B7 one tract',
-     cap:'One owner holds the entire 160-acre mineral estate. Because the same person owns every acre, it\u2019s a single tract.'},
-    {t:'A deed splits it', west:['Ada Reyes','keeps W 80'], east:['A buyer','buys E 80'],
-     cap:'Ada sells the minerals under the east half to a buyer and keeps the west. The instant ownership differs across that line, one tract becomes two.'},
-    {t:'Heirs divide the shares', west:['Two heirs','\u00BD + \u00BD'], east:['Buyer + partner','\u00BD + \u00BD'],
-     cap:'Years pass. The west half is inherited by two children equally; the buyer sells half his east interest to a partner. Each tract now has co-owners holding fractions \u2014 but they\u2019re still two separate tracts.'},
-    {t:'The patterns diverge', west:['Susan \u2154','Carl \u2153'], east:['Carl \u2154','Susan \u2153'],
-     cap:'Another generation inherits in unequal shares. Today both halves are owned by Carl and Susan \u2014 but in different proportions on each. That difference is exactly the two-tract split from Concept 01.'}
-  ];
-  var i=0;
-  function render(){
-    var s=STEPS[i];
-    title.textContent=s.t; cap.textContent=s.cap;
-    badge.textContent='Step '+(i+1)+' of '+STEPS.length;
-    dots.forEach(function(d,k){ d.classList.toggle('on', k===i); });
-    back.disabled=(i===0); next.disabled=(i===STEPS.length-1);
-    if(s.whole){
-      divide.setAttribute('opacity','0');
-      wholeG.setAttribute('opacity','1');
-      wlabel.setAttribute('opacity','0'); elabel.setAttribute('opacity','0');
-      wfill.setAttribute('fill',NEUTRAL); efill.setAttribute('fill',NEUTRAL);
-      wholeName.textContent=s.name; wholeSub.textContent=s.sub;
-      count.textContent='ONE TRACT';
-    } else {
-      divide.setAttribute('opacity','1');
-      wholeG.setAttribute('opacity','0');
-      wlabel.setAttribute('opacity','1'); elabel.setAttribute('opacity','1');
-      wfill.setAttribute('fill',WEST); efill.setAttribute('fill',EAST);
-      w1.textContent=s.west[0]; w2.textContent=s.west[1];
-      e1.textContent=s.east[0]; e2.textContent=s.east[1];
-      count.textContent='TWO TRACTS';
-    }
-  }
-  back.addEventListener('click',function(){ if(i>0){i--;render();} });
-  next.addEventListener('click',function(){ if(i<STEPS.length-1){i++;render();} });
-  render();
+      bigNum.textContent = standalone ? "100%" : `${r1(big)}%`;
+      smallNum.textContent = standalone ? "0%" : `${r2(small)}%`;
+
+      if (standalone) {
+        bigDelta.textContent = "keeps the whole well";
+        bigDelta.className = "m-delta";
+        smallDelta.textContent = "left out · drainage risk";
+        smallDelta.className = "m-delta warn";
+        state.textContent = "Stand-alone · no pooling";
+        readout.innerHTML = "Standing alone, the big owner\u2019s 80-acre tract <strong>is</strong> the whole unit, so they keep <strong>100%</strong> of the well. The small owner is shut out entirely \u2014 and exposed to drainage from the wells next door.";
+      } else {
+        bigDelta.textContent = `\u25BC ${r1(100 - big)} pts from 100% (diluted)`;
+        bigDelta.className = "m-delta down";
+        smallDelta.textContent = "\u25B2 from 0% \u2014 now included";
+        smallDelta.className = "m-delta up";
+        state.textContent = "Pooled unit";
+        readout.innerHTML = `Pool ${U} acres into the unit and the well still sits on the big owner\u2019s land \u2014 but their share is cut to <strong>${r1(big)}%</strong>. The small owner, who could never drill alone, goes from nothing to <strong>${r2(small)}%</strong>.`;
+      }
+    };
+    slider.addEventListener("input", update);
+    update();
+  };
+
+  /* ---------- CONCEPT 09 · ALLOCATION / PSA PERMIT TOGGLE ---------- */
+  const initAllocation = () => {
+    const wrap = $("aw");
+    if (!wrap) return;
+    const state = $("aw-state"), readout = $("aw-readout");
+    const unit = $("aw-unit"), lines = $("aw-lines");
+    const groups = {
+      pooled: [$("aw-m-pooled"), $("aw-b-pooled")],
+      psa: [$("aw-m-psa"), $("aw-b-psa")],
+      alloc: [$("aw-m-alloc"), $("aw-b-alloc")]
+    };
+    const MODES = {
+      pooled: {
+        label: "Pooled unit well",
+        text: "The three tracts pool into one <strong>400-acre unit</strong>. The Railroad Commission treats the whole unit as a single lease \u2014 the interior lines vanish for spacing purposes \u2014 and production is shared by <strong>acreage</strong>: Tract A takes 160/400 = 40%, B takes 40%, C takes 20%. This is Concept 05."
+      },
+      psa: {
+        label: "PSA well",
+        text: "No unit exists and the lease lines stay. But at least <strong>65% of the mineral and working interest owners in every tract</strong> signed a production sharing agreement, so production splits by <strong>whatever formula the agreement sets</strong> \u2014 often lateral footage, sometimes acreage, sometimes a blend. The contract, not a rule, does the dividing."
+      },
+      alloc: {
+        label: "Allocation well",
+        text: "No unit, no agreement. The operator allocates production on its own \u2014 most commonly by <strong>productive footage</strong>: Tract A takes 3,000/10,000 = 30%, B takes 50%, C takes 20%. Notice B\u2019s share <em>rose</em> from 40% to 50% and A\u2019s fell \u2014 same well, same oil, different formula."
+      }
+    };
+
+    const setMode = (mode) => {
+      wrap.querySelectorAll(".permitseg button").forEach((b) =>
+        b.setAttribute("aria-pressed", String(b.dataset.mode === mode))
+      );
+      Object.entries(groups).forEach(([key, els]) =>
+        els.forEach((el) => el.setAttribute("opacity", key === mode ? "1" : "0"))
+      );
+      unit.setAttribute("opacity", mode === "pooled" ? "1" : "0");
+      lines.setAttribute("opacity", mode === "pooled" ? "0.15" : "1");
+      state.textContent = MODES[mode].label;
+      readout.innerHTML = MODES[mode].text;
+    };
+
+    wrap.querySelectorAll(".permitseg button").forEach((b) =>
+      b.addEventListener("click", () => setMode(b.dataset.mode))
+    );
+    setMode("pooled");
+  };
+
+  /* ---------- boot ---------- */
+  initTabs();
+  initStudio();
+  initTimeline();
+  initDilution();
+  initAllocation();
 })();
 </script>
 
