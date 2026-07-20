@@ -34,8 +34,11 @@ zero property-law background going in.
 - **Support / donations live** — a ♥ Support tab explains the free-education mission
   and offers an optional Venmo donation (embedded QR + payment link, `@George-Tharp`);
   support links also sit in the global footer and at the foot of Concept 01
-- **Version labels retired** — the interface no longer carries a `v0.1` tag; the site
-  reads as a finished, growing resource rather than a beta
+- **Versioning** — the old `v0.1` beta tag is gone from the visible UI. Instead,
+  `index.html` now carries a version **header comment** plus `<meta name="version">`
+  and `<meta name="last-updated">`, and a discreet footer line (`v1.0 · updated July
+  19, 2026`). Current build: **v1.0.0**. This is the canonical way to tell which
+  `index.html` is newest — bump it on every commit (see build conventions)
 - **Wellbore gallery** — in progress; three diagrams ready to feature, not yet built
   into the site
 - **Commissioned diagrams** — idea stage; intake + payment flow to be built
@@ -257,6 +260,12 @@ options, lightest first:
   well's significance.
 - **Accessibility floor:** responsive to mobile, keyboard-operable toggles, visible
   focus, reduced-motion respected.
+- **Version tracking:** every `index.html` change bumps three things together — the
+  version header comment at the top of the file, the `version` / `last-updated` meta
+  tags, and the footer version line. Rough scheme: **patch** for fixes and copy edits,
+  **minor** for a new concept/tab, **major** for a structural overhaul. This is what
+  makes "which file is newest?" answerable at a glance — the lesson from the v0.1 /
+  polish divergence.
 - **Disclaimer stays in the footer:** teaching tool, not legal advice. Credit line:
   "Created by George Tharp, JD."
 - **Tech stack stays simple:** one self-contained `index.html` (inline CSS/JS, no
