@@ -30,7 +30,8 @@ zero property-law background going in.
   expected `http://` / `www.` → canonical redirect, not a real indexing problem.
 - **Claude Project:** a dedicated project (see `PROJECT_SETUP.md`) now houses this
   build separately from the fiduciary/legal reference project
-- **8 concepts live** on site, tabs 01–08 (see Tier tables below for which)
+- **9 concepts live** on site, tabs 01–09 (see Tier tables below for which)
+- **Support tab** live — Venmo QR + link, donations optional, site stays free
 - **Support / donations live** — a ♥ Support tab explains the free-education mission
   and offers an optional Venmo donation (embedded QR + payment link, `@George-Tharp`);
   support links also sit in the global footer and at the foot of Concept 01
@@ -62,6 +63,7 @@ zero property-law background going in.
 | 06 | Your decimal — division orders (DOI) | 4 |
 | 07 | The royalty check | 4 |
 | 08 | Severance tax vs. ad valorem tax | 4 |
+| 09 | Allocation & PSA wells | 3 |
 
 > Beyond the eight concept tabs, the nav also carries a **♥ Support** tab (the
 > free-education mission + Venmo donation) and this **→ Roadmap** tab. The website's
@@ -97,6 +99,7 @@ zero property-law background going in.
 | Status | Concept | What it teaches | Notes |
 |---|---|---|---|
 | **Live** | Pooling & dilution | What a unit is, pooling vs. unitization defined plainly, a live slider showing a big owner diluted (100%→50%→25%) vs. a small owner included (0%→1.25%), the MIPA + §102.014 statutory backbone | Built as Concept 05 — combines the original "voluntary & compulsory pooling" and "dilute or be diluted" rows |
+| **Live** | Allocation & PSA wells | Why multi-tract laterals often can't pool (Rule 37, undersized pooling clauses); the three permit paths (pooled unit / PSA / allocation) as a three-way toggle on one 10,000-ft lateral; footage-based tract participation factors with a worked ledger; TPF × unit DOI example tying back to Concept 06; honest legal status (Opiela settled Jan 2025 with no ruling — law still unsettled; Springer Ranch supports footage allocation) | Built as Concept 09 |
 | Planned | Proration units & allowables | RRC field rules; 160-ac oil / 640-ac gas + 10% tolerance | Prototype from the early explainer set exists; not yet ported to house style |
 | Planned | Unitization & secondary recovery | Whole-reservoir operations; participation formulas; no compulsory unitization in TX | |
 
