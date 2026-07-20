@@ -48,15 +48,21 @@ To preview locally, open `index.html` in any modern browser.
 
 ## Status
 
-**v0.1 — Tier 1 in progress.**
+**v1.1 — nine concepts live across Tiers 1–4, plus a Support tab.**
 
-| Concept | Status |
-|---|---|
-| Surface vs. mineral estate · severance | ✅ Live |
-| Separate tracts & common ownership | ◻ Next |
-| Fractional & undivided interests | ◻ Planned |
-| The lease · pooling · proration · royalties | ◻ Planned |
-| Offshore/OCS · Ohio ODMA · NM unitization | ◻ Future |
+| Tab | Concept | Status |
+|---|---|---|
+| 01 | Surface vs. mineral estate · severance | ✅ Live |
+| 02 | Separate tracts & common ownership | ✅ Live |
+| 03 | Fractional & undivided interests | ✅ Live |
+| 04 | The lease — signing to termination | ✅ Live |
+| 05 | Pooling & dilution | ✅ Live |
+| 06 | Your decimal — division orders (DOI) | ✅ Live |
+| 07 | The royalty check | ✅ Live |
+| 08 | Severance tax vs. ad valorem tax | ✅ Live |
+| 09 | Allocation & PSA wells | ✅ Live |
+| — | Accommodation doctrine · proration units · unitization · NRI | ◻ Planned |
+| — | Offshore/OCS · Ohio ODMA · NM unitization | ◻ Future |
 
 See [`ROADMAP.md`](./ROADMAP.md) for the complete six-tier plan and build
 conventions.
@@ -71,7 +77,7 @@ Ownership in any real tract turns on the documents on file.
 
 ## License
 
-© 2026 [HydroThorpe LLC]. All rights reserved.
+© 2026 HydroThorpe LLC. All rights reserved.
 
 This is **proprietary software**. No permission is granted to use, copy, modify, or
 distribute any part of this project without prior written consent. See
