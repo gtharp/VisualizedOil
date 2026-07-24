@@ -15,7 +15,8 @@ professionals, and families with a well that means something to them.
 **Principle:** ship the foundations first. Each concept assumes only the ones above it.
 Every concept defines its own vocabulary in plain English before using it — assume
 zero property-law background going in.
-**Format:** single responsive site (`index.html`), one tab per concept, simplest first.
+**Format:** a tabbed concept curriculum (`index.html`), one tab per concept, simplest
+first — plus a searchable reference page (`glossary.html`, the Lease Clause Dictionary).
 
 ---
 
@@ -24,13 +25,18 @@ zero property-law background going in.
 - **Domain:** `visualizedoil.com` live on Squarespace DNS → GitHub Pages, HTTPS enforced
 - **Repo:** `github.com/gtharp/VisualizedOil` — proprietary license, README in place
 - **Analytics:** Cloudflare Web Analytics beacon embedded and live
-- **SEO:** `robots.txt` + `sitemap.xml` at repo root; Google Search Console domain
+- **SEO:** `robots.txt` + `sitemap.xml` at repo root (sitemap now lists both pages); Google Search Console domain
   property set up (DNS TXT verification); self-referencing `<link rel="canonical">`
   now in `index.html`. The lone Search Console "Page with redirect" notice is the
   expected `http://` / `www.` → canonical redirect, not a real indexing problem.
 - **Claude Project:** a dedicated project (see `PROJECT_SETUP.md`) now houses this
   build separately from the fiduciary/legal reference project
 - **10 concepts live** on site, tabs 01–10 (see Tier tables below for which)
+- **Lease Clause Dictionary live** — `glossary.html`, the site's **second page**:
+  138 generic lease clauses, searchable and filterable by section, each with a
+  plain-English definition, why it matters to the owner, why the operator wants it,
+  and whether it's already in the standard printed form. Cross-links into the
+  concept tabs via URL hash; linked from the header bar and footer of `index.html`
 - **Support tab** live — Venmo QR + link, donations optional, site stays free
 - **Support / donations live** — a ♥ Support tab explains the free-education mission
   and offers an optional Venmo donation (embedded QR + payment link, `@George-Tharp`);
@@ -135,6 +141,53 @@ zero property-law background going in.
 | Future | New Mexico statutory unitization | Compulsory unitization for recovery operations |
 | Future | Texas Relinquishment Act lands | State-as-mineral-owner / surface-owner-as-agent split |
 | Future | Produced water, CO₂, helium & "other minerals" | Ownership of substances the lease never named |
+
+---
+
+# PART ONE-B — The Lease Clause Dictionary (`glossary.html`)
+
+The site's second page, and its first non-tab format. Where the curriculum teaches
+one concept at a time in narrative order, the dictionary is a **lookup tool**: an
+owner arrives holding their own lease, searches a phrase they don't recognize, and
+reads one card.
+
+**Status: Live — 138 clauses.**
+
+| Section | Entries | What it covers |
+|---|---|---|
+| The anatomy of a lease | 22 | Granting clause, habendum, primary/secondary term, bonus, NMA, executive right, NPRI/ORRI/NRI, addendum, memorandum, NCR notice |
+| Royalty & payment | 20 | Cost-free royalty, gross proceeds, valuation point, affiliate sales, MFN, take-in-kind, audit, division-order limits |
+| Term, continuation & Pugh | 16 | Both Pugh clauses, continuous development, retained acreage, shut-in caps, force majeure, release of record |
+| Pooling, units & allocation | 10 | Consent to pool, unit size caps, anti-dilution, cross-conveyance, allocation wells, community lease |
+| Assignment & transfer | 6 | Notice, continuing liability, consent to assign, change of ownership |
+| Surface & operations | 16 | NSO, setbacks, damage schedules (per-acre, per-tree, livestock), reclamation, water, offset wells, plugging, site conduct |
+| Title, capacity & risk | 13 | Warranty tiers, representative capacity, indemnity, insurance, certified funds, addendum-controls |
+| Enforcement & disputes | 11 | Notice and cure, judicial ascertainment, royalty-as-condition, lessor's lien, fees, venue, limitations waiver |
+| Novel, rare & emerging | 12 | Pore space/CCS, produced water, renewables reservation, gas storage, helium, endangered-species deferral |
+| Red flags | 12 | ROFRs, uncapped shut-in, other-minerals catch-all, Mother Hubbard, sight drafts, capped implied covenants |
+
+**Design decisions worth keeping:**
+
+- **Four postures, not two.** Each clause is badged *Know this* (vocabulary),
+  *Ask for this*, *Confirm* (read the wording), or *Red flag*. A binary
+  for/against framing broke down immediately — most clauses are legitimate and
+  the question is how they're drafted.
+- **Both sides, always.** Nearly every entry carries a "why the operator wants it"
+  line. It's better teaching, it's more honest, and it matches the evenhanded
+  tone of the Pooling concept's for/against columns.
+- **Generic only.** Every entry describes a clause *type*, never an instrument.
+  No party names, no county records, no grades. Placeholder parties only.
+
+**Dictionary to-dos:**
+
+- [ ] Per-clause anchor links (`glossary.html#clause-43`) surfaced in the UI —
+      the IDs already exist in the markup, they just aren't linkable yet
+- [ ] Add remaining clause names as they come up; target is a genuinely
+      exhaustive Texas reference
+- [ ] Consider an A–Z index view as an alternative to section grouping
+- [ ] Add cross-links *from* concept tabs *into* specific dictionary entries
+      (currently the linking is one-directional, dictionary → concepts)
+- [ ] Once a third page exists, extract shared tokens into `css/styles.css`
 
 ---
 
@@ -272,11 +325,18 @@ options, lightest first:
   polish divergence.
 - **Disclaimer stays in the footer:** teaching tool, not legal advice. Credit line:
   "Created by George Tharp, JD."
-- **Tech stack stays simple:** one self-contained `index.html` (inline CSS/JS, no
-  framework) until a second HTML page (gallery, commission) makes a `css/` + `js/`
-  split worthwhile.
+- **Tech stack stays simple:** self-contained HTML pages with inline CSS/JS, no
+  framework, no build step. `glossary.html` is now the second page and duplicates
+  the design tokens rather than sharing them — a deliberate call, since two files
+  is not yet enough duplication to justify the split. **Trigger for extracting
+  `css/styles.css` + `js/app.js`: the third page** (gallery or commission), or the
+  first time a token change has to be made in two places and one gets missed.
 
 ## Suggested near-term sequence
+
+> Updated: the Lease Clause Dictionary shipped ahead of the gallery. It was the
+> fastest path to a real second page and to long-tail search traffic — people
+> Google clause names ("what is a Pugh clause") far more than they google concepts.
 
 1. Finish **Tier 1** — Accommodation doctrine & surface use — to close out the
    foundational estate concepts.
