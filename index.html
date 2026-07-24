@@ -2,9 +2,15 @@
 <!--
   ============================================================
   Oil, Visualized  ·  index.html
-  Version:      1.2.0
+  Version:      1.3.0
   Last updated: 2026-07-23
-  This build: NEW Concept 10 — Post-production costs (Tier 4):
+  This build: SECOND PAGE — glossary.html, the Lease Clause
+  Dictionary (138 generic clauses, searchable + filterable).
+  index.html changes: "Clause dictionary" link added to the
+  header bar and footer; tab router now resolves URL hashes
+  (#t-ppc or #p-ppc) so cross-links from glossary.html land on
+  the right tab, on load and on hashchange.
+  Prior build (1.2.0): NEW Concept 10 — Post-production costs (Tier 4):
   then/now point-of-sale history diagram, draggable valuation-point
   slider ($3.00 Mcf broken into wellhead value + 3 cost stages),
   severance-vs-PPC comparison cards + table, 1996–2026 case
@@ -23,7 +29,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Oil, Visualized — Texas oil and gas concepts, drawn. Start with the surface and mineral estates and build toward the complex.">
-<meta name="version" content="1.2.0">
+<meta name="version" content="1.3.0">
 <meta name="last-updated" content="2026-07-23">
 <title>Oil, Visualized — the Texas mineral estate, drawn</title>
 <link rel="canonical" href="https://visualizedoil.com/">
@@ -97,6 +103,13 @@ header.site{
 .brand .mark .dot{color:var(--survey)}
 .brand .sub{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .brand .sub.hide-sm{display:none}
+.headnav{display:flex;align-items:center;gap:.9rem;flex:0 0 auto}
+.headnav .eyebrow.hide-sm{display:none}
+@media(min-width:820px){.brand .sub.hide-sm,.headnav .eyebrow.hide-sm{display:inline}}
+.navlink{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  text-decoration:none;border:1px solid var(--hair-2);border-radius:20px;padding:.42rem .85rem;
+  transition:background .15s,color .15s,border-color .15s;white-space:nowrap}
+.navlink:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 
 /* ============ TABS ============ */
 nav.tabs{border-bottom:1px solid var(--hair);background:var(--paper)}
@@ -424,7 +437,10 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
       <span class="mark">Oil, Visualized<span class="dot">.</span></span>
       <span class="sub hide-sm">the mineral estate, drawn</span>
     </a>
-    <span class="eyebrow mono">Texas</span>
+    <span class="headnav">
+      <a class="navlink" href="glossary.html">Clause dictionary</a>
+      <span class="eyebrow mono hide-sm">Texas</span>
+    </span>
   </div>
 </header>
 
@@ -2019,8 +2035,9 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
       <span>Texas oil &amp; gas</span>
     </div>
     <p class="disc">These visualizations are simplified teaching tools. They are not legal advice. Created by George Tharp, JD.</p>
+    <p class="disc support-foot">Looking up a clause in your own lease? See the <a href="glossary.html">Lease Clause Dictionary</a> — 138 clauses in plain English.</p>
     <p class="disc support-foot">Free to use, always. If it helped you, you can <a href="#top" data-goto-tab="t-support">support the site</a> — thank you.</p>
-    <p class="disc foot-ver">v1.2 · updated July 23, 2026</p>
+    <p class="disc foot-ver">v1.3 · updated July 23, 2026</p>
   </div>
 </footer>
 
@@ -2050,6 +2067,19 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
     window.scrollTo({ top: 0, behavior: reduceMotion.matches ? "auto" : "smooth" });
   };
 
+  /* Resolve a URL hash to a tab. Accepts either the tab's own id
+     (#t-check) or its panel id (#p-check), so external links from
+     glossary.html work either way. */
+  const tabFromHash = (hash) => {
+    const id = String(hash || "").replace(/^#/, "");
+    if (!id) return null;
+    return (
+      tabs.find((t) => t.id === id) ||
+      tabs.find((t) => t.getAttribute("aria-controls") === id) ||
+      null
+    );
+  };
+
   const initTabs = () => {
     tabs.forEach((tab, i) => {
       tab.addEventListener("click", () => selectTab(tab));
@@ -2070,6 +2100,14 @@ footer.site .disc{max-width:64ch;font-family:var(--body);font-size:.86rem;margin
         if (t) { e.preventDefault(); selectTab(t); }
       });
     });
+
+    /* deep links from glossary.html (e.g. index.html#t-ppc) */
+    const openFromHash = () => {
+      const t = tabFromHash(location.hash);
+      if (t) selectTab(t);
+    };
+    openFromHash();
+    window.addEventListener("hashchange", openFromHash);
   };
 
   /* ---------- CONCEPT 01 · STUDIO: view + estate toggles ---------- */
