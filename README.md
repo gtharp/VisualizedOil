@@ -40,15 +40,22 @@ A single, self-contained, responsive website — no build step, no framework, no
 dependencies beyond web fonts. It works on phones and computers and can be hosted
 anywhere static files are served.
 
-- `index.html` — the entire site (markup, styles, interactive visuals)
+- `index.html` — the concept curriculum (markup, styles, interactive visuals)
+- `glossary.html` — the Lease Clause Dictionary, a searchable reference page
 - `ROADMAP.md` — the full concept build plan, tier by tier
 - `LICENSE` — proprietary; all rights reserved
 
-To preview locally, open `index.html` in any modern browser.
+Both pages are self-contained and share the same design tokens by duplication,
+not by a shared stylesheet. When a third page arrives, extract `css/styles.css`.
+
+To preview locally, open `index.html` in any modern browser. Cross-links between
+the two pages use URL hashes (`index.html#t-ppc`), so preview from a folder rather
+than opening files from different directories.
 
 ## Status
 
-**v1.1 — nine concepts live across Tiers 1–4, plus a Support tab.**
+**v1.3 — ten concepts live across Tiers 1–4, plus a Support tab and the
+Lease Clause Dictionary.**
 
 | Tab | Concept | Status |
 |---|---|---|
@@ -61,7 +68,10 @@ To preview locally, open `index.html` in any modern browser.
 | 07 | The royalty check | ✅ Live |
 | 08 | Severance tax vs. ad valorem tax | ✅ Live |
 | 09 | Allocation & PSA wells | ✅ Live |
+| 10 | Post-production costs | ✅ Live |
+| — | **Lease Clause Dictionary** (`glossary.html`, 138 clauses) | ✅ Live |
 | — | Accommodation doctrine · proration units · unitization · NRI | ◻ Planned |
+| — | Wellbore diagram gallery · commissioned diagrams | ◻ Planned |
 | — | Offshore/OCS · Ohio ODMA · NM unitization | ◻ Future |
 
 See [`ROADMAP.md`](./ROADMAP.md) for the complete six-tier plan and build
