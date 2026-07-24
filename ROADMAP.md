@@ -30,7 +30,7 @@ zero property-law background going in.
   expected `http://` / `www.` → canonical redirect, not a real indexing problem.
 - **Claude Project:** a dedicated project (see `PROJECT_SETUP.md`) now houses this
   build separately from the fiduciary/legal reference project
-- **9 concepts live** on site, tabs 01–09 (see Tier tables below for which)
+- **10 concepts live** on site, tabs 01–10 (see Tier tables below for which)
 - **Support tab** live — Venmo QR + link, donations optional, site stays free
 - **Support / donations live** — a ♥ Support tab explains the free-education mission
   and offers an optional Venmo donation (embedded QR + payment link, `@George-Tharp`);
@@ -64,8 +64,9 @@ zero property-law background going in.
 | 07 | The royalty check | 4 |
 | 08 | Severance tax vs. ad valorem tax | 4 |
 | 09 | Allocation & PSA wells | 3 |
+| 10 | Post-production costs | 4 |
 
-> Beyond the eight concept tabs, the nav also carries a **♥ Support** tab (the
+> Beyond the ten concept tabs, the nav also carries a **♥ Support** tab (the
 > free-education mission + Venmo donation) and this **→ Roadmap** tab. The website's
 > own Roadmap tab mirrors the tier tables below and is now in sync with what's live.
 
@@ -113,7 +114,7 @@ zero property-law background going in.
 | **Live** | Severance tax vs. ad valorem tax | The candy-store analogy: severance = tax on each candy bar at the register (withheld before you're paid); ad valorem = tax on the store itself (an annual county bill) | Built as Concept 08 — added beyond original scope by request; teaches both taxes side by side |
 | Planned | Net revenue interest & the burden stack | ORRI, NPRI, production payments stacked on the WI | |
 | Planned | Suspense, escheat & unclaimed property | Where unpaid royalties go and how to recover them | |
-| Planned | Post-production costs (deep dive) | What can and can't be netted from royalty — Concept 07 covers the basics; this would go deeper into lease-clause variation | |
+| **Live** | Post-production costs | Why PPC exist at all (the point of sale moved downstream over a century); the valuation point as the one idea that decides everything; PPC vs. severance tax; a 1996–2026 case timeline from *Heritage Resources* to *Fasken v. Puig*; lease language ranked weakest→strongest | Built as Concept 10 — draggable valuation-point slider ($3.00/Mcf split into wellhead value + gathering/processing/transport); cross-linked from Concepts 07 & 08 |
 
 ## TIER 5 — Title & risk
 *Proving and protecting ownership.*
@@ -287,3 +288,23 @@ options, lightest first:
    test demand before building a real store.
 5. Round out **Tier 2** (Pugh clauses, HBP/savings clauses deep dive) and **Tier 4**
    (NRI/burden stack, suspense & escheat) before moving into Tier 5 title topics.
+
+## Case-law maintenance note
+
+Concept 10 is the first tab whose accuracy decays with time — it names decided
+cases. Verified current as of **23 July 2026**:
+
+- *Fasken Oil and Ranch, Ltd. v. Puig*, No. 24-1033 (Tex. 2026) — reversed the San
+  Antonio COA (726 S.W.3d 499); "free of cost forever" did **not** bar PPC because
+  "produced from the above described acreage" implied a wellhead valuation point.
+  Sources disagree on the opinion date (3 March vs. 10 April 2026) — likely a
+  substitute opinion; confirm before citing the date anywhere public.
+- *City of Crowley v. TotalEnergies* — petition **denied** 1 May 2026 (No. 25-0713).
+  Status changed from "pet. filed." Referenced on the page in an aside only.
+- *Clifton v. Johnson* (Tex. Mar. 13, 2026) — **not** a PPC case; it is a
+  fixed-vs-floating double-fraction case applying *Van Dyke*. Deliberately
+  excluded from Concept 10.
+- *Devon Energy v. Oliver* (Tex. App.—Corpus Christi 2026) (mem. op.) — aside only.
+
+Re-verify before any substantial edit to Concept 10, and watch the Fifteenth Court
+of Appeals docket, which is now routing new oil-and-gas appeals.
