@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  Oil, Visualized  ·  glossary.html
+  Version:      1.0.0
+  Last updated: 2026-07-23
+  The Lease Clause Dictionary — a searchable, filterable
+  reference of common, generic oil & gas lease clauses.
+  Companion page to index.html; shares the same design tokens.
+  All examples use placeholder parties (John Doe / Big Oil Co.).
+  No account, client, or instrument-specific data appears here.
+  NOTE: bump "Version" and "Last updated" on every commit.
+  ============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Lease Clause Dictionary — every common oil and gas lease clause explained in plain English: what it does, why it matters to a mineral owner, why the operator wants it, and whether it's in the standard printed form.">
+<meta name="version" content="1.0.0">
+<meta name="last-updated" content="2026-07-23">
+<title>Lease Clause Dictionary — Oil, Visualized</title>
+<link rel="canonical" href="https://visualizedoil.com/glossary.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Spectral:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS (shared with index.html) ============ */
+:root{
+  --paper:#F4F2EC;
+  --paper-2:#ECE9DF;
+  --ink:#1B1A17;
+  --muted:#6B675E;
+  --hair:#D8D3C7;
+  --hair-2:#C7C1B2;
+
+  --surface:#C8A45E;
+  --surface-lite:#E7D3A8;
+  --mineral:#243A35;
+  --mineral-lite:#DBE3DE;
+
+  --carl:#B06A3B;
+  --susan:#2F7E86;
+
+  --survey:#A23A2A;
+
+  /* dictionary-only: the four clause postures */
+  --know:#4A5A55;      --know-bg:#E4E9E7;
+  --forc:#1D7A52;      --forc-bg:#E4EFE9;
+  --confirm:#8A6A2E;   --confirm-bg:#F3EBDA;
+  --flag:#A23A2A;      --flag-bg:#F5E6E3;
+
+  --radius:10px;
+  --radius-lg:16px;
+
+  --display:"Bricolage Grotesque", system-ui, sans-serif;
+  --body:"Spectral", Georgia, serif;
+  --mono:"JetBrains Mono", ui-monospace, monospace;
+
+  --maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:clamp(1rem,0.96rem + 0.2vw,1.125rem);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit}
+:focus-visible{outline:2.5px solid var(--survey);outline-offset:3px;border-radius:3px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1rem,4vw,3rem)}
+.eyebrow{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+
+/* ============ HEADER ============ */
+header.site{position:sticky;top:0;z-index:60;background:color-mix(in srgb, var(--paper) 88%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--hair)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:62px}
+.brand{display:flex;align-items:baseline;gap:.55rem;text-decoration:none}
+.brand .mark{font-family:var(--display);font-weight:800;font-size:1.18rem;letter-spacing:-.01em}
+.brand .mark .dot{color:var(--survey)}
+.brand .sub{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.brand .sub.hide-sm{display:none}
+@media(min-width:700px){.brand .sub.hide-sm{display:inline}}
+.navlink{flex:0 0 auto;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;border:1px solid var(--hair-2);border-radius:20px;padding:.42rem .85rem;transition:all .15s;white-space:nowrap}
+.navlink:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* ============ HERO ============ */
+.hero{padding:clamp(2rem,5vw,3.6rem) 0 clamp(1rem,2.5vw,1.6rem)}
+.hero .eyebrow{margin-bottom:1.1rem}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,1.3rem + 3.6vw,3.6rem);line-height:1.04;letter-spacing:-.025em;max-width:20ch}
+.hero h1 em{font-style:normal;color:var(--survey)}
+.hero p.lede{font-size:clamp(1.02rem,1rem + .3vw,1.2rem);max-width:62ch;margin-top:1.2rem;color:#322f29}
+
+.howto{margin-top:1.6rem;border:1px solid var(--hair-2);border-left:4px solid var(--surface);border-radius:0 var(--radius) var(--radius) 0;background:var(--paper-2);padding:1rem 1.3rem;font-size:.95rem;color:#3a372f;max-width:74ch}
+.howto b{font-weight:600}
+.howto + .howto{margin-top:.7rem}
+
+/* ============ TOOLBAR ============ */
+.toolbar{position:sticky;top:62px;z-index:50;background:color-mix(in srgb, var(--paper) 93%, transparent);backdrop-filter:blur(6px);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:.85rem 0;margin-top:1.9rem}
+.toolbar-inner{display:flex;flex-wrap:wrap;gap:.7rem 1rem;align-items:center}
+.searchbox{position:relative;flex:1 1 240px;min-width:200px;max-width:360px}
+.searchbox input{width:100%;font-family:var(--body);font-size:.95rem;padding:.6rem 2.1rem .6rem 2.2rem;border:1px solid var(--hair-2);border-radius:24px;background:var(--paper);color:var(--ink)}
+.searchbox svg{position:absolute;left:.8rem;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:var(--muted);fill:none;pointer-events:none}
+.searchbox .clear{position:absolute;right:.5rem;top:50%;transform:translateY(-50%);border:0;background:none;cursor:pointer;color:var(--muted);font-size:1.1rem;line-height:1;padding:.2rem .35rem;border-radius:50%}
+.searchbox .clear:hover{color:var(--ink)}
+.chips{display:flex;gap:.35rem;flex-wrap:wrap;overflow-x:auto;scrollbar-width:none;touch-action:pan-x;overscroll-behavior-x:contain}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--hair-2);background:var(--paper);color:var(--muted);padding:.44rem .78rem;border-radius:20px;cursor:pointer;transition:all .15s;white-space:nowrap}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.count{font-family:var(--mono);font-size:.7rem;color:var(--muted);letter-spacing:.03em;margin-left:auto;white-space:nowrap}
+
+/* ============ LEGEND ============ */
+.legend-row{display:grid;grid-template-columns:1fr;gap:.5rem;margin:1.4rem 0 .2rem;font-size:.86rem;color:var(--muted)}
+@media(min-width:820px){.legend-row{grid-template-columns:repeat(4,1fr);gap:.9rem}}
+.legend-row .lg{display:flex;align-items:flex-start;gap:.5rem;line-height:1.45}
+.legend-row .sw{flex:0 0 auto;width:11px;height:11px;border-radius:3px;margin-top:.42rem}
+.sw.know{background:var(--know)}
+.sw.for{background:var(--forc)}
+.sw.confirm{background:var(--confirm)}
+.sw.flag{background:var(--flag)}
+
+/* ============ CATEGORY SECTIONS ============ */
+.gcat{padding:clamp(1.9rem,4vw,2.7rem) 0;border-top:1px solid var(--hair)}
+.gcat:first-of-type{border-top:0}
+.gcat-head{margin-bottom:1.3rem}
+.gcat-head .top{display:flex;align-items:baseline;gap:.9rem;flex-wrap:wrap}
+.gcat h2{font-family:var(--display);font-weight:700;font-size:clamp(1.3rem,1.1rem+.8vw,1.75rem);letter-spacing:-.015em}
+.gcat .gcat-count{font-family:var(--mono);font-size:.7rem;color:var(--muted);letter-spacing:.04em}
+.gcat .gcat-sub{color:var(--muted);font-size:.95rem;margin-top:.25rem;max-width:66ch}
+.gcat.hide,.gcard.hide{display:none !important}
+
+.card-grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:760px){.card-grid{grid-template-columns:1fr 1fr}}
+
+.gcard{border:1px solid var(--hair);border-radius:var(--radius-lg);background:var(--paper);padding:1.15rem 1.3rem;display:flex;flex-direction:column;gap:.6rem}
+.gcard.know{border-left:4px solid var(--know)}
+.gcard.for{border-left:4px solid var(--forc)}
+.gcard.confirm{border-left:4px solid var(--confirm)}
+.gcard.flag{border-left:4px solid var(--flag)}
+.gcard-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.7rem}
+.gcard .num{font-family:var(--mono);font-size:.66rem;color:var(--muted);letter-spacing:.06em}
+.gcard h3{font-family:var(--display);font-weight:700;font-size:1.06rem;letter-spacing:-.01em;line-height:1.28;margin-top:.12rem}
+.badge{flex:0 0 auto;font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;border-radius:20px;padding:.28rem .62rem;white-space:nowrap}
+.badge.know{background:var(--know-bg);color:var(--know)}
+.badge.for{background:var(--forc-bg);color:var(--forc)}
+.badge.confirm{background:var(--confirm-bg);color:var(--confirm)}
+.badge.flag{background:var(--flag-bg);color:var(--flag)}
+
+.gcard .def{font-size:.97rem;color:#2a2823}
+.gcard .row{font-size:.89rem;line-height:1.55;border-left:2px solid var(--hair-2);padding-left:.75rem;color:#4a473e}
+.gcard .row b{font-weight:600;color:var(--ink)}
+.gcard .row.op{border-left-color:var(--surface)}
+.gcard .base{font-family:var(--mono);font-size:.71rem;line-height:1.5;color:var(--muted);letter-spacing:.01em}
+.gcard .see{font-family:var(--mono);font-size:.7rem;color:var(--survey);text-decoration:none;display:inline-block;margin-top:.1rem}
+.gcard .see:hover{text-decoration:underline}
+
+.empty{padding:3.5rem 1rem;text-align:center;color:var(--muted);font-size:.98rem}
+
+/* ============ FOOTER ============ */
+footer.site{border-top:1px solid var(--hair);margin-top:3rem;padding:2.2rem 0 3rem;color:var(--muted)}
+footer.site .row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em}
+footer.site .disc{max-width:66ch;font-family:var(--body);font-size:.86rem;margin-top:1rem;font-style:italic}
+footer.site .foot-ver{font-family:var(--mono);font-size:.68rem;font-style:normal;letter-spacing:.06em;opacity:.75;margin-top:.9rem}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <span class="mark">Oil, Visualized<span class="dot">.</span></span>
+      <span class="sub hide-sm">the mineral estate, drawn</span>
+    </a>
+    <a class="navlink" href="index.html">&larr; The concepts</a>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <div class="hero">
+    <p class="eyebrow">The lease clause dictionary</p>
+    <h1>Every clause in the lease, in <em>plain</em> English.</h1>
+    <p class="lede">An oil and gas lease is built out of dozens of separate clauses, almost none of which the document ever bothers to explain. This is a working dictionary of the common ones — what each does, why it matters to you, why the operator wants it, and whether it's already in the standard printed form or something someone had to ask for.</p>
+    <div class="howto"><b>How to use this:</b> don't read it front to back — search it. Pull up your own lease, find a phrase you don't recognize, and look it up. Search by name below, or filter by the part of the lease it lives in.</div>
+    <div class="howto"><b>A note on the two-sided framing:</b> nearly every clause here exists because someone had a real reason to want it. Understanding the operator's reasoning is what turns a negotiation into a conversation instead of a fight — so each entry gives their side too.</div>
+  </div>
+
+  <div class="toolbar">
+    <div class="wrap toolbar-inner">
+      <div class="searchbox">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <label class="sr-only" for="gsearch">Search clauses</label>
+        <input type="text" id="gsearch" placeholder="Search — try Pugh, shut-in, or trees" autocomplete="off">
+        <button class="clear" id="gclear" type="button" aria-label="Clear search" hidden>&times;</button>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Filter by section"></div>
+      <span class="count" id="count" aria-live="polite"></span>
+    </div>
+  </div>
+
+  <div class="legend-row">
+    <span class="lg"><span class="sw know"></span> <span><b>Know this</b> — vocabulary, no side to take</span></span>
+    <span class="lg"><span class="sw for"></span> <span><b>Ask for this</b> — favors the mineral owner</span></span>
+    <span class="lg"><span class="sw confirm"></span> <span><b>Confirm / consent</b> — read it, check the wording</span></span>
+    <span class="lg"><span class="sw flag"></span> <span><b>Red flag</b> — push to strike or narrow it</span></span>
+  </div>
+
+  <div id="results"></div>
+  <p class="empty" id="empty" hidden>No clauses match that search. Try a different word, or clear the filter.</p>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="row">
+      <span>Oil, Visualized · Lease Clause Dictionary</span>
+      <span>Texas oil &amp; gas</span>
+    </div>
+    <p class="disc">This dictionary describes common, generic lease clauses for educational purposes. It is not legal advice, does not describe any actual lease, party, or transaction, and is no substitute for having your own lease reviewed by a qualified attorney. Any names used are placeholders. Created by George Tharp, JD.</p>
+    <p class="disc">Free to use, always. If it helped you, you can <a href="index.html#t-support">support the site</a> — thank you.</p>
+    <p class="disc foot-ver">Dictionary v1.0 · updated July 23, 2026</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  "use strict";
+
+  const CATS = [
+    ["basics",   "The anatomy of a lease", "The vocabulary everything else is built on. Start here if a lease is new to you."],
+    ["royalty",  "Royalty &amp; payment", "How much you're paid, what it's measured against, and what gets taken out on the way."],
+    ["term",     "Term, continuation &amp; Pugh", "How long the lease lasts, and how much of your land and depth it keeps hold of."],
+    ["pooling",  "Pooling, units &amp; allocation", "How your tract gets combined with others, and how the well's production is split."],
+    ["assignment","Assignment &amp; transfer", "What happens when the lease is sold to someone else — which is most of them, eventually."],
+    ["surface",  "Surface &amp; operations", "What happens on the ground: where they drill, what they damage, and what they pay for it."],
+    ["title",    "Title, capacity &amp; risk", "Who carries the risk if something goes wrong, and who is signing for whom."],
+    ["enforce",  "Enforcement &amp; disputes", "What you can actually do about it when the lease is breached."],
+    ["novel",    "Novel, rare &amp; emerging", "Substances, rights, and situations the older printed forms never contemplated."],
+    ["redflag",  "Red flags", "Confirm these are absent, narrowed, or struck before anyone signs."]
+  ];
+
+  const BADGE_LABEL = { know:"Know this", for:"Ask for this", confirm:"Confirm", flag:"Red flag" };
+
+  const CLAUSES = [
+/* ===== PART A — anatomy, royalty, term, pooling, assignment ===== */
+{n:1,cat:"basics",badge:"know",term:"Oil & gas lease",
+def:"Despite the name, a Texas oil and gas lease isn't a rental agreement — it actually conveys ownership of the minerals to the operator for as long as the lease lasts, with everything snapping back to you automatically when it ends.",
+why:"This is why the document is so much more consequential than a lease on an apartment. For its whole life, the operator — not you — owns the oil and gas in the ground. What you keep is the royalty and the right to get it all back someday.",
+op:"Operators need real ownership, not permission, to justify spending millions on a well and to borrow against the acreage.",
+base:"The nature of the instrument, not a clause you negotiate.",
+see:{tab:"t-lease",label:"Concept 04 — The lease"}},
+
+{n:2,cat:"basics",badge:"know",term:"Lessor and lessee",
+def:"The lessor is the mineral owner who signs. The lessee is the company that receives the right to drill. If you own minerals and someone hands you a lease, you're the lessor.",
+why:"Every clause in the document is written from one of these two sides. Reading a lease well starts with noticing which side each sentence protects.",
+base:"Universal terminology.",
+see:{tab:"t-lease",label:"Concept 04 — The lease"}},
+
+{n:3,cat:"basics",badge:"know",term:"Granting clause",
+def:"The opening paragraph that lists exactly what you're handing over — which substances, which land, and which activities the operator may carry out.",
+why:"Everything the operator is allowed to do traces back to this paragraph. If a right isn't granted here or somewhere later, they don't have it. Read it slowly; it's usually one very long sentence doing a great deal of work.",
+op:"Operators draft it broadly on purpose — it's cheaper to ask for everything up front than to come back for permission later.",
+base:"Present in every lease; the breadth is what varies."},
+
+{n:4,cat:"basics",badge:"know",term:"Habendum clause",
+def:"The clause that sets how long the lease lasts. It's the one that reads roughly “for a term of three years and as long thereafter as oil or gas is produced.”",
+why:"Those two halves are the primary term and the secondary term. This single sentence is why a three-year lease can still be alive forty years later.",
+base:"Present in every lease.",
+see:{tab:"t-lease",label:"Concept 04 — The lease"}},
+
+{n:5,cat:"basics",badge:"know",term:"Primary term",
+def:"The fixed window — commonly three years, sometimes two or five — during which the operator must drill or the lease simply expires.",
+why:"A shorter primary term is better for you. It forces the operator to act or hand your minerals back so you can lease again, at whatever the market pays then.",
+op:"Operators want longer terms to protect their planning flexibility and defer capital spending.",
+base:"Always present; length is negotiated.",
+see:{tab:"t-lease",label:"Concept 04 — The lease"}},
+
+{n:6,cat:"basics",badge:"know",term:"Secondary term / held by production (HBP)",
+def:"Once a well produces, the lease rolls into a second phase with no end date at all — it lasts as long as production continues.",
+why:"There is no renegotiation once you're here. Whatever royalty and terms you agreed to on day one are the terms for the entire life of the well, which can be decades.",
+op:"This is the operator's prize: one well can hold a large block of acreage indefinitely at the original terms, with no new bonus.",
+base:"Standard in every lease.",
+see:{tab:"t-lease",label:"Concept 04 — The lease"}},
+
+{n:7,cat:"basics",badge:"know",term:"Production in paying quantities (PIPQ)",
+def:"The legal test for whether a well counts as “producing.” Broadly: is the well bringing in more revenue than it costs to operate, over a reasonable stretch of time?",
+why:"A lease held by a barely-breathing well is a real dispute. The tighter the definition — a specific test period, a specific measure of cost — the harder it is for a nearly dead well to hold your acreage forever.",
+op:"Operators prefer a vague or absent definition, which leaves more room to argue a marginal well still qualifies.",
+base:"Many leases use the phrase without defining it. A written definition is a negotiated improvement."},
+
+{n:8,cat:"basics",badge:"know",term:"Paid-up lease",
+def:"A lease where the entire primary term is bought and paid for at signing, so no annual rental payments are needed to keep it alive.",
+why:"Simpler and safer for you — there's no annual payment that could be missed, disputed, or used as a pretext. Most modern leases are paid-up.",
+base:"Now the market standard in Texas."},
+
+{n:9,cat:"basics",badge:"know",term:"Delay rental",
+def:"On older-style leases, a small annual payment the operator makes to postpone drilling for another year during the primary term.",
+why:"Mostly historical now, but if you've inherited an old lease this is worth understanding — under the original “unless” form, missing a rental payment could terminate the lease outright.",
+base:"Common in pre-1990s forms; largely replaced by the paid-up structure."},
+
+{n:10,cat:"basics",badge:"know",term:"Bonus",
+def:"The cash paid to you up front, per net mineral acre, simply for signing. You keep it whether or not a well is ever drilled.",
+why:"For most owners this is the only money that ever definitely arrives. Royalty depends on a well existing; the bonus doesn't.",
+op:"Operators treat bonus as the price of an option — money spent to hold acreage while they decide whether to drill.",
+base:"Universal, though the amount rarely appears on the recorded copy.",
+see:{tab:"t-lease",label:"Concept 04 — The lease"}},
+
+{n:11,cat:"basics",badge:"know",term:"Royalty fraction",
+def:"Your share of production, free of drilling and operating costs. Commonly written 1/8, 3/16, 1/5, or 1/4.",
+why:"The headline number, and the one most people negotiate hardest. But it's only the starting point — your actual check depends on it running through every later layer of sharing.",
+op:"A lower royalty directly improves well economics, so this is where operators push back first.",
+base:"Universal. Older leases commonly say 1/8; the modern Texas market is 1/5 to 1/4.",
+see:{tab:"t-doi",label:"Concept 06 — Your decimal (DOI)"}},
+
+{n:12,cat:"basics",badge:"know",term:"Net mineral acres (NMA)",
+def:"Your fraction of the minerals multiplied by the tract's acres. An undivided 1/4 interest in 80 acres equals 20 net mineral acres.",
+why:"This is the number your bonus is calculated on, and the honest measure of how much you actually own. It's a quantity, not a location on a map.",
+base:"An accounting convention, not a clause.",
+see:{tab:"t-fraction",label:"Concept 03 — Fractional interests"}},
+
+{n:13,cat:"basics",badge:"know",term:"Addendum / Exhibit A",
+def:"The pages attached to the back of the pre-printed lease form containing everything actually negotiated for your benefit.",
+why:"Almost every protection in this dictionary lives here, not in the printed form. If a lease arrives with no addendum, nothing has been negotiated on your behalf yet.",
+op:"Operators prefer their clean printed form; every addendum paragraph is something they gave up.",
+base:"Not present by default — an addendum exists only because someone asked for one."},
+
+{n:14,cat:"basics",badge:"know",term:"Memorandum of lease",
+def:"A short instrument recorded at the courthouse in place of the full lease, naming the parties, land, and term but leaving out the money.",
+why:"Filing a memorandum instead of the whole lease keeps your bonus and royalty out of the public record, where competitors and neighbors would otherwise read them.",
+op:"Operators often prefer this too — it keeps what they paid you from setting a benchmark for the next owner they approach.",
+base:"A separate instrument you request, not a clause in the lease itself."},
+
+{n:15,cat:"basics",badge:"know",term:"Notice of Confidentiality Rights (NCR)",
+def:"The block of capitalized text at the top of the first page telling an individual they may strike their Social Security number and driver's license number before the document is recorded.",
+why:"Texas has required this on instruments signed by individuals since 2003. Its absence on an older lease is why you'll sometimes find a relative's Social Security number sitting in plain view in the county records.",
+base:"Required by statute on qualifying instruments; commonly absent on entity-to-entity leases and on anything pre-2003."},
+
+{n:16,cat:"basics",badge:"know",term:"Top lease",
+def:"A new lease signed while an existing lease is still alive, designed to take effect the moment the old one dies.",
+why:"Being offered a top lease usually means someone believes your current lease is about to expire — which is worth knowing before you sign anything. Read carefully whether it starts on a fixed date or only when the old lease actually terminates.",
+op:"Operators and speculators use top leases to lock up acreage ahead of competitors without waiting for expiration.",
+base:"A separate instrument type."},
+
+{n:17,cat:"basics",badge:"know",term:"Ratification",
+def:"A document you sign confirming and adopting a lease — or a pooling agreement — that you weren't originally party to, or that you might otherwise be able to challenge.",
+why:"Signing a ratification can quietly cure a defect, extend a lease, or pull you into a pooled unit. It is never a mere formality, even when presented as one.",
+op:"Operators use ratifications to clean up title problems and to bring in owners who were missed the first time.",
+base:"A separate instrument type. Read it as carefully as the lease."},
+
+{n:18,cat:"basics",badge:"know",term:"Executive right",
+def:"The right to negotiate and sign leases on a mineral interest. It usually travels with the minerals but can be separated and held by someone else.",
+why:"Whoever holds the executive right decides the terms — you may own the minerals and still not control the leasing. The executive owes you a duty of fair dealing when they lease.",
+op:"Operators want to deal with the fewest possible signatures, so they'll always work through the executive if one exists.",
+base:"A title concept, not a lease clause."},
+
+{n:19,cat:"basics",badge:"know",term:"Non-participating royalty interest (NPRI)",
+def:"A royalty carved out of the minerals that shares in production but has no right to lease, no right to a bonus, and no say in the terms.",
+why:"If someone holds an NPRI on your tract, part of your royalty is already spoken for. Whether the NPRI is a fixed fraction or floats with your royalty rate is a frequent and expensive dispute.",
+op:"Operators care mainly about getting the split right so they don't pay twice.",
+base:"A title concept created by deed, not by the lease."},
+
+{n:20,cat:"basics",badge:"know",term:"Overriding royalty interest (ORRI)",
+def:"A royalty carved out of the operator's side of the lease, not yours — often paid to the landman or geologist who put the deal together. It ends when the lease ends.",
+why:"It doesn't come out of your check, but it does burden the well's economics, which can affect whether the operator keeps producing a marginal well.",
+op:"A standard way to compensate deal-makers without paying cash.",
+base:"Created by separate assignment, not by your lease."},
+
+{n:21,cat:"basics",badge:"know",term:"Net revenue interest (NRI) & the burden stack",
+def:"What's left for the operator after every royalty, override, and other burden is subtracted from 100% of production.",
+why:"Useful context for why an operator resists a higher royalty — each burden stacks on the same barrel, and there's a point where the well no longer pencils out.",
+op:"Operators typically want to keep their NRI at or above 75–80% on a given tract.",
+base:"An economic calculation, not a clause."},
+
+{n:22,cat:"basics",badge:"know",term:"Working interest",
+def:"The operator's side of the deal: the right to produce, coupled with the obligation to pay 100% of the costs.",
+why:"The reason your royalty is “cost-free” is that the working interest bears the drilling bill. It's the trade at the heart of every lease.",
+base:"A universal concept."},
+
+/* ===== ROYALTY & PAYMENT ===== */
+{n:23,cat:"royalty",badge:"for",term:"Cost-free royalty",
+def:"Your royalty is paid free of the costs to gather, compress, treat, dehydrate, process, and transport the product to market.",
+why:"Without it, the operator nets those costs out of your check first. The same well can pay one owner meaningfully more than another purely because of this clause.",
+op:"Operators argue that everyone who benefits from a higher downstream price should share the cost of getting there — and that cost-free royalty makes marginal wells uneconomic.",
+base:"Not in the standard printed form — the base royalty clause permits deductions. Added by addendum.",
+see:{tab:"t-ppc",label:"Concept 10 — Post-production costs"}},
+
+{n:24,cat:"royalty",badge:"for",term:"Gross proceeds / marketable condition valuation",
+def:"Fixes your royalty's value at the full amount received once the product is genuinely ready for market, rather than a lower notional value back at the wellhead.",
+why:"This is the clause that makes a cost-free promise actually stick. Texas courts have held that a valuation clause saying “market value at the well” can override a separate no-deductions promise, treating it as meaningless surplus wording.",
+op:"Operators prefer wellhead valuation because it shifts the downstream cost burden onto the royalty owner automatically, without ever using the word “deduction.”",
+base:"Base form uses operator-favorable “market value at the well” language. Added by addendum.",
+see:{tab:"t-ppc",label:"Concept 10 — Post-production costs"}},
+
+{n:25,cat:"royalty",badge:"for",term:"Add-back for purchaser deductions",
+def:"Requires that if the buyer of the product already subtracted costs before paying the operator, those amounts are added back before your royalty is figured.",
+why:"Closes the back door on a cost-free clause. Without it, an operator can honestly say it deducted nothing — because the purchaser did it first.",
+op:"Operators may resist because it requires tracing costs through contracts they didn't write.",
+base:"Not standard. Added by addendum alongside the cost-free clause."},
+
+{n:26,cat:"royalty",badge:"for",term:"Royalty on all substances",
+def:"Extends your royalty to every valuable stream the well produces — residue gas, natural gas liquids, condensate, sulfur, helium, and CO2 — not just raw oil and gas.",
+why:"Modern wells make much of their money on the liquids stripped out at a processing plant. A lease that only names “oil and gas” can let that value escape.",
+op:"Operators may want processed products valued differently, since processing genuinely costs money.",
+base:"Base form typically covers oil and gas; other products often go unnamed. Added by addendum."},
+
+{n:27,cat:"royalty",badge:"for",term:"Keep-whole on processing",
+def:"Guarantees you receive at least as much as you would have if the gas had never been sent to a processing plant at all.",
+why:"Processing splits gas into residue gas plus liquids. Without this, an owner can end up worse off after processing than before — which is backwards, since processing exists to add value.",
+op:"Operators resist because it means absorbing processing economics that don't always work out.",
+base:"Not standard. A sophisticated addendum term."},
+
+{n:28,cat:"royalty",badge:"confirm",term:"Valuation point",
+def:"The specific place in the chain — the wellhead, the tailgate of a plant, or the point of sale to an unaffiliated buyer — where your royalty's value is measured.",
+why:"Two leases with an identical 1/4 royalty can pay very differently based only on where this flag is planted. Find this phrase in your lease and read it twice.",
+op:"The further upstream the valuation point, the lower the value your royalty is calculated on.",
+base:"Always present somewhere in the royalty clause; the wording is what matters.",
+see:{tab:"t-ppc",label:"Concept 10 — Post-production costs"}},
+
+{n:29,cat:"royalty",badge:"confirm",term:"Affiliate sale protection",
+def:"Provides that a sale to the operator's own affiliated company doesn't set your royalty value — the price must come from a genuine arm's-length sale to an unrelated buyer.",
+why:"If the operator sells to its own marketing arm at a low internal price and that price sets your royalty, the profit moves to a company you never get paid by.",
+op:"Operators use affiliated marketing companies for legitimate reasons too, and dislike having their internal pricing second-guessed.",
+base:"Not standard. Added by addendum."},
+
+{n:30,cat:"royalty",badge:"for",term:"Timely payment and interest on late royalty",
+def:"Sets a deadline for your first and ongoing royalty payments, with interest owed if the operator is late.",
+why:"Texas law already provides deadlines and interest, but writing it into the lease gives you a contract claim rather than only a statutory one.",
+base:"Statute supplies a backstop; the base lease is usually silent. Addendum confirms it."},
+
+{n:31,cat:"royalty",badge:"for",term:"Take-or-pay and settlement proceeds",
+def:"Entitles you to royalty on money the operator receives for gas it didn't actually take, or from settling a contract dispute.",
+why:"These payments can be substantial and, without this clause, flow to the operator with no royalty attached because no product technically moved.",
+op:"Operators argue settlement money compensates them for their own contract rights, not for production.",
+base:"Not standard. Added by addendum."},
+
+{n:32,cat:"royalty",badge:"for",term:"Royalty in kind (take-in-kind)",
+def:"Lets you elect to receive your royalty share as actual barrels or Mcf rather than a check, and market it yourself.",
+why:"Rarely exercised, but powerful leverage. If you believe you're being underpaid, the credible ability to walk away and sell your own share changes the conversation.",
+op:"Operators dislike the administrative burden and the loss of volume in their marketing pool.",
+base:"Not standard for royalty owners. Added by addendum."},
+
+{n:33,cat:"royalty",badge:"for",term:"Most favored nations royalty",
+def:"Guarantees you the benefit of any higher royalty the same operator grants to a neighbor within a defined area and time.",
+why:"Prevents the situation where you sign early at 3/16 and the owner across the fence signs three months later at 1/4 on the same well.",
+op:"Operators resist this hard — it removes their ability to price acreage individually and can cascade across an entire leasing campaign.",
+base:"Not standard and frequently refused. Added by addendum."},
+
+{n:34,cat:"royalty",badge:"for",term:"Minimum royalty",
+def:"A floor: a set minimum annual payment regardless of how little the well produces.",
+why:"Keeps a barely-producing well from holding your acreage while paying you almost nothing.",
+op:"Operators resist any obligation untethered from actual production.",
+base:"Uncommon in private leases; more usual in institutional and state forms."},
+
+{n:35,cat:"royalty",badge:"for",term:"No division order required for payment",
+def:"Confirms the operator can't withhold your royalty because you haven't signed its division order.",
+why:"A division order is the operator's accounting statement, not a new contract — and Texas law says it's revocable and can't change your lease. Some operator forms slip in warranty or indemnity language that would.",
+op:"Operators want a signed division order on file to reduce their risk of paying the wrong person.",
+base:"Backed by statute; addendum confirms it in writing.",
+see:{tab:"t-doi",label:"Concept 06 — Your decimal (DOI)"}},
+
+{n:36,cat:"royalty",badge:"for",term:"Division order form limits",
+def:"Provides that any division order you're asked to sign must be a bare statement of your interest — no warranty of title, no indemnity, and nothing that modifies the lease.",
+why:"This is the single most common place where owners accidentally give away lease protections they negotiated for, by signing what looks like routine paperwork.",
+op:"Operator division order forms routinely include warranty and indemnity language precisely because owners sign them without reading.",
+base:"Not standard. Added by addendum.",
+see:{tab:"t-doi",label:"Concept 06 — Your decimal (DOI)"}},
+
+{n:37,cat:"royalty",badge:"for",term:"Audit rights",
+def:"Lets you request and inspect the operator's production, sales, and deduction records.",
+why:"Without this, verifying a royalty check is nearly impossible — you're relying entirely on the operator's own arithmetic, with no way to check it.",
+op:"Operators cite cost and confidentiality, and worry about opening records to hundreds of small owners.",
+base:"Not standard. Added by addendum.",
+see:{tab:"t-check",label:"Concept 07 — The royalty check"}},
+
+{n:38,cat:"royalty",badge:"for",term:"Express marketing covenant",
+def:"A written promise to market the production diligently and at the best price reasonably available.",
+why:"Texas implies a duty to market, but implied duties are hard and expensive to enforce. Writing it down converts it into a plain contract term.",
+op:"Operators prefer the flexible implied standard to a written one they can be measured against.",
+base:"Not standard. Added by addendum."},
+
+{n:39,cat:"royalty",badge:"for",term:"Third-party well royalty",
+def:"Provides that if someone other than your operator produces from your minerals — a co-tenant who never leased from you, for example — you're still paid royalty as though your own operator drilled it.",
+why:"Closes a genuine gap. Production can legally occur under an arrangement your lease never contemplated, and without this clause the royalty machinery may not reach it.",
+base:"Rare. A sophisticated addendum term."},
+
+{n:40,cat:"royalty",badge:"confirm",term:"Compensatory royalty",
+def:"A payment made in place of drilling — most often when a neighboring well is draining your tract and the operator chooses to pay rather than drill an offset.",
+why:"Useful as a backstop, but watch the amount and the duration. A low compensatory royalty with no time limit becomes a cheap way to avoid drilling indefinitely.",
+op:"Operators much prefer paying a modest compensatory royalty to spending millions on a defensive well.",
+base:"Appears alongside offset obligations; the rate and cap are negotiated."},
+
+{n:41,cat:"royalty",badge:"confirm",term:"Free use of production",
+def:"The operator's right to burn or use some of the oil, gas, or water produced to run its own operations, without paying royalty on it.",
+why:"Normal and reasonable in small amounts. The improvements to ask for are a cap, a limit to operations on this lease only, and no free use for electricity generation.",
+op:"Operators need on-site fuel and treat it as an ordinary cost of production.",
+base:"Base lease grants this broadly by default. Limits are negotiated in."},
+
+{n:42,cat:"royalty",badge:"flag",term:"Post-production costs buried in the valuation language",
+def:"Deduction language hidden inside how royalty is valued — “market value at the well,” “net proceeds,” “netback” — rather than stated openly as a deduction.",
+why:"This is how a lease undercuts a cost-free royalty without ever using the word “deduction.” If your lease promises cost-free royalty in one paragraph and says “at the well” in another, you may have less protection than you think.",
+op:"It is the base form's default drafting, and operators have little reason to volunteer a change.",
+base:"Present in the standard printed form by default. Worth striking or rewriting.",
+see:{tab:"t-ppc",label:"Concept 10 — Post-production costs"}},
+
+/* ===== TERM, CONTINUATION & PUGH ===== */
+{n:43,cat:"term",badge:"for",term:"Vertical (depth) Pugh clause",
+def:"Releases the rights below whatever formation is actually producing once the primary term ends — commonly everything deeper than 100 feet under the deepest producing perforation.",
+why:"Without it, one shallow well holds every foot of depth beneath your acres forever, including formations no one has any current plan to drill. Texas courts will not imply one for you.",
+op:"Operators want to keep deep rights because tomorrow's technology may make a formation valuable that isn't today — at yesterday's royalty.",
+base:"Not in the base form. Must be added by addendum.",
+see:{tab:"t-lease",label:"Concept 04 — The lease"}},
+
+{n:44,cat:"term",badge:"for",term:"Horizontal (acreage) Pugh clause",
+def:"Releases acreage lying outside the producing or pooled unit once the primary term or continuous development ends.",
+why:"Without it, one well can hold a large tract indefinitely, including acres a mile away that will never see a rig. This is the most valuable single clause for an owner with a big tract.",
+op:"Holding undeveloped acreage cheaply, at old terms, is one of the main reasons operators lease more than they immediately need.",
+base:"Not in the base form. Must be added by addendum.",
+see:{tab:"t-pooling",label:"Concept 05 — Pooling & dilution"}},
+
+{n:45,cat:"term",badge:"for",term:"Continuous development clause",
+def:"Caps the gap between the end of one well and the start of the next — commonly 120 or 180 days — for the operator to keep holding undeveloped acreage.",
+why:"This is the engine that drives the Pugh clause. Without a day limit, sporadic activity every couple of years can hold everything.",
+op:"Operators want longer windows to match rig availability, permitting, and capital cycles.",
+base:"Base lease has open-ended operations language. The day limit is negotiated in."},
+
+{n:46,cat:"term",badge:"for",term:"Retained acreage / proration unit limits",
+def:"When development stops, shrinks the lease down to the specific acreage assigned to each producing well, sized by state spacing rules.",
+why:"The practical companion to the Pugh clause — it defines exactly how much land each well gets to keep, rather than leaving it to argument.",
+op:"Operators prefer larger retained units, and often want the size tied to whatever the regulator will allow rather than a fixed number.",
+base:"Not standard. Added by addendum."},
+
+{n:47,cat:"term",badge:"for",term:"Shut-in royalty, capped",
+def:"Fixes a real dollar amount, a payment deadline, and a hard maximum duration for the payment that substitutes for production when a well is capable but not selling.",
+why:"A shut-in payment is legitimate — a well can be finished before a pipeline reaches it. Uncapped, it becomes a way to hold your lease alive for years with no production at all.",
+op:"Operators need shut-in flexibility for genuine infrastructure delays and low-price periods.",
+base:"Base lease has a shut-in clause, usually nominal and uncapped. The cap is negotiated in.",
+see:{tab:"t-lease",label:"Concept 04 — The lease"}},
+
+{n:48,cat:"term",badge:"for",term:"Shut-in payment timing as a condition",
+def:"Makes timely, correct payment of the shut-in royalty a strict requirement — miss it or misfigure it, and the well no longer holds the lease.",
+why:"Without this, a late or wrong shut-in payment is merely a breach you'd have to sue over. With it, the lease simply ends.",
+op:"Operators resist strict conditions because an administrative slip could cost them the whole lease.",
+base:"Not standard. A strong addendum term."},
+
+{n:49,cat:"term",badge:"for",term:"Commencement means actual drilling",
+def:"Defines the operations that save a lease as the drill bit actually turning in the ground — expressly excluding surveying, staking, dirt work, road building, and rigging up.",
+why:"Closes a real loophole. Under a loose definition, a bulldozer and a stake can extend a lease that was about to expire.",
+op:"Operators want the broadest possible definition, since permitting and site work genuinely happen before spudding.",
+base:"Base language is broad by default. The tighter definition is negotiated in."},
+
+{n:50,cat:"term",badge:"confirm",term:"Cessation of production clause",
+def:"Gives the operator a set number of days — often 60 or 90 — to restore production after a well stops, before the lease terminates.",
+why:"Reasonable in principle; the thing to watch is whether the window is short and whether repeated cessations can be strung together indefinitely.",
+op:"Wells go down for ordinary mechanical reasons and operators need room to fix them.",
+base:"Standard in the base form; the length is what's negotiated."},
+
+{n:51,cat:"term",badge:"confirm",term:"Dry hole clause",
+def:"Gives the operator a window after drilling an unsuccessful well to start another one before the lease lapses.",
+why:"Fair, since dry holes are part of drilling. Just confirm the window is a defined number of days rather than open-ended.",
+base:"Standard in the base form."},
+
+{n:52,cat:"term",badge:"confirm",term:"Surrender clause",
+def:"Lets the operator give back all or part of the lease at any time, ending its obligations on the released portion.",
+why:"Generally fine — you want acreage back. Confirm the release must actually be recorded, so it doesn't linger as a cloud on your title.",
+op:"Operators want the freedom to drop acreage that no longer fits their plans.",
+base:"Standard in the base form."},
+
+{n:53,cat:"term",badge:"flag",term:"Option to extend the primary term",
+def:"Gives the operator the right to buy more primary term — often at the same per-acre price paid originally — by sending a check before expiration.",
+why:"Whether this is fair depends entirely on the price. An option exercisable at the original bonus rate five years later, in a hotter market, is a one-sided bargain against you.",
+op:"An extension option is far cheaper than re-leasing at market and removes competition entirely.",
+base:"Not in the base form; a common operator add-on. Negotiate the price or strike it."},
+
+{n:54,cat:"term",badge:"for",term:"Force majeure, limited",
+def:"Caps how long a “circumstances beyond our control” excuse can pause the lease clock, and expressly excludes low prices, lack of a market, and general economic conditions.",
+why:"An uncapped force majeure clause is an all-purpose extension button. The exclusions matter most — without them, “the price dropped” can become an excuse not to drill.",
+op:"Operators face genuine rig shortages, permit delays, and pipeline constraints, and want protection from all of them.",
+base:"Base clause is broad and often uncapped. The cap and carve-outs are negotiated in."},
+
+{n:55,cat:"term",badge:"confirm",term:"Depth limitation / target interval",
+def:"Limits the lease to a named formation or a stated depth range, rather than everything from surface to basement.",
+why:"Excellent for you when defined precisely, because it frees the other depths to lease separately. Dangerous when the depths are left blank or ambiguous — an unfilled blank here can undo your whole depth-severance protection.",
+op:"Operators may accept a depth limit to get a deal done, then rely on vague drafting to argue for more.",
+base:"Not standard on private leases; common on institutional forms. Check that any blanks are filled in."},
+
+{n:56,cat:"term",badge:"for",term:"Automatic recordable release",
+def:"Requires the operator to file a recordable release with the county within a set number of days after any part of the lease ends, without you having to ask.",
+why:"An expired lease that was never released still clouds your title, and the next operator's title attorney will treat it as a problem. Chasing a departed operator for a release is genuinely difficult.",
+op:"Filing releases costs staff time on acreage the operator no longer cares about.",
+base:"Texas law gives a release on request. An automatic deadline is stronger and is negotiated in."},
+
+{n:57,cat:"term",badge:"for",term:"Liquidated damages for failure to release",
+def:"Sets a fixed daily penalty — a modest per-day amount — when the operator misses the release deadline.",
+why:"Turns a release obligation from a polite request into something with a running meter. Small amounts work; the point is having any consequence at all.",
+base:"Rare. A strong addendum term."},
+
+{n:58,cat:"term",badge:"for",term:"Anti-perpetuation clause",
+def:"Provides that the operator can't create agreements, burdens, or arrangements that survive the lease and continue to encumber your minerals after it ends.",
+why:"When your lease ends you want your minerals back clean — not subject to a pipeline agreement, unit designation, or contract you never signed.",
+base:"Rare. A sophisticated addendum term."},
+
+/* ===== POOLING, UNITS & ALLOCATION ===== */
+{n:59,cat:"pooling",badge:"for",term:"Consent required to pool",
+def:"Requires your written sign-off before your acres can be folded into a pooled unit with other tracts.",
+why:"The base lease hands this decision to the operator alone. Since pooling directly determines what fraction of the well you're paid on, it's a decision worth keeping.",
+op:"Operators need to assemble units from many tracts and can't realistically chase individual consents from hundreds of owners.",
+base:"Base lease grants broad pooling authority by default. Consent is negotiated in.",
+see:{tab:"t-pooling",label:"Concept 05 — Pooling & dilution"}},
+
+{n:60,cat:"pooling",badge:"confirm",term:"Maximum unit size",
+def:"Caps how many acres can be pooled into one unit — traditionally around 40 to 160 acres for an oil well and 640 for gas, plus a tolerance, with larger sizes for horizontal wells.",
+why:"Your share of a pooled well is your acres divided by the unit's acres. Every acre added to the unit shrinks your slice, so a cap is a direct protection of your decimal.",
+op:"Modern horizontal laterals genuinely need large units, so operators push for size tied to whatever regulators allow.",
+base:"Present in the base pooling clause; the numbers are negotiated.",
+see:{tab:"t-pooling",label:"Concept 05 — Pooling & dilution"}},
+
+{n:61,cat:"pooling",badge:"for",term:"Anti-dilution provision",
+def:"Sets a floor on how small your share of a unit can be driven — for example, requiring your tract to make up at least a stated percentage, or barring units built specifically to minimize your participation.",
+why:"Guards against a unit drawn so as to include the smallest possible sliver of your tract while still holding the whole lease.",
+base:"Rare. A sophisticated addendum term.",
+see:{tab:"t-pooling",label:"Concept 05 — Pooling & dilution"}},
+
+{n:62,cat:"pooling",badge:"confirm",term:"Cross-conveyance disclaimer",
+def:"States that pooling does not transfer any ownership between the owners in the unit — it only sets how production is shared.",
+why:"Texas law generally treats pooling as a cross-conveyance of interests, which can complicate your title. This clause keeps the arrangement to a sharing formula.",
+base:"Common in modern Texas forms. Worth confirming it's present."},
+
+{n:63,cat:"pooling",badge:"confirm",term:"Pooled royalty allocated by surface acreage",
+def:"Confirms your royalty from a pooled well is your acres' share of the unit, with production anywhere in the unit counting toward it.",
+why:"This is the standard, fair method. The point is confirming the lease actually says so, rather than leaving the formula to the operator's discretion.",
+base:"The customary allocation method; verify it's intact.",
+see:{tab:"t-pooling",label:"Concept 05 — Pooling & dilution"}},
+
+{n:64,cat:"pooling",badge:"confirm",term:"Unitization requires separate ratification",
+def:"Requires your own separate written approval before your lease is folded into a field-wide unit, on top of any pooling consent.",
+why:"Field-wide unitization for secondary recovery is a much bigger commitment than pooling one well. Texas doesn't force most owners into one, so that signature is genuinely yours to give or withhold.",
+op:"Operators running a waterflood or enhanced recovery project need the whole reservoir under one agreement to make it work.",
+base:"Base lease may grant this authority broadly. Separate ratification is negotiated in."},
+
+{n:65,cat:"pooling",badge:"confirm",term:"Allocation well / production sharing agreement",
+def:"A horizontal well whose lateral crosses tract or unit lines, with production split among them — usually by how many feet of the productive lateral lie under each.",
+why:"Increasingly common and often unavoidable with long laterals. The thing to ask for is consent, or at minimum a clearly stated allocation formula you can verify against the well's survey.",
+op:"Long laterals rarely fit inside one unit, and allocation wells let operators drill the best geometry without assembling consents from everyone.",
+base:"Not addressed in older forms at all. A consent requirement is negotiated in.",
+see:{tab:"t-alloc",label:"Concept 09 — Allocation wells"}},
+
+{n:66,cat:"pooling",badge:"confirm",term:"Sharing unit / participating area",
+def:"A defined area within which production is shared on a stated formula — commonly measured by productive wellbore length rather than flat surface acreage.",
+why:"A footage-based formula can help or hurt you depending on where the lateral actually runs under your tract. Ask for the right to see the as-drilled survey the numbers come from.",
+base:"Appears in modern institutional forms; rare on older private leases.",
+see:{tab:"t-alloc",label:"Concept 09 — Allocation wells"}},
+
+{n:67,cat:"pooling",badge:"flag",term:"Community lease",
+def:"A single lease covering several separately owned tracts, which can have the effect of pooling them automatically without a separate pooling agreement.",
+why:"You may find your production shared with neighboring tracts simply because everyone signed the same piece of paper. Most careful leases expressly say this isn't a community lease.",
+op:"It's an administratively simple way to tie tracts together with one signature round.",
+base:"A “no community lease” disclaimer is common in modern forms. Confirm it's present."},
+
+{n:68,cat:"pooling",badge:"confirm",term:"Non-apportionment / entirety clause",
+def:"Addresses what happens when a leased tract is later split up: does royalty follow only the piece the well sits on, or get shared across the whole original tract?",
+why:"Texas's default is non-apportionment — the well's tract takes the royalty. An entirety clause reverses that. Which one you want depends entirely on where a future well is likely to be.",
+base:"The base form usually confirms non-apportionment. An entirety clause is a deliberate change."},
+
+/* ===== ASSIGNMENT & TRANSFER ===== */
+{n:69,cat:"assignment",badge:"for",term:"Notice of assignment",
+def:"Requires the operator to tell you in writing — with name, address, and contact details, plus a copy of the assignment — whenever the lease changes hands.",
+why:"Leases are bought and sold constantly. Without notice you may not know who owes you money, who to send a demand letter to, or who is actually operating your well.",
+op:"Operators trade acreage frequently and find per-owner notice obligations burdensome.",
+base:"Not standard. Added by addendum."},
+
+{n:70,cat:"assignment",badge:"for",term:"Continuing lessee liability after assignment",
+def:"Keeps the assigning operator responsible for lease obligations until the new one formally assumes them.",
+why:"The base lease often releases the original operator the moment it assigns — even if the buyer is thinly capitalized and never performs. This keeps a solvent party on the hook.",
+op:"Operators want a clean exit when they sell acreage, without lingering liability for someone else's conduct.",
+base:"Base form often releases the assignor. Continuing liability is negotiated in."},
+
+{n:71,cat:"assignment",badge:"for",term:"Consent to assign",
+def:"Requires your written approval — often stated as not to be unreasonably withheld — before the lease can be transferred.",
+why:"Your best protection against your lease ending up with an undercapitalized operator that can't plug its wells or pay its royalties. Ask for the definition to reach farmouts, operating agreements, and transfers by merger.",
+op:"Operators strongly resist, because a consent requirement can hold up an entire acreage sale.",
+base:"Not in the base form; free assignment is the default. Negotiated in."},
+
+{n:72,cat:"assignment",badge:"confirm",term:"Change of ownership clause",
+def:"Sets what you must deliver — usually recorded documents proving the transfer — before the operator is obliged to start paying a new owner after a death or sale.",
+why:"Cuts both ways. It protects the operator from paying the wrong person, but a long notice period can delay payment to heirs for months. Watch for windows longer than 30 days.",
+op:"Operators face real liability for paying the wrong owner and want documentation before they redirect a check.",
+base:"Standard in the base form; the notice period is negotiated."},
+
+{n:73,cat:"assignment",badge:"confirm",term:"Partial assignment does not divide your rights",
+def:"Provides that if the operator splits the lease among several assignees, your rights and remedies aren't fragmented along with it.",
+why:"Without this, enforcing a single obligation could mean pursuing four different companies who each blame the others.",
+base:"Not standard. Added by addendum."},
+
+{n:74,cat:"assignment",badge:"flag",term:"Preferential right on assignment",
+def:"Gives someone — often the operator or a co-owner — the right to match any offer before an interest can be sold to a third party.",
+why:"When it runs against you, it depresses what your minerals are worth: buyers won't spend time and money on diligence knowing someone else can simply match at the end.",
+op:"Operators want first call on acreage adjacent to their own position.",
+base:"Not in the base form. Confirm any such right doesn't run against your interest."},
+
+/* ===== PART B — surface, title, enforcement, novel, red flags ===== */
+{n:75,cat:"surface",badge:"for",term:"Surface use restrictions",
+def:"Limits where and how the operator may use the surface — designated drill sites, approved road routes, advance notice before entry.",
+why:"The mineral estate is the dominant estate, meaning the operator already has the right to use as much surface as reasonably necessary without asking. This clause is how you claw some of that back by contract.",
+op:"Operators need flexibility to site pads and roads where the geology and topography allow.",
+base:"Base lease grants broad surface rights by default. Restrictions are negotiated in.",
+see:{tab:"t-surface",label:"Concept 01 — Surface & minerals"}},
+
+{n:76,cat:"surface",badge:"for",term:"No surface occupancy (NSO)",
+def:"Bars the operator from using the surface of your tract at all — the well must be drilled from somewhere else and reach your minerals directionally.",
+why:"The strongest surface protection available, and entirely practical in the horizontal era. Especially worth asking for on a homestead, a ranch headquarters, or land with a house on it.",
+op:"Operators lose siting flexibility and may need a longer, costlier lateral to reach the target.",
+base:"Not in the base form. Negotiated in."},
+
+{n:77,cat:"surface",badge:"for",term:"Setbacks",
+def:"A minimum distance the operator must keep from named features — houses, barns, water wells, cemeteries, ponds. Older forms commonly say 200 feet; modern negotiated leases often ask for 300 to 1,000 feet or more.",
+why:"The default 200 feet in the printed form dates from the era of small vertical wells. A modern multi-well pad with continuous truck traffic at 200 feet from a house is a genuinely different experience.",
+op:"Larger setbacks shrink the usable drilling area on a tract.",
+base:"Base form typically includes a modest setback from a house or barn. Larger distances and more protected features are negotiated in."},
+
+{n:78,cat:"surface",badge:"for",term:"Surface damages provision",
+def:"Express compensation for harm to the land — crops, pasture, fences, gates, roads, livestock, and improvements.",
+why:"Without it you fall back on the vague common-law standard of reasonable use, which pays for very little. A written schedule turns a dispute into arithmetic.",
+op:"Operators budget for damages but prefer negotiating each incident rather than committing to a schedule in advance.",
+base:"Not standard. Added by addendum."},
+
+{n:79,cat:"surface",badge:"for",term:"Damage schedule with fixed rates",
+def:"A price list attached to the lease setting specific amounts — for example, a per-acre rate for the drill site and roads, a fixed sum per mature tree removed above a stated trunk diameter, a per-head amount for livestock loss, and a deposit paid before operations begin.",
+why:"This is where negotiating pays off in cash you can actually count. A per-acre figure for the pad, several thousand dollars for a mature oak, and a deposit posted before the first truck arrives are all ordinary asks — and the numbers are entirely negotiable.",
+op:"Operators dislike fixed schedules because they remove the ability to argue a tree or a field wasn't worth much.",
+base:"Not in the base form at all. Entirely a creature of the addendum."},
+
+{n:80,cat:"surface",badge:"for",term:"Reclamation and restoration",
+def:"Requires the operator to fill pits, remove debris and equipment, restore the contours, and reseed the land when operations finish.",
+why:"Without it, “finished” can mean the rig leaves and the caliche pad, the pit, and the ruts stay forever.",
+op:"Restoration is a real cost incurred at the end, when the well is least profitable.",
+base:"Not standard. Added by addendum."},
+
+{n:81,cat:"surface",badge:"for",term:"Water and groundwater consent",
+def:"Requires written permission before the operator uses fresh water from the property, drills a water well, or disposes of or injects salt water there.",
+why:"Modern completions consume enormous volumes of water. In much of Texas the groundwater is worth protecting on its own terms, separate from anything to do with oil.",
+op:"Local water is dramatically cheaper than trucking it in, and on-site disposal saves substantial cost per barrel.",
+base:"Base lease often grants free water use by default. Consent is negotiated in."},
+
+{n:82,cat:"surface",badge:"flag",term:"Off-lease use of your surface",
+def:"Language letting the operator run pipelines that serve other leases across your land, dispose of saltwater trucked in from elsewhere, or use your water for operations on other properties.",
+why:"You are absorbing the burden of an operation you receive no royalty from. If it stays in the lease, it should carry its own separate compensation.",
+op:"Sharing infrastructure across leases is far more efficient than duplicating it on each one.",
+base:"Present in some broader forms. Worth striking or pricing separately."},
+
+{n:83,cat:"surface",badge:"for",term:"Pipeline and right-of-way terms",
+def:"Sets where lines may run, how deep they must be buried — commonly below plow depth or a stated number of inches — and what happens to them when the lease ends.",
+why:"A shallow line across a field you farm is a permanent nuisance. Burial depth is a small ask that matters for decades.",
+base:"Base form grants pipeline rights generally without specifics. Details are negotiated in."},
+
+{n:84,cat:"surface",badge:"for",term:"Offset well obligation",
+def:"Requires the operator to drill a protective well, release the acreage, or pay compensatory royalty when a nearby well — within a stated distance, often 300 to 660 feet — is draining your minerals.",
+why:"Texas follows the rule of capture: oil that migrates to a neighbor's well is theirs, and you're paid nothing. An express offset obligation is your protection against being drained from next door.",
+op:"Operators resist because it can force an uneconomic defensive well purely to protect a lease position.",
+base:"An implied duty exists but is hard to prove. An express clause is negotiated in."},
+
+{n:85,cat:"surface",badge:"for",term:"Well location and plugging notice",
+def:"Requires written notice of where each well will be drilled, and advance notice before any well is plugged and abandoned.",
+why:"Plugging notice is the one that matters most — it's often your only warning that the production holding your lease alive is about to stop, which may mean the lease is about to end.",
+op:"Routine notice obligations add administrative load across hundreds of wells.",
+base:"Not standard. Added by addendum."},
+
+{n:86,cat:"surface",badge:"for",term:"Notice on taking over an existing well",
+def:"Requires written notice within a set number of days when a new operator assumes an existing well.",
+why:"Keeps your payment and contact records current through operator changes, which is when royalty payments most often go astray or into suspense.",
+base:"Not standard. Added by addendum."},
+
+{n:87,cat:"surface",badge:"for",term:"Equipment removal deadline",
+def:"Sets a hard deadline — commonly 90 to 120 days after termination — for the operator to remove tanks, equipment, and fixtures, after which they become yours.",
+why:"Without a deadline, the base form's “reasonable time” means abandoned equipment can sit for years with nobody responsible for it.",
+base:"Base form allows a vague reasonable time. A hard deadline is negotiated in."},
+
+{n:88,cat:"surface",badge:"for",term:"Plugging and idle well obligation",
+def:"Commits the operator to plug wells on a defined schedule rather than leaving them idle indefinitely, and blocks removal of casing or salvage until plugging and restoration are complete.",
+why:"Orphaned wells are a genuine liability that can end up attached to the land. This keeps the party who drilled the well responsible for closing it.",
+op:"Plugging is a pure cost with no revenue attached, so it gets deferred whenever the rules allow.",
+base:"Not standard. A strong addendum term."},
+
+{n:89,cat:"surface",badge:"for",term:"Seismic and geophysical permit",
+def:"Requires a separate written permit and separate payment before seismic or other geophysical surveys are run on the property.",
+why:"Seismic data is valuable and is often bundled into the general grant for free. Pulling it out means it gets paid for on its own terms.",
+op:"Operators want survey rights included so they can shoot data without a second negotiation.",
+base:"Base form may grant geophysical rights broadly. A separate permit is negotiated in."},
+
+{n:90,cat:"surface",badge:"for",term:"Site conduct standards",
+def:"Practical operating rules: keep gates closed, maintain fences and cattle guards, line the pits, control weeds and dust, keep roads passable, no hunting or firearms by crews, no alcohol on site.",
+why:"These read as small items but they're what daily life next to an operation is actually made of. An open gate is a very expensive problem for a rancher.",
+op:"Operators generally accept these; they're low-cost and reduce friction with landowners.",
+base:"Not in the printed form. Standard addendum material and usually easy to get."},
+
+/* ===== TITLE, CAPACITY & RISK ===== */
+{n:91,cat:"title",badge:"for",term:"No warranty of title",
+def:"Removes any promise by you that your title is good, so the operator can't come back against you if ownership later turns out to be different than assumed.",
+why:"This is the single most important protective term for anyone signing on behalf of someone else. If title fails, a warranty lets the operator recover the bonus and royalty already paid — money that may already be spent or distributed.",
+op:"Operators want a warranty because it shifts title risk to the person who ought to know their own ownership.",
+base:"Base form contains a general warranty of title. Removed by negotiation."},
+
+{n:92,cat:"title",badge:"confirm",term:"General vs. special vs. no warranty",
+def:"Three levels. A general warranty defends against all claims ever. A special warranty defends only against claims arising through you. No warranty defends against nothing.",
+why:"Know which one you signed. General warranty is the base form's default and the most exposure you can take on; special warranty is the usual negotiated middle ground.",
+base:"Base form uses general warranty. Special or none is negotiated in."},
+
+{n:93,cat:"title",badge:"for",term:"Representative capacity only",
+def:"Confirms that a trustee, executor, guardian, agent, or attorney-in-fact is signing purely in that role, with no personal liability attaching to them individually.",
+why:"Essential whenever the signer isn't the owner acting for themselves. Without it, a person can end up personally exposed for an obligation they took on for someone else.",
+base:"Not in the base form. Essential addendum term for any representative signer."},
+
+{n:94,cat:"title",badge:"confirm",term:"Proportionate reduction (lesser interest)",
+def:"Reduces payments proportionately if you turn out to own less than the full interest the lease describes.",
+why:"Fair and standard for genuine fractional ownership. Watch that it isn't stretched to also discount your royalty because of separate interests it was never meant to reach.",
+op:"Operators need it because ownership on a tract is frequently not what the first title run suggested.",
+base:"Standard in the base form. Confine its scope rather than removing it.",
+see:{tab:"t-fraction",label:"Concept 03 — Fractional interests"}},
+
+{n:95,cat:"title",badge:"confirm",term:"Subrogation",
+def:"Lets the operator pay off a mortgage, tax lien, or other encumbrance on your property and then step into that creditor's shoes against you.",
+why:"Ordinarily paired with the warranty clause. If you've struck the warranty, ask whether the subrogation clause should go with it — they were drafted as a set.",
+base:"Standard in the base form alongside the warranty."},
+
+{n:96,cat:"title",badge:"confirm",term:"After-acquired title",
+def:"Automatically sweeps into the lease any additional interest in the same land you acquire later.",
+why:"Means an interest you inherit or buy next year can fall under this lease at today's terms without a new negotiation or a new bonus.",
+op:"Operators want certainty that a later-acquired sliver doesn't require a whole new lease.",
+base:"Standard in many printed forms. Worth narrowing."},
+
+{n:97,cat:"title",badge:"for",term:"Indemnification by the operator",
+def:"Shifts liability for the operator's activities onto the operator, requiring it to defend and hold you harmless — ideally without regard to fault, and surviving after the lease ends.",
+why:"Operations create real third-party risk: spills, injuries, contamination. Without indemnity, a lawsuit over something the operator did can name you as the mineral owner.",
+op:"Operators accept fault-based indemnity readily; without-regard-to-fault language is a heavier lift.",
+base:"Not standard. Added by addendum."},
+
+{n:98,cat:"title",badge:"for",term:"Insurance requirements",
+def:"Requires the operator to carry stated coverage — workers' compensation, general liability, umbrella, auto — name you as an additional insured, and provide certificates on request.",
+why:"An indemnity is only as good as the balance sheet behind it. Insurance is what makes the promise collectible if the operator fails.",
+base:"Not standard on private leases. Common on institutional and state forms."},
+
+{n:99,cat:"title",badge:"for",term:"Certified funds — no sight draft",
+def:"Requires the bonus in certified funds at signing, rather than a bank draft the operator can decline to honor during a review period.",
+why:"A sight draft is a free one-sided option: you've delivered a signed lease, they haven't delivered money, and they can walk away during the draft period. In a moving market that's a real cost to you.",
+op:"Drafts give operators time to run title before funding — a legitimate need, but the risk shouldn't sit entirely on you.",
+base:"Draft practice is common in the field. Certified funds are negotiated in."},
+
+{n:100,cat:"title",badge:"for",term:"Addendum controls over the printed form",
+def:"States that where the addendum conflicts with the pre-printed language, the addendum wins outright.",
+why:"This is the linchpin. Without it, every other negotiated term is vulnerable. Watch for softened wording like “controls only insofar as reasonable to avoid a conflict” — that invites a court to harmonize your protections away instead of enforcing them.",
+op:"Operators sometimes propose the softened version precisely because it looks like agreement while giving less.",
+base:"Not standard. Essential whenever an addendum exists — and the exact wording matters."},
+
+{n:101,cat:"title",badge:"confirm",term:"Compliance with applicable law",
+def:"Binds the operator to follow state law, Railroad Commission rules, and local ordinances.",
+why:"A baseline expectation. Worth having in writing so a violation is also a breach of your lease, not only a regulatory matter.",
+base:"Base form may have generic language; local specifics are added by addendum."},
+
+{n:102,cat:"title",badge:"confirm",term:"Conflict-of-interest certification",
+def:"A representation about who the lessee is and isn't — for example, that it isn't secretly affiliated with the person signing on the owner's side.",
+why:"Matters most when someone signs on behalf of others. It's how self-dealing gets caught before it happens rather than litigated afterward.",
+base:"Rare outside institutional and government forms."},
+
+{n:103,cat:"title",badge:"confirm",term:"No waiver of sovereign immunity",
+def:"For a government or public-entity mineral owner only: preserves that entity's immunity from suit rather than waiving it through the lease.",
+why:"Narrow, but decisive when it applies. A private owner can ignore this one.",
+base:"Not standard; addendum for public lessors."},
+
+/* ===== ENFORCEMENT & DISPUTES ===== */
+{n:104,cat:"enforce",badge:"confirm",term:"Notice and cure",
+def:"Requires you to give written notice of a breach and allow a set number of days — often 30 or 60 — for the operator to fix it before you can sue.",
+why:"Reasonable in principle, and it does prompt problems to get solved. Prefer a shorter window, and make sure it doesn't apply to obligations where delay itself is the harm.",
+op:"Operators want the chance to cure an administrative slip rather than face immediate litigation.",
+base:"Standard in the base form; the length is negotiated."},
+
+{n:105,cat:"enforce",badge:"flag",term:"Judicial ascertainment clause",
+def:"Provides the lease can never be forfeited or terminated for breach until a court has finally determined the breach exists — and even then the operator gets more time to comply.",
+why:"This is one of the most quietly damaging clauses in an old printed form. It converts a lease that should simply end into one you must litigate to conclusion first, then wait further. For a small owner, that's often the same as no remedy.",
+op:"Operators want protection against losing a producing asset over a disputed technicality.",
+base:"Present in some older forms. Texas courts have been skeptical of these, but don't rely on that — strike it."},
+
+{n:106,cat:"enforce",badge:"for",term:"Royalty payment as a condition",
+def:"Makes timely royalty payment a condition of the lease rather than merely a promise — so failing to pay can terminate the lease, not just support a damages claim.",
+why:"Changes the whole balance of leverage. Under the ordinary rule, non-payment is a covenant breach and your remedy is a lawsuit for the money. As a condition, the lease itself is at stake.",
+op:"Operators resist strongly — it means an accounting error could cost them a producing well.",
+base:"Not the default rule. A strong addendum term, and hard to get."},
+
+{n:107,cat:"enforce",badge:"for",term:"Lessor's lien and security interest",
+def:"Gives you a lien on the leased premises and a security interest in production and proceeds, securing what you're owed.",
+why:"Turns you from an unsecured creditor into a secured one. That distinction matters enormously if the operator goes bankrupt — which happens regularly in this industry.",
+op:"Operators resist because a lessor lien can interfere with their own lenders' priority.",
+base:"Not standard on private leases. Common on institutional forms."},
+
+{n:108,cat:"enforce",badge:"for",term:"Attorney fees",
+def:"Lets the prevailing party — or, better for you, only you — recover attorney fees and costs.",
+why:"A one-way fee provision in your favor is the difference between a claim being worth bringing and not. Small royalty disputes are otherwise uneconomic to pursue.",
+op:"Operators prefer either no fee clause or a mutual one.",
+base:"Base form is usually silent. Added by addendum."},
+
+{n:109,cat:"enforce",badge:"confirm",term:"Governing law and venue",
+def:"Names which state's law applies and which county's courts hear any dispute.",
+why:"Venue in a distant county is a practical barrier even when your claim is strong. Ask for the county where the land sits, or where you live.",
+op:"Operators prefer their home county or a business-friendly venue.",
+base:"Base form is often entirely silent. Added by addendum."},
+
+{n:110,cat:"enforce",badge:"confirm",term:"Arbitration or mediation",
+def:"Requires disputes to go to arbitration, or to non-binding mediation, instead of or before a lawsuit.",
+why:"Mediation first is usually fine and often helpful. Binding arbitration is a bigger decision — it's private, generally unappealable, and the filing costs can exceed a small royalty claim entirely.",
+op:"Operators often prefer arbitration for confidentiality and to avoid juries.",
+base:"Not in most base forms. Read carefully if proposed."},
+
+{n:111,cat:"enforce",badge:"for",term:"Limitations waiver",
+def:"Waives the operator's ability to argue your claim is time-barred, as to anything that correct royalty statements would have revealed but didn't.",
+why:"An elegant fix for a real unfairness: the clock on a royalty underpayment claim can run out before you could possibly have known about it, because the information was never given to you.",
+base:"Rare and sophisticated. A strong addendum term."},
+
+{n:112,cat:"enforce",badge:"for",term:"Implied covenants preserved",
+def:"States expressly that the written terms are in addition to — not a substitute for — the duties the law implies, such as reasonable development, protection from drainage, and diligent marketing.",
+why:"Some forms do the opposite, capping the implied development duty at one well per 80 or 640 acres. That's a ceiling disguised as a promise. This clause makes the written terms a floor instead.",
+op:"Operators prefer certainty over open-ended implied duties they can be sued on.",
+base:"Base forms often limit implied covenants. Express preservation is negotiated in."},
+
+{n:113,cat:"enforce",badge:"for",term:"Information and reporting rights",
+def:"Requires the operator to furnish well data, logs, completion reports, production figures, and title opinions on request.",
+why:"You can't enforce what you can't see. This pairs with audit rights and is often easier to obtain.",
+op:"Operators treat well data as competitively sensitive.",
+base:"Not standard. Added by addendum."},
+
+{n:114,cat:"enforce",badge:"confirm",term:"Confidentiality",
+def:"Restricts one or both parties from disclosing well data, economics, or lease terms.",
+why:"Check which direction it runs. An obligation on you not to discuss your own lease terms limits your ability to compare notes with neighbors — which is exactly how owners discover they were underpaid.",
+op:"Operators want their geologic and economic data protected, and would rather owners didn't compare terms.",
+base:"Not in older forms; increasingly common in modern ones."},
+
+/* ===== NOVEL, RARE & EMERGING ===== */
+{n:115,cat:"novel",badge:"for",term:"Pore space and carbon storage reserved",
+def:"Reserves to you the empty space in the rock itself, separately from the oil and gas — the space now being leased for carbon dioxide storage.",
+why:"Ownership of pore space in Texas is not fully settled and is becoming genuinely valuable. An old lease granting broad subsurface rights may already reach it. Reserve it expressly.",
+op:"Operators and their affiliates increasingly want storage rights, since depleted reservoirs are prime candidates for sequestration.",
+base:"Absent from every older form. A modern reservation worth adding."},
+
+{n:116,cat:"novel",badge:"for",term:"Produced water ownership",
+def:"Addresses who owns the water that comes up with the oil — a large-volume waste stream that has begun to have recycling and resale value.",
+why:"Texas law now generally gives produced water to the operator unless the lease says otherwise. That default is worth knowing, and worth changing if you can.",
+op:"Operators want clear title to produced water so they can recycle, transfer, and sell it.",
+base:"Absent from older forms. A modern point worth addressing expressly."},
+
+{n:117,cat:"novel",badge:"for",term:"Renewables and surface reservation",
+def:"Reserves your rights to wind, solar, and other surface energy development, so an oil and gas lease doesn't foreclose them.",
+why:"A broadly drafted lease with sweeping surface rights can conflict with a later wind or solar lease on the same ground. Carve it out now, while you're negotiating anyway.",
+base:"Absent from every older form. Increasingly worth adding."},
+
+{n:118,cat:"novel",badge:"for",term:"Gas storage prohibited without consent",
+def:"Bars the operator from using the formation to store gas injected from elsewhere without your separate written consent.",
+why:"Storage is a separate business with its own economics, and it can extend the operator's presence long after your minerals are depleted. It should be paid for separately.",
+op:"Depleted reservoirs near pipelines make excellent storage, and the rights are cheapest when bundled into an existing lease.",
+base:"Rare. A sophisticated addendum term."},
+
+{n:119,cat:"novel",badge:"confirm",term:"Helium, CO2 and other orphan substances",
+def:"Addresses substances that fall outside the ordinary meaning of oil and gas — helium, carbon dioxide, uranium, sulfur, lignite.",
+why:"Cuts both ways. A broad “other minerals” grant hands them over for free. But leaving them unmentioned entirely can create a dispute about who owns a helium stream worth more than the gas carrying it.",
+op:"Operators would rather have a broad grant than negotiate each substance separately.",
+base:"Older forms often say “oil, gas and other minerals.” Narrow it, or enumerate deliberately."},
+
+{n:120,cat:"novel",badge:"confirm",term:"Reserved substances",
+def:"Expressly names the substances you are keeping, rather than leaving it to the general grant.",
+why:"The clean solution to the problem above. List what's leased, list what isn't, and there's nothing left to argue about.",
+base:"Rare on private leases; common on state and institutional forms."},
+
+{n:121,cat:"novel",badge:"confirm",term:"Endangered species and environmental deferral",
+def:"A carve-out pausing lease deadlines while the operator waits on wildlife or environmental permitting — in West Texas this often names specific protected species by name.",
+why:"The underlying permitting delay is real. The concern is scope: if it pauses your lease clocks indefinitely and tolls your continuous development requirement, it can quietly become an uncapped extension.",
+op:"Operators face genuine, unpredictable delays from habitat stipulations and want protection from losing acreage over them.",
+base:"Appears in Permian Basin leases and some federal and state forms. Cap the deferral period if present."},
+
+{n:122,cat:"novel",badge:"confirm",term:"Depth severance and other-depths owners",
+def:"Recognizes that different depths under the same land can be leased to different companies, and requires each to avoid interfering with the others.",
+why:"The natural companion to a vertical Pugh clause. Once your deep rights are released, someone else may lease them — and you want the two operations kept out of each other's way.",
+base:"Modern institutional forms address it; older private forms don't."},
+
+{n:123,cat:"novel",badge:"flag",term:"Reserved override to the lessee's agent",
+def:"An overriding royalty carved out and kept by a landman, broker, or intermediary as part of putting the deal together.",
+why:"It doesn't come out of your royalty directly, but it burdens the well and can make a marginal well quit sooner. Worth knowing it exists when you're evaluating who you're dealing with.",
+base:"Created outside your lease. Not something you control, but worth understanding."},
+
+{n:124,cat:"novel",badge:"confirm",term:"Anti-self-dealing restriction",
+def:"Bars the person managing or leasing minerals on someone else's behalf from acquiring the lease themselves — directly, through a relative, or through an entity they control.",
+why:"A structural safeguard rather than an economic term. It exists because the temptation is obvious and the harm is hard to detect after the fact.",
+base:"Statutory on certain state lands; otherwise a matter of fiduciary duty rather than lease drafting."},
+
+{n:125,cat:"novel",badge:"confirm",term:"Rule 37 exception as an offset trigger",
+def:"Ties your offset-well protection to a regulatory event: if a neighboring well was close enough to need a spacing exception from the Railroad Commission, drainage is presumed.",
+why:"An elegant piece of drafting. Instead of proving drainage — expensive and technical — you point to a public filing the neighbor already made.",
+base:"Rare and clever. Worth borrowing from more sophisticated forms."},
+
+{n:126,cat:"novel",badge:"confirm",term:"Drainage presumption by distance",
+def:"Provides that any well within a stated distance is presumed to be draining your tract, with the burden on the operator to prove otherwise.",
+why:"Flips the hardest part of an offset claim. Without it, you have to prove drainage; with it, they have to disprove it.",
+base:"Appears in the most owner-protective institutional forms."},
+
+/* ===== RED FLAGS ===== */
+{n:127,cat:"redflag",badge:"flag",term:"Right of first refusal on your mineral sale",
+def:"Gives the operator the right to match any offer if you ever sell your minerals or royalty.",
+why:"It quietly depresses what your minerals are worth. Buyers won't spend money on title work and diligence knowing someone else can simply match their number at the end, so many won't bid at all.",
+op:"Operators want first call on acreage adjacent to their position, cheaply.",
+base:"Not in the standard form — appears in operator-drafted leases. Strike it."},
+
+{n:128,cat:"redflag",badge:"flag",term:"Right to match a future top lease",
+def:"Lets the current operator match any new lease offer you receive — sometimes even for a period after this lease has ended.",
+why:"Suppresses competition for your next lease before it starts. A version extending past termination is especially harmful, because the moment your acreage becomes free is exactly when its value is highest.",
+op:"Preserves the operator's position without paying to hold it.",
+base:"Not standard; an operator add-on. Strike it."},
+
+{n:129,cat:"redflag",badge:"flag",term:"Uncapped or token shut-in royalty",
+def:"A shut-in royalty with no real limit on how long, or how many times, it can substitute for actual production.",
+why:"The inverse of the capped version. A nominal annual payment can hold your lease alive indefinitely while the well never produces a dollar of royalty.",
+op:"Maximum flexibility to sit on acreage through low prices and infrastructure gaps.",
+base:"The base form's shut-in clause is often effectively uncapped. This is the default problem, not an unusual add-on."},
+
+{n:130,cat:"redflag",badge:"flag",term:"Open-ended operations holding the lease",
+def:"Language letting minimal, occasional activity keep the lease alive with no time limit between one round of work and the next.",
+why:"Pairs with the continuous development clause. Without a day count, a lease can be held for years on very little real activity.",
+base:"Base operations language is open-ended by default. A limit is negotiated in."},
+
+{n:131,cat:"redflag",badge:"flag",term:"Broad other-minerals catch-all",
+def:"A grant reaching vaguely defined “other minerals” beyond oil and gas.",
+why:"You may have leased uranium, lignite, sulfur, helium, or CO2 without realizing it, at an oil and gas royalty rate that was never meant to price them.",
+op:"Costs nothing to ask for, and occasionally turns out to be worth a great deal.",
+base:"Present in many older printed forms. Narrow or strike."},
+
+{n:132,cat:"redflag",badge:"flag",term:"Mother Hubbard / cover-all description",
+def:"A clause sweeping in adjoining strips, gores, and unlisted parcels beyond the tract actually described.",
+why:"Extends the lease onto land you didn't mean to include, sometimes including interests you'd forgotten you owned.",
+op:"Protects the operator against survey gaps and small description errors — a real problem, but the fix is usually broader than necessary.",
+base:"Standard in the printed Producers 88 form. Narrow or strike.",
+see:{tab:"t-tracts",label:"Concept 02 — Separate tracts"}},
+
+{n:133,cat:"redflag",badge:"flag",term:"Warranty or indemnity running from you to the operator",
+def:"Language requiring you to guarantee title, or to defend and cover the operator's costs against third-party claims.",
+why:"The reverse of what should happen. It moves title risk and legal expense onto the party least able to absorb it, and can outlast the lease itself.",
+op:"Shifts risk to whoever is presumed to know their own title.",
+base:"Base form contains a warranty running this direction. Strike it."},
+
+{n:134,cat:"redflag",badge:"flag",term:"Automatic pooling or unitization",
+def:"Language letting pooling or field-wide unitization take effect without any separate signature from you.",
+why:"The shortcut the consent clauses exist to close. Once it's automatic, you learn the size and shape of your unit — and therefore your decimal — after the fact.",
+base:"Base pooling clause is self-executing by default. Separate consent is negotiated in.",
+see:{tab:"t-pooling",label:"Concept 05 — Pooling & dilution"}},
+
+{n:135,cat:"redflag",badge:"flag",term:"Assignment of your executive right",
+def:"A clause handing over your right to negotiate and sign future leases, not just this one.",
+why:"You'd be surrendering control over decisions on your own minerals well past this lease's life. Very few circumstances justify it.",
+base:"Not typical in a standard lease. Watch for it in broader or unusual deals."},
+
+{n:136,cat:"redflag",badge:"flag",term:"Sight-draft bonus payment",
+def:"A bonus paid by draft that the operator may decline to honor during a review period, rather than an unconditional payment.",
+why:"You've signed and delivered a lease; they haven't delivered money and can still walk. In a rising market that free option is worth real money — to them.",
+op:"Gives time to run title before funding, at no cost or risk to the operator.",
+base:"Common field practice. Certified funds are the fix."},
+
+{n:137,cat:"redflag",badge:"flag",term:"Lessee released on assignment",
+def:"Releases the assigning operator from all obligations the moment it assigns, whether or not the buyer performs.",
+why:"You can end up with a lease held by a company with no assets, no employees, and no ability to plug its wells — and no recourse against the one that drilled them.",
+op:"Clean exits make acreage easier to sell.",
+base:"Present in most printed forms. Most careful owners strike it."},
+
+{n:138,cat:"redflag",badge:"flag",term:"Implied covenants capped by the express terms",
+def:"Language stating the written obligations replace the duties the law would otherwise imply — often capping development at one well per 80 or 640 acres.",
+why:"Reads like a commitment and functions as a ceiling. Once the operator drills the stated minimum, the duty to develop your tract further is gone.",
+op:"Converts an open-ended legal duty into a known, small obligation.",
+base:"Present in some standard forms. Strike it, or add the preservation clause instead."}
+  ];
+
+  /* ---------- render ---------- */
+  const esc = (s) => String(s).replace(/&(?!\w+;|#\d+;)/g, "&amp;").replace(/</g, "&lt;");
+  const attr = (s) => String(s).replace(/"/g, "&quot;");
+
+  const chipsEl = document.getElementById("chips");
+  const resultsEl = document.getElementById("results");
+
+  let chipHtml = '<button class="chip" data-cat="all" aria-pressed="true">All</button>';
+  CATS.forEach(([id, label]) => {
+    const short = label.replace(/ &amp;.*$/, "").replace(/,.*$/, "");
+    chipHtml += `<button class="chip" data-cat="${id}" aria-pressed="false">${short}</button>`;
+  });
+  chipsEl.innerHTML = chipHtml;
+
+  let html = "";
+  CATS.forEach(([id, label, sub]) => {
+    const items = CLAUSES.filter((c) => c.cat === id);
+    html += `<section class="gcat" data-cat="${id}" id="cat-${id}">`;
+    html += `<div class="gcat-head"><div class="top"><h2>${label}</h2><span class="gcat-count" data-role="cat-count"></span></div><p class="gcat-sub">${sub}</p></div>`;
+    html += `<div class="card-grid">`;
+    items.forEach((c) => {
+      const hay = attr([c.term, c.def, c.why, c.op || "", c.base].join(" ").toLowerCase());
+      html += `<article class="gcard ${c.badge}" data-cat="${id}" data-text="${hay}" id="clause-${c.n}">`;
+      html += `<div class="gcard-top"><div><div class="num">CLAUSE ${c.n}</div><h3>${esc(c.term)}</h3></div><span class="badge ${c.badge}">${BADGE_LABEL[c.badge]}</span></div>`;
+      html += `<p class="def">${esc(c.def)}</p>`;
+      html += `<p class="row"><b>Why it matters to you — </b>${esc(c.why)}</p>`;
+      if (c.op) html += `<p class="row op"><b>Why the operator wants it — </b>${esc(c.op)}</p>`;
+      html += `<p class="base">In the standard form: ${esc(c.base)}</p>`;
+      if (c.see) html += `<a class="see" href="index.html#${c.see.tab}">${esc(c.see.label)} &rarr;</a>`;
+      html += `</article>`;
+    });
+    html += `</div></section>`;
+  });
+  resultsEl.innerHTML = html;
+
+  /* ---------- filter ---------- */
+  const search = document.getElementById("gsearch");
+  const clearBtn = document.getElementById("gclear");
+  const countEl = document.getElementById("count");
+  const emptyEl = document.getElementById("empty");
+  const chips = [...document.querySelectorAll(".chip")];
+  let activeCat = "all";
+
+  const applyFilter = () => {
+    const q = search.value.trim().toLowerCase();
+    clearBtn.hidden = q === "";
+    let total = 0, shown = 0;
+
+    CATS.forEach(([id]) => {
+      const section = document.getElementById(`cat-${id}`);
+      const catMatch = activeCat === "all" || activeCat === id;
+      let visible = 0;
+      section.querySelectorAll(".gcard").forEach((card) => {
+        total++;
+        const show = catMatch && (q === "" || card.dataset.text.includes(q));
+        card.classList.toggle("hide", !show);
+        if (show) { visible++; shown++; }
+      });
+      section.classList.toggle("hide", visible === 0);
+      const cnt = section.querySelector('[data-role="cat-count"]');
+      if (cnt) cnt.textContent = `${visible} ${visible === 1 ? "entry" : "entries"}`;
+    });
+
+    countEl.textContent = `${shown} of ${total} clauses`;
+    emptyEl.hidden = shown !== 0;
+  };
+
+  search.addEventListener("input", applyFilter);
+  clearBtn.addEventListener("click", () => { search.value = ""; search.focus(); applyFilter(); });
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      chips.forEach((c) => c.setAttribute("aria-pressed", String(c === chip)));
+      activeCat = chip.dataset.cat;
+      applyFilter();
+      document.getElementById("top").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+    });
+  });
+
+  applyFilter();
+})();
+</script>
+
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "45b28b18bc3640c0902177ae7597416b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
