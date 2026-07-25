@@ -2,7 +2,7 @@
 
 **The mineral estate, drawn.**
 
-An educational web project that explains Texas oil & gas concepts through simple,
+An educational web project that explains oil & gas concepts through simple,
 interactive visuals — built for people entering the mineral space who learn best
 by *seeing* how ownership, leasing, and production actually work.
 
@@ -34,28 +34,69 @@ pooling, and getting paid — and eventually into advanced and out-of-state topi
 - Trust, estate, and individual mineral owners trying to understand their interests
 - Anyone who learns visually and wants the intuition before the jargon
 
+## The three sections
+
+| Section | Lives at | What it is |
+|---|---|---|
+| **The concepts** | `index.html` | The Texas curriculum — ten concepts across Tiers 1–4, one tab each, simplest first |
+| **The clause dictionary** | `glossary.html` | 138 common lease clauses in plain English, searchable and filterable |
+| **Where to look it up** | `regulators/` | The Railroad Commission and its equivalents in the ten biggest producing states — hub plus one page per state |
+
 ## How it's built
 
-A single, self-contained, responsive website — no build step, no framework, no
-dependencies beyond web fonts. It works on phones and computers and can be hosted
-anywhere static files are served.
+A responsive static site — no build step, no framework, no dependencies beyond
+web fonts. It works on phones and computers and can be hosted anywhere static
+files are served.
 
-- `index.html` — the concept curriculum (markup, styles, interactive visuals)
-- `glossary.html` — the Lease Clause Dictionary, a searchable reference page
-- `ROADMAP.md` — the full concept build plan, tier by tier
-- `LICENSE` — proprietary; all rights reserved
+```
+index.html                 the concept curriculum (tabs 01–10 + Support + Roadmap)
+glossary.html              the Lease Clause Dictionary
+regulators/
+  index.html               hub — tile map, ten state cards, history, API decoder
+  texas.html               ┐
+  pennsylvania.html        │
+  new-mexico.html          │
+  louisiana.html           │
+  oklahoma.html            ├ ten state pages, ranked by production
+  north-dakota.html        │
+  west-virginia.html       │
+  colorado.html            │
+  ohio.html                │
+  wyoming.html             ┘
+css/
+  base.css                 tokens + shared chrome — EVERY page loads this first
+  concepts.css             index.html only: tab strip, panels, concepts 01–10
+  glossary.css             glossary.html only: toolbar, chips, clause cards
+  regulators.css           regulators/ only: tile map, API decoder, state cards
+js/
+  app.js                   index.html: tab router + concept interactions
+  glossary.js              glossary.html: clause data + search/filter
+  regulators.js            regulators/: map tiles + API number decoder
+sitemap.xml  robots.txt  CNAME  LICENSE  ROADMAP.md
+```
 
-Both pages are self-contained and share the same design tokens by duplication,
-not by a shared stylesheet. When a third page arrives, extract `css/styles.css`.
+### The stylesheet rule
 
-To preview locally, open `index.html` in any modern browser. Cross-links between
-the two pages use URL hashes (`index.html#t-ppc`), so preview from a folder rather
-than opening files from different directories.
+`base.css` holds the design tokens and everything that appears on more than one
+page: header, footer, `.wrap`, `.hero` (plus the `.hero.compact` modifier that
+reference pages use), `.section`, `.callout`, `.kicker`, `.glossary`/`.term`
+cards, `table.ledger`, and the utilities. Everything else belongs to exactly one
+page's stylesheet.
+
+**When adding a component, ask: does a second page use it?** If yes it goes in
+`base.css`; if no it goes in that page's own sheet. Resist the temptation to put
+it in `base.css` "just in case" — that's how the shared sheet turns back into a
+dumping ground.
+
+### Paths
+
+All references are **relative**, so the site previews correctly by opening
+`index.html` straight off disk — no local server needed. Pages inside
+`regulators/` reach shared assets with `../css/…` and `../js/…`.
 
 ## Status
 
-**v1.3 — ten concepts live across Tiers 1–4, plus a Support tab and the
-Lease Clause Dictionary.**
+**v1.4 — ten concepts, the clause dictionary, and the ten-state regulator section.**
 
 | Tab | Concept | Status |
 |---|---|---|
@@ -70,6 +111,7 @@ Lease Clause Dictionary.**
 | 09 | Allocation & PSA wells | ✅ Live |
 | 10 | Post-production costs | ✅ Live |
 | — | **Lease Clause Dictionary** (`glossary.html`, 138 clauses) | ✅ Live |
+| — | **Where to look it up** (`regulators/`, hub + 10 states) | ✅ Live |
 | — | Accommodation doctrine · proration units · unitization · NRI | ◻ Planned |
 | — | Wellbore diagram gallery · commissioned diagrams | ◻ Planned |
 | — | Offshore/OCS · Ohio ODMA · NM unitization | ◻ Future |
@@ -82,6 +124,11 @@ conventions.
 Every visualization here is a simplified teaching tool. It is **not** legal advice,
 a title opinion, or a substitute for examining the actual instruments of record.
 Ownership in any real tract turns on the documents on file.
+
+The regulator pages describe public government records and how to find them.
+Agency names, form numbers, websites and fee schedules change; the agency's own
+site always wins. The ad valorem tax column in particular is structural, not a
+rate, and is flagged on the page as the thing most worth confirming locally.
 
 ---
 

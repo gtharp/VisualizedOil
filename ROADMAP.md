@@ -1,11 +1,14 @@
 # Oil, Visualized — Project Roadmap
 
-Two things live under one roof at **visualizedoil.com**:
+Three things live under one roof at **visualizedoil.com**:
 
 1. **The learning curriculum** — an educational site that explains Texas oil & gas
    concepts through simple, interactive visuals, starting with the most fundamental
    ideas and working toward the complex and jurisdiction-specific.
-2. **The wellbore diagram gallery** — a showcase of original wellbore and well-path
+2. **The reference shelf** — pages you search rather than read: the **Lease Clause
+   Dictionary** (`glossary.html`) and **Where to look it up** (`regulators/`), the
+   Railroad Commission and its equivalents in the ten biggest producing states.
+3. **The wellbore diagram gallery** — a showcase of original wellbore and well-path
    diagrams, with a path toward selling **commissioned diagrams** of specific wells
    that carry meaning for a family, a landman, or someone in the industry.
 
@@ -16,7 +19,10 @@ professionals, and families with a well that means something to them.
 Every concept defines its own vocabulary in plain English before using it — assume
 zero property-law background going in.
 **Format:** a tabbed concept curriculum (`index.html`), one tab per concept, simplest
-first — plus a searchable reference page (`glossary.html`, the Lease Clause Dictionary).
+first — plus reference pages you search rather than read: `glossary.html` (the Lease
+Clause Dictionary) and `regulators/` (a hub and ten state pages).
+**Scope note:** the curriculum stays Texas. The reference shelf is where multi-state
+material lives, so the ladder never has to stop and explain another jurisdiction.
 
 ---
 
@@ -25,7 +31,10 @@ first — plus a searchable reference page (`glossary.html`, the Lease Clause Di
 - **Domain:** `visualizedoil.com` live on Squarespace DNS → GitHub Pages, HTTPS enforced
 - **Repo:** `github.com/gtharp/VisualizedOil` — proprietary license, README in place
 - **Analytics:** Cloudflare Web Analytics beacon embedded and live
-- **SEO:** `robots.txt` + `sitemap.xml` at repo root (sitemap now lists both pages); Google Search Console domain
+- **SEO:** `robots.txt` + `sitemap.xml` at repo root — the sitemap now lists **13 URLs**
+  (concepts, dictionary, regulator hub, ten state pages). The hub-and-spoke shape was
+  chosen precisely for this: each state page is a separate rankable URL with its own
+  title and description, which a tab inside the SPA could never be. Google Search Console domain
   property set up (DNS TXT verification); self-referencing `<link rel="canonical">`
   now in `index.html`. The lone Search Console "Page with redirect" notice is the
   expected `http://` / `www.` → canonical redirect, not a real indexing problem.
@@ -48,6 +57,17 @@ first — plus a searchable reference page (`glossary.html`, the Lease Clause Di
   `index.html` is newest — bump it on every commit (see build conventions)
 - **Wellbore gallery** — in progress; three diagrams ready to feature, not yet built
   into the site
+- **Where to look it up live** — `regulators/`, the site's **third section** and first
+  multi-page one: a hub plus ten state pages covering the top ten producing states by
+  combined oil and gas (EIA 2023, 6:1 BOE): TX, PA, NM, LA, OK, ND, WV, CO, OH, WY.
+  Each state page gives the agency, where it came from, the one document a mineral owner
+  should pull and how to get there, what else it publishes, and how it differs from Texas.
+  Hub carries a clickable tile map, the comparison table, the 1859→now history, and an
+  interactive API-number decoder anchored on the horseshoe well from the gallery
+- **CSS/JS split done** — the trigger condition in the build conventions was met (a third
+  page), so the inline blocks came out into `css/base.css` + per-section sheets and
+  `js/app.js` + per-section scripts. Verified by selector diff against the v1.3 inline
+  stylesheet: no rules dropped
 - **Commissioned diagrams** — idea stage; intake + payment flow to be built
 
 ## Status legend
@@ -191,6 +211,52 @@ reads one card.
 
 ---
 
+# PART ONE-B — The reference shelf
+
+Pages you *search*, not pages you *read through*. They sit outside the tier ladder on
+purpose: a reference page has no prerequisites, so it can cover any jurisdiction without
+breaking the rule that each concept assumes only the ones above it.
+
+| Status | Page | What it is |
+|---|---|---|
+| **Live** | Lease Clause Dictionary (`glossary.html`) | 138 generic lease clauses, searchable and filterable by section |
+| **Live** | Where to look it up (`regulators/`) | Hub + ten state pages: the RRC and its equivalents, and the one document to pull in each |
+| Planned | County recorder directory | Where deeds and leases actually live, state by state — the other half of every regulator page's closing callout |
+| Future | Commissioned-diagram intake | See Part Three |
+
+## Where to look it up — what's built
+
+| Page | Agency | The one document |
+|---|---|---|
+| Texas | Railroad Commission of Texas | W-1 drilling permit + plat, then P-16 acreage designation |
+| Pennsylvania | DEP Office of Oil and Gas Management | *No state unit plat exists* — DEP well record, then the recorded declaration of pooling at the county |
+| New Mexico | Oil Conservation Division (EMNRD) | Form C-102, Well Location and Acreage Dedication Plat |
+| Louisiana | Office of Conservation (DENR) | The unit order and its Exhibit A plat, via SONRIS |
+| Oklahoma | Oklahoma Corporation Commission | The spacing/pooling order — it names every owner in the unit |
+| North Dakota | NDIC Oil and Gas Division | The Industrial Commission spacing and pooling order |
+| West Virginia | WVDEP Office of Oil and Gas | The horizontal well unitization application (§22C-9-7a) |
+| Colorado | Energy & Carbon Management Commission | COGIS well record + the drilling and spacing unit order |
+| Ohio | ODNR Division of Oil & Gas Resources Management | Final plat / horizontal drilling unit boundary; 1509.28 order |
+| Wyoming | Wyoming Oil and Gas Conservation Commission | Form 1 APD + the drilling and spacing unit order |
+
+### Follow-ups on this section
+
+- [ ] **Verify the ad valorem column against primary law** before treating it as settled.
+      Published secondary sources contradict each other on several states; the page
+      already carries a standing caution, but the structural yes/no for LA, WV, OH and WY
+      is the weakest part of the section
+- [ ] Decide whether to add **Alaska and California** as an appendix. Both are top-12 by
+      oil, both were left out deliberately — Alaska has almost no private mineral estate,
+      California's is urbanised and declining — but a one-line explanation of *why* they
+      were excluded would pre-empt the question
+- [ ] Consider a **Kansas / Utah / Montana** short list for the same reason
+- [ ] Watch for **agency renames**. Colorado renamed twice in five years and Louisiana's
+      department changed name in 2024; a rename silently breaks both the copy and the links
+- [ ] Once traffic data exists, see which state pages earn attention and **deepen those**
+      (a worked example per state would be the natural next layer)
+
+---
+
 # PART TWO — The wellbore diagram gallery
 
 A showcase tab/section featuring original wellbore and well-path diagrams in the
@@ -325,19 +391,27 @@ options, lightest first:
   polish divergence.
 - **Disclaimer stays in the footer:** teaching tool, not legal advice. Credit line:
   "Created by George Tharp, JD."
-- **Tech stack stays simple:** self-contained HTML pages with inline CSS/JS, no
-  framework, no build step. `glossary.html` is now the second page and duplicates
-  the design tokens rather than sharing them — a deliberate call, since two files
-  is not yet enough duplication to justify the split. **Trigger for extracting
-  `css/styles.css` + `js/app.js`: the third page** (gallery or commission), or the
-  first time a token change has to be made in two places and one gets missed.
+- **Tech stack stays simple:** static files, no framework, no build step. The
+  `css/` + `js/` split happened at v1.4 when the third section landed. The rule now:
+  `css/base.css` holds tokens and anything used by more than one page; everything else
+  lives in that page's own sheet (`concepts.css`, `glossary.css`, `regulators.css`).
+  Same shape for `js/`. **All paths are relative**, so the site still previews by
+  opening `index.html` off disk.
+- **New section = new directory, not a new tab.** The tab strip is the Texas curriculum
+  and nothing else. Anything with its own audience and its own search intent gets its
+  own URL, because tabs share one `<title>` and one sitemap entry and therefore cannot
+  rank. Reference pages use the `.hero.compact` modifier and the shared three-way site
+  nav in the header.
 
 ## Suggested near-term sequence
 
-> Updated: the Lease Clause Dictionary shipped ahead of the gallery. It was the
-> fastest path to a real second page and to long-tail search traffic — people
-> Google clause names ("what is a Pugh clause") far more than they google concepts.
+> Updated again at v1.4: the regulator section shipped next, for the same reason —
+> "who regulates oil and gas in Ohio" is a far higher-intent search than any concept
+> name, and hub-and-spoke turns one page into eleven rankable URLs.
 
+0. **Verify the regulator ad valorem column** against primary law and correct
+   `data`-driven copy on the four weakest states — this is the only thing currently on
+   the site flagged as needing confirmation.
 1. Finish **Tier 1** — Accommodation doctrine & surface use — to close out the
    foundational estate concepts.
 2. Add the **Gallery** section/tab with the three existing diagrams — the most
