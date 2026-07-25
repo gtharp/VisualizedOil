@@ -417,6 +417,151 @@
     update();
   };
 
+  /* ---------- CONCEPT 11 · SHUT-IN ROYALTY: CAPPED vs UNCAPPED ---------- */
+  const initShutIn = () => {
+    const slider = $("si-years");
+    if (!slider) return;
+
+    const ACRES = 160,
+      BASE_RATE = 1,     // $/net acre/yr, base printed form
+      NEG_RATE = 50,     // $/net acre/yr, negotiated
+      CAP = 2,           // consecutive years the negotiated clause allows
+      BONUS = 1000;      // $/net acre, illustrative re-lease bonus
+
+    const out = $("si-out"),
+      state = $("si-state"),
+      baseNum = $("si-base-num"),
+      negNum = $("si-neg-num"),
+      baseDelta = $("si-base-delta"),
+      negDelta = $("si-neg-delta"),
+      readout = $("si-readout"),
+      baseCells = [...document.querySelectorAll("#si-base-cells .yrcell")],
+      negCells = [...document.querySelectorAll("#si-neg-cells .yrcell")];
+
+    const money = (n) => "$" + n.toLocaleString("en-US");
+
+    const update = () => {
+      const y = Number(slider.value);
+      const basePaid = ACRES * BASE_RATE * y;
+      const negYears = Math.min(y, CAP);
+      const negPaid = ACRES * NEG_RATE * negYears;
+      const freed = y > CAP;
+
+      out.textContent = y === 1 ? "1 year" : `${y} years`;
+      state.textContent = freed ? "One lease alive, one ended" : "Both leases held";
+
+      baseCells.forEach((c, i) => {
+        const yr = i + 1;
+        c.className = "yrcell" + (yr <= y ? " held" : " future");
+      });
+      negCells.forEach((c, i) => {
+        const yr = i + 1;
+        c.className = "yrcell" + (yr > y ? " future" : yr <= CAP ? " held" : " free");
+      });
+
+      baseNum.textContent = money(basePaid);
+      baseDelta.textContent = `lease still held · year ${y}`;
+      baseDelta.className = "m-delta warn";
+
+      negNum.textContent = money(negPaid);
+      if (freed) {
+        negDelta.textContent = `\u25B2 lease ended at year ${CAP} \u2014 minerals back`;
+        negDelta.className = "m-delta up";
+      } else {
+        negDelta.textContent = `lease held \u00B7 ${CAP - y} year${CAP - y === 1 ? "" : "s"} left on the cap`;
+        negDelta.className = "m-delta";
+      }
+
+      const gap = money(basePaid * 1);
+      if (!freed) {
+        readout.innerHTML =
+          `Both clauses are doing the same job so far \u2014 holding a completed well that has nowhere to sell. The only difference is the price. After ${y === 1 ? "one year" : y + " years"} the base form has paid you <strong>${gap}</strong>; the negotiated clause has paid <strong>${money(negPaid)}</strong> for exactly the same wait.`;
+      } else {
+        readout.innerHTML =
+          `After ${y} years the two leases are no longer the same instrument. The base-form lease is <strong>still alive</strong> on its original royalty, and has paid you <strong>${gap}</strong> in total \u2014 about <strong>${money(ACRES * BASE_RATE)}</strong> a year to keep 160 acres off the market. The negotiated lease <strong>ended at year ${CAP}</strong>: it paid <strong>${money(negPaid)}</strong> while you waited, and then handed the minerals back. Re-leasing those 160 acres at $${BONUS.toLocaleString("en-US")} an acre would be a <strong>${money(ACRES * BONUS)}</strong> bonus, plus whatever royalty the market pays today instead of the one you agreed to years ago.`;
+      }
+    };
+
+    slider.addEventListener("input", update);
+    update();
+  };
+
+  /* ---------- CONCEPT 12 · HBP MONITORING: READ THE RECORD ---------- */
+  const initHbpMonitor = () => {
+    const back = $("hb-back");
+    if (!back) return;
+
+    const next = $("hb-next"),
+      dots = [...document.querySelectorAll("#hbpmon [data-hb-dot]")],
+      hl = $("hb-hl"),
+      badge = $("hb-badge"),
+      title = $("hb-title"),
+      cap = $("hb-cap"),
+      recN = $("hb-rec-n"),
+      recD = $("hb-rec-d");
+
+    /* x geometry matches the plotted chart: 58px + month * 6.817px */
+    const X0 = 58, STEP = 6.8167;
+    const win = (m0, m1) => ({ x: X0 + m0 * STEP, w: (m1 - m0) * STEP });
+
+    const STEPS = [
+      {
+        span: win(0, 24),
+        t: "2015\u20132016 \u00B7 a healthy well",
+        c: "First production in January 2015 at about 4,200 barrels a month, declining steeply the way every unconventional well does. Nothing here needs watching \u2014 but this is the baseline you'll measure everything else against, and it's the moment to note who the operator is and exactly which lease the volumes are reported under.",
+        rn: "Production report (PR)",
+        rd: "Monthly volumes, filed by the operator, searchable by lease or by well. Also confirms which lease the Commission believes this well is producing from \u2014 worth checking against your own lease description."
+      },
+      {
+        span: win(60, 84),
+        t: "2020\u20132021 \u00B7 the line gets crossed",
+        c: "Volumes drift down through the dashed line \u2014 the point where the well stops covering its own operating costs. This is where the question of production in paying quantities begins, and it's a question about a reasonable period, not a bad month. A few marginal months prove nothing; two years of them, on a well nobody is spending money on, is a pattern.",
+        rn: "Production report + your check stubs",
+        rd: "Put the volumes beside what you were actually paid. Falling checks with steady volumes is a price story. Falling volumes with no workover activity is a decline story \u2014 and only the second one threatens the lease."
+      },
+      {
+        span: win(84, 96),
+        t: "2022 \u00B7 the zeros begin",
+        c: "The last sale is February 2022. From March on, every month reports zero. Now the lease's own wording takes over: if there's an express cessation-of-production clause, its window \u2014 60 or 90 days \u2014 started running in March, and the only thing that stops the clock is resumed production or the commencement of drilling or reworking operations. If there's no such clause, the temporary cessation doctrine applies instead, and the operator has to show a sudden cause and a diligent effort to fix it. Neither one runs for years.",
+        rn: "W-10 / G-10 well status report",
+        rd: "The annual status test tells you what the operator itself called this well \u2014 producing, shut-in, or inactive. An \"inactive\" designation alongside no shut-in payment in your own bank records is the strongest single fact in the file."
+      },
+      {
+        span: win(96, 108),
+        t: "2023 \u00B7 the lease changes hands",
+        c: "A P-4 is filed and the operator of record becomes a much smaller company. This changes nothing about whether the lease is alive, but it changes everything about what happens next: it tells you who to address a release request to, and whether that entity is in any position to plug the well or to argue about it. Old leases very often end up several transfers away from the company that drilled them.",
+        rn: "P-4 certificate + P-5 organization report",
+        rd: "The P-4 names the current operator. The P-5 says whether that operator is active and carrying the required financial assurance \u2014 a delinquent P-5 means they aren't legally permitted to operate the well at all."
+      },
+      {
+        span: win(108, 120),
+        t: "2024 \u00B7 the well is plugged",
+        c: "A W-3 is filed and the wellbore is permanently plugged. If this was the only well on the lease and no new drilling permit was ever filed, the file is now complete \u2014 but note the date carefully. The plugging didn't end the lease. The lease ended, if it ended, back when production in paying quantities permanently stopped and no savings clause caught it. The W-3 is the proof that nobody was ever coming back for it.",
+        rn: "W-3 plugging record + W-1 permit search",
+        rd: "The W-3 confirms the well is gone. Searching for any W-1 drilling permit on the lease across the whole gap confirms the other half: that no operations were ever commenced to restart the clock."
+      }
+    ];
+
+    let i = 0;
+    const render = () => {
+      const s = STEPS[i];
+      hl.setAttribute("x", s.span.x.toFixed(1));
+      hl.setAttribute("width", s.span.w.toFixed(1));
+      badge.textContent = `Step ${i + 1} of ${STEPS.length}`;
+      title.innerHTML = s.t;
+      cap.textContent = s.c;
+      recN.textContent = s.rn;
+      recD.textContent = s.rd;
+      dots.forEach((d, k) => d.classList.toggle("on", k === i));
+      back.disabled = i === 0;
+      next.disabled = i === STEPS.length - 1;
+    };
+
+    back.addEventListener("click", () => { if (i > 0) { i--; render(); } });
+    next.addEventListener("click", () => { if (i < STEPS.length - 1) { i++; render(); } });
+    render();
+  };
+
   /* ---------- boot ---------- */
   initTabs();
   initStudio();
@@ -424,4 +569,6 @@
   initDilution();
   initAllocation();
   initPPC();
+  initShutIn();
+  initHbpMonitor();
 })();
