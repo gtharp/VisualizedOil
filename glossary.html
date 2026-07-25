@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  Oil, Visualized  ·  glossary.html
+  Version:      1.1.0
+  Last updated: 2026-07-24
+  This build: styles and script moved out to css/base.css +
+  css/glossary.css and js/glossary.js; header is now the
+  shared three-way site nav.
+  The Lease Clause Dictionary — a searchable, filterable
+  reference of common, generic oil & gas lease clauses.
+  Companion page to index.html; shares the same design tokens.
+  All examples use placeholder parties (John Doe / Big Oil Co.).
+  No account, client, or instrument-specific data appears here.
+  NOTE: bump "Version" and "Last updated" on every commit.
+  ============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Lease Clause Dictionary — every common oil and gas lease clause explained in plain English: what it does, why it matters to a mineral owner, why the operator wants it, and whether it's in the standard printed form.">
+<meta name="version" content="1.1.0">
+<meta name="last-updated" content="2026-07-24">
+<title>Lease Clause Dictionary — Oil, Visualized</title>
+<link rel="canonical" href="https://visualizedoil.com/glossary.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Spectral:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/glossary.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <span class="mark">Oil, Visualized<span class="dot">.</span></span>
+      <span class="sub hide-sm">the mineral estate, drawn</span>
+    </a>
+    <nav class="headnav" aria-label="Site sections">
+      <a class="navlink" href="index.html">Concepts</a>
+      <a class="navlink" href="glossary.html" aria-current="page">Clause dictionary</a>
+      <a class="navlink" href="regulators/index.html">Where to look it up</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <div class="hero compact">
+    <p class="eyebrow">The lease clause dictionary</p>
+    <h1>Every clause in the lease, in <em>plain</em> English.</h1>
+    <p class="lede">An oil and gas lease is built out of dozens of separate clauses, almost none of which the document ever bothers to explain. This is a working dictionary of the common ones — what each does, why it matters to you, why the operator wants it, and whether it's already in the standard printed form or something someone had to ask for.</p>
+    <div class="howto"><b>How to use this:</b> don't read it front to back — search it. Pull up your own lease, find a phrase you don't recognize, and look it up. Search by name below, or filter by the part of the lease it lives in.</div>
+    <div class="howto"><b>A note on the two-sided framing:</b> nearly every clause here exists because someone had a real reason to want it. Understanding the operator's reasoning is what turns a negotiation into a conversation instead of a fight — so each entry gives their side too.</div>
+  </div>
+
+  <div class="toolbar">
+    <div class="wrap toolbar-inner">
+      <div class="searchbox">
+        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <label class="sr-only" for="gsearch">Search clauses</label>
+        <input type="text" id="gsearch" placeholder="Search — try Pugh, shut-in, or trees" autocomplete="off">
+        <button class="clear" id="gclear" type="button" aria-label="Clear search" hidden>&times;</button>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Filter by section"></div>
+      <span class="count" id="count" aria-live="polite"></span>
+    </div>
+  </div>
+
+  <div class="legend-row">
+    <span class="lg"><span class="sw know"></span> <span><b>Know this</b> — vocabulary, no side to take</span></span>
+    <span class="lg"><span class="sw for"></span> <span><b>Ask for this</b> — favors the mineral owner</span></span>
+    <span class="lg"><span class="sw confirm"></span> <span><b>Confirm / consent</b> — read it, check the wording</span></span>
+    <span class="lg"><span class="sw flag"></span> <span><b>Red flag</b> — push to strike or narrow it</span></span>
+  </div>
+
+  <div id="results"></div>
+  <p class="empty" id="empty" hidden>No clauses match that search. Try a different word, or clear the filter.</p>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="row">
+      <span>Oil, Visualized · Lease Clause Dictionary</span>
+      <span>Texas oil &amp; gas</span>
+    </div>
+    <p class="disc">This dictionary describes common, generic lease clauses for educational purposes. It is not legal advice, does not describe any actual lease, party, or transaction, and is no substitute for having your own lease reviewed by a qualified attorney. Any names used are placeholders. Created by George Tharp, JD.</p>
+    <p class="disc">Looking for the agency that permitted the well, rather than the lease?
+      See <a href="regulators/index.html">Where to look it up</a>.</p>
+    <p class="disc">Free to use, always. If it helped you, you can <a href="index.html#t-support">support the site</a> — thank you.</p>
+    <p class="disc foot-ver">Dictionary v1.1 · updated July 24, 2026</p>
+  </div>
+</footer>
+
+<script src="js/glossary.js"></script>
+
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "45b28b18bc3640c0902177ae7597416b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

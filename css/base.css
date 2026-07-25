@@ -1,0 +1,162 @@
+/* ============================================================
+   Oil, Visualized  ·  css/base.css
+   Design tokens + shared chrome used by EVERY page:
+   header, footer, wrap, hero, prose sections, callouts,
+   glossary/term cards, ledger tables, utilities.
+   Page-specific components live in their own stylesheet.
+   ============================================================ */
+
+/* ============ TOKENS ============ */
+:root{
+  --paper:#F4F2EC;
+  --paper-2:#ECE9DF;
+  --ink:#1B1A17;
+  --muted:#6B675E;
+  --hair:#D8D3C7;
+  --hair-2:#C7C1B2;
+
+  /* geological strata — the identity */
+  --surface:#C8A45E;       /* ochre / topsoil */
+  --surface-lite:#E7D3A8;
+  --mineral:#243A35;       /* deep petroleum slate */
+  --mineral-lite:#DBE3DE;
+
+  /* owners */
+  --carl:#B06A3B;          /* copper */
+  --susan:#2F7E86;         /* teal */
+
+  --survey:#A23A2A;        /* survey-corner red, used sparingly */
+
+  /* semantic status pairs — shared by the clause dictionary and
+     the regulator cards. ink colour + its tinted background. */
+  --know:#4A5A55;      --know-bg:#E4E9E7;      /* neutral / vocabulary */
+  --forc:#1D7A52;      --forc-bg:#E4EFE9;      /* good for the owner  */
+  --confirm:#8A6A2E;   --confirm-bg:#F3EBDA;   /* read it carefully   */
+  --flag:#A23A2A;      --flag-bg:#F5E6E3;      /* watch out           */
+
+  --radius:10px;
+  --radius-lg:16px;
+
+  --display:"Bricolage Grotesque", system-ui, sans-serif;
+  --body:"Spectral", Georgia, serif;
+  --mono:"JetBrains Mono", ui-monospace, monospace;
+
+  --maxw:1180px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:clamp(1rem,0.96rem + 0.2vw,1.125rem);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit}
+:focus-visible{outline:2.5px solid var(--survey);outline-offset:3px;border-radius:3px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1rem,4vw,3rem)}
+
+.eyebrow{
+  font-family:var(--mono);font-size:.72rem;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+}
+.mono{font-family:var(--mono)}
+
+/* ============ HEADER ============ */
+header.site{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--hair);
+}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:62px}
+.brand{display:flex;align-items:baseline;gap:.55rem;text-decoration:none}
+.brand .mark{font-family:var(--display);font-weight:800;font-size:1.18rem;letter-spacing:-.01em}
+.brand .mark .dot{color:var(--survey)}
+.brand .sub{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.brand .sub.hide-sm{display:none}
+.headnav{display:flex;align-items:center;gap:.5rem;flex:1 1 auto;justify-content:flex-end;
+  min-width:0;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
+  touch-action:pan-x;overscroll-behavior-x:contain;padding:.25rem 0}
+.headnav::-webkit-scrollbar{display:none}
+.headnav .eyebrow.hide-sm{display:none}
+@media(min-width:820px){.brand .sub.hide-sm,.headnav .eyebrow.hide-sm{display:inline}}
+.navlink{flex:0 0 auto;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  text-decoration:none;border:1px solid var(--hair-2);border-radius:20px;padding:.42rem .85rem;
+  transition:background .15s,color .15s,border-color .15s;white-space:nowrap}
+.navlink:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.navlink[aria-current="page"]{background:var(--mineral);color:var(--paper);border-color:var(--mineral)}
+
+/* ============ HERO ============ */
+.hero{padding:clamp(2.2rem,6vw,4.5rem) 0 clamp(1.5rem,3vw,2.5rem)}
+.hero .eyebrow{margin-bottom:1.1rem}
+.hero h1{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(2.2rem,1.4rem + 4.4vw,4.3rem);
+  line-height:1.02;letter-spacing:-.025em;max-width:18ch;
+}
+.hero h1 em{font-style:normal;color:var(--survey)}
+.hero p.lede{font-size:clamp(1.06rem,1rem + .4vw,1.3rem);max-width:54ch;margin-top:1.3rem;color:#322f29}
+
+/* Reference pages (clause dictionary, regulator pages) run a smaller
+   hero than the concept curriculum — more page below the fold. */
+.hero.compact{padding:clamp(2rem,5vw,3.6rem) 0 clamp(1rem,2.5vw,1.6rem)}
+.hero.compact h1{font-size:clamp(2rem,1.3rem + 3.6vw,3.6rem);line-height:1.04;max-width:20ch}
+.hero.compact p.lede{font-size:clamp(1.02rem,1rem + .3vw,1.2rem);max-width:62ch;margin-top:1.2rem}
+
+/* ============ LEDGER ============ */
+.ledger-wrap{margin-top:3rem}
+.ledger-wrap h2,.section h2{font-family:var(--display);font-weight:700;font-size:clamp(1.4rem,1.2rem+1vw,1.9rem);letter-spacing:-.02em}
+.table-scroll{overflow-x:auto;margin-top:1.1rem;border:1px solid var(--hair);border-radius:var(--radius)}
+table.ledger{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.82rem;min-width:520px}
+table.ledger th,table.ledger td{text-align:left;padding:.7rem .9rem;border-bottom:1px solid var(--hair)}
+table.ledger thead th{background:var(--paper-2);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+table.ledger td.r,table.ledger th.r{text-align:right}
+table.ledger tr.tot td{border-top:2px solid var(--hair-2);font-weight:700;border-bottom:0;background:color-mix(in srgb,var(--paper-2) 60%, transparent)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:.5rem;vertical-align:0}
+.d-carl{background:var(--carl)}.d-susan{background:var(--susan)}
+
+/* ============ PROSE SECTIONS ============ */
+.section{padding:clamp(2.4rem,5vw,3.6rem) 0;border-top:1px solid var(--hair);margin-top:3rem}
+.section:first-of-type{border-top:0}
+.grid2{display:grid;grid-template-columns:1fr;gap:clamp(1.4rem,3vw,2.6rem);margin-top:1.4rem}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--survey);margin-bottom:.5rem}
+.section h3{font-family:var(--display);font-weight:600;font-size:1.25rem;margin-bottom:.5rem;letter-spacing:-.01em}
+.section p+p{margin-top:.8rem}
+
+.callout{
+  margin-top:1.6rem;border:1px solid var(--hair-2);border-left:4px solid var(--survey);
+  border-radius:0 var(--radius) var(--radius) 0;background:var(--paper-2);padding:1.2rem 1.4rem;
+}
+.callout .kicker{color:var(--survey)}
+.callout strong{font-weight:500}
+
+/* ============ FOOTER ============ */
+footer.site{border-top:1px solid var(--hair);margin-top:4rem;padding:2.2rem 0 3rem;color:var(--muted)}
+footer.site .row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em}
+footer.site .disc{max-width:66ch;font-family:var(--body);font-size:.86rem;margin-top:1rem;font-style:italic}
+
+/* ============ TERM / GLOSSARY CARDS ============ */
+.glossary{display:grid;grid-template-columns:1fr;gap:12px;margin-top:1.6rem}
+@media(min-width:620px){.glossary{grid-template-columns:1fr 1fr}}
+.term{border:1px solid var(--hair);border-left:4px solid var(--surface);border-radius:0 var(--radius) var(--radius) 0;background:var(--paper-2);padding:.9rem 1.1rem}
+.term .t{display:block;font-family:var(--display);font-weight:700;font-size:1rem;margin-bottom:.2rem}
+.term .d{display:block;font-size:.92rem;color:#3a372f;line-height:1.5}
+
+/* ============ FOOTER LINKS & VERSION STAMP ============ */
+.support-foot{font-style:normal!important;margin-top:.9rem}
+.support-foot a{color:var(--survey);text-decoration:underline}
+
+.foot-ver{font-style:normal!important;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;opacity:.75}
+
+/* ============ UTILITY ============ */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
