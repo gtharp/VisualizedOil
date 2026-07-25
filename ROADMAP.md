@@ -40,7 +40,7 @@ material lives, so the ladder never has to stop and explain another jurisdiction
   expected `http://` / `www.` → canonical redirect, not a real indexing problem.
 - **Claude Project:** a dedicated project (see `PROJECT_SETUP.md`) now houses this
   build separately from the fiduciary/legal reference project
-- **10 concepts live** on site, tabs 01–10 (see Tier tables below for which)
+- **12 concepts live** on site, tabs 01–12 (see Tier tables below for which)
 - **Lease Clause Dictionary live** — `glossary.html`, the site's **second page**:
   138 generic lease clauses, searchable and filterable by section, each with a
   plain-English definition, why it matters to the owner, why the operator wants it,
@@ -91,6 +91,8 @@ material lives, so the ladder never has to stop and explain another jurisdiction
 | 08 | Severance tax vs. ad valorem tax | 4 |
 | 09 | Allocation & PSA wells | 3 |
 | 10 | Post-production costs | 4 |
+| 11 | Holding the lease — HBP & savings clauses | 2 |
+| 12 | HBP monitoring & lease termination risk | 5 |
 
 > Beyond the ten concept tabs, the nav also carries a **♥ Support** tab (the
 > free-education mission + Venmo donation) and this **→ Roadmap** tab. The website's
@@ -117,7 +119,7 @@ material lives, so the ladder never has to stop and explain another jurisdiction
 |---|---|---|---|
 | **Live** | The lease — signing to termination | Lessor/lessee, bonus, royalty, primary vs. secondary term, held by production, via a 5-stop life-of-a-lease timeline | Built as Concept 04 |
 | Planned | Royalty vs. working interest (deep dive) | Who bears cost, who doesn't — expand beyond the Concept 04 intro | |
-| Planned | Held by production & savings clauses (deep dive) | Shut-in royalty, temporary cessation, continuous operations | |
+| **Live** | Held by production & savings clauses | The habendum gap; the four bridges (dry hole, shut-in, cessation, continuous ops); force majeure as the fifth; a capped-vs-uncapped shut-in slider on 160 net acres; the five-edit negotiation table | Built as Concept 11. Deliberately high level — the deep termination analysis lives in Concept 12 |
 | Planned | Pugh clauses & retained acreage | Releasing undeveloped acreage; the no-Pugh holding trap | |
 
 ## TIER 3 — Combining tracts
@@ -148,7 +150,7 @@ material lives, so the ladder never has to stop and explain another jurisdiction
 | Status | Concept | What it teaches |
 |---|---|---|
 | Planned | Chain of title & title examination standards | Sovereignty to present; BFP status; blanket-conveyance limits |
-| Planned | HBP monitoring & lease termination risk | When old leases quietly terminate; the "market will tell us" failure mode |
+| **Live** | HBP monitoring & lease termination risk | Fee simple determinable / special limitation; PIPQ; temporary cessation doctrine; ratification. Ten years of monthly production on a log decline curve with a five-step "read the record" stepper; the four questions; termination-vs-survival columns; the RRC monitoring ledger; the reversion math | Built as Concept 12. Cross-links to `glossary.html#cat-term` and `regulators/texas.html` |
 | Planned | Operator transfers, P-4s & bankruptcy | Following the leasehold through operator changes |
 
 ## TIER 6 — The deep end

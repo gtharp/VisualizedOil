@@ -2,9 +2,21 @@
 <!--
   ============================================================
   Oil, Visualized  ·  index.html
-  Version:      1.4.0
-  Last updated: 2026-07-24
-  This build: ASSET SPLIT + THIRD SECTION.
+  Version:      1.5.0
+  Last updated: 2026-07-25
+  This build: TWO NEW CONCEPTS — 11 and 12, a matched pair.
+      (11) Holding the lease (Tier 2) — the four savings clauses
+      that bridge gaps in production, kept high level, with a
+      capped-vs-uncapped shut-in royalty slider as the payoff.
+      (12) HBP monitoring & termination risk (Tier 5) — deep;
+      a ten-year monthly production decline curve (log scale)
+      with a five-step "read the record" stepper, the four
+      questions that decide termination, and the monitoring
+      ledger of RRC filings. Cross-linked to glossary.html
+      (#cat-term, #cat-redflag) and regulators/texas.html.
+      New CSS: .yrgrid/.yrcell (11), .hb-chart/.hb-rec (12) in
+      concepts.css. New JS: initShutIn(), initHbpMonitor().
+  Prior build (1.4.0): ASSET SPLIT + THIRD SECTION.
   (1) Inline <style> and <script> extracted to css/base.css,
       css/concepts.css and js/app.js. base.css now carries the
       tokens and shared chrome for every page on the site;
@@ -42,8 +54,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Oil, Visualized — Texas oil and gas concepts, drawn. Start with the surface and mineral estates and build toward the complex.">
-<meta name="version" content="1.4.0">
-<meta name="last-updated" content="2026-07-24">
+<meta name="version" content="1.5.0">
+<meta name="last-updated" content="2026-07-25">
 <title>Oil, Visualized — the Texas mineral estate, drawn</title>
 <link rel="canonical" href="https://visualizedoil.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -81,6 +93,8 @@
       <button class="tab" role="tab" id="t-tax" aria-controls="p-tax" aria-selected="false"><span class="num">08</span> The two taxes</button>
       <button class="tab" role="tab" id="t-alloc" aria-controls="p-alloc" aria-selected="false"><span class="num">09</span> Allocation wells</button>
       <button class="tab" role="tab" id="t-ppc" aria-controls="p-ppc" aria-selected="false"><span class="num">10</span> Post-production costs</button>
+      <button class="tab" role="tab" id="t-hold" aria-controls="p-hold" aria-selected="false"><span class="num">11</span> Holding the lease</button>
+      <button class="tab" role="tab" id="t-hbp" aria-controls="p-hbp" aria-selected="false"><span class="num">12</span> HBP monitoring</button>
       <button class="tab" role="tab" id="t-support" aria-controls="p-support" aria-selected="false"><span class="num">♥</span> Support</button>
       <button class="tab" role="tab" id="t-roadmap" aria-controls="p-roadmap" aria-selected="false"><span class="num">→</span> Roadmap</button>
     </div>
@@ -1540,6 +1554,568 @@
     </div>
   </section>
 
+  <!-- ============ PANEL 11 — HOLDING THE LEASE (SAVINGS CLAUSES) ============ -->
+  <section class="panel" id="p-hold" role="tabpanel" aria-labelledby="t-hold" tabindex="0">
+
+    <div class="hero">
+      <p class="eyebrow">Concept 11 — savings clauses</p>
+      <h1>A lease can stay alive for years without selling a single <em>barrel</em>.</h1>
+      <p class="lede"><a href="#top" data-goto-tab="t-lease">Concept 04</a> said a lease lasts "as long as oil or gas is produced." That sentence has fine print. A handful of clauses — the <strong>savings clauses</strong> — bridge the gaps when production isn't happening: while a finished well waits on a pipeline, after a well quits, between wells. They exist for good reasons. But one of them, the <strong>shut-in royalty</strong>, is written into most printed lease forms at a price set decades ago and with no time limit at all — and it is the single easiest thing on the page to fix before you sign.</p>
+    </div>
+
+    <div class="section" style="border-top:0;padding-top:1rem">
+      <p class="kicker">Start here</p>
+      <h2>First — what is a savings clause "saving" you from?</h2>
+      <p>The sentence that sets a lease's length is called the <strong>habendum clause</strong>, and it reads roughly: <em>"for a term of three years and as long thereafter as oil or gas is produced."</em> Those last five words are doing enormous work. Read literally, they mean the lease lives only while oil or gas is actually coming out of the ground and being sold. Stop for a month and the lease would end.</p>
+      <p>That would be unworkable. Wells get worked over. Pipelines get built late. Compressors fail in February. So every lease form carries a short list of clauses that say, in effect, <em>"and this counts as production too."</em> Those are the savings clauses. Each one bridges a particular kind of gap, and each one has a price and a time limit — or doesn't, which is where the trouble starts.</p>
+
+      <div class="glossary">
+        <div class="term"><span class="t">Habendum clause</span><span class="d">The sentence that sets how long the lease lasts: a fixed primary term, then "as long thereafter as oil or gas is produced." Everything on this page exists to stretch that second half.</span></div>
+        <div class="term"><span class="t">Savings clause</span><span class="d">Any clause that keeps the lease alive during a stretch when nothing is actually being produced. It "saves" the lease from expiring on its own terms.</span></div>
+        <div class="term"><span class="t">Shut-in royalty</span><span class="d">A payment the operator makes on a well that <em>could</em> produce but is closed in — no pipeline, no buyer, no market. Paying it is treated as if the well were producing.</span></div>
+        <div class="term"><span class="t">Cessation of production clause</span><span class="d">A window — often 60 or 90 days — for the operator to restart production or begin new operations after a well stops, before the lease ends.</span></div>
+        <div class="term"><span class="t">Continuous operations clause</span><span class="d">Keeps the lease alive as long as the operator keeps drilling, so long as each new well starts within a set number of days of the last one finishing.</span></div>
+        <div class="term"><span class="t">In paying quantities</span><span class="d">Texas reads "produced" in the habendum to mean produced <em>in paying quantities</em> — the well's revenue has to beat its operating costs. A well producing at a loss isn't holding anything.</span></div>
+      </div>
+
+      <p style="margin-top:1.6rem">Here's the shape of the problem. One lease, ten years, with a gap in the middle.</p>
+
+      <svg viewBox="0 0 680 240" role="img" aria-label="A ten-year lease timeline: a three-year primary term, production, a gap with no production bridged by a savings clause, then production again — with the lease alive throughout" style="width:100%;height:auto;max-width:660px;display:block;margin:1.8rem auto .4rem">
+        <text x="40" y="22" font-family="JetBrains Mono" font-size="10" letter-spacing="1.8" fill="#6B675E">THE LIFE OF ONE LEASE</text>
+
+        <!-- bridge -->
+        <path d="M340,96 Q385,44 430,96" fill="none" stroke="#A23A2A" stroke-width="2.5"/>
+        <rect x="326" y="24" width="118" height="17" rx="4" fill="#A23A2A"/>
+        <text x="385" y="36.5" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" letter-spacing=".8" fill="#fff">SAVINGS CLAUSE</text>
+
+        <!-- the bar -->
+        <rect x="40" y="100" width="180" height="36" rx="4" fill="#E7D3A8" stroke="#C8A45E" stroke-width="1.25"/>
+        <text x="130" y="122" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing=".6" fill="#3a2c10">PRIMARY TERM</text>
+        <rect x="220" y="100" width="120" height="36" rx="4" fill="#243A35"/>
+        <text x="280" y="122" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing=".6" fill="#EDF0EE">PRODUCING</text>
+        <rect x="340" y="100" width="90" height="36" rx="4" fill="#F4F2EC" stroke="#A23A2A" stroke-width="1.5" stroke-dasharray="5 4"/>
+        <text x="385" y="122" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#A23A2A">NO PRODUCTION</text>
+        <rect x="430" y="100" width="210" height="36" rx="4" fill="#243A35"/>
+        <text x="535" y="122" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing=".6" fill="#EDF0EE">PRODUCING</text>
+
+        <!-- axis -->
+        <line x1="40" y1="144" x2="640" y2="144" stroke="#C7C1B2" stroke-width="1"/>
+        <g stroke="#C7C1B2" stroke-width="1">
+          <line x1="40" y1="144" x2="40" y2="150"/><line x1="220" y1="144" x2="220" y2="150"/>
+          <line x1="340" y1="144" x2="340" y2="150"/><line x1="430" y1="144" x2="430" y2="150"/>
+          <line x1="640" y1="144" x2="640" y2="150"/>
+        </g>
+        <g font-family="JetBrains Mono" font-size="8.5" fill="#6B675E" text-anchor="middle">
+          <text x="40" y="162">signed</text><text x="220" y="162">yr 3</text>
+          <text x="340" y="162">yr 5</text><text x="430" y="162">yr 6</text><text x="640" y="162">yr 10</text>
+        </g>
+
+        <text x="385" y="184" text-anchor="middle" font-family="Spectral" font-size="11" fill="#A23A2A">without something spanning this gap, the lease ends the day production stops</text>
+
+        <!-- bracket -->
+        <path d="M40,198 v8 h600 v-8" fill="none" stroke="#6B675E" stroke-width="1"/>
+        <text x="340" y="224" text-anchor="middle" font-family="Spectral" font-size="11.5" fill="#6B675E">lease alive the whole time — original royalty, original terms, no new bonus</text>
+      </svg>
+    </div>
+
+    <div class="section">
+      <p class="kicker">The four bridges</p>
+      <h2>Which clause catches which gap</h2>
+      <p>Four clauses do almost all of this work, and each answers a different question. Read in order, they cover the whole life of a lease — from the first dry hole to the last tired well.</p>
+
+      <div class="lease-tl">
+        <div class="lt-item">
+          <span class="when">Gap 1 · during the primary term</span>
+          <h4>Dry hole clause</h4>
+          <p>The company drills, finds nothing, and plugs the well. Without this clause, a dry hole during the primary term would be the end of it. The dry hole clause gives them a defined window — commonly 90 to 120 days — to start another well and keep going.</p>
+          <p class="lt-ask"><b>Reasonable.</b> Just confirm the window is a stated number of days rather than open-ended.</p>
+        </div>
+        <div class="lt-item">
+          <span class="when">Gap 2 · a finished well with nowhere to sell</span>
+          <h4>Shut-in royalty clause</h4>
+          <p>The well is drilled, completed, and genuinely capable of producing — but there's no pipeline connection yet, or no buyer. The operator "shuts it in," pays a shut-in royalty, and the lease is treated as if the well were producing. This is the clause worth arguing about, and it gets its own section below.</p>
+          <p class="lt-ask"><b>Negotiate hard.</b> Cap the years, raise the payment, and tie it to a real lack of market.</p>
+        </div>
+        <div class="lt-item">
+          <span class="when">Gap 3 · production stops after it started</span>
+          <h4>Cessation of production clause</h4>
+          <p>A pump fails. A well waters out. Production simply stops. This clause gives the operator a window — often 60 or 90 days — to get it going again or to begin drilling or reworking operations. Do that in time and the lease never lapses.</p>
+          <p class="lt-ask"><b>Watch the window.</b> A short, defined window is fine. What to check is whether cessations can be strung together indefinitely, one after another.</p>
+        </div>
+        <div class="lt-item">
+          <span class="when">Gap 4 · between wells, after the primary term</span>
+          <h4>Continuous operations clause</h4>
+          <p>The operator is developing the acreage well by well. As long as each new well is started within a set number of days of the last one being finished, the lease keeps rolling — potentially for years past the primary term, on the original terms.</p>
+          <p class="lt-ask"><b>Pair it with a Pugh clause.</b> Otherwise a slow drilling program holds acreage the operator isn't actually developing.</p>
+        </div>
+      </div>
+
+      <p class="aside-note">A fifth clause, <strong>force majeure</strong>, sits behind all of these and pauses the operator's obligations during events genuinely outside their control. It earns its place — but read the list of what counts. If it stretches to cover "lack of a favorable market," "economic conditions," or low prices, it stops being a storm clause and becomes an indefinite hold. The <a href="glossary.html#cat-redflag">red flag section of the clause dictionary</a> covers that one.</p>
+    </div>
+
+    <div class="section">
+      <p class="kicker">The one to negotiate</p>
+      <h2>Why an uncapped shut-in royalty is the quiet problem</h2>
+      <p>The shut-in royalty exists for an honest reason: a well can be finished months or years before a pipeline reaches it, and nobody benefits from the lease dying in the meantime. Nobody argues with the concept.</p>
+      <p>The argument is about the number and the clock. Most printed lease forms set the shut-in royalty at something like <strong>$1.00 per net mineral acre per year</strong>, or a flat <strong>$50 to $100 per well</strong> — figures written into these forms decades ago and never adjusted for anything. And most set no limit at all on how long, or how many times, that payment can substitute for actual production. Put those two facts together and you get a lease that can be held on your minerals almost indefinitely for the price of a tank of gas.</p>
+      <p>The fix is not exotic. You cap it, and you price it. Drag the slider and watch what those two changes are worth on a 160-acre tract.</p>
+    </div>
+
+    <div class="dil" id="shutin">
+      <div class="dil-head">
+        <div class="dil-control">
+          <label for="si-years">Years shut in</label>
+          <input type="range" id="si-years" min="1" max="8" step="1" value="1" aria-describedby="si-readout">
+          <output id="si-out" for="si-years">1 year</output>
+        </div>
+        <p class="dil-state" id="si-state">Well capable · not selling</p>
+      </div>
+
+      <div class="dil-body">
+        <div class="unit-wrap">
+          <div class="wellmark"><span>▾ 160 net mineral acres · one completed well · no pipeline connection</span></div>
+
+          <div class="yrgrid" role="img" aria-label="Year-by-year comparison of whether the lease is held under a base-form shut-in clause versus a negotiated capped clause">
+            <div class="yrrow">
+              <span class="yrlbl">Base form<small>$1/ac · no cap</small></span>
+              <div class="yrcells" id="si-base-cells">
+                <span class="yrcell" data-yr="1">1</span><span class="yrcell" data-yr="2">2</span><span class="yrcell" data-yr="3">3</span><span class="yrcell" data-yr="4">4</span><span class="yrcell" data-yr="5">5</span><span class="yrcell" data-yr="6">6</span><span class="yrcell" data-yr="7">7</span><span class="yrcell" data-yr="8">8</span>
+              </div>
+            </div>
+            <div class="yrrow">
+              <span class="yrlbl">Negotiated<small>$50/ac · 2-yr cap</small></span>
+              <div class="yrcells" id="si-neg-cells">
+                <span class="yrcell" data-yr="1">1</span><span class="yrcell" data-yr="2">2</span><span class="yrcell" data-yr="3">3</span><span class="yrcell" data-yr="4">4</span><span class="yrcell" data-yr="5">5</span><span class="yrcell" data-yr="6">6</span><span class="yrcell" data-yr="7">7</span><span class="yrcell" data-yr="8">8</span>
+              </div>
+            </div>
+          </div>
+          <div class="legend">
+            <span><i style="background:#A23A2A"></i>Lease held — your minerals are off the market</span>
+            <span><i style="background:#1D7A52"></i>Lease terminated — minerals back in your hands</span>
+          </div>
+        </div>
+
+        <div class="dil-metrics">
+          <div class="metric metric-big">
+            <p class="m-label">Base form · total paid to you</p>
+            <p class="m-num" id="si-base-num">$160</p>
+            <p class="m-delta" id="si-base-delta"></p>
+          </div>
+          <div class="metric metric-small">
+            <p class="m-label">Negotiated · total paid to you</p>
+            <p class="m-num" id="si-neg-num">$8,000</p>
+            <p class="m-delta" id="si-neg-delta"></p>
+          </div>
+        </div>
+
+        <p class="dil-readout" id="si-readout"></p>
+      </div>
+    </div>
+
+    <p class="aside-note">The re-lease figures used here — a $1,000 per acre bonus and a move from a 1/8 to a 1/4 royalty — are illustrative. In a quiet county the bonus might be $250 an acre; in a hot part of the Permian it has been many multiples of $1,000. The shape of the comparison holds either way: the shut-in payment is a small, fixed number, and the thing it's holding is not.</p>
+
+    <div class="section">
+      <div class="grid2">
+        <div>
+          <p class="kicker">Why the operator wants it</p>
+          <h3>Real infrastructure takes real time</h3>
+          <p>An operator can spend eight or nine figures drilling and completing a well and still be a year away from a gathering line with capacity. Without a shut-in mechanism, that delay would kill the lease and hand the acreage back — so nobody would drill ahead of a pipeline, which would mean fewer wells and later payments to everyone, including you. The clause is not a trick. It's insurance against a timing problem the operator often can't control.</p>
+        </div>
+        <div>
+          <p class="kicker">Why you should still cap it</p>
+          <h3>Insurance shouldn't be permanent</h3>
+          <p>Everything above justifies a shut-in period measured in months, or a couple of years. None of it justifies an unlimited one. A capped clause still solves the operator's real problem while making sure that if the pipeline never comes, your minerals eventually come back to you instead of sitting under a lease signed in a different decade at a royalty nobody would agree to today.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>What to ask for</h2>
+      <p class="eyebrow" style="margin-top:.5rem">Five edits to the shut-in clause · worth having a Texas oil and gas attorney draft for your tract</p>
+      <div class="table-scroll">
+        <table class="ledger">
+          <thead><tr><th>The edit</th><th>What the base form usually says</th><th>What to ask for</th></tr></thead>
+          <tbody>
+            <tr><td>The amount</td><td>$1 per net acre, or $50&ndash;$100 flat per well</td><td>$50&ndash;$100 per net mineral acre per year, so it actually costs something</td></tr>
+            <tr><td>The clock</td><td>No limit stated</td><td>A hard cap &mdash; e.g. 2 consecutive years, 4 years total over the life of the lease</td></tr>
+            <tr><td>The trigger</td><td>"If a well is shut in for any reason"</td><td>Only for genuine lack of pipeline or market &mdash; never merely because prices are low</td></tr>
+            <tr><td>The well</td><td>Silent, or "capable of producing"</td><td>Capable of producing <em>in paying quantities</em> as it sits, without more equipment or expense</td></tr>
+            <tr><td>The payment</td><td>A covenant &mdash; a late payment is just a breach</td><td>A condition &mdash; if it isn't paid on time and in full, the lease ends on its own</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1.2rem">That last row is the one people underestimate. If the shut-in payment is written as a <em>covenant</em>, missing it means you'd have to sue for damages and the lease survives. If it's written as a <em>condition</em>, the lease simply ends when the payment doesn't arrive on time — no lawsuit, no notice. Same money, completely different consequence.</p>
+      <p>Each of these clauses is written out in full in the <a href="glossary.html#cat-term">Term, continuation &amp; Pugh</a> section of the Lease Clause Dictionary, along with why the operator wants it and whether it's already in the standard printed form.</p>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">The point that trips everyone up</p>
+      <p>"Nothing has been produced in four years, so my lease has to be dead by now." Not necessarily &mdash; and this is exactly what the savings clauses are for. A modest annual shut-in payment, or a cessation window that keeps getting restarted, can hold a lease through years of silence, perfectly lawfully. The mirror image is also true: an operator can <em>think</em> a lease is held and be wrong, because a shut-in payment went to the wrong person or arrived late, or because the well was never actually capable of producing in paying quantities. Neither side finds out automatically. <a href="#top" data-goto-tab="t-hbp">Concept 12</a> is about how you go and check.</p>
+    </div>
+  </section>
+
+  <!-- ============ PANEL 12 — HBP MONITORING & TERMINATION RISK ============ -->
+  <section class="panel" id="p-hbp" role="tabpanel" aria-labelledby="t-hbp" tabindex="0">
+
+    <div class="hero">
+      <p class="eyebrow">Concept 12 — HBP monitoring</p>
+      <h1>The lease that's been quietly dead since <em>2022</em>.</h1>
+      <p class="lede">A lease held by production doesn't end with a letter, a lawsuit, or a filing. It ends by itself — the moment production in paying quantities permanently stops and no savings clause catches it. Nobody is notified. The operator's map still shades your acreage as held. The county records still show the lease. The only person with any real incentive to notice is you, and the only way to notice is to read the public record on purpose.</p>
+    </div>
+
+    <div class="section" style="border-top:0;padding-top:1rem">
+      <p class="kicker">Start here</p>
+      <h2>First — why a lease can end without anyone doing anything</h2>
+      <p>This is the piece that surprises people, and it's the engine behind everything else on this page. A Texas oil and gas lease is not a contract that has to be cancelled. It is a conveyance of the minerals subject to a built-in expiry date — lawyers call it a <strong>fee simple determinable</strong> with a <strong>special limitation</strong>. The habendum clause from <a href="#top" data-goto-tab="t-hold">Concept 11</a> is that limitation: the lease lasts "as long as oil or gas is produced," and when that stops being true, the estate ends on its own.</p>
+      <p>No notice. No forfeiture suit. No cure period unless the lease wrote one in. The minerals simply revert to you the instant the condition fails — a moment that may pass, entirely unremarked, while everyone involved carries on assuming the lease is fine.</p>
+      <p>The catch is that "the condition failed" is easy to say and hard to prove, and there are more ways for a lease to survive than most owners expect. So the job isn't to declare leases dead. It's to build a file.</p>
+
+      <div class="glossary">
+        <div class="term"><span class="t">Special limitation</span><span class="d">A built-in expiry written into the grant itself. When it trips, the lease ends automatically — no notice, no lawsuit, no chance to cure.</span></div>
+        <div class="term"><span class="t">Reversion</span><span class="d">The minerals returning to the mineral owner when the lease ends. What you hold during the lease is called a possibility of reverter.</span></div>
+        <div class="term"><span class="t">In paying quantities (PIPQ)</span><span class="d">Revenue exceeds the well's operating and marketing costs over a reasonable period. Sunk drilling costs don't count. For a marginal well, Texas adds a second test: would a reasonably prudent operator keep it going hoping for a profit?</span></div>
+        <div class="term"><span class="t">Temporary cessation doctrine</span><span class="d">A judge-made rule that a short stop from a sudden, unexpected cause — with diligent effort to restore — doesn't end the lease. It only applies where the lease has no cessation clause of its own; an express clause controls.</span></div>
+        <div class="term"><span class="t">Ratification</span><span class="d">Treating a lease as alive — cashing royalty checks, signing a division order, banking a shut-in payment — which can confirm a lease you might otherwise have called dead.</span></div>
+        <div class="term"><span class="t">The RRC record set</span><span class="d">The public filings that let you reconstruct a well's life: monthly production reports, well status tests, operator designations, drilling permits, and plugging records. All free, all online.</span></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="kicker">Read the record</p>
+      <h2>Ten years of one well, month by month</h2>
+      <p>Below is the production history of a single oil well on a 160-acre lease, as it would appear if you pulled the operator's monthly production reports from the Railroad Commission and plotted them. Everything a mineral owner needs to spot a dying lease is visible in this one picture. Step through it.</p>
+      <p class="aside-note" style="margin-top:1rem">Plotted on a logarithmic scale — the standard for decline curves, because a well that starts at 4,000 barrels a month and ends at 30 can't be shown honestly any other way. Each gridline is ten times the one below it. Months with no production at all can't sit on a log axis, so they're drawn as red marks in their own band beneath it.</p>
+
+      <div class="dil" id="hbpmon">
+        <div class="dil-head">
+          <div class="tl-steps" aria-hidden="true">
+            <span class="tl-dot" data-hb-dot></span><span class="tl-dot" data-hb-dot></span><span class="tl-dot" data-hb-dot></span><span class="tl-dot" data-hb-dot></span><span class="tl-dot" data-hb-dot></span>
+          </div>
+          <div class="tl-nav">
+            <button id="hb-back" aria-label="Previous step">&#9664; Back</button>
+            <button id="hb-next" aria-label="Next step">Next &#9654;</button>
+          </div>
+        </div>
+
+        <div class="dil-body">
+          <div class="hb-chart">
+            <svg viewBox="0 0 900 300" role="img" aria-label="Monthly oil production for one well from 2015 to 2024, declining from about 4,200 barrels a month to zero in early 2022, with the paying-quantities threshold marked and later operator-transfer and plugging events">
+              <!-- gridlines + y labels -->
+              <g stroke="#D8D3C7" stroke-width="1">
+                <line x1="58" y1="45" x2="876" y2="45"/>
+                <line x1="58" y1="96.25" x2="876" y2="96.25"/>
+                <line x1="58" y1="147.5" x2="876" y2="147.5"/>
+                <line x1="58" y1="198.75" x2="876" y2="198.75"/>
+                <line x1="58" y1="250" x2="876" y2="250"/>
+              </g>
+              <g font-family="JetBrains Mono" font-size="8.5" fill="#6B675E" text-anchor="end">
+                <text x="52" y="48">10,000</text><text x="52" y="99">1,000</text>
+                <text x="52" y="150.5">100</text><text x="52" y="201.75">10</text><text x="52" y="253">1</text>
+              </g>
+              <text x="14" y="150" font-family="JetBrains Mono" font-size="8.5" fill="#6B675E" text-anchor="middle" transform="rotate(-90 14 150)">BBL / MONTH</text>
+
+              <!-- highlight window -->
+              <rect id="hb-hl" x="58" y="38" width="164" height="238" fill="#A23A2A" opacity="0.09" rx="3"/>
+
+              <!-- bars -->
+              <g id="hb-bars">
+        <rect x="58.0" y="64.3" width="4.9" height="185.7" rx="1" fill="#243A35"/>
+        <rect x="64.8" y="68.6" width="4.9" height="181.4" rx="1" fill="#243A35"/>
+        <rect x="71.6" y="74.6" width="4.9" height="175.4" rx="1" fill="#243A35"/>
+        <rect x="78.5" y="79.4" width="4.9" height="170.6" rx="1" fill="#243A35"/>
+        <rect x="85.3" y="81.3" width="4.9" height="168.7" rx="1" fill="#243A35"/>
+        <rect x="92.1" y="84.4" width="4.9" height="165.6" rx="1" fill="#243A35"/>
+        <rect x="98.9" y="89.4" width="4.9" height="160.6" rx="1" fill="#243A35"/>
+        <rect x="105.7" y="92.0" width="4.9" height="158.0" rx="1" fill="#243A35"/>
+        <rect x="112.5" y="92.5" width="4.9" height="157.5" rx="1" fill="#243A35"/>
+        <rect x="119.3" y="94.9" width="4.9" height="155.1" rx="1" fill="#243A35"/>
+        <rect x="126.2" y="98.1" width="4.9" height="151.9" rx="1" fill="#243A35"/>
+        <rect x="133.0" y="98.3" width="4.9" height="151.7" rx="1" fill="#243A35"/>
+        <rect x="139.8" y="98.3" width="4.9" height="151.7" rx="1" fill="#243A35"/>
+        <rect x="146.6" y="100.9" width="4.9" height="149.1" rx="1" fill="#243A35"/>
+        <rect x="153.4" y="103.5" width="4.9" height="146.5" rx="1" fill="#243A35"/>
+        <rect x="160.2" y="103.6" width="4.9" height="146.4" rx="1" fill="#243A35"/>
+        <rect x="167.1" y="104.7" width="4.9" height="145.3" rx="1" fill="#243A35"/>
+        <rect x="173.9" y="108.2" width="4.9" height="141.8" rx="1" fill="#243A35"/>
+        <rect x="180.7" y="109.8" width="4.9" height="140.2" rx="1" fill="#243A35"/>
+        <rect x="187.5" y="108.9" width="4.9" height="141.1" rx="1" fill="#243A35"/>
+        <rect x="194.3" y="110.0" width="4.9" height="140.0" rx="1" fill="#243A35"/>
+        <rect x="201.2" y="112.4" width="4.9" height="137.6" rx="1" fill="#243A35"/>
+        <rect x="208.0" y="112.1" width="4.9" height="137.9" rx="1" fill="#243A35"/>
+        <rect x="214.8" y="111.3" width="4.9" height="138.7" rx="1" fill="#243A35"/>
+        <rect x="221.6" y="113.3" width="4.9" height="136.7" rx="1" fill="#243A35"/>
+        <rect x="228.4" y="115.7" width="4.9" height="134.3" rx="1" fill="#243A35"/>
+        <rect x="235.2" y="115.5" width="4.9" height="134.5" rx="1" fill="#243A35"/>
+        <rect x="242.0" y="115.8" width="4.9" height="134.2" rx="1" fill="#243A35"/>
+        <rect x="248.9" y="118.7" width="4.9" height="131.3" rx="1" fill="#243A35"/>
+        <rect x="255.7" y="120.0" width="4.9" height="130.0" rx="1" fill="#243A35"/>
+        <rect x="262.5" y="118.7" width="4.9" height="131.3" rx="1" fill="#243A35"/>
+        <rect x="269.3" y="119.0" width="4.9" height="131.0" rx="1" fill="#243A35"/>
+        <rect x="276.1" y="121.1" width="4.9" height="128.9" rx="1" fill="#243A35"/>
+        <rect x="282.9" y="120.9" width="4.9" height="129.1" rx="1" fill="#243A35"/>
+        <rect x="289.8" y="119.8" width="4.9" height="130.2" rx="1" fill="#243A35"/>
+        <rect x="296.6" y="121.5" width="4.9" height="128.5" rx="1" fill="#243A35"/>
+        <rect x="303.4" y="123.9" width="4.9" height="126.1" rx="1" fill="#243A35"/>
+        <rect x="310.2" y="123.7" width="4.9" height="126.3" rx="1" fill="#243A35"/>
+        <rect x="317.0" y="123.6" width="4.9" height="126.4" rx="1" fill="#243A35"/>
+        <rect x="323.8" y="126.0" width="4.9" height="124.0" rx="1" fill="#243A35"/>
+        <rect x="330.7" y="127.2" width="4.9" height="122.8" rx="1" fill="#243A35"/>
+        <rect x="337.5" y="125.6" width="4.9" height="124.4" rx="1" fill="#243A35"/>
+        <rect x="344.3" y="125.5" width="4.9" height="124.5" rx="1" fill="#243A35"/>
+        <rect x="351.1" y="127.4" width="4.9" height="122.6" rx="1" fill="#243A35"/>
+        <rect x="357.9" y="127.5" width="4.9" height="122.5" rx="1" fill="#243A35"/>
+        <rect x="364.8" y="126.3" width="4.9" height="123.7" rx="1" fill="#243A35"/>
+        <rect x="371.6" y="127.7" width="4.9" height="122.3" rx="1" fill="#243A35"/>
+        <rect x="378.4" y="130.2" width="4.9" height="119.8" rx="1" fill="#243A35"/>
+        <rect x="385.2" y="130.0" width="4.9" height="120.0" rx="1" fill="#243A35"/>
+        <rect x="392.0" y="130.2" width="4.9" height="119.8" rx="1" fill="#243A35"/>
+        <rect x="398.8" y="133.0" width="4.9" height="117.0" rx="1" fill="#243A35"/>
+        <rect x="405.6" y="135.0" width="4.9" height="115.0" rx="1" fill="#243A35"/>
+        <rect x="412.5" y="134.1" width="4.9" height="115.9" rx="1" fill="#243A35"/>
+        <rect x="419.3" y="134.3" width="4.9" height="115.7" rx="1" fill="#243A35"/>
+        <rect x="426.1" y="137.0" width="4.9" height="113.0" rx="1" fill="#243A35"/>
+        <rect x="432.9" y="138.1" width="4.9" height="111.9" rx="1" fill="#243A35"/>
+        <rect x="439.7" y="137.7" width="4.9" height="112.3" rx="1" fill="#243A35"/>
+        <rect x="446.6" y="139.7" width="4.9" height="110.3" rx="1" fill="#243A35"/>
+        <rect x="453.4" y="143.1" width="4.9" height="106.9" rx="1" fill="#243A35"/>
+        <rect x="460.2" y="143.8" width="4.9" height="106.2" rx="1" fill="#243A35"/>
+        <rect x="467.0" y="143.8" width="4.9" height="106.2" rx="1" fill="#243A35"/>
+        <rect x="473.8" y="146.2" width="4.9" height="103.8" rx="1" fill="#243A35"/>
+        <rect x="480.6" y="148.3" width="4.9" height="101.7" rx="1" fill="#243A35"/>
+        <rect x="487.4" y="147.4" width="4.9" height="102.6" rx="1" fill="#243A35"/>
+        <rect x="494.3" y="147.5" width="4.9" height="102.5" rx="1" fill="#243A35"/>
+        <rect x="501.1" y="150.2" width="4.9" height="99.8" rx="1" fill="#243A35"/>
+        <rect x="507.9" y="151.8" width="4.9" height="98.2" rx="1" fill="#243A35"/>
+        <rect x="514.7" y="151.5" width="4.9" height="98.5" rx="1" fill="#243A35"/>
+        <rect x="521.5" y="153.2" width="4.9" height="96.8" rx="1" fill="#243A35"/>
+        <rect x="528.3" y="156.7" width="4.9" height="93.3" rx="1" fill="#243A35"/>
+        <rect x="535.2" y="157.6" width="4.9" height="92.4" rx="1" fill="#243A35"/>
+        <rect x="542.0" y="157.2" width="4.9" height="92.8" rx="1" fill="#243A35"/>
+        <rect x="548.8" y="159.3" width="4.9" height="90.7" rx="1" fill="#243A35"/>
+        <rect x="555.6" y="161.5" width="4.9" height="88.5" rx="1" fill="#243A35"/>
+        <rect x="562.4" y="160.9" width="4.9" height="89.1" rx="1" fill="#243A35"/>
+        <rect x="569.2" y="160.8" width="4.9" height="89.2" rx="1" fill="#243A35"/>
+        <rect x="576.1" y="163.5" width="4.9" height="86.5" rx="1" fill="#243A35"/>
+        <rect x="582.9" y="165.4" width="4.9" height="84.6" rx="1" fill="#243A35"/>
+        <rect x="589.7" y="165.3" width="4.9" height="84.7" rx="1" fill="#243A35"/>
+        <rect x="596.5" y="166.8" width="4.9" height="83.2" rx="1" fill="#243A35"/>
+        <rect x="603.3" y="170.3" width="4.9" height="79.7" rx="1" fill="#B06A3B"/>
+        <rect x="610.1" y="171.3" width="4.9" height="78.7" rx="1" fill="#B06A3B"/>
+        <rect x="617.0" y="170.7" width="4.9" height="79.3" rx="1" fill="#B06A3B"/>
+        <rect x="623.8" y="172.4" width="4.9" height="77.6" rx="1" fill="#B06A3B"/>
+        <rect x="630.6" y="194.7" width="4.9" height="55.3" rx="1" fill="#B06A3B"/>
+        <rect x="637.4" y="219.1" width="4.9" height="30.9" rx="1" fill="#B06A3B"/>
+        <rect x="644.2" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="651.0" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="657.9" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="664.7" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="671.5" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="678.3" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="685.1" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="691.9" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="698.8" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="705.6" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="712.4" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="719.2" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="726.0" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="732.9" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="739.7" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="746.5" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="753.3" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="760.1" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="766.9" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="773.8" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="780.6" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="787.4" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="794.2" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="801.0" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="807.8" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="814.6" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="821.5" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="828.3" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="835.1" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="841.9" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="848.7" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="855.5" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="862.4" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+        <rect x="869.2" y="258" width="4.9" height="9" rx="1.5" fill="#A23A2A" opacity=".8"/>
+              </g>
+
+              <!-- zero band -->
+              <rect x="58" y="256" width="818" height="13" rx="3" fill="none" stroke="#C7C1B2" stroke-width="1" stroke-dasharray="3 3"/>
+              <text x="880" y="266" font-family="JetBrains Mono" font-size="8" fill="#A23A2A">0</text>
+
+              <!-- paying quantities line -->
+              <line x1="58" y1="167.9" x2="876" y2="167.9" stroke="#A23A2A" stroke-width="1.5" stroke-dasharray="6 4"/>
+              <rect x="62" y="153" width="196" height="14" rx="3" fill="#A23A2A"/>
+              <text x="160" y="163.5" text-anchor="middle" font-family="JetBrains Mono" font-size="8" letter-spacing=".5" fill="#fff">PAYING QUANTITIES ≈ 40 BBL/MO</text>
+
+              <!-- event markers -->
+              <g>
+                <line x1="639.9" y1="250" x2="639.9" y2="284" stroke="#6B675E" stroke-width="1" stroke-dasharray="3 3"/>
+                <text x="639.9" y="295" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#6B675E">last sale</text>
+                <line x1="748.9" y1="250" x2="748.9" y2="284" stroke="#6B675E" stroke-width="1" stroke-dasharray="3 3"/>
+                <text x="748.9" y="295" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#6B675E">P-4 transfer</text>
+                <line x1="844.4" y1="250" x2="844.4" y2="284" stroke="#6B675E" stroke-width="1" stroke-dasharray="3 3"/>
+                <text x="844.4" y="295" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#6B675E">W-3 plugged</text>
+              </g>
+
+              <!-- x axis years -->
+              <g font-family="JetBrains Mono" font-size="8.5" fill="#6B675E" text-anchor="middle">
+                <text x="58" y="24">2015</text><text x="221.6" y="24">2017</text><text x="385.2" y="24">2019</text>
+                <text x="548.8" y="24">2021</text><text x="712.4" y="24">2023</text><text x="876" y="24">2025</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="hb-info" aria-live="polite">
+            <span class="tl-badge" id="hb-badge">Step 1 of 5</span>
+            <p class="tl-title" id="hb-title">2015&ndash;2016 · a healthy well</p>
+            <p class="tl-cap" id="hb-cap"></p>
+            <div class="hb-rec">
+              <span class="hb-rec-k">Pull this record</span>
+              <span class="hb-rec-n" id="hb-rec-n">Monthly production report</span>
+              <span class="hb-rec-d" id="hb-rec-d"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top:1.4rem">Notice where the actual event is. The well was plugged in 2024 and the operator changed hands in 2023, but neither of those is the moment the lease ended. If this lease terminated, it terminated somewhere in <strong>2022</strong> — when production in paying quantities stopped for good and no savings clause bridged the gap. The 2023 and 2024 filings are just the evidence that nobody was ever coming back.</p>
+    </div>
+
+    <div class="section">
+      <p class="kicker">Before you say the word "terminated"</p>
+      <h2>Four questions that decide it</h2>
+      <p>A string of zeros is a reason to open a file, not a conclusion. Four things routinely save a lease that looks dead on the production report, and all four are checkable.</p>
+
+      <div class="lease-tl">
+        <div class="lt-item">
+          <span class="when">Question 1</span>
+          <h4>Is there other production holding the same lease?</h4>
+          <p>A lease is held by production <em>from the leased premises</em> — or, if your tract was pooled, by production anywhere in the unit. One well quitting on a lease with three wells changes nothing. And under <a href="#top" data-goto-tab="t-pooling">Concept 05</a>, a well a mile away on someone else's tract can be holding yours, provided the pooling was valid and your acreage is really in that unit. Check the unit designation of record, not just the well nearest you.</p>
+        </div>
+        <div class="lt-item">
+          <span class="when">Question 2</span>
+          <h4>What does the lease's own cessation clause say?</h4>
+          <p>If the lease has an express cessation-of-production clause, that clause controls and the judge-made temporary cessation doctrine drops out of the picture. So the question becomes mechanical: did the operator resume production, or commence drilling or reworking operations, inside the stated window — 60 days, 90 days, whatever the form says? If there's no express clause, you're in the doctrine instead, and the test turns on whether the stoppage was sudden and unexpected and whether the operator was diligent about fixing it.</p>
+        </div>
+        <div class="lt-item">
+          <span class="when">Question 3</span>
+          <h4>Was a shut-in royalty tendered — properly?</h4>
+          <p>A shut-in payment can hold the lease through the whole quiet stretch. But it only works if the well was genuinely capable of producing in paying quantities as it sat, and if the payment was made on time, in the right amount, to the right party. Your own bank records are the primary source here, and a payment sent to a predecessor in title or to the wrong address is one of the most common failures. See <a href="#top" data-goto-tab="t-hold">Concept 11</a>.</p>
+        </div>
+        <div class="lt-item">
+          <span class="when">Question 4</span>
+          <h4>Have you already treated the lease as alive?</h4>
+          <p>This one catches owners more than any of the others. Cashing royalty checks, banking a shut-in payment, or signing a division order after the date you now say the lease ended can all be read as confirming the lease. Ratification is not something anyone announces; it's something you do by accident. If you have real doubts about a lease, that is the moment to stop signing things and start asking questions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Which way does the evidence point?</h2>
+      <p class="eyebrow" style="margin-top:.5rem">The same file usually contains some of both</p>
+      <div class="decision">
+        <div class="dcol dcol-for">
+          <p class="dcol-h">Points toward <strong>termination</strong></p>
+          <ul>
+            <li>A long, unbroken run of zero production — years, not months</li>
+            <li>No drilling permit, workover, or new completion anywhere on the lease during the gap</li>
+            <li>No shut-in payment ever tendered, or one tendered late or to the wrong party</li>
+            <li>Volumes below operating cost for a sustained stretch <em>before</em> the zeros began</li>
+            <li>The last well on the lease plugged, with nothing filed to replace it</li>
+            <li>The operator's own status filings reporting the well inactive rather than shut in</li>
+          </ul>
+        </div>
+        <div class="dcol dcol-against">
+          <p class="dcol-h">Points toward <strong>survival</strong></p>
+          <ul>
+            <li>Another producing well on the lease — or in the pooled unit your tract is in</li>
+            <li>Shut-in payments made on time, on a well capable of producing in paying quantities</li>
+            <li>Production resumed inside the express cessation window</li>
+            <li>A sudden mechanical or infrastructure failure with a documented, diligent repair effort</li>
+            <li>Royalty or shut-in checks you cashed after the supposed termination date</li>
+            <li>A division order or ratification you signed during the gap</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="kicker">The monitoring file</p>
+      <h2>What to pull, and what each record actually tells you</h2>
+      <p>Everything in the left-hand column is a free public filing with the Railroad Commission, searchable by lease, operator, or API number. The one document that isn't is the lease itself, which lives in the county clerk's records — and it's the most important of the lot, because it's the only thing that tells you how long the operator actually gets.</p>
+
+      <div class="table-scroll">
+        <table class="ledger">
+          <thead><tr><th>Record</th><th>Where</th><th>What it tells you</th><th>What to watch for</th></tr></thead>
+          <tbody>
+            <tr><td>Production report (PR)</td><td>RRC</td><td>Monthly volumes by lease and by well</td><td>Strings of zeros; volumes sitting below operating cost</td></tr>
+            <tr><td>W-10 / G-10 well status</td><td>RRC</td><td>The annual status test — producing, shut-in, or inactive</td><td>"Inactive" where you expected "shut-in"</td></tr>
+            <tr><td>W-1 drilling permit</td><td>RRC</td><td>A new well is planned on the lease or unit</td><td>Its absence during a long gap</td></tr>
+            <tr><td>W-2 / G-1 completion</td><td>RRC</td><td>When and how a well was completed, and its initial potential</td><td>Nothing new since the well in question</td></tr>
+            <tr><td>P-4 certificate</td><td>RRC</td><td>Who is the operator of record right now</td><td>Transfers down a chain to thinly capitalized operators</td></tr>
+            <tr><td>P-5 organization report</td><td>RRC</td><td>Whether that operator is active and has financial assurance</td><td>Delinquent status — they can't legally operate</td></tr>
+            <tr><td>W-3 plugging record</td><td>RRC</td><td>The well has been plugged and abandoned</td><td>The last well on a lease, with no replacement filed</td></tr>
+            <tr><td>Your check stubs</td><td>Operator</td><td>Exactly when payments stopped, and why</td><td>"Suspense" is not termination — it's a title question</td></tr>
+            <tr><td>The lease of record</td><td>County clerk</td><td>The cessation window, the shut-in terms, any Pugh clause</td><td>Amendments and ratifications filed years later</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:1.3rem">The Railroad Commission's public queries and where each of these filings lives are laid out on the <a href="regulators/texas.html">Texas page in "Where to look it up"</a>. If your minerals are outside Texas, the <a href="regulators/index.html">same section</a> covers the RRC's equivalent in the ten biggest producing states — the filings have different names, but the monitoring job is identical.</p>
+    </div>
+
+    <div class="section">
+      <p class="kicker">What it's worth</p>
+      <h2>Why anyone bothers</h2>
+      <p>Monitoring is tedious, so it's worth being concrete about the payoff. A lease signed in 1994 on 160 net mineral acres, still alive today on its original terms, against the same acreage re-leased at what the market pays now:</p>
+
+      <div class="table-scroll" style="margin-top:1.1rem">
+        <table class="ledger">
+          <thead><tr><th>&nbsp;</th><th class="r">The 1994 lease</th><th class="r">A new lease today</th></tr></thead>
+          <tbody>
+            <tr><td>Royalty</td><td class="r">1/8 &nbsp;(0.12500)</td><td class="r">1/4 &nbsp;(0.25000)</td></tr>
+            <tr><td>Bonus per net acre</td><td class="r">&mdash; already paid</td><td class="r">$1,000</td></tr>
+            <tr><td>Bonus on 160 net acres</td><td class="r">&mdash;</td><td class="r">$160,000</td></tr>
+            <tr><td>Post-production costs</td><td class="r">Deductible &mdash; "at the well"</td><td class="r">Negotiable &mdash; see <a href="#top" data-goto-tab="t-ppc">Concept 10</a></td></tr>
+            <tr><td>Shut-in clause</td><td class="r">$1/acre, uncapped</td><td class="r">$50/acre, 2-year cap</td></tr>
+            <tr class="tot"><td>Difference on the royalty alone</td><td class="r">&mdash;</td><td class="r">2&times; on every barrel, forever</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:1.2rem">That is the whole argument for keeping a file. The bonus is a one-time number and it's large. The royalty difference is a permanent one and it's larger. Both of them are sitting behind a lease that may already have ended without anyone saying so.</p>
+    </div>
+
+    <div class="section">
+      <p class="kicker">What to do about it</p>
+      <h2>Four steps, in order — and one you shouldn't take alone</h2>
+      <div class="grid2">
+        <div>
+          <h3>1 · Build the record before you say anything</h3>
+          <p>Pull the production history, the status reports, the permits, the P-4 chain, and any plugging record. Get a copy of the lease itself and read the habendum, cessation, shut-in, and Pugh clauses. Line up your own payment history beside it. A file that shows the gap, the absence of any savings-clause activity, and the absence of any payment is worth far more than an argument.</p>
+          <h3 style="margin-top:1.3rem">2 · Stop confirming the lease</h3>
+          <p>Don't sign a new division order, don't ratify anything, and be careful about accepting payments tied to the lease you're questioning. None of this requires a confrontation — it just means not handing the other side an easy answer while you're still looking.</p>
+        </div>
+        <div>
+          <h3>3 · Ask the operator for a release</h3>
+          <p>Most terminations are resolved with a letter. Set out the dates, the filings, and the clause you're relying on, and request a recordable release of the lease. Operators with clean books often sign one — carrying a dead lease on the map has no value to them, and the P-4 chain frequently means the current operator has no attachment to it at all.</p>
+          <h3 style="margin-top:1.3rem">4 · Then, and only then, get a lawyer</h3>
+          <p>If the operator disagrees, the next steps — an affidavit of non-production, a suit to quiet title or in trespass to try title — carry real risk and real cost, and a wrongful repudiation of a live lease can be expensive in its own right. This is the point to hand the file to a Texas oil and gas attorney, not to draft something yourself.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">The point that trips everyone up</p>
+      <p>"The lease is still on file at the courthouse, so it must still be good." Recording has nothing to do with whether a lease is alive. A terminated lease sits in the county records forever until somebody records a release or a court says otherwise, and a live lease can look thoroughly dead on the Railroad Commission's website. The records are evidence about two different things: the county tells you what the lease <em>says</em>, and the Commission tells you what the well <em>did</em>. It's the well that decides.</p>
+    </div>
+
+    <p class="aside-note">Nothing on this page is legal advice, and none of it is a substitute for a title examination. Whether a particular lease has terminated turns on that lease's exact wording, that well's actual history, and facts that rarely appear in any public filing. What the public record <em>can</em> do is tell you whether the question is worth asking — and for a great many old leases, it is.</p>
+  </section>
+
   <!-- ============ SUPPORT TAB ============ -->
   <section class="panel" id="p-support" role="tabpanel" aria-labelledby="t-support" tabindex="0">
 
@@ -1584,7 +2160,7 @@
     <div class="roadmap">
       <p class="eyebrow">The build</p>
       <h2 style="font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,1.4rem+2.4vw,3rem);letter-spacing:-.025em;line-height:1.05">From the simplest idea to the deep end.</h2>
-      <p class="lede">Each concept builds on the one before it. We ship the foundations first — the things every owner and every new hire has to understand — then layer in the machinery, then the edge cases and other jurisdictions. Ten concepts are live today, carrying you from what you own all the way through leasing, pooling, and getting paid — with more on the way.</p>
+      <p class="lede">Each concept builds on the one before it. We ship the foundations first — the things every owner and every new hire has to understand — then layer in the machinery, then the edge cases and other jurisdictions. Twelve concepts are live today, carrying you from what you own all the way through leasing, pooling, and getting paid — with more on the way.</p>
 
       <div class="tier">
         <div class="tier-head"><span class="tier-num">TIER 1</span><h3>The estate</h3><span class="tier-sub">What ownership even means underground.</span></div>
@@ -1601,7 +2177,7 @@
         <div class="steps">
           <div class="step"><span class="chip live">Live</span><span class="t">The lease — signing to termination<small>Bonus, royalty, primary vs. secondary term, held by production</small></span></div>
           <div class="step"><span class="chip later">Planned</span><span class="t">Royalty vs. working interest<small>Who bears cost, who doesn't</small></span></div>
-          <div class="step"><span class="chip later">Planned</span><span class="t">Held by production &amp; savings clauses<small>Shut-in, cessation, continuous operations</small></span></div>
+          <div class="step"><span class="chip live">Live</span><span class="t">Held by production &amp; savings clauses<small>The four bridges; the capped-vs-uncapped shut-in slider</small></span></div>
           <div class="step"><span class="chip later">Planned</span><span class="t">Pugh clauses &amp; retained acreage<small>Releasing the acreage a well doesn't develop</small></span></div>
         </div>
       </div>
@@ -1632,7 +2208,7 @@
         <div class="tier-head"><span class="tier-num">TIER 5</span><h3>Title &amp; risk</h3><span class="tier-sub">Proving and protecting ownership.</span></div>
         <div class="steps">
           <div class="step"><span class="chip later">Planned</span><span class="t">Chain of title &amp; title examination standards<small>Sovereignty to present, BFP status</small></span></div>
-          <div class="step"><span class="chip later">Planned</span><span class="t">HBP monitoring &amp; lease termination risk<small>When old leases quietly fall</small></span></div>
+          <div class="step"><span class="chip live">Live</span><span class="t">HBP monitoring &amp; lease termination risk<small>Reading ten years of the public record; the four questions; the monitoring file</small></span></div>
           <div class="step"><span class="chip later">Planned</span><span class="t">Operator transfers, P-4s &amp; bankruptcy<small>Following the leasehold through changes</small></span></div>
         </div>
       </div>
@@ -1663,7 +2239,7 @@
     <p class="disc support-foot">Own minerals outside Texas? <a href="regulators/index.html">Where to look it up</a>
       — the Railroad Commission's equivalent in the ten biggest producing states, and the one document to pull in each.</p>
     <p class="disc support-foot">Free to use, always. If it helped you, you can <a href="#top" data-goto-tab="t-support">support the site</a> — thank you.</p>
-    <p class="disc foot-ver">v1.4 · updated July 24, 2026</p>
+    <p class="disc foot-ver">v1.5 · updated July 25, 2026</p>
   </div>
 </footer>
 

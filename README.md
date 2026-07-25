@@ -38,7 +38,7 @@ pooling, and getting paid — and eventually into advanced and out-of-state topi
 
 | Section | Lives at | What it is |
 |---|---|---|
-| **The concepts** | `index.html` | The Texas curriculum — ten concepts across Tiers 1–4, one tab each, simplest first |
+| **The concepts** | `index.html` | The Texas curriculum — twelve concepts across Tiers 1–5, one tab each, simplest first |
 | **The clause dictionary** | `glossary.html` | 138 common lease clauses in plain English, searchable and filterable |
 | **Where to look it up** | `regulators/` | The Railroad Commission and its equivalents in the ten biggest producing states — hub plus one page per state |
 
@@ -49,7 +49,7 @@ web fonts. It works on phones and computers and can be hosted anywhere static
 files are served.
 
 ```
-index.html                 the concept curriculum (tabs 01–10 + Support + Roadmap)
+index.html                 the concept curriculum (tabs 01–12 + Support + Roadmap)
 glossary.html              the Lease Clause Dictionary
 regulators/
   index.html               hub — tile map, ten state cards, history, API decoder
@@ -65,7 +65,7 @@ regulators/
   wyoming.html             ┘
 css/
   base.css                 tokens + shared chrome — EVERY page loads this first
-  concepts.css             index.html only: tab strip, panels, concepts 01–10
+  concepts.css             index.html only: tab strip, panels, concepts 01–12
   glossary.css             glossary.html only: toolbar, chips, clause cards
   regulators.css           regulators/ only: tile map, API decoder, state cards
 js/
@@ -96,7 +96,7 @@ All references are **relative**, so the site previews correctly by opening
 
 ## Status
 
-**v1.4 — ten concepts, the clause dictionary, and the ten-state regulator section.**
+**v1.5 — twelve concepts, the clause dictionary, and the ten-state regulator section.**
 
 | Tab | Concept | Status |
 |---|---|---|
@@ -110,9 +110,12 @@ All references are **relative**, so the site previews correctly by opening
 | 08 | Severance tax vs. ad valorem tax | ✅ Live |
 | 09 | Allocation & PSA wells | ✅ Live |
 | 10 | Post-production costs | ✅ Live |
+| 11 | Holding the lease — HBP & savings clauses | ✅ Live |
+| 12 | HBP monitoring & lease termination risk | ✅ Live |
 | — | **Lease Clause Dictionary** (`glossary.html`, 138 clauses) | ✅ Live |
 | — | **Where to look it up** (`regulators/`, hub + 10 states) | ✅ Live |
 | — | Accommodation doctrine · proration units · unitization · NRI | ◻ Planned |
+| — | Chain of title · operator transfers & bankruptcy | ◻ Planned |
 | — | Wellbore diagram gallery · commissioned diagrams | ◻ Planned |
 | — | Offshore/OCS · Ohio ODMA · NM unitization | ◻ Future |
 
