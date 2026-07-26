@@ -27,8 +27,12 @@ their own — they're stamped by whichever page version shipped with them.
 **Scheme:** *patch* for fixes and copy edits · *minor* for a new concept, tab, or
 section · *major* for a structural overhaul.
 
-**Categories** follow [Keep a Changelog](https://keepachangelog.com): Added,
-Changed, Fixed, Removed. Skip any that are empty.
+**Categories** follow [Keep a Changelog v2.0.0](https://keepachangelog.com/en/2.0.0/):
+Added, Changed, Deprecated, Removed, Fixed, Security. Only those six — use the ones
+that apply and skip the rest. Anything that isn't a change type goes in a **Notes**
+paragraph outside the lists. When torn between Fixed and Changed, ask whether the
+old behavior was a bug: if yes, Fixed; if it worked as intended and now works
+differently, Changed.
 
 ---
 
@@ -71,11 +75,11 @@ Files: `css/base.css` · `css/glossary.css` · `glossary.html`
 - `css/base.css` — the header tagline now appears at 900px rather than 820px. At
   820 the wordmark plus nav overran the bar by a few pixels.
 
-**Not changed**
+**Notes**
 
-- `index.html` needed no edit — the wordmark fix is entirely in the shared sheet.
-- `backdrop-filter:blur()` on the header and toolbar was an earlier suspect for
-  this bug and is innocent. Left in place.
+`index.html` needed no edit — the wordmark fix is entirely in the shared sheet, so
+all thirteen pages picked it up at once. `backdrop-filter:blur()` on the header and
+toolbar was an earlier suspect for this bug and is innocent; left in place.
 
 ---
 
