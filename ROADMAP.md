@@ -40,7 +40,7 @@ material lives, so the ladder never has to stop and explain another jurisdiction
   expected `http://` / `www.` → canonical redirect, not a real indexing problem.
 - **Claude Project:** a dedicated project (see `PROJECT_SETUP.md`) now houses this
   build separately from the fiduciary/legal reference project
-- **12 concepts live** on site, tabs 01–12 (see Tier tables below for which)
+- **13 concepts live** on site, tabs 01–13 (see Tier tables below for which)
 - **Lease Clause Dictionary live** — `glossary.html`, the site's **second page**:
   138 generic lease clauses, searchable and filterable by section, each with a
   plain-English definition, why it matters to the owner, why the operator wants it,
@@ -93,8 +93,9 @@ material lives, so the ladder never has to stop and explain another jurisdiction
 | 10 | Post-production costs | 4 |
 | 11 | Holding the lease — HBP & savings clauses | 2 |
 | 12 | HBP monitoring & lease termination risk | 5 |
+| 13 | The money trail — purchaser to mailbox | 4 |
 
-> Beyond the ten concept tabs, the nav also carries a **♥ Support** tab (the
+> Beyond the thirteen concept tabs, the nav also carries a **♥ Support** tab (the
 > free-education mission + Venmo donation) and this **→ Roadmap** tab. The website's
 > own Roadmap tab mirrors the tier tables below and is now in sync with what's live.
 
@@ -141,7 +142,7 @@ material lives, so the ladder never has to stop and explain another jurisdiction
 | **Live** | The royalty check | A worked $1,000 gross check stub: − severance tax − post-production costs = $900 net; why checks swing (price × barrels, not your decimal) | Built as Concept 07 |
 | **Live** | Severance tax vs. ad valorem tax | The candy-store analogy: severance = tax on each candy bar at the register (withheld before you're paid); ad valorem = tax on the store itself (an annual county bill) | Built as Concept 08 — added beyond original scope by request; teaches both taxes side by side |
 | Planned | Net revenue interest & the burden stack | ORRI, NPRI, production payments stacked on the WI | |
-| Planned | Suspense, escheat & unclaimed property | Where unpaid royalties go and how to recover them | |
+| **Live** | The money trail — purchaser to mailbox | The plumbing between the wellhead sale and the check: why gas pays in 90 days and oil in 60; the purchaser's single lump-sum payment landing in the operator's *general* account (one tank, six taps — no escrow, no trust); the deck exploded across a worked $30,000 month; **the two-stub toggle** (itemized vs netback — identical $112.30 net, identical $34.18 given up, only one of them visible); the volume-vs-price leak; statutory stub contents and the 60-day certified-mail request; an honest day-scale payment clock; suspense as a ledger line, the automatic security interest and the unsecured-creditor trap; escheat at three years; interpleader; a 48-month limitations window with 36 months expiring while you wait; the eight-item routine | Built as Concept 13. Absorbs the former "Suspense, escheat & unclaimed property" row. Cross-linked from Concept 07 |
 | **Live** | Post-production costs | Why PPC exist at all (the point of sale moved downstream over a century); the valuation point as the one idea that decides everything; PPC vs. severance tax; a 1996–2026 case timeline from *Heritage Resources* to *Fasken v. Puig*; lease language ranked weakest→strongest | Built as Concept 10 — draggable valuation-point slider ($3.00/Mcf split into wellhead value + gathering/processing/transport); cross-linked from Concepts 07 & 08 |
 
 ## TIER 5 — Title & risk
@@ -423,7 +424,8 @@ options, lightest first:
 4. Stand up the **"Commission a well"** page + intake form + a single payment link to
    test demand before building a real store.
 5. Round out **Tier 2** (Pugh clauses, HBP/savings clauses deep dive) and **Tier 4**
-   (NRI/burden stack, suspense & escheat) before moving into Tier 5 title topics.
+   (NRI/burden stack — suspense & escheat shipped with Concept 13) before moving
+   into Tier 5 title topics.
 
 ## Case-law maintenance note
 
@@ -444,3 +446,46 @@ cases. Verified current as of **23 July 2026**:
 
 Re-verify before any substantial edit to Concept 10, and watch the Fifteenth Court
 of Appeals docket, which is now routing new oil-and-gas appeals.
+
+## Statutory maintenance note
+
+Concept 13 is the first tab built almost entirely on statute rather than case law,
+so it decays differently: figures and deadlines, not holdings. It deliberately
+**names no cases** — the four-year limitations rule and the security-interest point
+are stated as rules, so the tab carries no case-citation maintenance burden.
+Verified against current statutory text on **25 July 2026**:
+
+- Tex. Nat. Res. Code §91.402(a) — 120 days first payment; 60 days oil; 90 days gas
+- Tex. Nat. Res. Code §91.402(b) — withholding without interest on title dispute,
+  reasonable doubt as to clear title, or an unsatisfied title requirement
+- Tex. Nat. Res. Code §91.402(d), (f) — accrual of balances under $100 until $100 or
+  12 months' proceeds, whichever first; balances under $10 held until production
+  ceases; written election for monthly payment between $25 and $100, annual under $10.
+  **No bare dollar threshold is printed on the page without its companion rule** — the
+  numbers only make sense as a set
+- Tex. Nat. Res. Code §91.403 — interest at 2 points above the NY Fed rate on loans to
+  depository institutions, unless the lease sets another rate. The page notes only that
+  "a higher rate applies in a few specific situations" rather than reciting the 4-point
+  cases; if that ever needs detail, start at the RRC Royalties FAQ
+- Tex. Nat. Res. Code §91.404 — 30-day written notice precondition; venue in the county
+  of the well; §91.406 attorney's fees
+- Tex. Nat. Res. Code §91.502 — required check-stub contents (the page's table)
+- Tex. Nat. Res. Code §91.504 — owner's certified-mail request; **60-day** certified-mail
+  response; §91.504(e) annual notice of the right; §91.507 mediation and fee-shifting
+  where the 60 days are blown
+- Tex. Prop. Code ch. 75 (§75.101) — mineral proceeds presumed abandoned after **three
+  years**; this is the mineral-specific rule, not the general personal-property one
+- Tex. Bus. & Com. Code §9.343 — security interest in production and proceeds, attaching
+  automatically without filing
+- Tex. Tax Code chs. 201–202 — 7.5% gas / 4.6% oil
+
+Two deliberate omissions, both revisitable:
+
+1. **Regulatory and cleanup fees** layered on top of the severance rates are not
+   mentioned. For a lay audience the headline rates are the teaching point; the fees
+   add noise and change periodically.
+2. **Criminal misapplication of fiduciary property** was drafted and then cut. It is
+   accurate but a lay reader over-reads it as "my operator can be arrested for a late
+   check," and it pulls the page's tone adversarial. The rest of Concept 13 treats
+   nonpayment as usually a paperwork problem, which is both more accurate and more
+   credible to this audience. Restore it only with heavy hedging.

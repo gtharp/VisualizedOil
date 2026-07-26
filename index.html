@@ -2,9 +2,27 @@
 <!--
   ============================================================
   Oil, Visualized  ·  index.html
-  Version:      1.5.0
+  Version:      1.6.0
   Last updated: 2026-07-25
-  This build: TWO NEW CONCEPTS — 11 and 12, a matched pair.
+  This build: NEW Concept 13 — The money trail (Tier 4).
+      The plumbing between the wellhead sale and the mailbox:
+      why gas pays in 90 days and oil in 60 (two-lane path
+      diagram); the purchaser's single lump-sum payment landing
+      in the operator's general account (one tank, six taps);
+      the deck exploded across a worked $30,000 month; the
+      flagship TWO-STUB toggle (itemized vs netback — identical
+      $112.30 net, identical $34.18 given up, only one visible);
+      the volume-vs-price leak diagram; the statutory stub
+      contents and the 60-day certified-mail request; an honest
+      day-scale payment clock; suspense as a ledger line rather
+      than an account, with the automatic security interest and
+      the unsecured-creditor trap; escheat at three years;
+      interpleader as the only true escrow; a 48-month
+      limitations window showing 36 months expiring while you
+      wait; and the eight-item owner routine.
+      New CSS: .mt-stubs/.mt-ghost/.mt-hit in concepts.css.
+      New JS: initMoneyTrail(). Cross-linked from Concept 07.
+  Prior build (1.5.0): TWO NEW CONCEPTS — 11 and 12, a matched pair.
       (11) Holding the lease (Tier 2) — the four savings clauses
       that bridge gaps in production, kept high level, with a
       capped-vs-uncapped shut-in royalty slider as the payoff.
@@ -54,7 +72,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Oil, Visualized — Texas oil and gas concepts, drawn. Start with the surface and mineral estates and build toward the complex.">
-<meta name="version" content="1.5.0">
+<meta name="version" content="1.6.0">
 <meta name="last-updated" content="2026-07-25">
 <title>Oil, Visualized — the Texas mineral estate, drawn</title>
 <link rel="canonical" href="https://visualizedoil.com/">
@@ -95,6 +113,7 @@
       <button class="tab" role="tab" id="t-ppc" aria-controls="p-ppc" aria-selected="false"><span class="num">10</span> Post-production costs</button>
       <button class="tab" role="tab" id="t-hold" aria-controls="p-hold" aria-selected="false"><span class="num">11</span> Holding the lease</button>
       <button class="tab" role="tab" id="t-hbp" aria-controls="p-hbp" aria-selected="false"><span class="num">12</span> HBP monitoring</button>
+      <button class="tab" role="tab" id="t-money" aria-controls="p-money" aria-selected="false"><span class="num">13</span> The money trail</button>
       <button class="tab" role="tab" id="t-support" aria-controls="p-support" aria-selected="false"><span class="num">♥</span> Support</button>
       <button class="tab" role="tab" id="t-roadmap" aria-controls="p-roadmap" aria-selected="false"><span class="num">→</span> Roadmap</button>
     </div>
@@ -926,7 +945,7 @@
         </table>
       </div>
 
-      <p style="margin-top:1.2rem;font-size:.95rem;color:var(--muted)">Real stubs split this across products (oil, gas, liquids) and months, and often correct earlier months — but every line on them is one of these three things: gross, a subtraction, or net.</p>
+      <p style="margin-top:1.2rem;font-size:.95rem;color:var(--muted)">Real stubs split this across products (oil, gas, liquids) and months, and often correct earlier months — but every line on them is one of these three things: gross, a subtraction, or net. <a href="#top" data-goto-tab="t-money">Concept 13</a> follows the same dollar the other way — from the purchaser’s payment, into the operator’s bank account, and out to you.</p>
     </div>
 
     <div class="section">
@@ -2117,6 +2136,594 @@
   </section>
 
   <!-- ============ SUPPORT TAB ============ -->
+  <!-- ============ PANEL 13 — THE MONEY TRAIL ============ -->
+  <section class="panel" id="p-money" role="tabpanel" aria-labelledby="t-money" tabindex="0">
+
+    <div class="hero">
+      <p class="eyebrow">Concept 13 — the money trail</p>
+      <h1>Your royalty is in the same bank account as their <em>payroll</em>.</h1>
+      <p class="lede"><a href="#top" data-goto-tab="t-check">Concept 07</a> read a check stub from the top down. This is the half nobody explains: what happens <em>before</em> the stub is printed. Somebody buys the oil. One payment lands in one ordinary company bank account. A computer splits it across thousands of owners. Things come off the top. A check goes out — or quietly doesn't. Almost every royalty dispute you will ever have is really an argument about one of those steps.</p>
+    </div>
+
+    <div class="section" style="border-top:0;padding-top:1rem">
+      <p class="kicker">Start here</p>
+      <h2>First — three words you already met</h2>
+      <p>This page sits at the end of the getting-paid chain, so it borrows from earlier concepts. You don't need to go back and re-read them; here they are in one line each.</p>
+
+      <div class="glossary">
+        <div class="term"><span class="t">Royalty</span><span class="d">Your share of what the well produces, kept out of the lease. You pay none of the cost of drilling. <a href="#top" data-goto-tab="t-lease">Concept 04</a>.</span></div>
+        <div class="term"><span class="t">Decimal interest</span><span class="d">Your royalty fraction multiplied out against your acreage and the size of the unit — a long number like 0.00488281. It's what the computer actually uses. <a href="#top" data-goto-tab="t-doi">Concept 06</a>.</span></div>
+        <div class="term"><span class="t">Division order</span><span class="d">A form confirming your name, address, tax ID and that decimal. It tells a company where to send money. It does not change your lease.</span></div>
+      </div>
+
+      <h2 style="margin-top:2.4rem">And six that are new here</h2>
+      <p>Every one of these is a piece of plumbing rather than a piece of law. That's the point: the plumbing is where the money actually goes wrong.</p>
+
+      <div class="glossary">
+        <div class="term"><span class="t">First purchaser</span><span class="d">The company that buys the oil or gas at or near the well — a pipeline, a trucking company, a midstream processor. It pays the operator, not you.</span></div>
+        <div class="term"><span class="t">Payor</span><span class="d">Whoever is legally responsible for paying you. Usually the operator. Occasionally the first purchaser pays owners directly, which was more common in older arrangements.</span></div>
+        <div class="term"><span class="t">The deck</span><span class="d">Revenue accounting's name for the <strong>division of interest</strong>: the master list of every person and entity with a claim on that well's money, and each one's decimal.</span></div>
+        <div class="term"><span class="t">Netback</span><span class="d">A sales arrangement where the midstream company keeps a cut or a fee <em>before</em> handing money over. The operator books only what it received — so the cost never appears as a deduction anywhere.</span></div>
+        <div class="term"><span class="t">Suspense</span><span class="d">The status a company gives money it owes you but won't release yet — a missing signature, a title problem, an address it can't find. Not a place. See below.</span></div>
+        <div class="term"><span class="t">Unclaimed property (escheat)</span><span class="d">The state's holding pen. Money owed to an owner nobody can find is eventually turned over to the Texas Comptroller, where you can go claim it.</span></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="kicker">Step one — the sale</p>
+      <h2>Why gas takes longer than oil</h2>
+      <p>The well produces and the operator sells the production to a first purchaser. What happens next depends entirely on which product came out of the ground, and it explains a statutory rule that otherwise looks arbitrary.</p>
+      <p><strong>Oil</strong> is simple. A truck or a line takes it, the purchaser writes a run ticket, and a monthly settlement statement follows. One product, one volume, one price.</p>
+      <p><strong>Gas</strong> is not. Raw gas usually travels through a gathering system to a processing plant, where the valuable liquids — ethane, propane, butane, natural gasoline — are stripped out and sold separately from the leftover <strong>residue gas</strong>. Now there are four products instead of one, and the plant has to work out how much of each finished product came from <em>your</em> particular well, mixed as it was with everyone else's. That's an allocation, and it takes weeks.</p>
+
+      <svg viewBox="0 0 640 290" role="img" aria-label="Two lanes compared. The oil lane runs from the wellhead through a tank battery and a truck or line to the first purchaser, and must be paid by day 60. The gas lane runs through gathering, compression, treating and processing, splits into residue gas and natural gas liquids, is allocated back to the well, and must be paid by day 90." style="width:100%;height:auto;max-width:660px;display:block;margin:2rem auto .4rem">
+        <!-- ===== OIL LANE ===== -->
+        <text x="14" y="24" font-family="JetBrains Mono" font-size="10" letter-spacing="1.6" fill="#6B675E">OIL · THE SHORT PATH</text>
+        <g stroke="#243A35" stroke-width="1.5" fill="none">
+          <path d="M26,92 L41,52 L56,92"/><path d="M31,78 h20 M35,66 h12"/>
+        </g>
+        <line x1="58" y1="78" x2="516" y2="78" stroke="#243A35" stroke-width="4" stroke-linecap="round"/>
+        <g fill="#E7D3A8" stroke="#8a6a2e" stroke-width="1">
+          <rect x="76" y="63" width="104" height="30" rx="4"/>
+          <rect x="196" y="63" width="104" height="30" rx="4"/>
+          <rect x="316" y="63" width="104" height="30" rx="4"/>
+        </g>
+        <g font-family="JetBrains Mono" font-size="8" fill="#3a2c10" text-anchor="middle">
+          <text x="128" y="81">TANK BATTERY</text>
+          <text x="248" y="81">TRUCK OR LINE</text>
+          <text x="368" y="81">FIRST PURCHASER</text>
+        </g>
+        <rect x="516" y="67" width="112" height="22" rx="4" fill="#A23A2A"/>
+        <text x="572" y="82" text-anchor="middle" font-family="JetBrains Mono" font-size="8" letter-spacing=".5" fill="#fff">PAY BY DAY 60</text>
+        <text x="41" y="110" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#6B675E">WELL</text>
+        <text x="248" y="118" text-anchor="middle" font-family="Spectral" font-size="11" fill="#6B675E">one product · one volume · one price</text>
+
+        <!-- ===== GAS LANE ===== -->
+        <text x="14" y="164" font-family="JetBrains Mono" font-size="10" letter-spacing="1.6" fill="#6B675E">GAS · THE LONG PATH</text>
+        <g stroke="#243A35" stroke-width="1.5" fill="none">
+          <path d="M26,222 L41,182 L56,222"/><path d="M31,208 h20 M35,196 h12"/>
+        </g>
+        <line x1="58" y1="208" x2="300" y2="208" stroke="#243A35" stroke-width="4" stroke-linecap="round"/>
+        <line x1="408" y1="208" x2="516" y2="208" stroke="#243A35" stroke-width="4" stroke-linecap="round"/>
+        <g stroke="#243A35" stroke-width="2.5" fill="none">
+          <path d="M300,208 L312,182 L320,182"/>
+          <path d="M300,208 L312,234 L320,234"/>
+          <path d="M396,182 L408,208"/>
+          <path d="M396,234 L408,208"/>
+        </g>
+        <g fill="#E7D3A8" stroke="#8a6a2e" stroke-width="1">
+          <rect x="76" y="193" width="104" height="30" rx="4"/>
+          <rect x="196" y="193" width="104" height="30" rx="4"/>
+          <rect x="320" y="171" width="76" height="22" rx="4"/>
+          <rect x="320" y="223" width="76" height="22" rx="4"/>
+          <rect x="416" y="193" width="90" height="30" rx="4"/>
+        </g>
+        <g font-family="JetBrains Mono" font-size="8" fill="#3a2c10" text-anchor="middle">
+          <text x="128" y="211">GATHER · COMPRESS</text>
+          <text x="248" y="211">TREAT · PROCESS</text>
+          <text x="358" y="186">RESIDUE GAS</text>
+          <text x="358" y="238">NGLs</text>
+          <text x="461" y="211">ALLOCATE</text>
+        </g>
+        <rect x="516" y="197" width="112" height="22" rx="4" fill="#A23A2A"/>
+        <text x="572" y="212" text-anchor="middle" font-family="JetBrains Mono" font-size="8" letter-spacing=".5" fill="#fff">PAY BY DAY 90</text>
+        <text x="41" y="240" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#6B675E">WELL</text>
+        <text x="300" y="266" text-anchor="middle" font-family="Spectral" font-size="11" fill="#6B675E">four products to value, then worked back to your well · the math takes weeks</text>
+      </svg>
+
+      <p class="aside-note">This is the whole reason Texas gives a company 90 days to pay gas royalties and only 60 to pay oil. It isn't a favour to the operator. The gas arithmetic genuinely is harder.</p>
+    </div>
+
+    <div class="section">
+      <p class="kicker">Step two — where it lands</p>
+      <h2>One payment, one ordinary bank account</h2>
+      <p>Here is the part that surprises almost everyone. The first purchaser does not send the operator a stack of envelopes with owners' names on them. It sends <strong>one payment for the whole month's production from the property</strong>. That payment goes into the operator's regular company bank account, mixed in with every other dollar the company has.</p>
+      <p>There is no separate royalty account. There is no escrow. There is no trust fund. Texas law doesn't require one. From the moment that money arrives, the relationship between the company and you is the same as the relationship between a borrower and a lender: the company <em>owes</em> you an amount. It is not holding your specific dollars in a specific place.</p>
+
+      <svg viewBox="0 0 640 300" role="img" aria-label="One payment from the first purchaser flows into a single tank labelled the operator's general operating account. Six taps draw out of the same tank: working interest owners, royalty owners including you, overriding royalty owners, severance tax to the state, vendors and payroll, and lenders. Caption: no royalty account, no escrow, no trust, no segregation." style="width:100%;height:auto;max-width:660px;display:block;margin:2rem auto .4rem">
+        <!-- inflow -->
+        <text x="14" y="22" font-family="JetBrains Mono" font-size="9" letter-spacing="1.2" fill="#6B675E">ONE PAYMENT · THE WHOLE MONTH · THE WHOLE PROPERTY</text>
+        <path d="M30,40 H185 V78" fill="none" stroke="#C8A45E" stroke-width="7" stroke-linecap="round"/>
+        <path d="M177,72 L185,88 L193,72 Z" fill="#C8A45E"/>
+        <text x="30" y="58" font-family="JetBrains Mono" font-size="8" fill="#8a6a2e">from the first purchaser</text>
+
+        <!-- tank -->
+        <rect x="60" y="86" width="250" height="170" rx="10" fill="#DBE3DE" stroke="#243A35" stroke-width="2"/>
+        <path d="M66,146 h238 v100 a4,4 0 0 1 -4,4 h-230 a4,4 0 0 1 -4,-4 Z" fill="#243A35" opacity=".9"/>
+        <g font-family="JetBrains Mono" font-size="9" fill="#243A35" text-anchor="middle" letter-spacing=".6">
+          <text x="185" y="112">THE OPERATOR'S GENERAL</text>
+          <text x="185" y="128">OPERATING ACCOUNT</text>
+        </g>
+        <text x="185" y="204" text-anchor="middle" font-family="Spectral" font-size="11" fill="#DBE3DE">every dollar the company has, mixed together</text>
+
+        <!-- taps -->
+        <g stroke="#243A35" stroke-width="3">
+          <line x1="310" y1="104" x2="348" y2="104"/>
+          <line x1="310" y1="156" x2="348" y2="156"/>
+          <line x1="310" y1="182" x2="348" y2="182"/>
+          <line x1="310" y1="208" x2="348" y2="208"/>
+          <line x1="310" y1="234" x2="348" y2="234"/>
+        </g>
+        <line x1="310" y1="130" x2="348" y2="130" stroke="#A23A2A" stroke-width="4"/>
+        <g fill="#243A35"><circle cx="348" cy="104" r="4"/><circle cx="348" cy="156" r="4"/><circle cx="348" cy="182" r="4"/><circle cx="348" cy="208" r="4"/><circle cx="348" cy="234" r="4"/></g>
+        <circle cx="348" cy="130" r="5" fill="#A23A2A"/>
+        <g font-family="Spectral" font-size="12" fill="#3a372f">
+          <text x="360" y="108">Working interest owners</text>
+          <text x="360" y="160">Overriding royalty owners</text>
+          <text x="360" y="186">Severance tax → the State</text>
+          <text x="360" y="212">Vendors, payroll, rent</text>
+          <text x="360" y="238">Lenders · debt service</text>
+        </g>
+        <text x="360" y="134" font-family="Spectral" font-size="12" font-weight="500" fill="#A23A2A">Royalty owners — including you</text>
+        <text x="14" y="286" font-family="JetBrains Mono" font-size="9" letter-spacing="1.2" fill="#A23A2A">NO ROYALTY ACCOUNT · NO ESCROW · NO TRUST · NO SEGREGATION</text>
+      </svg>
+
+      <p style="margin-top:1.4rem">Hold on to that picture. Two of the hardest things on this page — what suspense really is, and what happens to your money if the operator goes bankrupt — follow directly from it.</p>
+    </div>
+
+    <div class="section">
+      <p class="kicker">Step three — the split</p>
+      <h2>The deck: one lump sum, exploded</h2>
+      <p>Inside the operator's revenue accounting department is the <strong>division of interest</strong> — the deck. It lists every person and entity with a claim on that well and each one's decimal. Once a month the lump sum is exploded across it: volume × price × your decimal = your gross share. Simple arithmetic, run across sometimes thousands of owners.</p>
+      <p>Here is one month on a well with a 1/5 lease royalty, using the decimal built in <a href="#top" data-goto-tab="t-doi">Concept 06</a>:</p>
+
+      <div class="table-scroll" style="margin-top:1.2rem">
+        <table class="ledger">
+          <thead><tr><th>Who has a claim</th><th class="r">Share of the property</th><th class="r">10,000 Mcf at $3.00</th></tr></thead>
+          <tbody>
+            <tr><td>Working interest owners — they pay every cost</td><td class="r">0.78000000</td><td class="r">$23,400.00</td></tr>
+            <tr><td>Overriding royalty owner</td><td class="r">0.02000000</td><td class="r">$600.00</td></tr>
+            <tr><td>Royalty owners — all of them, the 1/5</td><td class="r">0.20000000</td><td class="r">$6,000.00</td></tr>
+            <tr><td>— of which, you</td><td class="r">0.00488281</td><td class="r">$146.48</td></tr>
+            <tr class="tot"><td>The month's gas sales</td><td class="r">1.00000000</td><td class="r">$30,000.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1rem;font-size:.95rem;color:var(--muted)">Your decimal sits <em>inside</em> the royalty line, not beside it. That's why a royalty owner's number looks so small next to the well's: you own a slice of a slice.</p>
+
+      <p style="margin-top:1.6rem">Three things go wrong at this step, and all three are ordinary rather than sinister:</p>
+      <p><strong>Your decimal is wrong.</strong> Someone misread a deed, dropped a fraction, or missed an old reservation. The stub will still look perfectly tidy.</p>
+      <p><strong>You aren't in the deck at all.</strong> Your interest was never picked up in the title work, so no line exists to pay.</p>
+      <p><strong>You're in the deck but flagged unpayable.</strong> That's suspense, and it has its own section below.</p>
+    </div>
+
+    <div class="section">
+      <p class="kicker">Step four — off the top</p>
+      <h2>What comes out before anyone gets paid</h2>
+      <p>Texas taxes production at the wellhead. The operator remits the tax and charges every interest owner, including you, a proportionate share. This part is not controversial — practically every Texas lease has the royalty owner bearing a share of production taxes, and even strongly owner-favourable clauses carve taxes out as an allowed charge. <a href="#top" data-goto-tab="t-tax">Concept 08</a> takes the two taxes apart in full.</p>
+
+      <div class="table-scroll" style="margin-top:1.2rem">
+        <table class="ledger">
+          <thead><tr><th>Subtraction</th><th>Rate or rule</th><th>Is it avoidable?</th></tr></thead>
+          <tbody>
+            <tr><td>Severance tax — oil</td><td>4.6% of market value</td><td>No. Reduced rates exist for some wells</td></tr>
+            <tr><td>Severance tax — natural gas</td><td>7.5% of market value</td><td>No. Reduced rates exist for some wells</td></tr>
+            <tr><td>Federal backup withholding</td><td>24%, when the payor has no valid W-9</td><td>Yes — return the W-9</td></tr>
+            <tr><td>Post-production costs</td><td>Set by your lease, not by law</td><td>Sometimes — see <a href="#top" data-goto-tab="t-ppc">Concept 10</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:1.4rem">Two smaller mechanics worth knowing, because both look like nonpayment and neither is:</p>
+      <p><strong>Small balances get held.</strong> Texas lets a company accrue payments under $100 until they reach $100 or twelve months' worth has piled up, whichever comes first, and hold balances under $10 until production ends. If you'd rather be paid more often, you can ask in writing — an owner owed more than $25 but less than $100 can request monthly payment, and an owner owed less than $10 can request an annual one.</p>
+      <p><strong>Backup withholding is not lost money.</strong> If the payor doesn't have a valid tax ID for you, federal law requires it to withhold 24% and send it to the IRS. You reclaim it on your return. It is also entirely avoidable, and the fix is a single form.</p>
+
+      <p class="aside-note">If you own minerals in more than one state, expect identical gross royalties to produce different net checks. Texas has no state income tax and withholds nothing. Oklahoma and New Mexico both withhold state income tax from non-resident royalty owners. That difference is normal, not an error — <a href="regulators/index.html">Where to look it up</a> covers the ten biggest producing states.</p>
+    </div>
+
+    <div class="section">
+      <p class="kicker">The one that nobody shows you</p>
+      <h2>Two stubs, same well, same month, same money</h2>
+      <p>Post-production costs can be accounted for two completely different ways, and only one of them is visible to you.</p>
+      <p><strong>The itemized method.</strong> The company books a gross price and shows separate deduction columns on your stub. Gathering, so many cents. Compression, so many cents. Transportation, so many cents. You can see every one of them, add them up, and argue about them.</p>
+      <p><strong>The netback method.</strong> The company sells the gas under a contract where the midstream company keeps a percentage of the proceeds, or takes its fee out before remitting. The operator records only what it actually received. There is no deduction column — because as far as the accounting system is concerned, no deduction ever happened. The cost is baked into the price.</p>
+      <p>Below are two owners on the same well, in the same month, with the same decimal. One is paid under an itemized contract and one under a netback contract. Read the stubs as printed. Then reveal what happened upstream of them.</p>
+
+      <div class="dil" id="mt">
+        <div class="dil-head">
+          <div class="seg mtseg" role="group" aria-label="What the stubs show">
+            <button data-mt="printed" aria-pressed="true">The stubs as printed</button>
+            <button data-mt="upstream" aria-pressed="false">What happened upstream</button>
+          </div>
+          <p class="dil-state" id="mt-state">Same well · same month</p>
+        </div>
+
+        <div class="dil-body">
+          <div class="mt-stubs">
+            <div class="stub" role="img" aria-label="Owner A's stub: 10,000 Mcf priced at $3.00, a gross royalty of $146.48, itemized deductions for gathering, processing and transportation totalling $34.18, and a net royalty of $112.30.">
+              <div class="stub-top">
+                <span class="co">Owner A</span>
+                <span class="meta">Itemized contract<br>Decimal 0.00488281 · June gas</span>
+              </div>
+              <table>
+                <thead><tr><th>Line</th><th class="r">Amount</th></tr></thead>
+                <tbody>
+                  <tr><td>Gas sold this month</td><td class="r">10,000 Mcf</td></tr>
+                  <tr><td>Price used</td><td class="r">$3.00 / Mcf</td></tr>
+                  <tr><td>Value of the month's gas</td><td class="r">$30,000.00</td></tr>
+                  <tr><td>Your gross royalty</td><td class="r">$146.48</td></tr>
+                  <tr class="mt-hit"><td>Gathering &amp; compression</td><td class="r neg">− $17.09</td></tr>
+                  <tr class="mt-hit"><td>Treating &amp; processing</td><td class="r neg">− $7.32</td></tr>
+                  <tr class="mt-hit"><td>Transportation</td><td class="r neg">− $9.77</td></tr>
+                  <tr class="mt-ghost"><td>Total you can see and question</td><td class="r">$34.18</td></tr>
+                  <tr class="net"><td>Net royalty</td><td class="r">$112.30</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="stub" role="img" aria-label="Owner B's stub: 10,000 Mcf priced at $2.30, a gross royalty of $112.30, no deductions shown, and a net royalty of $112.30. Revealed: the sales hub value was $3.00 and the midstream kept $0.70 per Mcf before the operator recorded a price, costing this owner the same $34.18.">
+              <div class="stub-top">
+                <span class="co">Owner B</span>
+                <span class="meta">Netback contract<br>Decimal 0.00488281 · June gas</span>
+              </div>
+              <table>
+                <thead><tr><th>Line</th><th class="r">Amount</th></tr></thead>
+                <tbody>
+                  <tr><td>Gas sold this month</td><td class="r">10,000 Mcf</td></tr>
+                  <tr class="mt-ghost"><td>Value at the sales hub</td><td class="r">$3.00 / Mcf</td></tr>
+                  <tr class="mt-ghost"><td>Kept by the midstream before the operator was paid</td><td class="r neg">− $0.70 / Mcf</td></tr>
+                  <tr><td>Price used</td><td class="r">$2.30 / Mcf</td></tr>
+                  <tr><td>Value of the month's gas</td><td class="r">$23,000.00</td></tr>
+                  <tr><td>Your gross royalty</td><td class="r">$112.30</td></tr>
+                  <tr class="mt-hit"><td>Deductions</td><td class="r">— none shown —</td></tr>
+                  <tr class="mt-ghost"><td>What the netting cost you anyway</td><td class="r">$34.18</td></tr>
+                  <tr class="net"><td>Net royalty</td><td class="r">$112.30</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <p class="dil-readout" id="mt-readout"></p>
+        </div>
+      </div>
+
+      <p class="aside-note">Severance tax is left off both stubs so the single real difference stays visible. In life it comes off both, and both owners also carry it. The $34.18 is one fifth of the $0.70 per Mcf spread, shared out at this owner's decimal — the same arithmetic either way.</p>
+
+      <p style="margin-top:1.6rem">Netting is not fraud and it is not unusual — a large share of gas is contracted exactly this way, and the operator has done nothing hidden. But it means the most common way owners audit a royalty, scanning the deduction columns for something to object to, can miss the entire issue. The question worth asking is never "what was deducted." It's <strong>"what was the gross price received from the first purchaser, before any deduction, adjustment, or netting?"</strong></p>
+    </div>
+
+    <div class="section">
+      <p class="kicker">The other half of the exposure</p>
+      <h2>Some leaks are volume, not price</h2>
+      <p>Many leases let an operator use gas from the well, free, to run its own equipment. If that equipment sits on your lease, that's ordinary and usually fine. If your gas is being burned to power compressors and plants somewhere else entirely, that's gas you were never paid for — and it will never appear as a price adjustment, because it never entered the price calculation at all.</p>
+
+      <svg viewBox="0 0 640 200" role="img" aria-label="A pipe from the wellhead to the sales point with two failure points marked in red: a valve partway along labelled price shaved here, meaning post-production costs itemized or netted, and a side tap labelled volume removed here, meaning off-lease fuel use." style="width:100%;height:auto;max-width:660px;display:block;margin:1.8rem auto .4rem">
+        <line x1="60" y1="112" x2="562" y2="112" stroke="#243A35" stroke-width="8" stroke-linecap="round"/>
+        <g stroke="#243A35" stroke-width="1.5" fill="none">
+          <path d="M28,124 L44,84 L60,124"/><path d="M33,110 h22 M37,98 h14"/>
+        </g>
+        <text x="44" y="142" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#6B675E">WELLHEAD</text>
+        <rect x="562" y="96" width="66" height="32" rx="4" fill="#243A35"/>
+        <text x="595" y="116" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#EDF0EE">SALE</text>
+
+        <!-- leak 1 · price -->
+        <circle cx="240" cy="112" r="15" fill="#A23A2A"/>
+        <rect x="233" y="90" width="14" height="8" rx="2" fill="#A23A2A"/>
+        <line x1="240" y1="90" x2="240" y2="60" stroke="#A23A2A" stroke-width="1.25"/>
+        <text x="240" y="52" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing=".6" fill="#A23A2A">PRICE SHAVED HERE</text>
+        <text x="240" y="36" text-anchor="middle" font-family="Spectral" font-size="11" fill="#6B675E">post-production costs — itemized or netted</text>
+
+        <!-- leak 2 · volume -->
+        <path d="M410,112 v46 h44" fill="none" stroke="#A23A2A" stroke-width="6" stroke-linecap="round"/>
+        <rect x="452" y="146" width="96" height="24" rx="4" fill="#F5E6E3" stroke="#A23A2A" stroke-width="1"/>
+        <text x="500" y="162" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#A23A2A">OFF-LEASE FUEL</text>
+        <text x="410" y="192" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing=".6" fill="#A23A2A">VOLUME REMOVED HERE</text>
+      </svg>
+
+      <p style="margin-top:1.2rem">You find a volume problem a different way: compare the volumes the operator reported to the Railroad Commission against the volumes you were actually paid on. Both numbers are yours to get — the reported ones are public and free, and the paid ones are on your stubs. <a href="regulators/texas.html">Where to look it up · Texas</a> shows where the production reports live.</p>
+    </div>
+
+    <div class="section">
+      <div class="grid2">
+        <div>
+          <p class="kicker">Why it matters — the money</p>
+          <h3>A clean stub is not proof of a clean deal</h3>
+          <p>Owner B above has nothing to complain about on the face of the document, and would pass any audit that consists of reading it. The only way to see the $34.18 is to compare the price actually used against a published benchmark for that month — which takes about five minutes, once or twice a year.</p>
+          <p>The same gap compounds. On a well producing a hundred times that volume, at that spread, the difference over four years is real money, and the oldest months of it expire on a schedule.</p>
+        </div>
+        <div>
+          <p class="kicker">Why it matters — the paperwork</p>
+          <h3>Most unpaid royalty is a filing problem, not a fight</h3>
+          <p>Money in suspense is overwhelmingly there because of a missing signature, an unrecorded deed, an estate nobody probated, or an address three moves out of date. The company usually isn't refusing to pay you. It doesn't know, to the standard it needs, that you're the right person to pay.</p>
+          <p>That's good news, because it means most of it is fixable by you, without a lawyer, in an afternoon — and it's why the routine at the foot of this page is mostly clerical.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="kicker">Step five — the statement</p>
+      <h2>What the check stub has to tell you</h2>
+      <p>Texas doesn't leave the contents of a check stub to the company's discretion. There's a statutory minimum, and it exists precisely so a dollar can be traced.</p>
+
+      <div class="table-scroll" style="margin-top:1.2rem">
+        <table class="ledger">
+          <thead><tr><th>The stub must show</th><th>What it lets you check</th></tr></thead>
+          <tbody>
+            <tr><td>Lease or property identifier and location</td><td>That you're being paid on the well you think you own</td></tr>
+            <tr><td>Month and year of the sale</td><td>Which production month this is — not the month it was paid</td></tr>
+            <tr><td>Product sold, and the volume</td><td>Against the operator's reported production</td></tr>
+            <tr><td>Price per unit</td><td>Against a published benchmark — the netback test</td></tr>
+            <tr><td>Your interest, as a decimal</td><td>Against your own division-order math</td></tr>
+            <tr><td>Your share of the value before deductions</td><td>The arithmetic: volume × price × decimal</td></tr>
+            <tr><td>Your share of taxes and other deductions</td><td>What was taken, and under what heading</td></tr>
+            <tr><td>Your net share</td><td>That the subtractions actually add up</td></tr>
+            <tr><td>An address and phone number for questions</td><td>Where to send the letter below</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:1.6rem">If something you need is missing, you have a statutory right to ask for it. The request must be in writing and sent by <strong>certified mail</strong>, and the payor has <strong>60 days</strong> to answer — by certified mail — on itemized deductions and adjustments, the heating value of the gas, and the Railroad Commission identification number for the lease or well. This is an obligation, not a courtesy: if it isn't met, either side can ask for mediation, and an owner who has to sue to enforce it can recover costs and fees if they prevail.</p>
+      <p>You are also supposed to be reminded of this right at least once every twelve months. That paragraph of small print arriving with a check each year is the statute talking.</p>
+
+      <div class="grid2">
+        <div>
+          <p class="kicker">Ask like this</p>
+          <h3>Questions about numbers get answered</h3>
+          <p>"What was the gross price received from the first purchaser for this production, before any deduction, adjustment, or netting?"</p>
+          <p>"Please itemize every deduction and adjustment applied to my interest for these months, by category."</p>
+          <p>"Please confirm the Railroad Commission lease or well identification number these volumes are reported under."</p>
+        </div>
+        <div>
+          <p class="kicker">Not like this</p>
+          <h3>Requests for documents invite a refusal</h3>
+          <p>"Send me your gas purchase agreement." Usually confidential, usually refused, and the refusal gets you nowhere while the clock keeps running.</p>
+          <p>Keep the letter short, name the months, send it certified, and keep the green card. The record of having asked is worth as much as the answer.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="kicker">Step six — the clock</p>
+      <h2>When the money is actually due</h2>
+      <p>Texas sets deadlines, and they matter because missing one costs the company money automatically. All of these run from the <em>end of the month the production was sold</em> — not from the day the well produced, and not from the day the operator got round to it.</p>
+
+      <svg viewBox="0 0 640 180" role="img" aria-label="A timeline of one month's production measured in days. Day 60 is the deadline for ongoing oil royalties, day 90 for ongoing gas royalties, and day 120 for the very first payment from a new well. Interest begins running at each deadline." style="width:100%;height:auto;max-width:660px;display:block;margin:2rem auto .4rem">
+        <text x="14" y="22" font-family="JetBrains Mono" font-size="9" letter-spacing="1.2" fill="#6B675E">ONE MONTH'S PRODUCTION · WHEN IT MUST BE PAID</text>
+
+        <!-- interest bands -->
+        <rect x="320" y="46" width="290" height="12" rx="3" fill="#C8A45E" opacity=".55"/>
+        <text x="326" y="42" font-family="JetBrains Mono" font-size="8" fill="#8a6a2e">interest runs on unpaid oil →</text>
+        <rect x="450" y="66" width="160" height="12" rx="3" fill="#C8A45E" opacity=".8"/>
+        <text x="456" y="92" font-family="JetBrains Mono" font-size="8" fill="#8a6a2e">interest runs on unpaid gas →</text>
+
+        <!-- axis -->
+        <line x1="60" y1="112" x2="600" y2="112" stroke="#243A35" stroke-width="3"/>
+        <path d="M600,106 L614,112 L600,118 Z" fill="#243A35"/>
+        <g stroke="#C7C1B2" stroke-width="1">
+          <line x1="190" y1="104" x2="190" y2="120"/>
+        </g>
+
+        <!-- markers -->
+        <g>
+          <line x1="60" y1="98" x2="60" y2="126" stroke="#243A35" stroke-width="2"/>
+          <line x1="320" y1="98" x2="320" y2="126" stroke="#A23A2A" stroke-width="2"/>
+          <line x1="450" y1="98" x2="450" y2="126" stroke="#A23A2A" stroke-width="2"/>
+          <line x1="580" y1="98" x2="580" y2="126" stroke="#A23A2A" stroke-width="2"/>
+          <circle cx="320" cy="112" r="5" fill="#A23A2A"/>
+          <circle cx="450" cy="112" r="5" fill="#A23A2A"/>
+          <circle cx="580" cy="112" r="5" fill="#A23A2A"/>
+        </g>
+
+        <!-- day labels -->
+        <g font-family="JetBrains Mono" font-size="8" fill="#6B675E" text-anchor="middle">
+          <text x="60" y="140">DAY 0</text>
+          <text x="190" y="140">DAY 30</text>
+          <text x="320" y="140">DAY 60</text>
+          <text x="450" y="140">DAY 90</text>
+          <text x="580" y="140">DAY 120</text>
+        </g>
+        <g font-family="Spectral" font-size="11" fill="#3a372f" text-anchor="middle">
+          <text x="66" y="160" text-anchor="start">end of the month of sale</text>
+          <text x="320" y="160">oil is due</text>
+          <text x="450" y="160">gas is due</text>
+          <text x="580" y="160" text-anchor="end">first-ever payment is due</text>
+        </g>
+      </svg>
+
+      <div class="table-scroll" style="margin-top:1.8rem">
+        <table class="ledger">
+          <thead><tr><th>Event</th><th>Deadline</th><th>What happens if it's missed</th></tr></thead>
+          <tbody>
+            <tr><td>First royalty payment from a new well</td><td>120 days after the end of the month of first sale</td><td>Interest begins running</td></tr>
+            <tr><td>Oil royalties, ongoing</td><td>60 days after the end of the month of sale</td><td>Interest begins running</td></tr>
+            <tr><td>Gas royalties, ongoing</td><td>90 days after the end of the month of sale</td><td>Interest begins running</td></tr>
+            <tr><td>Your written notice of nonpayment</td><td>The company has 30 days to pay or answer</td><td>You may sue where the well sits</td></tr>
+            <tr><td>Suit for unpaid proceeds</td><td>After that 30-day notice period</td><td>Amount due, interest, and attorney's fees</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:1.4rem">A lease can change these periods, and many do. When a deadline is missed without a legal excuse, interest accrues <strong>automatically</strong> — you don't have to ask for it or sue for it to start running — at two percentage points above the rate the New York Federal Reserve Bank charges on loans to depository institutions, unless your lease sets a different rate. A higher rate applies in a few specific situations.</p>
+      <p>The main legal excuse is worth knowing, because it's the one you'll actually meet: a company may withhold without interest where there's a genuine title dispute, a reasonable doubt about whether you hold clear title to the interest, or an unsatisfied title requirement that puts your identity or whereabouts in question. That is the doorway into the next section.</p>
+    </div>
+
+    <div class="section">
+      <p class="kicker">Step seven — suspense</p>
+      <h2>The account that isn't an account</h2>
+      <p>When a company can't confidently pay you, it puts your money "in suspense." The phrase is one of the most misleading in the industry, and it's worth being blunt about what it means.</p>
+
+      <div class="taxgrid">
+        <div class="taxcard adv">
+          <div class="tc-head"><span class="k">What people picture</span><h3>A box with your name on it</h3></div>
+          <div class="tc-viz">
+            <svg viewBox="0 0 300 160" role="img" aria-label="A closed safe with a dial and a tag reading YOUR NAME — the thing most owners imagine a suspense account to be">
+              <rect x="66" y="24" width="168" height="104" rx="6" fill="#DBE3DE" stroke="#243A35" stroke-width="2"/>
+              <rect x="80" y="38" width="140" height="76" rx="3" fill="#F4F2EC" stroke="#C7C1B2" stroke-width="1"/>
+              <circle cx="150" cy="76" r="20" fill="none" stroke="#243A35" stroke-width="3"/>
+              <g stroke="#243A35" stroke-width="2">
+                <line x1="150" y1="52" x2="150" y2="60"/><line x1="150" y1="92" x2="150" y2="100"/>
+                <line x1="126" y1="76" x2="134" y2="76"/><line x1="166" y1="76" x2="174" y2="76"/>
+              </g>
+              <g transform="rotate(-7 214 112)">
+                <rect x="176" y="100" width="76" height="22" rx="3" fill="#F4F2EC" stroke="#A23A2A" stroke-width="1.25"/>
+                <text x="214" y="115" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#A23A2A">YOUR NAME</text>
+              </g>
+              <text x="150" y="150" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing="1" fill="#6B675E">SET ASIDE · WAITING FOR YOU</text>
+            </svg>
+          </div>
+          <div class="tc-body">
+            <p>An account someone opened. Money moved into it. It sits there, yours, untouched, until the paperwork is sorted out and it can be released.</p>
+            <p style="margin-top:.6rem">Nothing about this is true.</p>
+          </div>
+        </div>
+
+        <div class="taxcard sev">
+          <div class="tc-head"><span class="k">What actually exists</span><h3>One line in a ledger</h3></div>
+          <div class="tc-viz">
+            <svg viewBox="0 0 300 160" role="img" aria-label="A ledger page with one highlighted line reading accrued royalties payable, 112.30 — what a suspense account actually is">
+              <rect x="40" y="20" width="220" height="112" fill="#FBFAF6" stroke="#C7C1B2" stroke-width="1"/>
+              <g stroke="#E4E1D8" stroke-width="1">
+                <line x1="40" y1="40" x2="260" y2="40"/><line x1="40" y1="58" x2="260" y2="58"/>
+                <line x1="40" y1="94" x2="260" y2="94"/><line x1="40" y1="112" x2="260" y2="112"/>
+              </g>
+              <rect x="40" y="58" width="220" height="36" fill="#F5E6E3"/>
+              <text x="52" y="76" font-family="JetBrains Mono" font-size="7.5" fill="#3a372f">ACCRUED ROYALTIES PAYABLE</text>
+              <text x="248" y="76" text-anchor="end" font-family="JetBrains Mono" font-size="7.5" font-weight="700" fill="#3a372f">112.30</text>
+              <text x="52" y="88" font-family="JetBrains Mono" font-size="6.5" fill="#6B675E">SUSPENSE CODE · TITLE / NO W-9</text>
+              <text x="150" y="150" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing="1" fill="#6B675E">A RECORD OF A DEBT · NOT A PLACE</text>
+            </svg>
+          </div>
+          <div class="tc-body">
+            <p>Nobody opened anything. Nothing was set aside. It is a line item recording that the company owes somebody money.</p>
+            <p style="margin-top:.6rem">The cash stayed in the general funds from the picture above, and is being used to run the business — exactly like every other dollar the company has.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-scroll" style="margin-top:1.8rem">
+        <table class="ledger">
+          <thead><tr><th>Why money goes into suspense</th><th>Who can clear it</th></tr></thead>
+          <tbody>
+            <tr><td>No signed division order on file</td><td>You — read it, confirm the decimal, return it</td></tr>
+            <tr><td>No valid W-9</td><td>You — one form</td></tr>
+            <tr><td>A gap or defect in the chain of title</td><td>You, usually with a title attorney</td></tr>
+            <tr><td>An unprobated will or an estate never administered</td><td>You — the most common cause of decades-old suspense</td></tr>
+            <tr><td>A deed or assignment that was never recorded</td><td>You — record it</td></tr>
+            <tr><td>Two people claiming the same interest</td><td>The claimants, or a court — see interpleader below</td></tr>
+            <tr><td>The company can't find you</td><td>You — send a written address change, keep a copy</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <p class="kicker">The part that actually matters</p>
+        <p>Because the money was never segregated, if the operator goes bankrupt your suspended royalties are not sitting safely somewhere waiting for you — they're part of the bankruptcy estate, and you're standing in line with everyone else the company owes. Texas addressed this after the 1980s bust: the Business and Commerce Code gives royalty owners a <strong>security interest in the production and in the proceeds of its sale, which attaches automatically</strong>. You don't file anything to get it. But the notice you receive in a bankruptcy will almost certainly list you as an <em>unsecured</em> creditor, because that's what the company's own records say. You have to assert the secured status yourself. Owners who do nothing get treated as unsecured — and unsecured creditors in an oil and gas bankruptcy frequently recover pennies, or nothing.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="kicker">Step eight — where it ends up</p>
+      <h2>Three years, then the state</h2>
+      <p>If suspended money stays unclaimed for longer than <strong>three years</strong> after it became payable, Texas presumes it abandoned and the company must report and remit it to the <strong>Texas Comptroller's unclaimed property fund</strong>. You can then claim it from the state with proof of ownership.</p>
+      <p>This is the only point in the entire process where royalty money reliably lands in a genuinely segregated account outside the company's control. It should not take three years and a state agency to get there — but it does mean there is a public, searchable database with real mineral money sitting in it.</p>
+      <p><strong>Search it under every name your family has used.</strong> Maiden names. Misspellings. Married names. Deceased relatives whose interests you inherited. Trust and estate names. It's free, it takes minutes, and it is the single highest-yield thing a passive mineral owner can do in an afternoon.</p>
+
+      <p style="margin-top:1.8rem" class="kicker">The one true escrow</p>
+      <h3>Interpleader</h3>
+      <p>Occasionally two or more people claim the same royalty and the company genuinely doesn't know who's right. It doesn't want the money and it doesn't want to be sued twice for the same dollar. So it files an <strong>interpleader</strong>: it sues all the competing claimants, deposits the disputed money into the registry of the court, and steps out. The claimants fight it out with each other while the money sits under the court's control.</p>
+      <p>That is the only routine circumstance in which your royalty money actually sits somewhere the operator cannot touch. Being interpleaded feels alarming — you've been named in a lawsuit — but mechanically it is the safest place your money can be while a dispute is pending.</p>
+    </div>
+
+    <div class="section">
+      <p class="kicker">Step nine — the wall</p>
+      <h2>Every month you wait, one month expires</h2>
+      <p>Texas gives you <strong>four years</strong> to sue for underpaid royalties. The Texas Supreme Court has held that royalty underpayment is not the kind of injury that's inherently impossible to discover — which means the clock generally runs from the underpayment itself, not from the day you worked it out. There's no reset for having been reasonable about it.</p>
+      <p>So the recoverable window rolls forward. It doesn't wait for you.</p>
+
+      <svg viewBox="0 0 640 180" role="img" aria-label="Two rows of forty-eight monthly cells representing four years of underpayment. In the first row, acting now, all forty-eight months are recoverable. In the second row, acting three years later, the oldest thirty-six months are time-barred and only twelve remain." style="width:100%;height:auto;max-width:660px;display:block;margin:2rem auto .4rem">
+        <text x="20" y="24" font-family="JetBrains Mono" font-size="9" letter-spacing="1.2" fill="#243A35">IF YOU ASK NOW · 48 MONTHS RECOVERABLE</text>
+        <g fill="#243A35">
+          <rect x="20" y="34" width="11" height="26" rx="2"/><rect x="32.5" y="34" width="11" height="26" rx="2"/><rect x="45" y="34" width="11" height="26" rx="2"/><rect x="57.5" y="34" width="11" height="26" rx="2"/>
+          <rect x="70" y="34" width="11" height="26" rx="2"/><rect x="82.5" y="34" width="11" height="26" rx="2"/><rect x="95" y="34" width="11" height="26" rx="2"/><rect x="107.5" y="34" width="11" height="26" rx="2"/>
+          <rect x="120" y="34" width="11" height="26" rx="2"/><rect x="132.5" y="34" width="11" height="26" rx="2"/><rect x="145" y="34" width="11" height="26" rx="2"/><rect x="157.5" y="34" width="11" height="26" rx="2"/>
+          <rect x="170" y="34" width="11" height="26" rx="2"/><rect x="182.5" y="34" width="11" height="26" rx="2"/><rect x="195" y="34" width="11" height="26" rx="2"/><rect x="207.5" y="34" width="11" height="26" rx="2"/>
+          <rect x="220" y="34" width="11" height="26" rx="2"/><rect x="232.5" y="34" width="11" height="26" rx="2"/><rect x="245" y="34" width="11" height="26" rx="2"/><rect x="257.5" y="34" width="11" height="26" rx="2"/>
+          <rect x="270" y="34" width="11" height="26" rx="2"/><rect x="282.5" y="34" width="11" height="26" rx="2"/><rect x="295" y="34" width="11" height="26" rx="2"/><rect x="307.5" y="34" width="11" height="26" rx="2"/>
+          <rect x="320" y="34" width="11" height="26" rx="2"/><rect x="332.5" y="34" width="11" height="26" rx="2"/><rect x="345" y="34" width="11" height="26" rx="2"/><rect x="357.5" y="34" width="11" height="26" rx="2"/>
+          <rect x="370" y="34" width="11" height="26" rx="2"/><rect x="382.5" y="34" width="11" height="26" rx="2"/><rect x="395" y="34" width="11" height="26" rx="2"/><rect x="407.5" y="34" width="11" height="26" rx="2"/>
+          <rect x="420" y="34" width="11" height="26" rx="2"/><rect x="432.5" y="34" width="11" height="26" rx="2"/><rect x="445" y="34" width="11" height="26" rx="2"/><rect x="457.5" y="34" width="11" height="26" rx="2"/>
+          <rect x="470" y="34" width="11" height="26" rx="2"/><rect x="482.5" y="34" width="11" height="26" rx="2"/><rect x="495" y="34" width="11" height="26" rx="2"/><rect x="507.5" y="34" width="11" height="26" rx="2"/>
+          <rect x="520" y="34" width="11" height="26" rx="2"/><rect x="532.5" y="34" width="11" height="26" rx="2"/><rect x="545" y="34" width="11" height="26" rx="2"/><rect x="557.5" y="34" width="11" height="26" rx="2"/>
+          <rect x="570" y="34" width="11" height="26" rx="2"/><rect x="582.5" y="34" width="11" height="26" rx="2"/><rect x="595" y="34" width="11" height="26" rx="2"/><rect x="607.5" y="34" width="11" height="26" rx="2"/>
+        </g>
+
+        <text x="20" y="102" font-family="JetBrains Mono" font-size="9" letter-spacing="1.2" fill="#A23A2A">IF YOU ASK THREE YEARS FROM NOW · 36 OF THEM ARE GONE</text>
+        <g fill="#ECE9DF" stroke="#C7C1B2" stroke-width="1">
+          <rect x="20" y="112" width="11" height="26" rx="2"/><rect x="32.5" y="112" width="11" height="26" rx="2"/><rect x="45" y="112" width="11" height="26" rx="2"/><rect x="57.5" y="112" width="11" height="26" rx="2"/>
+          <rect x="70" y="112" width="11" height="26" rx="2"/><rect x="82.5" y="112" width="11" height="26" rx="2"/><rect x="95" y="112" width="11" height="26" rx="2"/><rect x="107.5" y="112" width="11" height="26" rx="2"/>
+          <rect x="120" y="112" width="11" height="26" rx="2"/><rect x="132.5" y="112" width="11" height="26" rx="2"/><rect x="145" y="112" width="11" height="26" rx="2"/><rect x="157.5" y="112" width="11" height="26" rx="2"/>
+          <rect x="170" y="112" width="11" height="26" rx="2"/><rect x="182.5" y="112" width="11" height="26" rx="2"/><rect x="195" y="112" width="11" height="26" rx="2"/><rect x="207.5" y="112" width="11" height="26" rx="2"/>
+          <rect x="220" y="112" width="11" height="26" rx="2"/><rect x="232.5" y="112" width="11" height="26" rx="2"/><rect x="245" y="112" width="11" height="26" rx="2"/><rect x="257.5" y="112" width="11" height="26" rx="2"/>
+          <rect x="270" y="112" width="11" height="26" rx="2"/><rect x="282.5" y="112" width="11" height="26" rx="2"/><rect x="295" y="112" width="11" height="26" rx="2"/><rect x="307.5" y="112" width="11" height="26" rx="2"/>
+          <rect x="320" y="112" width="11" height="26" rx="2"/><rect x="332.5" y="112" width="11" height="26" rx="2"/><rect x="345" y="112" width="11" height="26" rx="2"/><rect x="357.5" y="112" width="11" height="26" rx="2"/>
+          <rect x="370" y="112" width="11" height="26" rx="2"/><rect x="382.5" y="112" width="11" height="26" rx="2"/><rect x="395" y="112" width="11" height="26" rx="2"/><rect x="407.5" y="112" width="11" height="26" rx="2"/>
+          <rect x="420" y="112" width="11" height="26" rx="2"/><rect x="432.5" y="112" width="11" height="26" rx="2"/><rect x="445" y="112" width="11" height="26" rx="2"/><rect x="457.5" y="112" width="11" height="26" rx="2"/>
+        </g>
+        <g fill="#243A35">
+          <rect x="470" y="112" width="11" height="26" rx="2"/><rect x="482.5" y="112" width="11" height="26" rx="2"/><rect x="495" y="112" width="11" height="26" rx="2"/><rect x="507.5" y="112" width="11" height="26" rx="2"/>
+          <rect x="520" y="112" width="11" height="26" rx="2"/><rect x="532.5" y="112" width="11" height="26" rx="2"/><rect x="545" y="112" width="11" height="26" rx="2"/><rect x="557.5" y="112" width="11" height="26" rx="2"/>
+          <rect x="570" y="112" width="11" height="26" rx="2"/><rect x="582.5" y="112" width="11" height="26" rx="2"/><rect x="595" y="112" width="11" height="26" rx="2"/><rect x="607.5" y="112" width="11" height="26" rx="2"/>
+        </g>
+        <line x1="20" y1="125" x2="468" y2="125" stroke="#A23A2A" stroke-width="1.5"/>
+        <text x="244" y="158" text-anchor="middle" font-family="Spectral" font-size="11" fill="#A23A2A">time-barred — these months cannot be recovered at all</text>
+        <g font-family="JetBrains Mono" font-size="8" fill="#6B675E">
+          <text x="20" y="176">OLDEST MONTH</text>
+          <text x="618" y="176" text-anchor="end">NEWEST MONTH</text>
+        </g>
+      </svg>
+
+      <p style="margin-top:1.4rem">That combines badly with everything in the two-stub section above. A netted deduction is exactly the kind of problem an owner suspects for years without ever confirming. By the time it's confirmed, years of it are gone permanently.</p>
+      <p><strong>Checking is not paranoia and it is not hostility toward your operator.</strong> It's the only thing that preserves the claim.</p>
+    </div>
+
+    <div class="section">
+      <p class="kicker">The routine</p>
+      <h2>Eight things, most of them clerical</h2>
+      <p>None of this is a research project. Two of these items are one-time paperwork, four are annual, and the last two take an afternoon once.</p>
+
+      <div class="table-scroll" style="margin-top:1.2rem">
+        <table class="ledger">
+          <thead><tr><th>Do this</th><th>How often</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Return the W-9 and the division order</td><td>Once, promptly</td><td>Stops 24% withholding and keeps you out of suspense. Confirm the decimal first — signing doesn't amend your lease</td></tr>
+            <tr><td>Tell the payor when anything changes</td><td>As it happens</td><td>Address, name, a death in the family, a transfer. Most suspense is paperwork, not bad faith</td></tr>
+            <tr><td>Keep every check stub</td><td>Always</td><td>They are the evidence. Nothing else reconstructs them</td></tr>
+            <tr><td>Compare your realized price to a public benchmark</td><td>Once or twice a year</td><td>The only way to catch a netback. A price far below the regional benchmark with no deductions shown is the signal</td></tr>
+            <tr><td>Compare paid volumes to reported volumes</td><td>Once a year</td><td>Railroad Commission production data is public and free. A persistent gap is worth a question</td></tr>
+            <tr><td>Watch the 60 and 90 day clocks</td><td>Any time a well is producing and you aren't paid</td><td>Interest is already accruing in your favour</td></tr>
+            <tr><td>Ask in writing, by certified mail</td><td>When something doesn't reconcile</td><td>It starts a statutory clock and creates a record</td></tr>
+            <tr><td>Search the unclaimed property database</td><td>Once, then every few years</td><td>Free, fast, and there is real mineral money in it under old family names</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">The point that trips everyone up</p>
+      <p>"My stub shows no deductions, so nothing was deducted." Not necessarily. Under a netback contract the cost was taken <em>upstream</em> of the number printed on your statement — the operator recorded the money it actually received, so the accounting system is telling the truth when it shows a blank deduction column. Owner A and Owner B on this page netted the identical $112.30 and gave up the identical $34.18. Only one of them could see it. The audit that works isn't reading the deductions; it's checking <strong>the price</strong> against what that gas was worth that month, and <strong>the volume</strong> against what the operator told the Railroad Commission it produced.</p>
+    </div>
+  </section>
+
   <section class="panel" id="p-support" role="tabpanel" aria-labelledby="t-support" tabindex="0">
 
     <div class="hero">
@@ -2160,7 +2767,7 @@
     <div class="roadmap">
       <p class="eyebrow">The build</p>
       <h2 style="font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,1.4rem+2.4vw,3rem);letter-spacing:-.025em;line-height:1.05">From the simplest idea to the deep end.</h2>
-      <p class="lede">Each concept builds on the one before it. We ship the foundations first — the things every owner and every new hire has to understand — then layer in the machinery, then the edge cases and other jurisdictions. Twelve concepts are live today, carrying you from what you own all the way through leasing, pooling, and getting paid — with more on the way.</p>
+      <p class="lede">Each concept builds on the one before it. We ship the foundations first — the things every owner and every new hire has to understand — then layer in the machinery, then the edge cases and other jurisdictions. Thirteen concepts are live today, carrying you from what you own all the way through leasing, pooling, and getting paid — with more on the way.</p>
 
       <div class="tier">
         <div class="tier-head"><span class="tier-num">TIER 1</span><h3>The estate</h3><span class="tier-sub">What ownership even means underground.</span></div>
@@ -2199,7 +2806,7 @@
           <div class="step"><span class="chip live">Live</span><span class="t">The royalty check<small>A worked $1,000 stub: gross → tax → costs → net</small></span></div>
           <div class="step"><span class="chip live">Live</span><span class="t">Severance tax vs. ad valorem tax<small>The candy-store analogy for the two taxes</small></span></div>
           <div class="step"><span class="chip later">Planned</span><span class="t">Net revenue interest &amp; the burden stack<small>ORRI, NPRI, production payments</small></span></div>
-          <div class="step"><span class="chip later">Planned</span><span class="t">Suspense, escheat &amp; unclaimed property<small>Where unpaid royalties go</small></span></div>
+          <div class="step"><span class="chip live">Live</span><span class="t">The money trail — purchaser to mailbox<small>The deck, netback vs. itemized stubs, suspense, escheat, the payment clock</small></span></div>
           <div class="step"><span class="chip live">Live</span><span class="t">Post-production costs<small>Valuation point, at-the-well vs. gross proceeds, add-back clauses</small></span></div>
         </div>
       </div>
@@ -2239,7 +2846,7 @@
     <p class="disc support-foot">Own minerals outside Texas? <a href="regulators/index.html">Where to look it up</a>
       — the Railroad Commission's equivalent in the ten biggest producing states, and the one document to pull in each.</p>
     <p class="disc support-foot">Free to use, always. If it helped you, you can <a href="#top" data-goto-tab="t-support">support the site</a> — thank you.</p>
-    <p class="disc foot-ver">v1.5 · updated July 25, 2026</p>
+    <p class="disc foot-ver">v1.6 · updated July 25, 2026</p>
   </div>
 </footer>
 
