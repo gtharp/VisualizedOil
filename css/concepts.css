@@ -307,3 +307,25 @@ nav.tabs{border-bottom:1px solid var(--hair);background:var(--paper)}
   text-transform:uppercase;color:var(--survey)}
 .hb-rec-n{display:block;font-family:var(--display);font-weight:700;font-size:1rem;margin:.18rem 0 .25rem}
 .hb-rec-d{display:block;font-size:.92rem;line-height:1.55;color:#3a372f}
+
+/* ===== THE MONEY TRAIL (13) ===== */
+.mt-stubs{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:860px){.mt-stubs{grid-template-columns:1fr 1fr}}
+.mt-stubs .stub{margin-top:0;display:flex;flex-direction:column}
+.mt-stubs .stub table{flex:1}
+.mt-stubs .stub th,.mt-stubs .stub td{padding:.55rem 1.1rem}
+.mt-stubs .stub-top{padding:.9rem 1.1rem}
+.mt-stubs .stub-top .co{font-size:.98rem}
+.mt-stubs .stub-top .meta{font-size:.64rem}
+/* rows that only exist once the upstream reveal is on */
+.mt-ghost{display:none}
+#mt.reveal .mt-ghost{display:table-row}
+#mt.reveal .mt-ghost td{background:#F5E6E3;color:#A23A2A;font-style:italic}
+#mt.reveal .mt-ghost td.r{font-style:normal;font-weight:700}
+/* rows the reveal points at */
+.mt-hit td{transition:background .25s ease}
+#mt.reveal .mt-hit td{background:#F3EBDA}
+#mt .dil-state{white-space:nowrap}
+@media(max-width:479px){
+  .mt-stubs .stub th,.mt-stubs .stub td{padding:.5rem .7rem;font-size:.74rem}
+}
