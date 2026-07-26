@@ -10,7 +10,7 @@
 .howto b{font-weight:500;color:var(--ink)}
 
 /* ============ TOOLBAR ============ */
-.toolbar{position:sticky;top:62px;z-index:50;background:color-mix(in srgb, var(--paper) 93%, transparent);backdrop-filter:blur(6px);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:.85rem 0;margin-top:1.9rem}
+.toolbar{position:sticky;top:var(--headh);z-index:50;background:color-mix(in srgb, var(--paper) 93%, transparent);backdrop-filter:blur(6px);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:.85rem 0;margin-top:1.9rem}
 .toolbar-inner{display:flex;flex-wrap:wrap;gap:.7rem 1rem;align-items:center}
 .searchbox{position:relative;flex:1 1 240px;min-width:200px;max-width:360px}
 .searchbox input{width:100%;font-family:var(--body);font-size:.95rem;padding:.6rem 2.1rem .6rem 2.2rem;border:1px solid var(--hair-2);border-radius:24px;background:var(--paper);color:var(--ink)}
@@ -23,6 +23,27 @@
 .chip:hover{border-color:var(--ink);color:var(--ink)}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .count{font-family:var(--mono);font-size:.7rem;color:var(--muted);letter-spacing:.03em;margin-left:auto;white-space:nowrap}
+
+/* ---- phones: the toolbar is sticky, so its height is height the reader
+   never gets back. Wrapped chips ran it to three rows and ~200px. Two
+   fixed rows instead — search + count, then one swipeable chip strip,
+   same pattern the header nav already uses. ~95px. ---- */
+@media(max-width:720px){
+  .toolbar{padding:.6rem 0;margin-top:1.5rem}
+  .toolbar-inner{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    grid-template-areas:"search count"
+                        "chips  chips";
+    gap:.55rem .7rem;
+    align-items:center;
+  }
+  .searchbox{grid-area:search;flex:none;min-width:0;max-width:none}
+  .searchbox input{font-size:.92rem;padding:.52rem 2rem .52rem 2.1rem}
+  .count{grid-area:count;margin-left:0;justify-self:end;font-size:.64rem}
+  .chips{grid-area:chips;min-width:0;flex-wrap:nowrap;padding-bottom:2px;-webkit-overflow-scrolling:touch}
+  .chip{font-size:.63rem;padding:.4rem .68rem}
+}
 
 /* ============ LEGEND ============ */
 .legend-row{display:grid;grid-template-columns:1fr;gap:.5rem;margin:1.4rem 0 .2rem;font-size:.86rem;color:var(--muted)}

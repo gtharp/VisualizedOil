@@ -37,6 +37,10 @@
   --radius:10px;
   --radius-lg:16px;
 
+  /* height of the sticky site header. glossary.css offsets its own
+     sticky toolbar by this, so the two stay locked together. */
+  --headh:62px;
+
   --display:"Bricolage Grotesque", system-ui, sans-serif;
   --body:"Spectral", Georgia, serif;
   --mono:"JetBrains Mono", ui-monospace, monospace;
@@ -73,10 +77,22 @@ header.site{
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--hair);
 }
-.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:62px}
-.brand{display:flex;align-items:baseline;gap:.55rem;text-decoration:none}
-.brand .mark{font-family:var(--display);font-weight:800;font-size:1.18rem;letter-spacing:-.01em}
-.brand .mark .dot{color:var(--survey)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:var(--headh)}
+/* the brand never shrinks and never wraps. it used to do both on a phone,
+   which pushed lines out past the 62px bar and left them painted over the
+   page below — the nav is the thing that scrolls, not the wordmark. */
+.brand{flex:0 0 auto;display:flex;align-items:baseline;gap:.55rem;text-decoration:none}
+.brand .mark{font-family:var(--display);font-weight:800;font-size:1.18rem;letter-spacing:-.01em;white-space:nowrap}
+@media(max-width:520px){.brand .mark{font-size:1.06rem}}
+/* The period in the wordmark. It shares a class name with the 9px round
+   ledger legend swatch below, so every box property that rule sets has to
+   be put back here — otherwise the period becomes an inline-block, which
+   is a line-break opportunity, and it wraps onto a line of its own. */
+.brand .mark .dot{
+  color:var(--survey);
+  display:inline;width:auto;height:auto;
+  margin:0;border-radius:0;vertical-align:baseline;
+}
 .brand .sub{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .brand .sub.hide-sm{display:none}
 .headnav{display:flex;align-items:center;gap:.5rem;flex:1 1 auto;justify-content:flex-end;
@@ -84,7 +100,7 @@ header.site{
   touch-action:pan-x;overscroll-behavior-x:contain;padding:.25rem 0}
 .headnav::-webkit-scrollbar{display:none}
 .headnav .eyebrow.hide-sm{display:none}
-@media(min-width:820px){.brand .sub.hide-sm,.headnav .eyebrow.hide-sm{display:inline}}
+@media(min-width:900px){.brand .sub.hide-sm,.headnav .eyebrow.hide-sm{display:inline}}
 .navlink{flex:0 0 auto;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
   text-decoration:none;border:1px solid var(--hair-2);border-radius:20px;padding:.42rem .85rem;
   transition:background .15s,color .15s,border-color .15s;white-space:nowrap}
@@ -117,6 +133,8 @@ table.ledger th,table.ledger td{text-align:left;padding:.7rem .9rem;border-botto
 table.ledger thead th{background:var(--paper-2);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 table.ledger td.r,table.ledger th.r{text-align:right}
 table.ledger tr.tot td{border-top:2px solid var(--hair-2);font-weight:700;border-bottom:0;background:color-mix(in srgb,var(--paper-2) 60%, transparent)}
+/* ledger legend swatch. NOTE: bare class name, so it also matches the
+   period in the header wordmark — see the reset in .brand .mark .dot. */
 .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:.5rem;vertical-align:0}
 .d-carl{background:var(--carl)}.d-susan{background:var(--susan)}
 
