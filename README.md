@@ -72,7 +72,9 @@ js/
   app.js                   index.html: tab router + concept interactions
   glossary.js              glossary.html: clause data + search/filter
   regulators.js            regulators/: map tiles + API number decoder
-sitemap.xml  robots.txt  CNAME  LICENSE  ROADMAP.md
+sitemap.xml  robots.txt  CNAME  LICENSE
+ROADMAP.md   what's live, what's next, the six-tier plan, build conventions
+CHANGELOG.md what changed, when, and in which file — newest first
 ```
 
 ### The stylesheet rule
@@ -121,7 +123,8 @@ All references are **relative**, so the site previews correctly by opening
 | — | Offshore/OCS · Ohio ODMA · NM unitization | ◻ Future |
 
 See [`ROADMAP.md`](./ROADMAP.md) for the complete six-tier plan and build
-conventions.
+conventions, and [`CHANGELOG.md`](./CHANGELOG.md) for the build history — each
+page versions independently, so entries are dated and name the files they touched.
 
 ## A note on scope
 

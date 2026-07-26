@@ -24,6 +24,10 @@ Clause Dictionary) and `regulators/` (a hub and ten state pages).
 **Scope note:** the curriculum stays Texas. The reference shelf is where multi-state
 material lives, so the ladder never has to stop and explain another jurisdiction.
 
+> **This file is forward-looking.** What's live, what's next, the tier plan, and the
+> standing verification records. What *changed*, when, and in which file lives in
+> [`CHANGELOG.md`](./CHANGELOG.md) — bug fixes and patch notes go there, not here.
+
 ---
 
 ## Project status (snapshot)
@@ -38,23 +42,21 @@ material lives, so the ladder never has to stop and explain another jurisdiction
   property set up (DNS TXT verification); self-referencing `<link rel="canonical">`
   now in `index.html`. The lone Search Console "Page with redirect" notice is the
   expected `http://` / `www.` → canonical redirect, not a real indexing problem.
-- **Claude Project:** a dedicated project (see `PROJECT_SETUP.md`) now houses this
-  build separately from the fiduciary/legal reference project
+- **Claude Project:** a dedicated project (see `Website_Guide.md`) houses this build
+  separately from the fiduciary/legal reference project
 - **13 concepts live** on site, tabs 01–13 (see Tier tables below for which)
 - **Lease Clause Dictionary live** — `glossary.html`, the site's **second page**:
   138 generic lease clauses, searchable and filterable by section, each with a
   plain-English definition, why it matters to the owner, why the operator wants it,
   and whether it's already in the standard printed form. Cross-links into the
   concept tabs via URL hash; linked from the header bar and footer of `index.html`
-- **Support tab** live — Venmo QR + link, donations optional, site stays free
 - **Support / donations live** — a ♥ Support tab explains the free-education mission
   and offers an optional Venmo donation (embedded QR + payment link, `@George-Tharp`);
   support links also sit in the global footer and at the foot of Concept 01
-- **Versioning** — the old `v0.1` beta tag is gone from the visible UI. Instead,
-  `index.html` now carries a version **header comment** plus `<meta name="version">`
-  and `<meta name="last-updated">`, and a discreet footer line (`v1.0 · updated July
-  19, 2026`). Current build: **v1.0.0**. This is the canonical way to tell which
-  `index.html` is newest — bump it on every commit (see build conventions)
+- **Versioning** — every page carries its own version, in three places each (header
+  comment, meta tags, footer line). Current: `index.html` **v1.6**, `glossary.html`
+  **v1.1.1**, `regulators/` **v1.0.0**. The scheme is in build conventions below; the
+  history is in [`CHANGELOG.md`](./CHANGELOG.md)
 - **Wellbore gallery** — in progress; three diagrams ready to feature, not yet built
   into the site
 - **Where to look it up live** — `regulators/`, the site's **third section** and first
@@ -64,10 +66,9 @@ material lives, so the ladder never has to stop and explain another jurisdiction
   should pull and how to get there, what else it publishes, and how it differs from Texas.
   Hub carries a clickable tile map, the comparison table, the 1859→now history, and an
   interactive API-number decoder anchored on the horseshoe well from the gallery
-- **CSS/JS split done** — the trigger condition in the build conventions was met (a third
-  page), so the inline blocks came out into `css/base.css` + per-section sheets and
-  `js/app.js` + per-section scripts. Verified by selector diff against the v1.3 inline
-  stylesheet: no rules dropped
+- **CSS/JS split done** — `css/base.css` + one sheet per section, `js/app.js` + one
+  script per section. The rule that governs what may go in `base.css` is in build
+  conventions below
 - **Commissioned diagrams** — idea stage; intake + payment flow to be built
 
 ## Status legend
@@ -97,7 +98,7 @@ material lives, so the ladder never has to stop and explain another jurisdiction
 
 > Beyond the thirteen concept tabs, the nav also carries a **♥ Support** tab (the
 > free-education mission + Venmo donation) and this **→ Roadmap** tab. The website's
-> own Roadmap tab mirrors the tier tables below and is now in sync with what's live.
+> own Roadmap tab mirrors the tier tables below; keep the two in sync.
 
 ---
 
@@ -148,11 +149,11 @@ material lives, so the ladder never has to stop and explain another jurisdiction
 ## TIER 5 — Title & risk
 *Proving and protecting ownership.*
 
-| Status | Concept | What it teaches |
-|---|---|---|
-| Planned | Chain of title & title examination standards | Sovereignty to present; BFP status; blanket-conveyance limits |
+| Status | Concept | What it teaches | Notes |
+|---|---|---|---|
+| Planned | Chain of title & title examination standards | Sovereignty to present; BFP status; blanket-conveyance limits | |
 | **Live** | HBP monitoring & lease termination risk | Fee simple determinable / special limitation; PIPQ; temporary cessation doctrine; ratification. Ten years of monthly production on a log decline curve with a five-step "read the record" stepper; the four questions; termination-vs-survival columns; the RRC monitoring ledger; the reversion math | Built as Concept 12. Cross-links to `glossary.html#cat-term` and `regulators/texas.html` |
-| Planned | Operator transfers, P-4s & bankruptcy | Following the leasehold through operator changes |
+| Planned | Operator transfers, P-4s & bankruptcy | Following the leasehold through operator changes | |
 
 ## TIER 6 — The deep end
 *Advanced topics & other jurisdictions.*
@@ -210,11 +211,10 @@ reads one card.
 - [ ] Consider an A–Z index view as an alternative to section grouping
 - [ ] Add cross-links *from* concept tabs *into* specific dictionary entries
       (currently the linking is one-directional, dictionary → concepts)
-- [ ] Once a third page exists, extract shared tokens into `css/styles.css`
 
 ---
 
-# PART ONE-B — The reference shelf
+# PART ONE-C — The reference shelf
 
 Pages you *search*, not pages you *read through*. They sit outside the tier ladder on
 purpose: a reference page has no prerequisites, so it can cover any jurisdiction without
@@ -386,16 +386,15 @@ options, lightest first:
   well's significance.
 - **Accessibility floor:** responsive to mobile, keyboard-operable toggles, visible
   focus, reduced-motion respected.
-- **Version tracking:** every `index.html` change bumps three things together — the
+- **Version tracking:** every change to a page bumps three things together — the
   version header comment at the top of the file, the `version` / `last-updated` meta
-  tags, and the footer version line. Rough scheme: **patch** for fixes and copy edits,
-  **minor** for a new concept/tab, **major** for a structural overhaul. This is what
-  makes "which file is newest?" answerable at a glance — the lesson from the v0.1 /
-  polish divergence.
+  tags, and the footer version line. Pages version independently. Scheme: **patch**
+  for fixes and copy edits, **minor** for a new concept/tab/section, **major** for a
+  structural overhaul. Then log it in [`CHANGELOG.md`](./CHANGELOG.md) — the entry
+  names the date, the versions moved, and every file touched.
 - **Disclaimer stays in the footer:** teaching tool, not legal advice. Credit line:
   "Created by George Tharp, JD."
-- **Tech stack stays simple:** static files, no framework, no build step. The
-  `css/` + `js/` split happened at v1.4 when the third section landed. The rule now:
+- **Tech stack stays simple:** static files, no framework, no build step. The rule:
   `css/base.css` holds tokens and anything used by more than one page; everything else
   lives in that page's own sheet (`concepts.css`, `glossary.css`, `regulators.css`).
   Same shape for `js/`. **All paths are relative**, so the site still previews by
@@ -408,9 +407,10 @@ options, lightest first:
 
 ## Suggested near-term sequence
 
-> Updated again at v1.4: the regulator section shipped next, for the same reason —
-> "who regulates oil and gas in Ohio" is a far higher-intent search than any concept
-> name, and hub-and-spoke turns one page into eleven rankable URLs.
+> The regulator section jumped the queue for a reason worth remembering: "who
+> regulates oil and gas in Ohio" is a far higher-intent search than any concept name,
+> and hub-and-spoke turns one page into eleven rankable URLs. Weigh that against tier
+> order when picking what's next.
 
 0. **Verify the regulator ad valorem column** against primary law and correct
    `data`-driven copy on the four weakest states — this is the only thing currently on
