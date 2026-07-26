@@ -562,6 +562,44 @@
     render();
   };
 
+  /* ---------- CONCEPT 13 · THE MONEY TRAIL: TWO STUBS ---------- */
+  const initMoneyTrail = () => {
+    const wrap = $("mt");
+    if (!wrap) return;
+
+    const state = $("mt-state"), readout = $("mt-readout");
+
+    const MODES = {
+      printed: {
+        label: "Same well \u00B7 same month",
+        reveal: false,
+        text:
+          "Read them as an owner would. Owner A\u2019s stub itemizes three charges and lands on <strong>$112.30</strong>. Owner B\u2019s stub shows a lower price, an empty deduction column, and lands on <strong>the same $112.30</strong>. Owner B looks like the one with the better lease \u2014 nothing was taken out. Now switch the toggle."
+      },
+      upstream: {
+        label: "The same $34.18, twice",
+        reveal: true,
+        text:
+          "Both owners gave up <strong>$34.18</strong> this month. Owner A can see it, add it up, and question it line by line. For Owner B the midstream company kept <strong>$0.70 of every $3.00</strong> before the operator was paid anything, so the operator recorded a $2.30 price and \u2014 truthfully \u2014 reported no deductions. The cost is real, the stub is accurate, and there is nothing on it to object to. <strong>A blank deduction column is not evidence that nothing was deducted.</strong>"
+      }
+    };
+
+    const setMode = (mode) => {
+      const d = MODES[mode] || MODES.printed;
+      wrap.querySelectorAll(".mtseg button").forEach((b) =>
+        b.setAttribute("aria-pressed", String(b.dataset.mt === mode))
+      );
+      wrap.classList.toggle("reveal", d.reveal);
+      state.textContent = d.label;
+      readout.innerHTML = d.text;
+    };
+
+    wrap.querySelectorAll(".mtseg button").forEach((b) =>
+      b.addEventListener("click", () => setMode(b.dataset.mt))
+    );
+    setMode("printed");
+  };
+
   /* ---------- boot ---------- */
   initTabs();
   initStudio();
@@ -571,4 +609,5 @@
   initPPC();
   initShutIn();
   initHbpMonitor();
+  initMoneyTrail();
 })();
