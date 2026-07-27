@@ -2,9 +2,20 @@
 <!--
   ============================================================
   Oil, Visualized  ·  index.html
-  Version:      1.6.0
-  Last updated: 2026-07-25
-  This build: NEW Concept 13 — The money trail (Tier 4).
+  Version:      1.6.1
+  Last updated: 2026-07-27
+  This build (1.6.1): PATCH — two mobile layout faults, both in
+      css/concepts.css, no markup changed.
+  (1) Concept 12's "which way does the evidence point?" bullets
+      scrambled on a phone in portrait. .dcol li was display:flex,
+      which blockifies children, so an inline <em> mid-sentence
+      became a separate flex item and split one sentence into three
+      side-by-side wrapped columns. Marker is now absolutely
+      positioned and the li is a normal block.
+  (2) Concept 10's valuation-point readout was clipped in portrait.
+      The .dil-head control row's minimum widths exceed a phone and
+      .dil hides overflow. Below 620px the row now stacks.
+  Prior build (1.6.0): NEW Concept 13 — The money trail (Tier 4).
       The plumbing between the wellhead sale and the mailbox:
       why gas pays in 90 days and oil in 60 (two-lane path
       diagram); the purchaser's single lump-sum payment landing
@@ -72,8 +83,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Oil, Visualized — Texas oil and gas concepts, drawn. Start with the surface and mineral estates and build toward the complex.">
-<meta name="version" content="1.6.0">
-<meta name="last-updated" content="2026-07-25">
+<meta name="version" content="1.6.1">
+<meta name="last-updated" content="2026-07-27">
 <title>Oil, Visualized — the Texas mineral estate, drawn</title>
 <link rel="canonical" href="https://visualizedoil.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2846,7 +2857,7 @@
     <p class="disc support-foot">Own minerals outside Texas? <a href="regulators/index.html">Where to look it up</a>
       — the Railroad Commission's equivalent in the ten biggest producing states, and the one document to pull in each.</p>
     <p class="disc support-foot">Free to use, always. If it helped you, you can <a href="#top" data-goto-tab="t-support">support the site</a> — thank you.</p>
-    <p class="disc foot-ver">v1.6 · updated July 25, 2026</p>
+    <p class="disc foot-ver">v1.6.1 · updated July 27, 2026</p>
   </div>
 </footer>
 

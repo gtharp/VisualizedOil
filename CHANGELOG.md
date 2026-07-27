@@ -42,6 +42,97 @@ Nothing staged.
 
 ---
 
+## 2026-07-27 — Two portrait-orientation layout faults
+
+`index.html` 1.6.0 → **1.6.1** (patch)
+Files: `css/concepts.css` · `index.html`
+
+**Fixed**
+
+- `css/concepts.css` — Concept 12's "which way does the evidence point?" bullets
+  scrambled on a phone held upright. One item reads "Volumes below operating
+  cost for a sustained stretch *before* the zeros began," and on a narrow screen
+  it rendered as three side-by-side columns of wrapped text, so reading across
+  the top line gave "volumes below operating / before / the zeros began." The
+  cause was `display:flex` on `.dcol li`, used to hang the round bullet off the
+  left edge. Flex blockifies every child, so the `<em>` became its own flex item
+  and the sentence was cut into three independent boxes with `gap:.6rem` between
+  them. Wide enough and they line up and look like a sentence; narrow and each
+  one wraps inside its own column. The marker is now absolutely positioned and
+  the `<li>` is an ordinary block, so inline markup flows as text again.
+  Geometry is unchanged — same 6px dot, same 15.6px indent, same vertical seat.
+  **No markup was edited**; `<em>before</em>` was correct all along.
+- `css/concepts.css` — Concept 10's valuation-point slider clipped its own
+  readout in portrait. The widget header is one flex row holding a
+  `white-space:nowrap` label, a range input at `min-width:120px`, and an
+  `<output>` at `min-width:118px` (that override exists so the four stop names
+  don't shove the slider around as you drag). Those minimums total roughly
+  378px; an iPhone in portrait leaves about 324px inside the padded,
+  `overflow:hidden` panel. The row couldn't shrink, so it overflowed and the
+  panel cut the right edge off the widest readout — "Point of sale" lost its
+  tail. Below 620px the row now stacks: label and readout share the top line,
+  the slider spans the full width beneath. The two per-concept `min-width`
+  overrides (`#ppc`, `#shutin`) are scoped to `min-width:620px` so they no
+  longer fight the stacked layout. **Affects every `.dil` widget** — Concepts
+  05, 08, 10, 11 and 13 share this header — but Concept 10 was the only one
+  whose readout ran long enough to overflow.
+
+**Notes**
+
+Both faults are the same species: a flex container whose minimum content width
+exceeds a phone, inside a box that hides overflow. Neither shows up on a desktop
+or on a phone turned sideways, which is why both survived to 1.6.0. Worth a look
+at any other `display:flex` row that mixes bare text with an inline element —
+an audit of all thirteen pages found only the tab buttons, and those hold a
+`<span>` plus one text run, which can't reorder.
+
+`.willcover` / `.willcover li` in `css/concepts.css` carry the same flex-`li`
+shape and would fail the same way, but no page references either class. Dead
+rules, flagged rather than changed. Also unchanged: the footer stamp on
+`index.html` read `v1.6` where every other page prints all three digits; it now
+reads `v1.6.1`.
+
+---
+
+## 2026-07-27 — "Only one calls it that"
+
+`regulators/*.html` 1.0.0 → **1.0.1** (patch), all eleven pages
+Files: `regulators/index.html` · `regulators/colorado.html` ·
+`regulators/louisiana.html` · `regulators/new-mexico.html` ·
+`regulators/north-dakota.html` · `regulators/ohio.html` ·
+`regulators/oklahoma.html` · `regulators/pennsylvania.html` ·
+`regulators/texas.html` · `regulators/west-virginia.html` ·
+`regulators/wyoming.html`
+
+**Fixed**
+
+- `regulators/index.html` — the hub headline read "Every state has a Railroad
+  Commission. Almost none of them *call* it that." "Almost none" understates it
+  by ten out of ten: no state other than Texas calls its conservation agency a
+  Railroad Commission, and no other state has an agency of that name doing
+  anything else either — the Florida, Georgia, Mississippi, California and
+  Nebraska railroad commissions all became public service or utility commissions
+  decades ago. Now reads "Only one of them *calls* it that," which is both
+  accurate and a better setup for the page. Verified 2026-07-27 against the
+  RRC's own jurisdiction page and secondary reporting on the recurring rename
+  bills.
+
+**Changed**
+
+- `regulators/index.html` — the 1917–1919 history entry now closes on why the
+  name outlived the job: rail regulation left the agency for good in 2005, no
+  other state kept the label, and Texas is the last Railroad Commission
+  standing. Two sentences, added to give the corrected headline somewhere to
+  land.
+
+**Notes**
+
+The ten state pages carry no content change. They move to 1.0.1 because the
+section versions as a unit — all eleven footers have to agree, or the stamp
+stops meaning anything.
+
+---
+
 ## 2026-07-26 — Mobile wordmark bug and the glossary toolbar
 
 `glossary.html` 1.1.0 → **1.1.1** (patch)
