@@ -109,6 +109,18 @@ nav.tabs{border-bottom:1px solid var(--hair);background:var(--paper)}
 .dil-control input[type=range]{flex:1;accent-color:var(--survey);min-width:120px}
 .dil-control output{font-family:var(--mono);font-weight:700;font-size:.85rem;min-width:60px;text-align:right}
 .dil-state{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--survey)}
+/* Narrow screens. The header row's three items — nowrap label, slider with its
+   own min-width, and a readout wide enough for its longest word — have a
+   combined minimum wider than a phone in portrait. .dil clips its overflow, so
+   the right edge of the longest readout ("Point of sale") was being cut off.
+   Below 620px the row stacks: label and readout share the top line, slider
+   takes the full width beneath. */
+@media(max-width:619px){
+  .dil-control{flex-wrap:wrap;row-gap:.5rem;min-width:0}
+  .dil-control label{order:1;flex:1 1 auto;white-space:normal}
+  .dil-control output{order:2;flex:0 0 auto;min-width:0;text-align:right}
+  .dil-control input[type=range]{order:3;flex:1 0 100%;min-width:0}
+}
 .dil-body{padding:clamp(1.2rem,3vw,2rem)}
 .unit-wrap{margin-bottom:1.6rem}
 .wellmark{font-family:var(--mono);font-size:.66rem;letter-spacing:.03em;color:var(--ink);margin-bottom:.35rem}
@@ -142,8 +154,15 @@ nav.tabs{border-bottom:1px solid var(--hair);background:var(--paper)}
 .dcol-for .dcol-h strong{color:#1D7A52}
 .dcol-against .dcol-h strong{color:#A23A2A}
 .dcol ul{list-style:none;display:grid;gap:.55rem;padding:0;margin:0}
-.dcol li{display:flex;gap:.6rem;align-items:baseline;font-size:.97rem;line-height:1.45}
-.dcol li::before{content:"";flex:0 0 auto;width:6px;height:6px;border-radius:50%;margin-top:.45rem}
+/* The <li> is deliberately NOT a flex container. It used to be, with the bullet
+   as the first flex item — but that blockifies every child, so an inline <em>
+   mid-sentence became its own flex item and split the line into three
+   side-by-side columns of wrapped text. On a phone that reads as the sentence
+   scrambling. Absolute-positioned marker instead: the li stays a normal block
+   and inline markup flows as text. Geometry matches the old flex version
+   (6px dot, 15.6px text indent, dot sitting on the x-height). */
+.dcol li{position:relative;padding-left:.98rem;font-size:.97rem;line-height:1.45}
+.dcol li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%}
 .dcol-for li::before{background:#1D7A52}
 .dcol-against li::before{background:#A23A2A}
 .aside-note{margin-top:1.6rem;font-size:.92rem;color:var(--muted);font-style:italic;border-left:2px solid var(--hair-2);padding-left:.9rem;line-height:1.55}
@@ -265,7 +284,8 @@ nav.tabs{border-bottom:1px solid var(--hair);background:var(--paper)}
 .vp-bar span.off{opacity:.26}
 .vp-marker{position:absolute;top:-9px;bottom:-9px;width:0;border-left:2.5px dashed var(--survey);transition:left .35s ease;pointer-events:none}
 .vp-scale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.66rem;color:var(--muted);margin-top:.55rem}
-#ppc .dil-control output{min-width:118px;font-size:.74rem}
+#ppc .dil-control output{font-size:.74rem}
+@media(min-width:620px){#ppc .dil-control output{min-width:118px}}
 @media(max-width:619px){.vp-bar span{font-size:0}}
 
 /* ===== SAVINGS CLAUSES (11) ===== */
@@ -292,7 +312,7 @@ nav.tabs{border-bottom:1px solid var(--hair);background:var(--paper)}
   .yrcells{width:100%}
   .yrcell{font-size:.56rem;height:28px}
 }
-#shutin .dil-control output{min-width:74px}
+@media(min-width:620px){#shutin .dil-control output{min-width:74px}}
 
 /* ===== HBP MONITORING (12) ===== */
 .hb-chart{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;-ms-overflow-style:none;
