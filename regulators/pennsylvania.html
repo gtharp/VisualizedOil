@@ -2,15 +2,22 @@
 <!--
   ============================================================
   Oil, Visualized  ·  regulators/pennsylvania.html
-  Version:      1.0.3
+  Version:      1.1.0
   Last updated: 2026-07-27
   State page: Pennsylvania — DEP Office of Oil and Gas Management.
-  This build (1.0.3): PATCH — meta description rewritten. All ten
+  Prior build (1.0.3): PATCH — meta description rewritten. All ten
       state pages shared one templated description with the state
       name swapped in, which reads as machine-generated scaffolding.
       Each page now describes its own document to pull. Texas also
       claimed to differ from the Texas Railroad Commission, which
       is itself. Page body unchanged.
+  This build (1.1.0): MINOR — schema.org JSON-LD added. A block
+      in the head describes this page's agency as a
+      GovernmentOrganization, plus WebPage, BreadcrumbList, and the
+      shared WebSite / publisher / author nodes. Invisible to
+      readers; it is what a search engine reads instead of guessing.
+      No og: or twitter: tags — deliberate, not an oversight.
+      Nothing else on the page changed.
   NOTE: bump "Version" and "Last updated" on every commit.
   ============================================================
 -->
@@ -19,10 +26,114 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Pennsylvania has no general Marcellus pooling, so no state unit plat exists. Pull the DEP well record, then finish the job at the county Recorder of Deeds.">
-<meta name="version" content="1.0.3">
+<meta name="version" content="1.1.0">
 <meta name="last-updated" content="2026-07-27">
 <title>Pennsylvania — DEP Office of Oil and Gas Management | Where a mineral owner looks it up | Oil, Visualized</title>
 <link rel="canonical" href="https://visualizedoil.com/regulators/pennsylvania.html">
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://visualizedoil.com/#website",
+        "url": "https://visualizedoil.com/",
+        "name": "Oil, Visualized",
+        "alternateName": "Oil, Visualized — the mineral estate, drawn",
+        "description": "A free educational site explaining Texas oil and gas mineral ownership, royalty and lease concepts to mineral and royalty owners, using interactive diagrams.",
+        "inLanguage": "en-US",
+        "publisher": {
+          "@id": "https://visualizedoil.com/#publisher"
+        },
+        "creator": {
+          "@id": "https://visualizedoil.com/#george"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://visualizedoil.com/#publisher",
+        "name": "HydroThorpe LLC",
+        "url": "https://visualizedoil.com/"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://visualizedoil.com/#george",
+        "name": "George Tharp",
+        "honorificSuffix": "JD",
+        "jobTitle": "Author"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://visualizedoil.com/regulators/pennsylvania.html#webpage",
+        "url": "https://visualizedoil.com/regulators/pennsylvania.html",
+        "name": "Pennsylvania — DEP Office of Oil and Gas Management | Where a mineral owner looks it up | Oil, Visualized",
+        "description": "Pennsylvania has no general Marcellus pooling, so no state unit plat exists. Pull the DEP well record, then finish the job at the county Recorder of Deeds.",
+        "dateModified": "2026-07-27",
+        "isPartOf": {
+          "@id": "https://visualizedoil.com/#website"
+        },
+        "inLanguage": "en-US",
+        "about": {
+          "@id": "https://visualizedoil.com/regulators/pennsylvania.html#agency"
+        },
+        "mainEntity": {
+          "@id": "https://visualizedoil.com/regulators/pennsylvania.html#agency"
+        },
+        "breadcrumb": {
+          "@id": "https://visualizedoil.com/regulators/pennsylvania.html#breadcrumb"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Oil, Visualized",
+            "item": "https://visualizedoil.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Where to look it up",
+            "item": "https://visualizedoil.com/regulators/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Pennsylvania"
+          }
+        ],
+        "@id": "https://visualizedoil.com/regulators/pennsylvania.html#breadcrumb"
+      },
+      {
+        "@type": "GovernmentOrganization",
+        "@id": "https://visualizedoil.com/regulators/pennsylvania.html#agency",
+        "name": "Pennsylvania Department of Environmental Protection, Office of Oil and Gas Management",
+        "alternateName": [
+          "PADEP Office of Oil and Gas Management",
+          "DEP Oil and Gas"
+        ],
+        "url": "https://www.pa.gov/agencies/dep/programs-and-services/oil-and-gas",
+        "description": "Pennsylvania's oil and gas regulator, organized as an environmental protection program rather than a conservation commission. It has no general compulsory pooling authority for the Marcellus, so it publishes well records but no state unit plats.",
+        "areaServed": {
+          "@type": "State",
+          "name": "Pennsylvania",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "PA",
+            "addressCountry": "US"
+          }
+        },
+        "knowsAbout": [
+          "Oil and gas well permitting",
+          "Well spacing and drilling units",
+          "Mineral and royalty ownership records"
+        ]
+      }
+    ]
+  }
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Spectral:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -176,7 +287,7 @@
     
     <p class="disc support-foot">Free to use, always. If it helped you, you can
       <a href="../index.html#t-support">support the site</a> — thank you.</p>
-    <p class="disc foot-ver">Where to look it up v1.0.3 &middot; updated July 27, 2026</p>
+    <p class="disc foot-ver">Where to look it up v1.1.0 &middot; updated July 27, 2026</p>
   </div>
 </footer>
 

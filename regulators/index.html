@@ -2,14 +2,18 @@
 <!--
   ============================================================
   Oil, Visualized  ·  regulators/index.html
-  Version:      1.0.3
+  Version:      1.1.0
   Last updated: 2026-07-27
   Hub page for the regulators section. Tile map, the ten state cards,
   the comparison table, the 1859-to-now history, the interactive API
   number decoder, and the federal / nationwide picture.
-  This build (1.0.3): PATCH — no change to this page. Version
+  Prior build (1.0.3): PATCH — no change to this page. Version
       stamp moved so the eleven pages in this section stay in sync
       after the ten state meta descriptions were rewritten.
+  This build (1.1.0): MINOR — schema.org JSON-LD added: a
+      CollectionPage with an ItemList of the ten state pages, plus
+      BreadcrumbList and the shared WebSite / publisher / author
+      nodes. Nothing else on the page changed.
   NOTE: bump "Version" and "Last updated" on every commit.
   ============================================================
 -->
@@ -18,10 +22,148 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Every oil and gas state has an agency like the Texas Railroad Commission — under a different name. Who they are, what one document a mineral owner should pull in each of the ten biggest producing states, and why Pennsylvania is the exception.">
-<meta name="version" content="1.0.3">
+<meta name="version" content="1.1.0">
 <meta name="last-updated" content="2026-07-27">
 <title>Who regulates your well — the Railroad Commission and its equivalents in the ten biggest producing states | Oil, Visualized</title>
 <link rel="canonical" href="https://visualizedoil.com/regulators/">
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://visualizedoil.com/#website",
+        "url": "https://visualizedoil.com/",
+        "name": "Oil, Visualized",
+        "alternateName": "Oil, Visualized — the mineral estate, drawn",
+        "description": "A free educational site explaining Texas oil and gas mineral ownership, royalty and lease concepts to mineral and royalty owners, using interactive diagrams.",
+        "inLanguage": "en-US",
+        "publisher": {
+          "@id": "https://visualizedoil.com/#publisher"
+        },
+        "creator": {
+          "@id": "https://visualizedoil.com/#george"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://visualizedoil.com/#publisher",
+        "name": "HydroThorpe LLC",
+        "url": "https://visualizedoil.com/"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://visualizedoil.com/#george",
+        "name": "George Tharp",
+        "honorificSuffix": "JD",
+        "jobTitle": "Author"
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://visualizedoil.com/regulators/#webpage",
+        "url": "https://visualizedoil.com/regulators/",
+        "name": "Who regulates your well — the Railroad Commission and its equivalents in the ten biggest producing states | Oil, Visualized",
+        "description": "Every oil and gas state has an agency like the Texas Railroad Commission — under a different name. Who they are, what one document a mineral owner should pull in each of the ten biggest producing states, and why Pennsylvania is the exception.",
+        "dateModified": "2026-07-27",
+        "isPartOf": {
+          "@id": "https://visualizedoil.com/#website"
+        },
+        "inLanguage": "en-US",
+        "breadcrumb": {
+          "@id": "https://visualizedoil.com/regulators/#breadcrumb"
+        },
+        "mainEntity": {
+          "@id": "https://visualizedoil.com/regulators/#statelist"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Oil, Visualized",
+            "item": "https://visualizedoil.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Where to look it up"
+          }
+        ],
+        "@id": "https://visualizedoil.com/regulators/#breadcrumb"
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://visualizedoil.com/regulators/#statelist",
+        "name": "State oil and gas regulators",
+        "numberOfItems": 10,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Texas",
+            "url": "https://visualizedoil.com/regulators/texas.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Pennsylvania",
+            "url": "https://visualizedoil.com/regulators/pennsylvania.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "New Mexico",
+            "url": "https://visualizedoil.com/regulators/new-mexico.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Louisiana",
+            "url": "https://visualizedoil.com/regulators/louisiana.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Oklahoma",
+            "url": "https://visualizedoil.com/regulators/oklahoma.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "name": "North Dakota",
+            "url": "https://visualizedoil.com/regulators/north-dakota.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "name": "West Virginia",
+            "url": "https://visualizedoil.com/regulators/west-virginia.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "name": "Colorado",
+            "url": "https://visualizedoil.com/regulators/colorado.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "name": "Ohio",
+            "url": "https://visualizedoil.com/regulators/ohio.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "name": "Wyoming",
+            "url": "https://visualizedoil.com/regulators/wyoming.html"
+          }
+        ]
+      }
+    ]
+  }
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Spectral:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -798,7 +940,7 @@
     
     <p class="disc support-foot">Free to use, always. If it helped you, you can
       <a href="../index.html#t-support">support the site</a> — thank you.</p>
-    <p class="disc foot-ver">Where to look it up v1.0.3 &middot; updated July 27, 2026</p>
+    <p class="disc foot-ver">Where to look it up v1.1.0 &middot; updated July 27, 2026</p>
   </div>
 </footer>
 
