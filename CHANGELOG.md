@@ -42,6 +42,148 @@ Nothing staged.
 
 ---
 
+## 2026-07-27 — Ten state pages, one meta description
+
+`regulators/*.html` 1.0.2 → **1.0.3** (patch), all eleven pages
+Files: all ten `regulators/<state>.html` · `regulators/index.html` (stamp only)
+
+**Fixed**
+
+- `regulators/texas.html` — the meta description said the Railroad Commission of
+  Texas "differs from the Texas Railroad Commission." It differs from itself. The
+  template that generated the ten descriptions ended in a fixed clause comparing
+  the state to Texas, and nothing caught that Texas was in its own comparison set.
+  The page body never had this bug — Texas is the only one of the ten with no
+  "Not the same as the RRC" section, so the generator knew and the description
+  didn't.
+
+**Changed**
+
+- All ten state pages — meta descriptions rewritten, one per state, none sharing
+  a sentence. Every page previously carried the same string with the state and
+  agency swapped in: *"… What it is, the one document a mineral owner should pull
+  from it and how to get there, and how it differs from the Texas Railroad
+  Commission."* Ten identical tails from a domain with no history reads as
+  machine-generated, and a search engine is free to discard a description it
+  doesn't trust and write its own from the page.
+
+  Each description now leads with the thing that is actually different about that
+  state — Oklahoma's pooling order naming every owner and last known address,
+  Pennsylvania having no unit plat to pull at all, Louisiana's Commissioner
+  drawing the unit rather than the lease, Ohio's unit boundaries published as a
+  map layer, New Mexico's C-102. All ten land between 151 and 159 rendered
+  characters. Highest pairwise similarity across the set is now 45%, against
+  better than 90% before.
+
+**Notes**
+
+Page bodies were **not** touched, and worth recording why. The prompt for this
+fix carried a claim that the ten pages "read as one page repeated ten times."
+Measured, that isn't so: across the ten, only **14–18%** of sentence-level body
+text is byte-identical on nine or more pages, and most of that is the standing
+"agency names, form numbers, websites and fees change — confirm anything you
+intend to rely on" caution, which should be identical everywhere. What repeats is
+the *shape* — same five headings, same stat table, same "if you only do one
+thing" box — and that repetition is the point of a reference shelf. You should be
+able to land on Wyoming already knowing where the document lives because you read
+Ohio. The templating problem was real, but it lived in the `<head>`, not the body.
+
+Two related things noticed and deliberately left alone, for the owner to call:
+
+- **Title tails.** Every state title ends `| Where a mineral owner looks it up |
+  Oil, Visualized` — 52 characters of boilerplate on a tag that gets cut around
+  60. The distinctive part is at the front, so it survives the truncation, but the
+  section name could be dropped if the section name is not what people search.
+- **No `og:` or `twitter:` tags, no JSON-LD, anywhere on the site.** A
+  `GovernmentOrganization` or `WebPage` block on the state pages would be a
+  bigger structured-data win than any description edit. Out of scope for a patch.
+
+Validation: lxml parse clean on all eleven pages · all three version stamps moved
+on all eleven (header comment, `<meta name="version">`, footer line) · zero stale
+`1.0.2` strings remain · no page still carries the old description template.
+
+---
+
+## 2026-07-27 — Three SVG labels sitting where they shouldn't
+
+`index.html` 1.6.1 → **1.6.2** (patch)
+Files: `index.html`
+
+**Fixed**
+
+- Concept 13, step six — the *"When the money is actually due"* timeline SVG
+  collided with itself in two places. The day-120 label was `text-anchor="end"`
+  at `x="580"`, so *"first-ever payment is due"* grew leftward from the marker
+  instead of sitting under it, ran back to roughly `x=447`, and printed on top of
+  *"gas is due"* centred at `x="450"`. At the other end, the day-0 label was
+  `text-anchor="start"` at `x="66"` against a tick at `x="60"`, so *"end of the
+  month of sale"* extended 128px to the right of a marker it was supposed to
+  name — reading as a caption that had drifted, not one that was anchored. Both
+  were the anchor attributes, not the coordinates.
+
+  The timeline is now rebuilt on a **700-wide viewBox** (was 640) with the axis
+  running `x=90 → 650` at 4.5px per day. Every caption is `text-anchor="middle"`
+  on its own marker, so each one is centred on the day it describes and the
+  anchors can't be got wrong again. The day-120 caption is split across two
+  lines — *"first payment / from a new well"* — which both fits the space and
+  says the thing more plainly than *"first-ever"* did. Ticks, markers, day
+  labels and both interest bands were re-spaced to the new axis; the oil and gas
+  bands now run to the arrowhead rather than stopping short of it. Narrowest
+  remaining gap between two captions on the same line is 72px.
+
+- Concept 10, the two-card tax comparison — found while sweeping the rest of the
+  file for the same fault. The severance card's *"to the State of Texas"* caption
+  was centred at `x="47"` in a 300-wide viewBox and needed 107px, so its first
+  character or so was cut off the left edge. SVG roots clip at the viewBox by
+  default and nothing in `concepts.css` overrides that, so it was a real cut, not
+  just a near miss. Split across two centred lines — *"to the State / of Texas"*
+  — which keeps the caption over the tick that points at the 4.6% block.
+
+- Concept 01's plan view and Concept 02's plat — the north arrow collided with
+  the top-right corner tick on both plats. On Concept 01 the rose sits at
+  `translate(415,40)`, putting the "N" glyph across roughly `x=412–418` on a
+  baseline of `y=74`; the tick's horizontal arm runs `M410,68 h12`, so a 2px red
+  line drew straight through the letter and read as a strikethrough. Concept 02
+  had the same geometry at smaller scale, with the arrow's stem grazing its tick
+  arm. Both roses moved outboard of the ticks — `translate(437,40)` on Concept
+  01 and `translate(304,28)` on Concept 02 — which is one number each and leaves
+  the drawings otherwise untouched. Clearances now 11.7px and 7px from the tick,
+  with 19.7px and 13px of right margin inside the viewBox.
+
+**Notes**
+
+No content changed in any of the three fixes — same five deadlines, same statutory periods,
+same ledger table below the timeline, same 4.6% and 7.5% rates on the tax cards,
+and both `aria-label` narrations are unchanged and still accurate. These were
+drawing bugs only.
+
+Worth recording as a rule rather than a one-off: **end-anchored and
+start-anchored text on a timeline is a trap.** The caption grows away from the
+mark it belongs to, so it looks correct while it fits and silently walks into its
+neighbour when the copy gets a word longer. Centre every caption on its marker
+and widen the viewBox to buy the room at the ends.
+
+All twenty-three inline SVGs in `index.html` were swept for the same pattern
+while here — every `<text>` measured against its viewBox at the correct
+advance width for its family (JetBrains Mono is exactly 0.6em; Spectral about
+0.5em), and every pair sharing a baseline checked against each other. Two
+findings from that pass, both now fixed — and the compass-rose collision on top,
+which was reported rather than found, because the checker resolves `translate()`
+against the viewBox but had nothing to say about a label sitting on a sibling
+path. It does now.
+
+Two apparent hits from the first sweep were confirmed false: the decline-curve
+axis title is `rotate(-90)`, and the pooled-unit widget's stacked captions are
+mutually-exclusive layers that `js/app.js` toggles, so they never paint at once.
+
+Validation run before delivery: lxml parse clean · div/section/svg/g/text/table
+tag balance clean · no duplicate IDs · 15 tabs matched to 15 panels · all 10
+`data-goto-tab` targets resolve · `node --check js/app.js` clean · transform-aware
+geometric bounds check across **all 23 inline SVGs** reports zero labels outside
+a viewBox and no two labels overlapping on a shared baseline.
+
+---
+
 ## 2026-07-27 — The same flex fault, on all ten state pages
 
 `regulators/*.html` 1.0.1 → **1.0.2** (patch), all eleven pages

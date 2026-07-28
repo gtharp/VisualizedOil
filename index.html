@@ -2,9 +2,26 @@
 <!--
   ============================================================
   Oil, Visualized  ·  index.html
-  Version:      1.6.1
+  Version:      1.6.2
   Last updated: 2026-07-27
-  This build (1.6.1): PATCH — two mobile layout faults, both in
+  This build (1.6.2): PATCH — Concept 13, step six. The
+      "When the money is actually due" timeline SVG collided with
+      itself. The day-120 label was end-anchored at x=580 and ran
+      backwards over the day-90 label, and the day-0 label was
+      start-anchored at x=66 so it read as drifting right of its
+      own tick. Rebuilt on a 700-wide viewBox: every label is
+      now text-anchor=middle on its marker, the day-120 label is
+      split across two lines ("first payment / from a new well"),
+      and the axis, ticks, markers, and both interest bands were
+      re-spaced to match. Also, found in the same sweep: Concept
+      10's severance card clipped "to the State of Texas" against
+      the left edge of a 300-wide viewBox; now two centred lines.
+      And the north arrows on the Concept 01 plan view and the
+      Concept 02 plat sat on top of their own top-right corner
+      ticks — the tick arm ran straight through the "N" like a
+      strikethrough. Both roses moved outboard of the ticks.
+      Content unchanged in all three.
+  Prior build (1.6.1): PATCH — two mobile layout faults, both in
       css/concepts.css, no markup changed.
   (1) Concept 12's "which way does the evidence point?" bullets
       scrambled on a phone in portrait. .dcol li was display:flex,
@@ -15,7 +32,7 @@
   (2) Concept 10's valuation-point readout was clipped in portrait.
       The .dil-head control row's minimum widths exceed a phone and
       .dil hides overflow. Below 620px the row now stacks.
-  Prior build (1.6.0): NEW Concept 13 — The money trail (Tier 4).
+  Earlier build (1.6.0): NEW Concept 13 — The money trail (Tier 4).
       The plumbing between the wellhead sale and the mailbox:
       why gas pays in 90 days and oil in 60 (two-lane path
       diagram); the purchaser's single lump-sum payment landing
@@ -83,7 +100,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Oil, Visualized — Texas oil and gas concepts, drawn. Start with the surface and mineral estates and build toward the complex.">
-<meta name="version" content="1.6.1">
+<meta name="version" content="1.6.2">
 <meta name="last-updated" content="2026-07-27">
 <title>Oil, Visualized — the Texas mineral estate, drawn</title>
 <link rel="canonical" href="https://visualizedoil.com/">
@@ -247,7 +264,7 @@
             </defs>
 
             <!-- north arrow -->
-            <g transform="translate(415,40)">
+            <g transform="translate(437,40)">
               <line x1="0" y1="18" x2="0" y2="-14" stroke="#1B1A17" stroke-width="1.5"/>
               <path d="M0,-20 L5,-9 L-5,-9 Z" fill="#A23A2A"/>
               <text x="0" y="34" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#6B675E">N</text>
@@ -410,7 +427,7 @@
       <div class="tl-body">
         <div class="tl-stage">
           <svg id="tl-plat" viewBox="0 0 320 330" role="img" aria-label="Plat of a 160-acre mineral estate that divides into separate tracts over time">
-            <g transform="translate(288,28)">
+            <g transform="translate(304,28)">
               <line x1="0" y1="13" x2="0" y2="-9" stroke="#1B1A17" stroke-width="1.5"/>
               <path d="M0,-14 L4,-6 L-4,-6 Z" fill="#A23A2A"/>
               <text x="0" y="26" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#6B675E">N</text>
@@ -1427,7 +1444,8 @@
               <text x="47" y="82" text-anchor="middle" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#fff">4.6%</text>
               <text x="170" y="82" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#3a372f">VALUE OF THE OIL SOLD</text>
               <line x1="47" y1="60" x2="47" y2="38" stroke="#2F7E86" stroke-width="1.25"/>
-              <text x="47" y="30" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#2F7E86">to the State of Texas</text>
+              <text x="47" y="22" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#2F7E86">to the State</text>
+              <text x="47" y="33" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#2F7E86">of Texas</text>
               <text x="150" y="122" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing="1" fill="#6B675E">SET BY STATUTE · SAME FOR EVERY OWNER</text>
             </svg>
           </div>
@@ -2508,46 +2526,47 @@
       <h2>When the money is actually due</h2>
       <p>Texas sets deadlines, and they matter because missing one costs the company money automatically. All of these run from the <em>end of the month the production was sold</em> — not from the day the well produced, and not from the day the operator got round to it.</p>
 
-      <svg viewBox="0 0 640 180" role="img" aria-label="A timeline of one month's production measured in days. Day 60 is the deadline for ongoing oil royalties, day 90 for ongoing gas royalties, and day 120 for the very first payment from a new well. Interest begins running at each deadline." style="width:100%;height:auto;max-width:660px;display:block;margin:2rem auto .4rem">
+      <svg viewBox="0 0 700 180" role="img" aria-label="A timeline of one month's production measured in days. Day 60 is the deadline for ongoing oil royalties, day 90 for ongoing gas royalties, and day 120 for the very first payment from a new well. Interest begins running at each deadline." style="width:100%;height:auto;max-width:700px;display:block;margin:2rem auto .4rem">
         <text x="14" y="22" font-family="JetBrains Mono" font-size="9" letter-spacing="1.2" fill="#6B675E">ONE MONTH'S PRODUCTION · WHEN IT MUST BE PAID</text>
 
         <!-- interest bands -->
-        <rect x="320" y="46" width="290" height="12" rx="3" fill="#C8A45E" opacity=".55"/>
-        <text x="326" y="42" font-family="JetBrains Mono" font-size="8" fill="#8a6a2e">interest runs on unpaid oil →</text>
-        <rect x="450" y="66" width="160" height="12" rx="3" fill="#C8A45E" opacity=".8"/>
-        <text x="456" y="92" font-family="JetBrains Mono" font-size="8" fill="#8a6a2e">interest runs on unpaid gas →</text>
+        <rect x="360" y="46" width="290" height="12" rx="3" fill="#C8A45E" opacity=".55"/>
+        <text x="366" y="42" font-family="JetBrains Mono" font-size="8" fill="#8a6a2e">interest runs on unpaid oil →</text>
+        <rect x="495" y="66" width="155" height="12" rx="3" fill="#C8A45E" opacity=".8"/>
+        <text x="501" y="92" font-family="JetBrains Mono" font-size="8" fill="#8a6a2e">interest runs on unpaid gas →</text>
 
         <!-- axis -->
-        <line x1="60" y1="112" x2="600" y2="112" stroke="#243A35" stroke-width="3"/>
-        <path d="M600,106 L614,112 L600,118 Z" fill="#243A35"/>
+        <line x1="90" y1="112" x2="650" y2="112" stroke="#243A35" stroke-width="3"/>
+        <path d="M650,106 L664,112 L650,118 Z" fill="#243A35"/>
         <g stroke="#C7C1B2" stroke-width="1">
-          <line x1="190" y1="104" x2="190" y2="120"/>
+          <line x1="225" y1="104" x2="225" y2="120"/>
         </g>
 
         <!-- markers -->
         <g>
-          <line x1="60" y1="98" x2="60" y2="126" stroke="#243A35" stroke-width="2"/>
-          <line x1="320" y1="98" x2="320" y2="126" stroke="#A23A2A" stroke-width="2"/>
-          <line x1="450" y1="98" x2="450" y2="126" stroke="#A23A2A" stroke-width="2"/>
-          <line x1="580" y1="98" x2="580" y2="126" stroke="#A23A2A" stroke-width="2"/>
-          <circle cx="320" cy="112" r="5" fill="#A23A2A"/>
-          <circle cx="450" cy="112" r="5" fill="#A23A2A"/>
-          <circle cx="580" cy="112" r="5" fill="#A23A2A"/>
+          <line x1="90" y1="98" x2="90" y2="126" stroke="#243A35" stroke-width="2"/>
+          <line x1="360" y1="98" x2="360" y2="126" stroke="#A23A2A" stroke-width="2"/>
+          <line x1="495" y1="98" x2="495" y2="126" stroke="#A23A2A" stroke-width="2"/>
+          <line x1="630" y1="98" x2="630" y2="126" stroke="#A23A2A" stroke-width="2"/>
+          <circle cx="360" cy="112" r="5" fill="#A23A2A"/>
+          <circle cx="495" cy="112" r="5" fill="#A23A2A"/>
+          <circle cx="630" cy="112" r="5" fill="#A23A2A"/>
         </g>
 
         <!-- day labels -->
         <g font-family="JetBrains Mono" font-size="8" fill="#6B675E" text-anchor="middle">
-          <text x="60" y="140">DAY 0</text>
-          <text x="190" y="140">DAY 30</text>
-          <text x="320" y="140">DAY 60</text>
-          <text x="450" y="140">DAY 90</text>
-          <text x="580" y="140">DAY 120</text>
+          <text x="90" y="140">DAY 0</text>
+          <text x="225" y="140">DAY 30</text>
+          <text x="360" y="140">DAY 60</text>
+          <text x="495" y="140">DAY 90</text>
+          <text x="630" y="140">DAY 120</text>
         </g>
         <g font-family="Spectral" font-size="11" fill="#3a372f" text-anchor="middle">
-          <text x="66" y="160" text-anchor="start">end of the month of sale</text>
-          <text x="320" y="160">oil is due</text>
-          <text x="450" y="160">gas is due</text>
-          <text x="580" y="160" text-anchor="end">first-ever payment is due</text>
+          <text x="90" y="158">end of the month of sale</text>
+          <text x="360" y="158">oil is due</text>
+          <text x="495" y="158">gas is due</text>
+          <text x="630" y="158">first payment</text>
+          <text x="630" y="172">from a new well</text>
         </g>
       </svg>
 
@@ -2857,7 +2876,7 @@
     <p class="disc support-foot">Own minerals outside Texas? <a href="regulators/index.html">Where to look it up</a>
       — the Railroad Commission's equivalent in the ten biggest producing states, and the one document to pull in each.</p>
     <p class="disc support-foot">Free to use, always. If it helped you, you can <a href="#top" data-goto-tab="t-support">support the site</a> — thank you.</p>
-    <p class="disc foot-ver">v1.6.1 · updated July 27, 2026</p>
+    <p class="disc foot-ver">v1.6.2 · updated July 27, 2026</p>
   </div>
 </footer>
 
