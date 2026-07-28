@@ -42,6 +42,80 @@ Nothing staged.
 
 ---
 
+## 2026-07-27 — Structured data, site-wide
+
+`index.html` 1.6.2 → **1.7.0** (minor)
+`glossary.html` 1.1.1 → **1.2.0** (minor)
+`regulators/*.html` 1.0.3 → **1.1.0** (minor), all eleven pages
+Files: all thirteen pages · `sitemap.xml`
+
+**Added**
+
+- **schema.org JSON-LD on all thirteen pages.** One block per page in the
+  `<head>`, immediately after the canonical link. Nothing renders; nothing on
+  screen changes. This is the machine-readable statement of what each page is
+  *about*, so a search engine reads it rather than inferring it from prose.
+
+  Four different shapes, because four different kinds of page:
+
+  | Page | Primary type | What it declares |
+  |---|---|---|
+  | Ten state pages | `GovernmentOrganization` | the agency, its official URL, alternate names it is known by, the state it serves |
+  | `regulators/index.html` | `CollectionPage` + `ItemList` | that it is a hub listing the ten state pages, in order |
+  | `index.html` | `WebPage` + `LearningResource` | a free beginner interactive tutorial, the thirteen concepts as an ordered list, the ten subjects it teaches |
+  | `glossary.html` | `DefinedTermSet` | a dictionary of 138 clause types, split into its ten categories |
+
+  Every page also carries `WebPage`, a `BreadcrumbList` matching the visible
+  breadcrumb, and shared `WebSite` / `Organization` (HydroThorpe LLC) /
+  `Person` (George Tharp, JD) nodes referenced by `@id`. Each page's
+  `dateModified` is read from its own `<meta name="last-updated">`, so the two
+  can't drift.
+
+- `sitemap.xml` — all thirteen `<lastmod>` values moved from 2026-07-24 to
+  2026-07-27, which had gone stale across the last three builds.
+
+**Notes**
+
+**No `og:` or `twitter:` tags.** `twitter:` was declined outright. `og:` was
+deferred, not forgotten: Open Graph wants an `og:image` for the preview card, and
+there isn't one yet. Shipping `og:` tags without an image produces a worse card
+than shipping nothing, because some clients render an empty image frame. That is
+a design decision — what the share card should actually look like — not a markup
+one, so it waits for the image.
+
+**Why minor and not patch.** Nothing was broken and no copy changed, so this
+isn't Fixed. But it is a new capability shipping site-wide rather than a copy
+edit, which is what the *minor* step is for. All three version streams moved
+together for once, which will not usually be true.
+
+**The 138 clauses are not enumerated.** The obvious next move on `glossary.html`
+is a `DefinedTerm` node per clause, so search engines can understand each one
+individually rather than knowing only that a dictionary exists. It was not done,
+for two reasons. First, the clause text lives in `js/glossary.js` and is rendered
+at runtime; enumerating it in JSON-LD would duplicate roughly 80 KB of content
+into the HTML, tripling the page to save a crawler some work. Second, and more to
+the point, the real constraint is that **the dictionary's content is not in the
+served HTML at all** — it is built by JavaScript. Google generally executes JS
+before indexing, but "generally" is carrying weight there. Structured data does
+not fix that; only server-rendering the clause list would. Worth a proper look
+before more effort goes into the glossary's markup.
+
+**Size.** Raw bytes across the thirteen pages grew 13.8%, from 417 KB to 474 KB.
+What a visitor actually downloads grew **9.9%** — 124 KB to 136 KB across the
+whole site — because GitHub Pages gzips, and JSON-LD is repetitive text that
+compresses hard. Per page that is about 900 bytes to 1.2 KB compressed. This is
+more than the ~200 bytes estimated earlier in conversation; that estimate was for
+a bare `GovernmentOrganization` node, and what shipped is a full linked graph
+with breadcrumbs and site identity on every page.
+
+Validation: lxml parse clean on all thirteen · every JSON-LD block parses as
+strict JSON · exactly one block per page · no duplicate `@id` values within a
+graph · every internal `@id` reference resolves inside its own graph · all three
+version stamps moved on all thirteen pages · no stale version strings outside the
+historical build notes · `sitemap.xml` parses and all 13 `<lastmod>` values agree.
+
+---
+
 ## 2026-07-27 — Ten state pages, one meta description
 
 `regulators/*.html` 1.0.2 → **1.0.3** (patch), all eleven pages

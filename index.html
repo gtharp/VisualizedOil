@@ -2,9 +2,17 @@
 <!--
   ============================================================
   Oil, Visualized  ·  index.html
-  Version:      1.6.2
+  Version:      1.7.0
   Last updated: 2026-07-27
-  This build (1.6.2): PATCH — Concept 13, step six. The
+  This build (1.7.0): MINOR — schema.org JSON-LD added to the
+      head: WebPage + LearningResource with the thirteen concepts
+      as an ItemList, and the site-level WebSite / publisher /
+      author nodes that every other page on the site references
+      by @id. Invisible to readers, changes nothing on screen —
+      it is what a search engine reads instead of inferring.
+      No og: or twitter: tags: og: was deferred pending a share
+      image, twitter: was declined. Nothing else changed.
+  Prior build (1.6.2): PATCH — Concept 13, step six. The
       "When the money is actually due" timeline SVG collided with
       itself. The day-120 label was end-anchored at x=580 and ran
       backwards over the day-90 label, and the day-0 label was
@@ -100,10 +108,167 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Oil, Visualized — Texas oil and gas concepts, drawn. Start with the surface and mineral estates and build toward the complex.">
-<meta name="version" content="1.6.2">
+<meta name="version" content="1.7.0">
 <meta name="last-updated" content="2026-07-27">
 <title>Oil, Visualized — the Texas mineral estate, drawn</title>
 <link rel="canonical" href="https://visualizedoil.com/">
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://visualizedoil.com/#website",
+        "url": "https://visualizedoil.com/",
+        "name": "Oil, Visualized",
+        "alternateName": "Oil, Visualized — the mineral estate, drawn",
+        "description": "A free educational site explaining Texas oil and gas mineral ownership, royalty and lease concepts to mineral and royalty owners, using interactive diagrams.",
+        "inLanguage": "en-US",
+        "publisher": {
+          "@id": "https://visualizedoil.com/#publisher"
+        },
+        "creator": {
+          "@id": "https://visualizedoil.com/#george"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://visualizedoil.com/#publisher",
+        "name": "HydroThorpe LLC",
+        "url": "https://visualizedoil.com/"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://visualizedoil.com/#george",
+        "name": "George Tharp",
+        "honorificSuffix": "JD",
+        "jobTitle": "Author"
+      },
+      {
+        "@type": [
+          "WebPage",
+          "LearningResource"
+        ],
+        "@id": "https://visualizedoil.com/#webpage",
+        "url": "https://visualizedoil.com/",
+        "name": "Oil, Visualized — the Texas mineral estate, drawn",
+        "description": "Oil, Visualized — Texas oil and gas concepts, drawn. Start with the surface and mineral estates and build toward the complex.",
+        "dateModified": "2026-07-27",
+        "isPartOf": {
+          "@id": "https://visualizedoil.com/#website"
+        },
+        "inLanguage": "en-US",
+        "author": {
+          "@id": "https://visualizedoil.com/#george"
+        },
+        "publisher": {
+          "@id": "https://visualizedoil.com/#publisher"
+        },
+        "learningResourceType": "Interactive tutorial",
+        "educationalLevel": "Beginner",
+        "isAccessibleForFree": true,
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Mineral and royalty owners"
+        },
+        "teaches": [
+          "Severance of the mineral estate",
+          "Fractional mineral interests",
+          "Oil and gas lease terms",
+          "Pooling and unitization",
+          "Division of interest and royalty decimals",
+          "Royalty check stubs and deductions",
+          "Severance and ad valorem taxes",
+          "Post-production cost deductions",
+          "Held-by-production lease continuation",
+          "Royalty payment timing under Texas law"
+        ],
+        "about": {
+          "@type": "Thing",
+          "name": "Texas oil and gas mineral ownership"
+        },
+        "mainEntity": {
+          "@id": "https://visualizedoil.com/#conceptlist"
+        }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://visualizedoil.com/#conceptlist",
+        "name": "The Oil, Visualized concept ladder",
+        "description": "Thirteen Texas mineral ownership concepts, simplest first.",
+        "numberOfItems": 13,
+        "itemListOrder": "https://schema.org/ItemListOrderAscending",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "01. Surface & minerals"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "02. Separate tracts"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "03. Fractional interests"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "04. The lease"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "05. Pooling & dilution"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "name": "06. Your decimal (DOI)"
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "name": "07. The royalty check"
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "name": "08. The two taxes"
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "name": "09. Allocation wells"
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "name": "10. Post-production costs"
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "name": "11. Holding the lease"
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "name": "12. HBP monitoring"
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "name": "13. The money trail"
+          }
+        ]
+      }
+    ]
+  }
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Spectral:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -2876,7 +3041,7 @@
     <p class="disc support-foot">Own minerals outside Texas? <a href="regulators/index.html">Where to look it up</a>
       — the Railroad Commission's equivalent in the ten biggest producing states, and the one document to pull in each.</p>
     <p class="disc support-foot">Free to use, always. If it helped you, you can <a href="#top" data-goto-tab="t-support">support the site</a> — thank you.</p>
-    <p class="disc foot-ver">v1.6.2 · updated July 27, 2026</p>
+    <p class="disc foot-ver">v1.7.0 · updated July 27, 2026</p>
   </div>
 </footer>
 
