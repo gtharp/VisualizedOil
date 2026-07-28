@@ -42,6 +42,48 @@ Nothing staged.
 
 ---
 
+## 2026-07-27 — The same flex fault, on all ten state pages
+
+`regulators/*.html` 1.0.1 → **1.0.2** (patch), all eleven pages
+Files: `css/regulators.css` · all eleven `regulators/*.html`
+
+**Fixed**
+
+- `css/regulators.css` — the numbered steps in "The document to pull" broke on a
+  phone: clipped in portrait, oddly spaced in landscape. Same fault as the
+  Concept 12 bullets fixed earlier today, in a different rule. `.pullbox ol li`
+  was `display:flex` so the numbered circle could hang off the left edge; flex
+  blockifies every child, so each inline `<b>` naming a database or a form
+  became its own flex item. Oklahoma step 4 — "Use the **imaging system** for
+  the well documents themselves, including **Form 1002A**, the completion
+  report" — was six side-by-side boxes rather than one sentence. Each wrapped
+  inside its own narrow column, and their combined minimum width overflowed
+  `.pullbox`, which hides overflow. In landscape there was room for the columns
+  to sit side by side, so it read as strange spacing instead of a cut. The
+  counter is now absolutely positioned and the `<li>` is an ordinary block.
+  Geometry unchanged — same 20px circle, same 32px indent, same `.15rem` drop.
+  **No markup was edited.**
+
+**Notes**
+
+Reported on Oklahoma, but present on all ten state pages: **44 list items**
+across Texas, Pennsylvania, New Mexico, Louisiana, Oklahoma, North Dakota,
+West Virginia, Colorado, Ohio and Wyoming. Every step in every "document to
+pull" list bolds at least one system or form name, so every one of them was
+affected. One rule, forty-four bugs.
+
+Full re-audit after the fix: every `display:flex` selector across `base.css`,
+`concepts.css`, `glossary.css` and `regulators.css` was cross-referenced against
+all thirteen pages for containers holding bare text alongside an inline element.
+**Zero remain.** Two patterns still match the shape but cannot reorder, because
+each holds only a single run of text: the curriculum tab buttons (`.tab`, a
+`<span>` number chip plus the label) and the hub map legend (`.map-legend
+span.lg`, a colour swatch plus the caption). Both would scramble the moment
+someone put an `<em>` mid-caption — worth remembering rather than pre-emptively
+rewriting layout that currently renders correctly.
+
+---
+
 ## 2026-07-27 — Two portrait-orientation layout faults
 
 `index.html` 1.6.0 → **1.6.1** (patch)
