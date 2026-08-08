@@ -42,6 +42,145 @@ Nothing staged.
 
 ---
 
+## 2026-08-08 — Concept 04 rebuilt as the hub it already was
+
+`index.html` 1.7.0 → **1.8.0** (minor)
+Files: `index.html` · `sitemap.xml`
+
+**Added**
+
+- **Concept 04, new section — "'Cost-free' has a boundary, and the boundary is
+  the wellhead."** The page called a royalty *cost-free* four separate times and
+  never once said which costs. That is the single most consequential ambiguity on
+  the tab, because the reader who accepts it walks into Concept 07 with no
+  framework for the deduction line on the stub. The section now splits the money
+  at the wellhead in prose — production costs (the rig, casing, completion, the
+  pump, daily lifting) which a royalty owner never shares, against
+  post-production costs (gathering, compression, treating, processing,
+  transportation, marketing) which in Texas a royalty owner shares by default —
+  and hands the contested half to Concept 10 rather than trying to resolve it
+  here.
+
+- **Concept 04, a side-by-side SVG for that split.** One 620×276 figure: two
+  cards divided by a vertical rule labelled THE WELLHEAD, each listing four
+  concrete costs and carrying a status badge — NEVER YOURS in the owner-good
+  green, YOURS BY DEFAULT in the read-it-carefully ochre. Categorical, not
+  proportional, so no value is being stretched. The first visual on this tab
+  since it was built; the five-stop life-of-a-lease timeline stays as the
+  section-two visual.
+
+- **Concept 04, a worked three-column ledger.** The house pattern asks every
+  concept to end on explicit arithmetic and this tab never had any. Two owners,
+  160 acres each, both leases signed the same week, one $30,000 month on each
+  well: Lease A at 1/8 with an "at the well" clause nets **$2,906.25**; Lease B
+  at 3/16 with a cost-free clause nets **$5,203.12**. A gap of $2,296.87 a month,
+  about $27,500 in the first year, of which roughly a quarter is the deduction
+  line by itself. Neither tract is pooled, so the owner's share is just the
+  royalty fraction and the reader doesn't need Concepts 05 or 06 to follow it.
+  Carries its own caveat note: the 15% deduction rate is illustrative, severance
+  tax is borne regardless of lease wording, and a "cost-free" clause is not a
+  magic phrase.
+
+- **Concept 04, a "where this goes next" routing table.** Seven rows, each a
+  question phrased the way an owner actually asks it, mapped to Concepts 05, 06,
+  07, 10, 11, 12, 13 and the Lease Clause Dictionary. Followed by a paragraph
+  deep-linking the three dictionary categories that cover this page —
+  `#cat-basics`, `#cat-royalty`, `#cat-term`.
+
+- **Concept 04, a savings-clause pointer under the timeline.** An `.aside-note`
+  saying plainly that a lease can survive stretches with no production at all,
+  and sending the reader to Concept 11. Concept 11's own lede has pointed back at
+  Concept 04 since it was built; the link was one-way until now.
+
+**Changed**
+
+- Concept 04's hero lede — "keeps a cost-free slice of everything produced"
+  became "keeps a share of everything produced without paying a cent toward the
+  drilling." Same promise, but scoped to the costs a royalty actually escapes.
+- Concept 04's **Royalty** term card — was "free of drilling and operating
+  costs," which reads as *all* costs to someone meeting the word for the first
+  time. Now describes the royalty as carved out before the operator recovers what
+  it spent drilling, and says outright that there is a boundary to "cost-free"
+  and the next section draws it. A term card that has to be walked back two tabs
+  later is worse than a longer term card.
+- Concept 04's "Production begins" timeline step dropped the trailing
+  "cost-free" from "their royalty share of every barrel, cost-free" — the claim
+  is made properly two sections down and doesn't need pre-empting here.
+- Concept 04's "Why owners care" column now lists post-production costs among the
+  things locked in at signing, and links "how big a unit your acres can be pooled
+  into" to Concept 05.
+- Concept 04's closing callout now ends by pointing at Concept 11, so the tab's
+  last line is a door rather than a full stop.
+- The **Roadmap tab's** Tier 2 rows, kept in sync with `ROADMAP.md`: Concept 04's
+  one-line summary now mentions where "cost-free" stops and the two-lease ledger,
+  and the planned *Royalty vs. working interest* tab is described as the other
+  side of the wellhead rather than as an expansion of a Concept 04 "intro" that
+  no longer reads like an intro.
+- `sitemap.xml` — the root URL's `<lastmod>` moved to 2026-08-08. The other
+  twelve are untouched, because nothing else on the site changed.
+
+**Fixed**
+
+- `ROADMAP.md`'s Project status snapshot listed `index.html` **v1.6**,
+  `glossary.html` **v1.1.1** and `regulators/` **v1.0.0**. All three were stale —
+  the first by four builds, the other two by one each — so the one place in the
+  repo that answers "what version is live?" had been wrong since 2026-07-26. Now
+  reads v1.8.0 / v1.2.0 / v1.1.0. Found while updating the Tier 2 table for this
+  build rather than reported; bundled rather than deferred. Worth noting that this
+  line has gone stale three times now, because it duplicates information that
+  already exists in five other places per page — a candidate for deletion in
+  favour of a pointer to `CHANGELOG.md` next time it drifts.
+
+**Notes**
+
+**No CSS and no JS.** The new figure is a static inline SVG and both new tables
+are the existing `table.ledger` inside `.table-scroll`. Nothing was added to
+`css/base.css` or `css/concepts.css` and `js/app.js` is byte-identical. Worth
+recording as the reason a static side-by-side was chosen over a toggle: the point
+of the wellhead figure is that both halves are true at once, and a control that
+hides one of them would work against the idea it exists to teach.
+
+**Why minor and not patch.** Three new sections and a new visual on a live tab.
+Nothing was broken before — the old page was accurate as far as it went — so this
+isn't Fixed.
+
+**Concept 04 still has no interactive control.** Every other Tier 2+ tab has a
+slider, stepper or toggle; this one has a timeline, a figure and two tables. That
+is a deliberate stopping point for this build rather than an oversight, and it is
+the obvious next thing if the tab is revisited. A stepper on the lease timeline
+is the natural candidate, and it would need `js/app.js` and `css/concepts.css`.
+
+**No case law was touched.** This build names no decided case and states no case's
+posture. The one contested question it raises — which lease wordings actually
+displace the Texas default on post-production costs — is deliberately not answered
+here; it is handed to Concept 10, whose verification record at the foot of
+`ROADMAP.md` is unchanged and was not required for this build.
+
+**The clause dictionary's category anchors were checked, not fixed.**
+`glossary.html#cat-basics` and its siblings are IDs generated at runtime by
+`js/glossary.js`. They resolve, because that script sits at the end of `<body>`
+and runs synchronously, so the anchors exist before the browser resolves the
+fragment. Flagged here only because the linked-to markup does not exist in the
+served HTML, which is the same underlying issue already logged against the
+dictionary on 2026-07-27.
+
+Validation: lxml parse clean · div / section / svg / table / tr / td / th / g /
+text / a / p / ul / li tag balance clean (the one apparent `<script>` mismatch is
+the literal word inside the header comment at line 74 and predates this build;
+balance is 3/3 with comments stripped) · no duplicate IDs · 15 tabs matched to 15
+panels, every `aria-controls` and `aria-labelledby` resolving · all **33**
+`data-goto-tab` targets resolve, up from 30 · every in-page `href="#…"` anchor
+resolves · all five version stamps moved (header comment, `<meta name="version">`,
+`<meta name="last-updated">`, JSON-LD `dateModified`, footer line) · one JSON-LD
+block, parses as strict JSON, every internal `@id` reference resolves ·
+transform-aware geometric bounds check on the new SVG: 21 labels, none outside the
+620×276 viewBox, no two overlapping, every in-card label clear of its card's 10px
+padding, both badge texts inside their pills · ledger arithmetic recomputed
+independently and agrees to the cent · `node --check js/app.js` clean ·
+`sitemap.xml` parses.
+
+---
+
 ## 2026-07-27 — Structured data, site-wide
 
 `index.html` 1.6.2 → **1.7.0** (minor)

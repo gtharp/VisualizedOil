@@ -54,8 +54,8 @@ material lives, so the ladder never has to stop and explain another jurisdiction
   and offers an optional Venmo donation (embedded QR + payment link, `@George-Tharp`);
   support links also sit in the global footer and at the foot of Concept 01
 - **Versioning** — every page carries its own version, in three places each (header
-  comment, meta tags, footer line). Current: `index.html` **v1.6**, `glossary.html`
-  **v1.1.1**, `regulators/` **v1.0.0**. The scheme is in build conventions below; the
+  comment, meta tags, footer line). Current: `index.html` **v1.8.0**, `glossary.html`
+  **v1.2.0**, `regulators/` **v1.1.0**. The scheme is in build conventions below; the
   history is in [`CHANGELOG.md`](./CHANGELOG.md)
 - **Wellbore gallery** — in progress; three diagrams ready to feature, not yet built
   into the site
@@ -119,8 +119,8 @@ material lives, so the ladder never has to stop and explain another jurisdiction
 
 | Status | Concept | What it teaches | Notes |
 |---|---|---|---|
-| **Live** | The lease — signing to termination | Lessor/lessee, bonus, royalty, primary vs. secondary term, held by production, via a 5-stop life-of-a-lease timeline | Built as Concept 04 |
-| Planned | Royalty vs. working interest (deep dive) | Who bears cost, who doesn't — expand beyond the Concept 04 intro | |
+| **Live** | The lease — signing to termination | Lessor/lessee, bonus, royalty, primary vs. secondary term, held by production, via a 5-stop life-of-a-lease timeline; the production/post-production cost split drawn at the wellhead as a side-by-side figure; a worked two-lease ledger (1/8 "at the well" vs. 3/16 cost-free on identical acreage, $2,296.87/month apart); a routing table into Concepts 05, 06, 07, 10, 11, 12, 13 and the clause dictionary | Built as Concept 04. Rebuilt 2026-08-08 as the curriculum's hub — it is now the tab most others depend on, so edits here ripple. Still the only Tier 2+ tab with **no interactive control**; a stepper on the lease timeline is the obvious candidate |
+| Planned | Royalty vs. working interest (deep dive) | Who bears which cost and who carries the risk — the working-interest side of the line Concept 04 now draws, plus NRI, cost-bearing elections, and what happens to a royalty owner when the operator's economics fail | Concept 04 now states the production/post-production split itself, so this tab no longer has to establish it — it starts from the other side of the wellhead |
 | **Live** | Held by production & savings clauses | The habendum gap; the four bridges (dry hole, shut-in, cessation, continuous ops); force majeure as the fifth; a capped-vs-uncapped shut-in slider on 160 net acres; the five-edit negotiation table | Built as Concept 11. Deliberately high level — the deep termination analysis lives in Concept 12 |
 | Planned | Pugh clauses & retained acreage | Releasing undeveloped acreage; the no-Pugh holding trap | |
 
@@ -446,6 +446,16 @@ cases. Verified current as of **23 July 2026**:
 
 Re-verify before any substantial edit to Concept 10, and watch the Fifteenth Court
 of Appeals docket, which is now routing new oil-and-gas appeals.
+
+**Concept 04 now depends on this record without adding to it.** Since 2026-08-08
+Concept 04 states the Texas default — that a royalty bears post-production costs
+absent lease language displacing it — and then explicitly refuses to say which
+wordings succeed, handing that to Concept 10. It **names no case** and states no
+case's posture, so it carries no citation-maintenance burden of its own. But if
+the law underneath Concept 10 moves, check that Concept 04's one-sentence
+statement of the default still reads correctly before assuming only Concept 10
+needs editing. The sentence to re-read is in the section headed *"Cost-free" has a
+boundary, and the boundary is the wellhead*.
 
 ## Statutory maintenance note
 

@@ -2,9 +2,30 @@
 <!--
   ============================================================
   Oil, Visualized  ·  index.html
-  Version:      1.7.0
-  Last updated: 2026-07-27
-  This build (1.7.0): MINOR — schema.org JSON-LD added to the
+  Version:      1.8.0
+  Last updated: 2026-08-08
+  This build (1.8.0): MINOR — Concept 04 (the lease) rebuilt as
+      the hub the rest of the curriculum hangs off. Three new
+      sections. First, "'Cost-free' has a boundary, and the
+      boundary is the wellhead" — a side-by-side SVG splitting
+      production costs (never the royalty owner's) from
+      post-production costs (the royalty owner's by default in
+      Texas), because the page previously said "cost-free" four
+      times without ever saying which costs. Hands off to
+      Concept 10 for the contested part. Second, a worked
+      three-column ledger: two owners, 160 acres each, same
+      $30,000 month, 1/8 "at the well" against 3/16 cost-free,
+      $2,296.87 apart — the tab had no explicit arithmetic
+      before, which the house pattern requires. Third, a "where
+      this goes next" routing table into Concepts 05, 06, 07,
+      10, 11, 12, 13 and the Lease Clause Dictionary, plus
+      deep links to three dictionary categories. Existing hero,
+      five-stop timeline, two-column "why it matters" and the
+      closing callout all kept; the Royalty term card and the
+      lede were reworded to stop promising more than a royalty
+      delivers. No CSS or JS changed — the new figure is a
+      static SVG and both tables are the existing .ledger.
+  Prior build (1.7.0): MINOR — schema.org JSON-LD added to the
       head: WebPage + LearningResource with the thirteen concepts
       as an ItemList, and the site-level WebSite / publisher /
       author nodes that every other page on the site references
@@ -108,8 +129,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Oil, Visualized — Texas oil and gas concepts, drawn. Start with the surface and mineral estates and build toward the complex.">
-<meta name="version" content="1.7.0">
-<meta name="last-updated" content="2026-07-27">
+<meta name="version" content="1.8.0">
+<meta name="last-updated" content="2026-08-08">
 <title>Oil, Visualized — the Texas mineral estate, drawn</title>
 <link rel="canonical" href="https://visualizedoil.com/">
 <script type="application/ld+json">
@@ -153,7 +174,7 @@
         "url": "https://visualizedoil.com/",
         "name": "Oil, Visualized — the Texas mineral estate, drawn",
         "description": "Oil, Visualized — Texas oil and gas concepts, drawn. Start with the surface and mineral estates and build toward the complex.",
-        "dateModified": "2026-07-27",
+        "dateModified": "2026-08-08",
         "isPartOf": {
           "@id": "https://visualizedoil.com/#website"
         },
@@ -740,24 +761,25 @@
     </div>
   </section>
 
+  <!-- ============ PANEL 04 — THE LEASE ============ -->
   <section class="panel" id="p-lease" role="tabpanel" aria-labelledby="t-lease" tabindex="0">
 
     <div class="hero">
       <p class="eyebrow">Concept 04 — the lease</p>
       <h1>Not a rental — a deal that lives as long as the <em>well</em> does.</h1>
-      <p class="lede">An oil and gas lease isn't like renting an apartment. It's a trade: the mineral owner hands over the right to drill, and in exchange keeps a cost-free slice of everything produced. And its lifespan isn't a number of years — it's however long the oil keeps flowing.</p>
+      <p class="lede">An oil and gas lease isn't like renting an apartment. It's a trade: the mineral owner hands over the right to drill, and in exchange keeps a share of everything produced without paying a cent toward the drilling. And its lifespan isn't a number of years — it's however long the oil keeps flowing.</p>
     </div>
 
     <div class="section" style="border-top:0;padding-top:1rem">
       <p class="kicker">Start here</p>
       <h2>First — what does "leasing" your minerals mean?</h2>
-      <p>Owning minerals doesn't produce a single barrel — someone has to drill, and drilling costs millions. So the mineral owner signs a <strong>lease</strong>: a company (the <strong>lessee</strong>) gets the exclusive right to explore and produce, and the owner (the <strong>lessor</strong>) gets paid two ways — a <strong>bonus</strong> up front just for signing, and a <strong>royalty</strong>: a fraction of production, free of drilling costs, for as long as the lease lasts.</p>
+      <p>Owning minerals doesn't produce a single barrel — someone has to drill, and drilling costs millions. So the mineral owner signs a <strong>lease</strong>: a company (the <strong>lessee</strong>) gets the exclusive right to explore and produce, and the owner (the <strong>lessor</strong>) gets paid two ways — a <strong>bonus</strong> up front just for signing, and a <strong>royalty</strong>: a fraction of production, free of the cost of drilling the well, for as long as the lease lasts.</p>
       <p>How long is that? Every lease has two clocks. The <strong>primary term</strong> is a fixed window (often 3 years) for the company to drill. If it drills and finds production, the lease rolls into the <strong>secondary term</strong> — which has no end date at all. It simply lasts as long as the well keeps producing. That's called being <strong>held by production</strong>.</p>
 
       <div class="glossary">
         <div class="term"><span class="t">Lessor / lessee</span><span class="d">Lessor = the mineral owner who signs. Lessee = the oil company that gets the right to drill.</span></div>
         <div class="term"><span class="t">Bonus</span><span class="d">Cash paid up front, per acre, just for signing — the owner keeps it even if no well is ever drilled.</span></div>
-        <div class="term"><span class="t">Royalty</span><span class="d">The owner's fraction of production (commonly 1/8 to 1/4), free of drilling and operating costs.</span></div>
+        <div class="term"><span class="t">Royalty</span><span class="d">The owner's fraction of production (commonly 1/8 to 1/4), carved out before the operator recovers a dollar of what it spent drilling. There is a boundary to "cost-free," and the next section draws it.</span></div>
         <div class="term"><span class="t">Held by production (HBP)</span><span class="d">Once a well produces, the lease stays alive indefinitely — as long as production continues.</span></div>
       </div>
 
@@ -777,7 +799,7 @@
         <div class="lt-item alive">
           <span class="when">Year 2 · a well is drilled</span>
           <h4>Production begins — royalty checks start</h4>
-          <p>The well produces, and the owner starts receiving their royalty share of every barrel, cost-free. The lease rolls from the primary term into the secondary term.</p>
+          <p>The well produces, and the owner starts receiving their royalty share of every barrel. The lease rolls from the primary term into the secondary term.</p>
         </div>
         <div class="lt-item alive">
           <span class="when">Years 2–40+ · secondary term</span>
@@ -790,6 +812,75 @@
           <p>When production permanently ceases, the lease terminates on its own. Full rights snap back to the mineral owner (or their heirs), who can sign a brand-new lease — new bonus, new royalty, new terms.</p>
         </div>
       </div>
+
+      <p class="aside-note">Between "production begins" and "production stops" there is a lot more fine print than this timeline shows. A lease can also stay alive through stretches when nothing is being produced at all, on the strength of a small annual payment or a drilling deadline that keeps resetting. Those are the <strong>savings clauses</strong>, and <a href="#top" data-goto-tab="t-hold">Concept 11</a> takes them apart one at a time.</p>
+    </div>
+
+    <div class="section">
+      <p class="kicker">The word that does the most work</p>
+      <h2>"Cost-free" has a boundary, and the boundary is the wellhead</h2>
+      <p>Almost every description of a royalty — including the one three paragraphs above — calls it <em>cost-free</em>. That is true, and it is the single best thing about owning a royalty. But it is true about a specific set of costs, and owners are often surprised later to learn which set.</p>
+      <p>Texas splits the money spent on a well at the wellhead. Everything spent getting oil and gas <em>out of the ground</em> — the rig, the casing and cement, the completion, the pump, the daily cost of lifting — is a <strong>production cost</strong>. A royalty owner never pays a share of any of it. That is the whole distinction between a royalty and a working interest: the working-interest owner writes those checks and takes that risk, and you do not.</p>
+      <p>Everything spent <em>after</em> the wellhead — gathering, compressing, treating, processing, transporting, and marketing, all of it aimed at turning a raw stream into something a buyer will pay a headline price for — is a <strong>post-production cost</strong>. Those are a separate question with a different answer, and the default answer in Texas is that royalty owners <em>do</em> share them, in proportion to their interest.</p>
+
+      <svg viewBox="0 0 620 276" role="img" aria-label="Two side-by-side cards divided by a vertical line labelled THE WELLHEAD. Left card, production costs: drilling and casing, completing the well, the pump and the power, day-to-day lifting costs. Badge reads NEVER YOURS; a royalty owner pays none of this. Right card, post-production costs: gathering and compression, treating and processing, transportation to market, marketing the product. Badge reads YOURS BY DEFAULT, unless your lease clearly says otherwise." style="width:100%;height:auto;max-width:640px;display:block;margin:2rem auto .8rem">
+
+      <!-- column headers -->
+      <text x="12" y="22" font-family="JetBrains Mono" font-size="10" letter-spacing="1.6" fill="#6B675E">BEFORE THE WELLHEAD</text>
+      <text x="332" y="22" font-family="JetBrains Mono" font-size="10" letter-spacing="1.6" fill="#6B675E">AFTER THE WELLHEAD</text>
+
+      <!-- left card -->
+      <rect x="12" y="30" width="276" height="214" rx="10" fill="#ECE9DF" stroke="#D8D3C7" stroke-width="1"/>
+      <text x="28" y="56" font-family="Spectral" font-size="15" font-weight="700" fill="#1B1A17">Production costs</text>
+      <text x="28" y="76" font-family="Spectral" font-size="11.5" fill="#6B675E">Everything spent getting oil</text>
+      <text x="28" y="90" font-family="Spectral" font-size="11.5" fill="#6B675E">and gas out of the ground.</text>
+      <line x1="28" y1="102" x2="272" y2="102" stroke="#D8D3C7" stroke-width="1"/>
+      <g font-family="JetBrains Mono" font-size="9.5" fill="#1B1A17">
+        <text x="40" y="120">Drilling and casing</text>
+        <text x="40" y="138">Completing the well</text>
+        <text x="40" y="156">The pump and the power</text>
+        <text x="40" y="174">Day-to-day lifting costs</text>
+      </g>
+      <g stroke="#243A35" stroke-width="1.4">
+        <line x1="28" y1="116.5" x2="35" y2="116.5"/>
+        <line x1="28" y1="134.5" x2="35" y2="134.5"/>
+        <line x1="28" y1="152.5" x2="35" y2="152.5"/>
+        <line x1="28" y1="170.5" x2="35" y2="170.5"/>
+      </g>
+      <rect x="28" y="190" width="96" height="24" rx="12" fill="#E4EFE9"/>
+      <text x="40" y="206" font-family="JetBrains Mono" font-size="9.5" letter-spacing="0.8" fill="#1D7A52">NEVER YOURS</text>
+      <text x="28" y="232" font-family="Spectral" font-size="10.5" font-style="italic" fill="#6B675E">A royalty owner pays none of this.</text>
+
+      <!-- the wellhead divider -->
+      <line x1="310" y1="8" x2="310" y2="256" stroke="#A23A2A" stroke-width="1.25"/>
+      <rect x="302" y="84" width="16" height="92" fill="#F4F2EC"/>
+      <text x="310" y="130" text-anchor="middle" transform="rotate(-90 310 130)" font-family="JetBrains Mono" font-size="9" letter-spacing="1.4" fill="#A23A2A">THE WELLHEAD</text>
+
+      <!-- right card -->
+      <rect x="332" y="30" width="276" height="214" rx="10" fill="#ECE9DF" stroke="#D8D3C7" stroke-width="1"/>
+      <text x="348" y="56" font-family="Spectral" font-size="15" font-weight="700" fill="#1B1A17">Post-production costs</text>
+      <text x="348" y="76" font-family="Spectral" font-size="11.5" fill="#6B675E">Everything spent after that,</text>
+      <text x="348" y="90" font-family="Spectral" font-size="11.5" fill="#6B675E">getting it to a buyer who pays.</text>
+      <line x1="348" y1="102" x2="592" y2="102" stroke="#D8D3C7" stroke-width="1"/>
+      <g font-family="JetBrains Mono" font-size="9.5" fill="#1B1A17">
+        <text x="360" y="120">Gathering and compression</text>
+        <text x="360" y="138">Treating and processing</text>
+        <text x="360" y="156">Transportation to market</text>
+        <text x="360" y="174">Marketing the product</text>
+      </g>
+      <g stroke="#243A35" stroke-width="1.4">
+        <line x1="348" y1="116.5" x2="355" y2="116.5"/>
+        <line x1="348" y1="134.5" x2="355" y2="134.5"/>
+        <line x1="348" y1="152.5" x2="355" y2="152.5"/>
+        <line x1="348" y1="170.5" x2="355" y2="170.5"/>
+      </g>
+      <rect x="348" y="190" width="128" height="24" rx="12" fill="#F3EBDA"/>
+      <text x="360" y="206" font-family="JetBrains Mono" font-size="9.5" letter-spacing="0.8" fill="#8A6A2E">YOURS BY DEFAULT</text>
+      <text x="348" y="232" font-family="Spectral" font-size="10.5" font-style="italic" fill="#6B675E">Unless your lease clearly says otherwise.</text>
+      </svg>
+
+      <p style="margin-top:1.4rem">So the honest version of the sentence is this: <strong>a royalty is free of the cost of getting the minerals out of the ground, and is not automatically free of the cost of getting them to market.</strong> The default can be changed, and a great many leases try to change it. Which words actually succeed is a genuinely contested question, and it is the entire subject of <a href="#top" data-goto-tab="t-ppc">Concept 10 — post-production costs</a>. If you read one other tab after this one, read that one.</p>
+      <p>Nothing here is hidden or improper. A deduction line on a check stub is usually the lease working exactly as written, decades after it was signed by someone who may not have read that clause closely. <a href="#top" data-goto-tab="t-check">Concept 07</a> shows what those lines look like on a real stub.</p>
     </div>
 
     <div class="section">
@@ -797,7 +888,7 @@
         <div>
           <p class="kicker">Why owners care</p>
           <h3>The terms are set once</h3>
-          <p>Everything that matters — the royalty fraction, how big a unit your acres can be pooled into, whether one well can hold <em>all</em> your acreage or just part of it — is locked in at signing. There's no renegotiating while a lease is held by production. The moment of maximum power for a mineral owner is the moment before they sign.</p>
+          <p>Everything that matters — the royalty fraction, whether post-production costs come out of it, how big a unit your acres can be pooled into (<a href="#top" data-goto-tab="t-pooling">Concept 05</a>), whether one well can hold <em>all</em> your acreage or just part of it — is locked in at signing. There's no renegotiating while a lease is held by production. The moment of maximum power for a mineral owner is the moment before they sign.</p>
         </div>
         <div>
           <p class="kicker">Why companies care</p>
@@ -807,9 +898,57 @@
       </div>
     </div>
 
+    <div class="section">
+      <p class="kicker">The arithmetic</p>
+      <h2>Two leases, same 160 acres, same month</h2>
+      <p>Here is what those signing-day words are worth in dollars. Two mineral owners each own all the minerals under 160 acres. Each signs a lease the same week. Each gets a well, and in one month that well sells 10,000 Mcf of gas for $30,000. Neither tract is pooled, so each owner's share of the well is simply their royalty fraction (<a href="#top" data-goto-tab="t-doi">Concept 06</a> builds that number properly when pooling is involved).</p>
+      <p>The only difference between them is two lines of text in a document signed years before the rig showed up.</p>
+
+      <div class="table-scroll" style="margin-top:1.2rem">
+        <table class="ledger">
+          <thead><tr><th>One month, one well</th><th class="r">Lease A — 1/8, "at the well"</th><th class="r">Lease B — 3/16, cost-free clause</th></tr></thead>
+          <tbody>
+            <tr><td>The well's gas sales</td><td class="r">$30,000.00</td><td class="r">$30,000.00</td></tr>
+            <tr><td>Your royalty fraction</td><td class="r">0.1250</td><td class="r">0.1875</td></tr>
+            <tr><td>Gross royalty</td><td class="r">$3,750.00</td><td class="r">$5,625.00</td></tr>
+            <tr><td>Severance tax on gas, 7.5%</td><td class="r">− $281.25</td><td class="r">− $421.88</td></tr>
+            <tr><td>Post-production share, 15%</td><td class="r">− $562.50</td><td class="r">$0.00</td></tr>
+            <tr class="tot"><td>Net to you, this month</td><td class="r">$2,906.25</td><td class="r">$5,203.12</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:1.2rem">$2,296.87 a month between them, or a little over $27,500 in the first year, on identical acreage and identical gas. Most of the gap is the royalty fraction, but roughly a quarter of it is the deduction line alone — and that quarter is the part almost nobody negotiates, because almost nobody knows it is negotiable.</p>
+
+      <p class="aside-note">Three honest caveats on that table, because a teaching example is not a check stub. The 15% is illustrative — real post-production deductions run anywhere from a few percent to a great deal more, and they move month to month. Severance tax is charged on market value and every Texas royalty owner bears a share of it no matter what the lease says (<a href="#top" data-goto-tab="t-tax">Concept 08</a>). And a "cost-free" clause is not a magic phrase: some wordings hold up and some do not, which is exactly why <a href="#top" data-goto-tab="t-ppc">Concept 10</a> exists.</p>
+    </div>
+
+    <div class="section">
+      <p class="kicker">Where this goes next</p>
+      <h2>The lease is the root of almost everything else here</h2>
+      <p>Nearly every question a mineral owner asks later — about a decimal, a deduction, a check that stopped, a lease they think should have expired — is really a question about a document signed years ago. If one of these is your next question, here is where it's answered:</p>
+
+      <div class="table-scroll" style="margin-top:1.2rem">
+        <table class="ledger">
+          <thead><tr><th>If your next question is</th><th>Go here</th></tr></thead>
+          <tbody>
+            <tr><td>"How much of the well is actually mine?"</td><td><a href="#top" data-goto-tab="t-pooling">Concept 05 — pooling &amp; dilution</a>, then <a href="#top" data-goto-tab="t-doi">Concept 06 — your decimal</a></td></tr>
+            <tr><td>"What are all these lines on my check?"</td><td><a href="#top" data-goto-tab="t-check">Concept 07 — the royalty check</a></td></tr>
+            <tr><td>"Can they really deduct that from my royalty?"</td><td><a href="#top" data-goto-tab="t-ppc">Concept 10 — post-production costs</a></td></tr>
+            <tr><td>"Where does the money go before it reaches me?"</td><td><a href="#top" data-goto-tab="t-money">Concept 13 — the money trail</a></td></tr>
+            <tr><td>"Nothing has produced in years. Is my lease still alive?"</td><td><a href="#top" data-goto-tab="t-hold">Concept 11 — holding the lease</a></td></tr>
+            <tr><td>"How would I actually go and check?"</td><td><a href="#top" data-goto-tab="t-hbp">Concept 12 — HBP monitoring</a></td></tr>
+            <tr><td>"What does this exact clause in my lease do?"</td><td><a href="glossary.html">Lease Clause Dictionary — 138 clauses</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:1.4rem">The dictionary is the one to open with your own lease in front of you. Three of its ten sections cover almost everything on this page: <a href="glossary.html#cat-basics">The anatomy of a lease</a> for the granting, habendum and term clauses, <a href="glossary.html#cat-royalty">Royalty &amp; payment</a> for the royalty fraction and the words that decide who pays post-production costs, and <a href="glossary.html#cat-term">Term, continuation &amp; Pugh</a> for everything that keeps a lease alive past its primary term. Each entry says what the clause does, why it matters to you, why the operator wants it, and whether it's already sitting in the standard printed form.</p>
+    </div>
+
     <div class="callout">
       <p class="kicker">The point that trips everyone up</p>
-      <p>"My lease was for 3 years, and that was 30 years ago — surely it's over." Maybe not. If a well drilled back then is <em>still producing</em>, that lease is most likely still alive, still on its original terms, and still covering the acreage it held. The 3 years was only the drilling window. Production, not the calendar, decides when an oil and gas lease ends.</p>
+      <p>"My lease was for 3 years, and that was 30 years ago — surely it's over." Maybe not. If a well drilled back then is <em>still producing</em>, that lease is most likely still alive, still on its original terms, and still covering the acreage it held. The 3 years was only the drilling window. Production, not the calendar, decides when an oil and gas lease ends — and <a href="#top" data-goto-tab="t-hold">Concept 11</a> covers the clauses that can keep it alive even through years when nothing is produced at all.</p>
     </div>
   </section>
 
@@ -2977,8 +3116,8 @@
       <div class="tier">
         <div class="tier-head"><span class="tier-num">TIER 2</span><h3>The lease</h3><span class="tier-sub">Turning ownership into production.</span></div>
         <div class="steps">
-          <div class="step"><span class="chip live">Live</span><span class="t">The lease — signing to termination<small>Bonus, royalty, primary vs. secondary term, held by production</small></span></div>
-          <div class="step"><span class="chip later">Planned</span><span class="t">Royalty vs. working interest<small>Who bears cost, who doesn't</small></span></div>
+          <div class="step"><span class="chip live">Live</span><span class="t">The lease — signing to termination<small>Bonus, royalty, primary vs. secondary term, held by production; where "cost-free" stops, and a worked two-lease ledger</small></span></div>
+          <div class="step"><span class="chip later">Planned</span><span class="t">Royalty vs. working interest<small>The other side of the wellhead: who bears cost, who carries the risk</small></span></div>
           <div class="step"><span class="chip live">Live</span><span class="t">Held by production &amp; savings clauses<small>The four bridges; the capped-vs-uncapped shut-in slider</small></span></div>
           <div class="step"><span class="chip later">Planned</span><span class="t">Pugh clauses &amp; retained acreage<small>Releasing the acreage a well doesn't develop</small></span></div>
         </div>
@@ -3041,7 +3180,7 @@
     <p class="disc support-foot">Own minerals outside Texas? <a href="regulators/index.html">Where to look it up</a>
       — the Railroad Commission's equivalent in the ten biggest producing states, and the one document to pull in each.</p>
     <p class="disc support-foot">Free to use, always. If it helped you, you can <a href="#top" data-goto-tab="t-support">support the site</a> — thank you.</p>
-    <p class="disc foot-ver">v1.7.0 · updated July 27, 2026</p>
+    <p class="disc foot-ver">v1.8.0 · updated August 8, 2026</p>
   </div>
 </footer>
 
