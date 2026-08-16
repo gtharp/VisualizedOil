@@ -44,9 +44,9 @@ material lives, so the ladder never has to stop and explain another jurisdiction
   expected `http://` / `www.` → canonical redirect, not a real indexing problem.
 - **Claude Project:** a dedicated project (see `Website_Guide.md`) houses this build
   separately from the fiduciary/legal reference project
-- **13 concepts live** on site, tabs 01–13 (see Tier tables below for which)
+- **14 concepts live** on site, tabs 01–14 (see Tier tables below for which)
 - **Lease Clause Dictionary live** — `glossary.html`, the site's **second page**:
-  138 generic lease clauses, searchable and filterable by section, each with a
+  140 generic lease clauses, searchable and filterable by section, each with a
   plain-English definition, why it matters to the owner, why the operator wants it,
   and whether it's already in the standard printed form. Cross-links into the
   concept tabs via URL hash; linked from the header bar and footer of `index.html`
@@ -54,8 +54,8 @@ material lives, so the ladder never has to stop and explain another jurisdiction
   and offers an optional Venmo donation (embedded QR + payment link, `@George-Tharp`);
   support links also sit in the global footer and at the foot of Concept 01
 - **Versioning** — every page carries its own version, in three places each (header
-  comment, meta tags, footer line). Current: `index.html` **v1.8.0**, `glossary.html`
-  **v1.2.0**, `regulators/` **v1.1.0**. The scheme is in build conventions below; the
+  comment, meta tags, footer line). Current: `index.html` **v1.6**, `glossary.html`
+  **v1.1.1**, `regulators/` **v1.0.0**. The scheme is in build conventions below; the
   history is in [`CHANGELOG.md`](./CHANGELOG.md)
 - **Wellbore gallery** — in progress; three diagrams ready to feature, not yet built
   into the site
@@ -96,7 +96,7 @@ material lives, so the ladder never has to stop and explain another jurisdiction
 | 12 | HBP monitoring & lease termination risk | 5 |
 | 13 | The money trail — purchaser to mailbox | 4 |
 
-> Beyond the thirteen concept tabs, the nav also carries a **♥ Support** tab (the
+> Beyond the fourteen concept tabs, the nav also carries a **♥ Support** tab (the
 > free-education mission + Venmo donation) and this **→ Roadmap** tab. The website's
 > own Roadmap tab mirrors the tier tables below; keep the two in sync.
 
@@ -112,6 +112,7 @@ material lives, so the ladder never has to stop and explain another jurisdiction
 | **Live** | Surface vs. mineral estate · severance | Two stacked estates; mineral is the dominant estate; the Bob / Carl / Susan 160-acre example |
 | **Live** | Separate tracts & common ownership | A tract is defined by ownership, not fences; a 4-step timeline showing one tract splitting into two across generations |
 | **Live** | Fractional & undivided interests | Undivided interest = a fraction of every acre at once; net mineral acres; fractionalization across 3 generations |
+| **Live** | Measuring ownership | The three meanings of *acre*: gross acres (survey), net mineral acres (deed), net royalty acres (lease). A 640-ac section with an undivided 1/4 carried through three stages — a NOT-THIS/THIS dot field, the same 64 dots gathered into 160 NMA, then a royalty slider over two figures: the eight royalty acres inside one mineral acre, and the same acre against the 1/8 yardstick. Built as Concept 04 |
 | Planned | Accommodation doctrine & surface use | How the dominant estate must reasonably accommodate the surface owner |
 
 ## TIER 2 — The lease
@@ -119,9 +120,9 @@ material lives, so the ladder never has to stop and explain another jurisdiction
 
 | Status | Concept | What it teaches | Notes |
 |---|---|---|---|
-| **Live** | The lease — signing to termination | Lessor/lessee, bonus, royalty, primary vs. secondary term, held by production, via a 5-stop life-of-a-lease timeline; the production/post-production cost split drawn at the wellhead as a side-by-side figure; a worked two-lease ledger (1/8 "at the well" vs. 3/16 cost-free on identical acreage, $2,296.87/month apart); a routing table into Concepts 05, 06, 07, 10, 11, 12, 13 and the clause dictionary | Built as Concept 04. Rebuilt 2026-08-08 as the curriculum's hub — it is now the tab most others depend on, so edits here ripple. Still the only Tier 2+ tab with **no interactive control**; a stepper on the lease timeline is the obvious candidate |
-| Planned | Royalty vs. working interest (deep dive) | Who bears which cost and who carries the risk — the working-interest side of the line Concept 04 now draws, plus NRI, cost-bearing elections, and what happens to a royalty owner when the operator's economics fail | Concept 04 now states the production/post-production split itself, so this tab no longer has to establish it — it starts from the other side of the wellhead |
-| **Live** | Held by production & savings clauses | The habendum gap; the four bridges (dry hole, shut-in, cessation, continuous ops); force majeure as the fifth; a capped-vs-uncapped shut-in slider on 160 net acres; the five-edit negotiation table | Built as Concept 11. Deliberately high level — the deep termination analysis lives in Concept 12 |
+| **Live** | The lease — signing to termination | Lessor/lessee, bonus, royalty, primary vs. secondary term, held by production, via a 5-stop life-of-a-lease timeline | Built as Concept 05 |
+| Planned | Royalty vs. working interest (deep dive) | Who bears cost, who doesn't — expand beyond the Concept 05 intro | |
+| **Live** | Held by production & savings clauses | The habendum gap; the four bridges (dry hole, shut-in, cessation, continuous ops); force majeure as the fifth; a capped-vs-uncapped shut-in slider on 160 net acres; the five-edit negotiation table | Built as Concept 12. Deliberately high level — the deep termination analysis lives in Concept 13 |
 | Planned | Pugh clauses & retained acreage | Releasing undeveloped acreage; the no-Pugh holding trap | |
 
 ## TIER 3 — Combining tracts
@@ -129,8 +130,8 @@ material lives, so the ladder never has to stop and explain another jurisdiction
 
 | Status | Concept | What it teaches | Notes |
 |---|---|---|---|
-| **Live** | Pooling & dilution | What a unit is, pooling vs. unitization defined plainly, a live slider showing a big owner diluted (100%→50%→25%) vs. a small owner included (0%→1.25%), the MIPA + §102.014 statutory backbone | Built as Concept 05 — combines the original "voluntary & compulsory pooling" and "dilute or be diluted" rows |
-| **Live** | Allocation & PSA wells | Why multi-tract laterals often can't pool (Rule 37, undersized pooling clauses); the three permit paths (pooled unit / PSA / allocation) as a three-way toggle on one 10,000-ft lateral; footage-based tract participation factors with a worked ledger; TPF × unit DOI example tying back to Concept 06; honest legal status (Opiela settled Jan 2025 with no ruling — law still unsettled; Springer Ranch supports footage allocation) | Built as Concept 09 |
+| **Live** | Pooling & dilution | What a unit is, pooling vs. unitization defined plainly, a live slider showing a big owner diluted (100%→50%→25%) vs. a small owner included (0%→1.25%), the MIPA + §102.014 statutory backbone | Built as Concept 06 — combines the original "voluntary & compulsory pooling" and "dilute or be diluted" rows |
+| **Live** | Allocation & PSA wells | Why multi-tract laterals often can't pool (Rule 37, undersized pooling clauses); the three permit paths (pooled unit / PSA / allocation) as a three-way toggle on one 10,000-ft lateral; footage-based tract participation factors with a worked ledger; TPF × unit DOI example tying back to Concept 07; honest legal status (Opiela settled Jan 2025 with no ruling — law still unsettled; Springer Ranch supports footage allocation) | Built as Concept 10 |
 | Planned | Proration units & allowables | RRC field rules; 160-ac oil / 640-ac gas + 10% tolerance | Prototype from the early explainer set exists; not yet ported to house style |
 | Planned | Unitization & secondary recovery | Whole-reservoir operations; participation formulas; no compulsory unitization in TX | |
 
@@ -139,12 +140,12 @@ material lives, so the ladder never has to stop and explain another jurisdiction
 
 | Status | Concept | What it teaches | Notes |
 |---|---|---|---|
-| **Live** | Your decimal — division orders (DOI) | Builds one decimal from scratch across 3 scroll-down stages: your own tract (0.0625) → pooled into a 320-ac unit (0.0078125) → an allocation well splitting by lateral footage (0.00488281) | Built as Concept 06 |
-| **Live** | The royalty check | A worked $1,000 gross check stub: − severance tax − post-production costs = $900 net; why checks swing (price × barrels, not your decimal) | Built as Concept 07 |
-| **Live** | Severance tax vs. ad valorem tax | The candy-store analogy: severance = tax on each candy bar at the register (withheld before you're paid); ad valorem = tax on the store itself (an annual county bill) | Built as Concept 08 — added beyond original scope by request; teaches both taxes side by side |
+| **Live** | Your decimal — division orders (DOI) | Builds one decimal from scratch across 3 scroll-down stages: your own tract (0.0625) → pooled into a 320-ac unit (0.0078125) → an allocation well splitting by lateral footage (0.00488281) | Built as Concept 07 |
+| **Live** | The royalty check | A worked $1,000 gross check stub: − severance tax − post-production costs = $900 net; why checks swing (price × barrels, not your decimal) | Built as Concept 08 |
+| **Live** | Severance tax vs. ad valorem tax | The candy-store analogy: severance = tax on each candy bar at the register (withheld before you're paid); ad valorem = tax on the store itself (an annual county bill) | Built as Concept 09 — added beyond original scope by request; teaches both taxes side by side |
 | Planned | Net revenue interest & the burden stack | ORRI, NPRI, production payments stacked on the WI | |
-| **Live** | The money trail — purchaser to mailbox | The plumbing between the wellhead sale and the check: why gas pays in 90 days and oil in 60; the purchaser's single lump-sum payment landing in the operator's *general* account (one tank, six taps — no escrow, no trust); the deck exploded across a worked $30,000 month; **the two-stub toggle** (itemized vs netback — identical $112.30 net, identical $34.18 given up, only one of them visible); the volume-vs-price leak; statutory stub contents and the 60-day certified-mail request; an honest day-scale payment clock; suspense as a ledger line, the automatic security interest and the unsecured-creditor trap; escheat at three years; interpleader; a 48-month limitations window with 36 months expiring while you wait; the eight-item routine | Built as Concept 13. Absorbs the former "Suspense, escheat & unclaimed property" row. Cross-linked from Concept 07 |
-| **Live** | Post-production costs | Why PPC exist at all (the point of sale moved downstream over a century); the valuation point as the one idea that decides everything; PPC vs. severance tax; a 1996–2026 case timeline from *Heritage Resources* to *Fasken v. Puig*; lease language ranked weakest→strongest | Built as Concept 10 — draggable valuation-point slider ($3.00/Mcf split into wellhead value + gathering/processing/transport); cross-linked from Concepts 07 & 08 |
+| **Live** | The money trail — purchaser to mailbox | The plumbing between the wellhead sale and the check: why gas pays in 90 days and oil in 60; the purchaser's single lump-sum payment landing in the operator's *general* account (one tank, six taps — no escrow, no trust); the deck exploded across a worked $30,000 month; **the two-stub toggle** (itemized vs netback — identical $112.30 net, identical $34.18 given up, only one of them visible); the volume-vs-price leak; statutory stub contents and the 60-day certified-mail request; an honest day-scale payment clock; suspense as a ledger line, the automatic security interest and the unsecured-creditor trap; escheat at three years; interpleader; a 48-month limitations window with 36 months expiring while you wait; the eight-item routine | Built as Concept 14. Absorbs the former "Suspense, escheat & unclaimed property" row. Cross-linked from Concept 08 |
+| **Live** | Post-production costs | Why PPC exist at all (the point of sale moved downstream over a century); the valuation point as the one idea that decides everything; PPC vs. severance tax; a 1996–2026 case timeline from *Heritage Resources* to *Fasken v. Puig*; lease language ranked weakest→strongest | Built as Concept 11 — draggable valuation-point slider ($3.00/Mcf split into wellhead value + gathering/processing/transport); cross-linked from Concepts 07 & 08 |
 
 ## TIER 5 — Title & risk
 *Proving and protecting ownership.*
@@ -152,7 +153,7 @@ material lives, so the ladder never has to stop and explain another jurisdiction
 | Status | Concept | What it teaches | Notes |
 |---|---|---|---|
 | Planned | Chain of title & title examination standards | Sovereignty to present; BFP status; blanket-conveyance limits | |
-| **Live** | HBP monitoring & lease termination risk | Fee simple determinable / special limitation; PIPQ; temporary cessation doctrine; ratification. Ten years of monthly production on a log decline curve with a five-step "read the record" stepper; the four questions; termination-vs-survival columns; the RRC monitoring ledger; the reversion math | Built as Concept 12. Cross-links to `glossary.html#cat-term` and `regulators/texas.html` |
+| **Live** | HBP monitoring & lease termination risk | Fee simple determinable / special limitation; PIPQ; temporary cessation doctrine; ratification. Ten years of monthly production on a log decline curve with a five-step "read the record" stepper; the four questions; termination-vs-survival columns; the RRC monitoring ledger; the reversion math | Built as Concept 13. Cross-links to `glossary.html#cat-term` and `regulators/texas.html` |
 | Planned | Operator transfers, P-4s & bankruptcy | Following the leasehold through operator changes | |
 
 ## TIER 6 — The deep end
@@ -175,7 +176,7 @@ one concept at a time in narrative order, the dictionary is a **lookup tool**: a
 owner arrives holding their own lease, searches a phrase they don't recognize, and
 reads one card.
 
-**Status: Live — 138 clauses.**
+**Status: Live — 140 clauses.**
 
 | Section | Entries | What it covers |
 |---|---|---|
@@ -222,7 +223,7 @@ breaking the rule that each concept assumes only the ones above it.
 
 | Status | Page | What it is |
 |---|---|---|
-| **Live** | Lease Clause Dictionary (`glossary.html`) | 138 generic lease clauses, searchable and filterable by section |
+| **Live** | Lease Clause Dictionary (`glossary.html`) | 140 generic lease clauses, searchable and filterable by section |
 | **Live** | Where to look it up (`regulators/`) | Hub + ten state pages: the RRC and its equivalents, and the one document to pull in each |
 | Planned | County recorder directory | Where deeds and leases actually live, state by state — the other half of every regulator page's closing callout |
 | Future | Commissioned-diagram intake | See Part Three |
@@ -424,12 +425,12 @@ options, lightest first:
 4. Stand up the **"Commission a well"** page + intake form + a single payment link to
    test demand before building a real store.
 5. Round out **Tier 2** (Pugh clauses, HBP/savings clauses deep dive) and **Tier 4**
-   (NRI/burden stack — suspense & escheat shipped with Concept 13) before moving
+   (NRI/burden stack — suspense & escheat shipped with Concept 14) before moving
    into Tier 5 title topics.
 
 ## Case-law maintenance note
 
-Concept 10 is the first tab whose accuracy decays with time — it names decided
+Concept 11 is the first tab whose accuracy decays with time — it names decided
 cases. Verified current as of **23 July 2026**:
 
 - *Fasken Oil and Ranch, Ltd. v. Puig*, No. 24-1033 (Tex. 2026) — reversed the San
@@ -441,25 +442,15 @@ cases. Verified current as of **23 July 2026**:
   Status changed from "pet. filed." Referenced on the page in an aside only.
 - *Clifton v. Johnson* (Tex. Mar. 13, 2026) — **not** a PPC case; it is a
   fixed-vs-floating double-fraction case applying *Van Dyke*. Deliberately
-  excluded from Concept 10.
+  excluded from Concept 11.
 - *Devon Energy v. Oliver* (Tex. App.—Corpus Christi 2026) (mem. op.) — aside only.
 
-Re-verify before any substantial edit to Concept 10, and watch the Fifteenth Court
+Re-verify before any substantial edit to Concept 11, and watch the Fifteenth Court
 of Appeals docket, which is now routing new oil-and-gas appeals.
-
-**Concept 04 now depends on this record without adding to it.** Since 2026-08-08
-Concept 04 states the Texas default — that a royalty bears post-production costs
-absent lease language displacing it — and then explicitly refuses to say which
-wordings succeed, handing that to Concept 10. It **names no case** and states no
-case's posture, so it carries no citation-maintenance burden of its own. But if
-the law underneath Concept 10 moves, check that Concept 04's one-sentence
-statement of the default still reads correctly before assuming only Concept 10
-needs editing. The sentence to re-read is in the section headed *"Cost-free" has a
-boundary, and the boundary is the wellhead*.
 
 ## Statutory maintenance note
 
-Concept 13 is the first tab built almost entirely on statute rather than case law,
+Concept 14 is the first tab built almost entirely on statute rather than case law,
 so it decays differently: figures and deadlines, not holdings. It deliberately
 **names no cases** — the four-year limitations rule and the security-interest point
 are stated as rules, so the tab carries no case-citation maintenance burden.
@@ -496,6 +487,6 @@ Two deliberate omissions, both revisitable:
    add noise and change periodically.
 2. **Criminal misapplication of fiduciary property** was drafted and then cut. It is
    accurate but a lay reader over-reads it as "my operator can be arrested for a late
-   check," and it pulls the page's tone adversarial. The rest of Concept 13 treats
+   check," and it pulls the page's tone adversarial. The rest of Concept 14 treats
    nonpayment as usually a paperwork problem, which is both more accurate and more
    credible to this audience. Restore it only with heavy hedging.

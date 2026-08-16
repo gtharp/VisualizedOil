@@ -3,28 +3,56 @@
   ============================================================
   Oil, Visualized  ·  index.html
   Version:      1.8.0
-  Last updated: 2026-08-08
-  This build (1.8.0): MINOR — Concept 04 (the lease) rebuilt as
-      the hub the rest of the curriculum hangs off. Three new
-      sections. First, "'Cost-free' has a boundary, and the
-      boundary is the wellhead" — a side-by-side SVG splitting
-      production costs (never the royalty owner's) from
-      post-production costs (the royalty owner's by default in
-      Texas), because the page previously said "cost-free" four
-      times without ever saying which costs. Hands off to
-      Concept 10 for the contested part. Second, a worked
-      three-column ledger: two owners, 160 acres each, same
-      $30,000 month, 1/8 "at the well" against 3/16 cost-free,
-      $2,296.87 apart — the tab had no explicit arithmetic
-      before, which the house pattern requires. Third, a "where
-      this goes next" routing table into Concepts 05, 06, 07,
-      10, 11, 12, 13 and the Lease Clause Dictionary, plus
-      deep links to three dictionary categories. Existing hero,
-      five-stop timeline, two-column "why it matters" and the
-      closing callout all kept; the Royalty term card and the
-      lede were reworded to stop promising more than a royalty
-      delivers. No CSS or JS changed — the new figure is a
-      static SVG and both tables are the existing .ledger.
+  Last updated: 2026-08-16
+  This build (1.8.0): MINOR — new Concept 04, "Measuring
+      ownership," inserted into Tier 1 between Fractional
+      interests and The lease, and the ten concepts below it
+      renumbered to make room. Fourteen concepts now.
+
+      The tab teaches the three things the word "acre" means:
+      gross acres (the survey), net mineral acres (the deed),
+      and net royalty acres (the lease). It runs one example
+      end to end — 640 acres, an undivided 1/4, 160 NMA — through
+      three stages. Stage 1 is a NOT-THIS / THIS pair: a solid
+      quarter-section struck through, beside a 256-dot field
+      with 64 filled, one in four everywhere, so any 40 acres
+      you pick still reads 4 of 16. Stage 2 gathers those same
+      64 dots into a pile: counting, not locating. Stage 3 is
+      the interactive one — a royalty slider over two figures.
+      Figure A cuts one mineral acre into the eight royalty
+      acres it contains and shows how many the lease delivers;
+      it can never fill, because a full bar would be an 8/8
+      royalty. Figure B measures the same acre against the 1/8
+      yardstick on a 0–2.0 royalty-acre track, and fills exactly
+      at a 1/4 lease. Ledger closes on the point: "$1,000 an
+      acre" is $160,000 read as NMA and $320,000 read as NRA,
+      on ownership that never changed.
+
+      RENUMBERING. Tab and panel IDs are semantic (t-lease,
+      p-doi) and did NOT move, so every deep link from
+      glossary.html and regulators/ still resolves. Only the
+      visible numbers shifted:
+          04 The lease            -> 05
+          05 Pooling & dilution   -> 06
+          06 Your decimal (DOI)   -> 07
+          07 The royalty check    -> 08
+          08 The two taxes        -> 09
+          09 Allocation wells     -> 10
+          10 Post-production      -> 11
+          11 Holding the lease    -> 12
+          12 HBP monitoring       -> 13
+          13 The money trail      -> 14
+      Concepts 01-03 are unchanged. The prior-build notes below
+      this line were written before the shift and still use the
+      old numbers on purpose — they are a record of what was
+      true then, not a description of the file now. Read them
+      against the table above.
+
+      Also in this build: css/concepts.css gains the .own-*
+      block and its section comments were renumbered to match;
+      js/app.js gains initOwnership(); glossary.js picks up two
+      new clauses (139 gross acres, 140 net royalty acres) and
+      its 28 "see" labels were renumbered.
   Prior build (1.7.0): MINOR — schema.org JSON-LD added to the
       head: WebPage + LearningResource with the thirteen concepts
       as an ItemList, and the site-level WebSite / publisher /
@@ -130,7 +158,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Oil, Visualized — Texas oil and gas concepts, drawn. Start with the surface and mineral estates and build toward the complex.">
 <meta name="version" content="1.8.0">
-<meta name="last-updated" content="2026-08-08">
+<meta name="last-updated" content="2026-08-16">
 <title>Oil, Visualized — the Texas mineral estate, drawn</title>
 <link rel="canonical" href="https://visualizedoil.com/">
 <script type="application/ld+json">
@@ -174,7 +202,7 @@
         "url": "https://visualizedoil.com/",
         "name": "Oil, Visualized — the Texas mineral estate, drawn",
         "description": "Oil, Visualized — Texas oil and gas concepts, drawn. Start with the surface and mineral estates and build toward the complex.",
-        "dateModified": "2026-08-08",
+        "dateModified": "2026-07-27",
         "isPartOf": {
           "@id": "https://visualizedoil.com/#website"
         },
@@ -216,8 +244,8 @@
         "@type": "ItemList",
         "@id": "https://visualizedoil.com/#conceptlist",
         "name": "The Oil, Visualized concept ladder",
-        "description": "Thirteen Texas mineral ownership concepts, simplest first.",
-        "numberOfItems": 13,
+        "description": "Fourteen Texas mineral ownership concepts, simplest first.",
+        "numberOfItems": 14,
         "itemListOrder": "https://schema.org/ItemListOrderAscending",
         "itemListElement": [
           {
@@ -238,52 +266,57 @@
           {
             "@type": "ListItem",
             "position": 4,
-            "name": "04. The lease"
+            "name": "04. Measuring ownership"
           },
           {
             "@type": "ListItem",
             "position": 5,
-            "name": "05. Pooling & dilution"
+            "name": "05. The lease"
           },
           {
             "@type": "ListItem",
             "position": 6,
-            "name": "06. Your decimal (DOI)"
+            "name": "06. Pooling & dilution"
           },
           {
             "@type": "ListItem",
             "position": 7,
-            "name": "07. The royalty check"
+            "name": "07. Your decimal (DOI)"
           },
           {
             "@type": "ListItem",
             "position": 8,
-            "name": "08. The two taxes"
+            "name": "08. The royalty check"
           },
           {
             "@type": "ListItem",
             "position": 9,
-            "name": "09. Allocation wells"
+            "name": "09. The two taxes"
           },
           {
             "@type": "ListItem",
             "position": 10,
-            "name": "10. Post-production costs"
+            "name": "10. Allocation wells"
           },
           {
             "@type": "ListItem",
             "position": 11,
-            "name": "11. Holding the lease"
+            "name": "11. Post-production costs"
           },
           {
             "@type": "ListItem",
             "position": 12,
-            "name": "12. HBP monitoring"
+            "name": "12. Holding the lease"
           },
           {
             "@type": "ListItem",
             "position": 13,
-            "name": "13. The money trail"
+            "name": "13. HBP monitoring"
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "name": "14. The money trail"
           }
         ]
       }
@@ -318,16 +351,17 @@
       <button class="tab" role="tab" id="t-surface" aria-controls="p-surface" aria-selected="true"><span class="num">01</span> Surface &amp; minerals</button>
       <button class="tab" role="tab" id="t-tracts" aria-controls="p-tracts" aria-selected="false"><span class="num">02</span> Separate tracts</button>
       <button class="tab" role="tab" id="t-fraction" aria-controls="p-fraction" aria-selected="false"><span class="num">03</span> Fractional interests</button>
-      <button class="tab" role="tab" id="t-lease" aria-controls="p-lease" aria-selected="false"><span class="num">04</span> The lease</button>
-      <button class="tab" role="tab" id="t-pooling" aria-controls="p-pooling" aria-selected="false"><span class="num">05</span> Pooling &amp; dilution</button>
-      <button class="tab" role="tab" id="t-doi" aria-controls="p-doi" aria-selected="false"><span class="num">06</span> Your decimal (DOI)</button>
-      <button class="tab" role="tab" id="t-check" aria-controls="p-check" aria-selected="false"><span class="num">07</span> The royalty check</button>
-      <button class="tab" role="tab" id="t-tax" aria-controls="p-tax" aria-selected="false"><span class="num">08</span> The two taxes</button>
-      <button class="tab" role="tab" id="t-alloc" aria-controls="p-alloc" aria-selected="false"><span class="num">09</span> Allocation wells</button>
-      <button class="tab" role="tab" id="t-ppc" aria-controls="p-ppc" aria-selected="false"><span class="num">10</span> Post-production costs</button>
-      <button class="tab" role="tab" id="t-hold" aria-controls="p-hold" aria-selected="false"><span class="num">11</span> Holding the lease</button>
-      <button class="tab" role="tab" id="t-hbp" aria-controls="p-hbp" aria-selected="false"><span class="num">12</span> HBP monitoring</button>
-      <button class="tab" role="tab" id="t-money" aria-controls="p-money" aria-selected="false"><span class="num">13</span> The money trail</button>
+      <button class="tab" role="tab" id="t-measure" aria-controls="p-measure" aria-selected="false"><span class="num">04</span> Measuring ownership</button>
+      <button class="tab" role="tab" id="t-lease" aria-controls="p-lease" aria-selected="false"><span class="num">05</span> The lease</button>
+      <button class="tab" role="tab" id="t-pooling" aria-controls="p-pooling" aria-selected="false"><span class="num">06</span> Pooling &amp; dilution</button>
+      <button class="tab" role="tab" id="t-doi" aria-controls="p-doi" aria-selected="false"><span class="num">07</span> Your decimal (DOI)</button>
+      <button class="tab" role="tab" id="t-check" aria-controls="p-check" aria-selected="false"><span class="num">08</span> The royalty check</button>
+      <button class="tab" role="tab" id="t-tax" aria-controls="p-tax" aria-selected="false"><span class="num">09</span> The two taxes</button>
+      <button class="tab" role="tab" id="t-alloc" aria-controls="p-alloc" aria-selected="false"><span class="num">10</span> Allocation wells</button>
+      <button class="tab" role="tab" id="t-ppc" aria-controls="p-ppc" aria-selected="false"><span class="num">11</span> Post-production costs</button>
+      <button class="tab" role="tab" id="t-hold" aria-controls="p-hold" aria-selected="false"><span class="num">12</span> Holding the lease</button>
+      <button class="tab" role="tab" id="t-hbp" aria-controls="p-hbp" aria-selected="false"><span class="num">13</span> HBP monitoring</button>
+      <button class="tab" role="tab" id="t-money" aria-controls="p-money" aria-selected="false"><span class="num">14</span> The money trail</button>
       <button class="tab" role="tab" id="t-support" aria-controls="p-support" aria-selected="false"><span class="num">♥</span> Support</button>
       <button class="tab" role="tab" id="t-roadmap" aria-controls="p-roadmap" aria-selected="false"><span class="num">→</span> Roadmap</button>
     </div>
@@ -761,25 +795,841 @@
     </div>
   </section>
 
-  <!-- ============ PANEL 04 — THE LEASE ============ -->
+  <!-- ============ PANEL 04 — MEASURING OWNERSHIP ============ -->
+  <section class="panel" id="p-measure" role="tabpanel" aria-labelledby="t-measure" data-active="false" tabindex="0">
+
+    <div class="hero">
+      <p class="eyebrow">Concept 04 — measuring ownership</p>
+      <h1>The word <em>acre</em> means three different things.</h1>
+      <p class="lede">Your deed describes 640 acres. You own a quarter of the minerals. An offer letter quotes a price per acre. Those are three different acres, and mixing them up is the fastest way to misjudge what you own by a factor of two.</p>
+    </div>
+
+    <div class="section" style="border-top:0;padding-top:1rem">
+      <p class="kicker">Start here</p>
+      <h2>First — the words this whole tab runs on</h2>
+      <p>Nothing here is hard arithmetic. It is one multiplication, done twice. What trips people is that the industry uses the word <em>acre</em> for three separate ideas and almost never says which one it means.</p>
+
+      <div class="glossary">
+        <div class="term"><span class="t">Gross acres</span><span class="d">The size of the tract on the ground, as the deed describes it. A full section is 640 gross acres whether one person owns it or four hundred people do.</span></div>
+        <div class="term"><span class="t">Mineral interest</span><span class="d">Your undivided fraction of the minerals under that tract. Undivided means it applies to every acre at once, not to a mapped-off corner — that's <a href="#top" data-goto-tab="t-fraction">Concept 03</a>.</span></div>
+        <div class="term"><span class="t">Net mineral acres (NMA)</span><span class="d">Your fraction × the gross acres. A quantity, not a location. This is what a bonus is paid on.</span></div>
+        <div class="term"><span class="t">Royalty rate</span><span class="d">The fraction of production the lease reserves to you: 1/8, 3/16, 1/5, 1/4. It comes from the lease, not the deed — see <a href="#top" data-goto-tab="t-lease">Concept 05</a>.</span></div>
+        <div class="term"><span class="t">Net royalty acres (NRA)</span><span class="d">Your net mineral acres restated as if every one of them were leased at 1/8. A common yardstick, so royalty positions written on different lease terms can be compared.</span></div>
+        <div class="term"><span class="t">The 1/8 yardstick</span><span class="d">Why 1/8? Because for most of the last century almost every Texas lease reserved 1/8, so it became the standard unit. It outlived the market that created it.</span></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="kicker">Follow one ownership through</p>
+      <h2>640 acres, an undivided quarter, and one lease</h2>
+      <p>One example carries the whole tab. A full section of 640 acres. You own an undivided 1/4 of the minerals under it. Watch what each stage does and, more importantly, what it does <em>not</em> do to the ground.</p>
+
+      <div class="doi-stage own-wide">
+        <div class="ds-head"><span class="n">Stage 1 · where</span><span class="t">An undivided quarter is everywhere, not somewhere</span></div>
+        <div class="ds-body">
+          <div class="ds-viz">
+            <svg viewBox="0 0 640 360" role="img" aria-label="Two panels. On the left, rejected: the northwest quarter of a section drawn as a solid block, struck through. On the right, correct: the whole 640-acre section covered by an even field of 256 dots, of which 64 are filled to show the one-in-four ownership, evenly spread so any part of the section carries the same share.">
+              <text x="150" y="30" text-anchor="middle" font-family="JetBrains Mono" font-size="11" letter-spacing="1.6" fill="#A23A2A">NOT THIS</text>
+              <text x="150" y="47" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#6B675E">a quarter you could walk to</text>
+              <rect x="20" y="62" width="260" height="260" fill="#F4F2EC" stroke="#C7C1B2" stroke-width="1.25"/>
+              <rect x="20" y="62" width="130" height="130" fill="#B06A3B" opacity=".55"/>
+              <line x1="150" y1="62" x2="150" y2="322" stroke="#C7C1B2" stroke-width="1"/>
+              <line x1="20" y1="192" x2="280" y2="192" stroke="#C7C1B2" stroke-width="1"/>
+              <text x="85" y="132" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#FFFFFF">MINE?</text>
+              <line x1="32" y1="74" x2="268" y2="310" stroke="#A23A2A" stroke-width="2.5" opacity=".8"/>
+              <line x1="268" y1="74" x2="32" y2="310" stroke="#A23A2A" stroke-width="2.5" opacity=".8"/>
+              <text x="150" y="344" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#6B675E">no line on the ground says this</text>
+              <text x="486" y="30" text-anchor="middle" font-family="JetBrains Mono" font-size="11" letter-spacing="1.6" fill="#243A35">THIS</text>
+              <text x="486" y="47" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#6B675E">one acre in four, everywhere at once</text>
+              <rect x="356" y="62" width="260" height="260" fill="#F4F2EC" stroke="#243A35" stroke-width="1.5"/>
+              <g>
+            <circle cx="364.12" cy="70.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="380.38" cy="70.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="396.62" cy="70.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="412.88" cy="70.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="429.12" cy="70.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="445.38" cy="70.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="461.62" cy="70.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="477.88" cy="70.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="494.12" cy="70.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="510.38" cy="70.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="526.62" cy="70.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="542.88" cy="70.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="559.12" cy="70.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="575.38" cy="70.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="591.62" cy="70.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="607.88" cy="70.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="364.12" cy="86.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="380.38" cy="86.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="396.62" cy="86.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="412.88" cy="86.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="429.12" cy="86.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="445.38" cy="86.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="461.62" cy="86.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="477.88" cy="86.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="494.12" cy="86.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="510.38" cy="86.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="526.62" cy="86.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="542.88" cy="86.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="559.12" cy="86.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="575.38" cy="86.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="591.62" cy="86.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="607.88" cy="86.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="364.12" cy="102.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="380.38" cy="102.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="396.62" cy="102.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="412.88" cy="102.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="429.12" cy="102.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="445.38" cy="102.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="461.62" cy="102.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="477.88" cy="102.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="494.12" cy="102.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="510.38" cy="102.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="526.62" cy="102.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="542.88" cy="102.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="559.12" cy="102.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="575.38" cy="102.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="591.62" cy="102.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="607.88" cy="102.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="364.12" cy="118.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="380.38" cy="118.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="396.62" cy="118.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="412.88" cy="118.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="429.12" cy="118.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="445.38" cy="118.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="461.62" cy="118.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="477.88" cy="118.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="494.12" cy="118.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="510.38" cy="118.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="526.62" cy="118.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="542.88" cy="118.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="559.12" cy="118.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="575.38" cy="118.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="591.62" cy="118.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="607.88" cy="118.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="364.12" cy="135.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="380.38" cy="135.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="396.62" cy="135.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="412.88" cy="135.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="429.12" cy="135.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="445.38" cy="135.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="461.62" cy="135.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="477.88" cy="135.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="494.12" cy="135.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="510.38" cy="135.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="526.62" cy="135.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="542.88" cy="135.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="559.12" cy="135.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="575.38" cy="135.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="591.62" cy="135.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="607.88" cy="135.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="364.12" cy="151.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="380.38" cy="151.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="396.62" cy="151.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="412.88" cy="151.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="429.12" cy="151.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="445.38" cy="151.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="461.62" cy="151.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="477.88" cy="151.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="494.12" cy="151.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="510.38" cy="151.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="526.62" cy="151.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="542.88" cy="151.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="559.12" cy="151.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="575.38" cy="151.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="591.62" cy="151.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="607.88" cy="151.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="364.12" cy="167.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="380.38" cy="167.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="396.62" cy="167.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="412.88" cy="167.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="429.12" cy="167.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="445.38" cy="167.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="461.62" cy="167.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="477.88" cy="167.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="494.12" cy="167.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="510.38" cy="167.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="526.62" cy="167.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="542.88" cy="167.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="559.12" cy="167.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="575.38" cy="167.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="591.62" cy="167.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="607.88" cy="167.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="364.12" cy="183.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="380.38" cy="183.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="396.62" cy="183.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="412.88" cy="183.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="429.12" cy="183.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="445.38" cy="183.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="461.62" cy="183.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="477.88" cy="183.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="494.12" cy="183.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="510.38" cy="183.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="526.62" cy="183.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="542.88" cy="183.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="559.12" cy="183.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="575.38" cy="183.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="591.62" cy="183.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="607.88" cy="183.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="364.12" cy="200.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="380.38" cy="200.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="396.62" cy="200.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="412.88" cy="200.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="429.12" cy="200.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="445.38" cy="200.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="461.62" cy="200.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="477.88" cy="200.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="494.12" cy="200.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="510.38" cy="200.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="526.62" cy="200.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="542.88" cy="200.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="559.12" cy="200.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="575.38" cy="200.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="591.62" cy="200.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="607.88" cy="200.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="364.12" cy="216.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="380.38" cy="216.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="396.62" cy="216.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="412.88" cy="216.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="429.12" cy="216.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="445.38" cy="216.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="461.62" cy="216.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="477.88" cy="216.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="494.12" cy="216.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="510.38" cy="216.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="526.62" cy="216.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="542.88" cy="216.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="559.12" cy="216.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="575.38" cy="216.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="591.62" cy="216.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="607.88" cy="216.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="364.12" cy="232.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="380.38" cy="232.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="396.62" cy="232.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="412.88" cy="232.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="429.12" cy="232.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="445.38" cy="232.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="461.62" cy="232.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="477.88" cy="232.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="494.12" cy="232.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="510.38" cy="232.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="526.62" cy="232.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="542.88" cy="232.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="559.12" cy="232.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="575.38" cy="232.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="591.62" cy="232.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="607.88" cy="232.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="364.12" cy="248.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="380.38" cy="248.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="396.62" cy="248.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="412.88" cy="248.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="429.12" cy="248.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="445.38" cy="248.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="461.62" cy="248.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="477.88" cy="248.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="494.12" cy="248.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="510.38" cy="248.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="526.62" cy="248.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="542.88" cy="248.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="559.12" cy="248.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="575.38" cy="248.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="591.62" cy="248.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="607.88" cy="248.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="364.12" cy="265.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="380.38" cy="265.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="396.62" cy="265.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="412.88" cy="265.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="429.12" cy="265.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="445.38" cy="265.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="461.62" cy="265.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="477.88" cy="265.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="494.12" cy="265.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="510.38" cy="265.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="526.62" cy="265.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="542.88" cy="265.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="559.12" cy="265.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="575.38" cy="265.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="591.62" cy="265.12" r="3.1" fill="#B06A3B"/>
+            <circle cx="607.88" cy="265.12" r="2.1" fill="#C7C1B2"/>
+            <circle cx="364.12" cy="281.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="380.38" cy="281.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="396.62" cy="281.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="412.88" cy="281.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="429.12" cy="281.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="445.38" cy="281.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="461.62" cy="281.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="477.88" cy="281.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="494.12" cy="281.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="510.38" cy="281.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="526.62" cy="281.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="542.88" cy="281.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="559.12" cy="281.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="575.38" cy="281.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="591.62" cy="281.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="607.88" cy="281.38" r="2.1" fill="#C7C1B2"/>
+            <circle cx="364.12" cy="297.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="380.38" cy="297.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="396.62" cy="297.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="412.88" cy="297.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="429.12" cy="297.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="445.38" cy="297.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="461.62" cy="297.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="477.88" cy="297.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="494.12" cy="297.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="510.38" cy="297.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="526.62" cy="297.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="542.88" cy="297.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="559.12" cy="297.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="575.38" cy="297.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="591.62" cy="297.62" r="3.1" fill="#B06A3B"/>
+            <circle cx="607.88" cy="297.62" r="2.1" fill="#C7C1B2"/>
+            <circle cx="364.12" cy="313.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="380.38" cy="313.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="396.62" cy="313.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="412.88" cy="313.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="429.12" cy="313.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="445.38" cy="313.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="461.62" cy="313.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="477.88" cy="313.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="494.12" cy="313.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="510.38" cy="313.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="526.62" cy="313.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="542.88" cy="313.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="559.12" cy="313.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="575.38" cy="313.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="591.62" cy="313.88" r="2.1" fill="#C7C1B2"/>
+            <circle cx="607.88" cy="313.88" r="2.1" fill="#C7C1B2"/>
+              </g>
+              <rect x="421.0" y="127.0" width="65.0" height="65.0" fill="none" stroke="#A23A2A" stroke-width="1.75" stroke-dasharray="5 3"/>
+              <text x="486" y="344" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#A23A2A">zoom any 40 acres — still 4 of 16</text>
+            </svg>
+          </div>
+          <div class="ds-math">
+            <p class="ds-formula">the section <b>640 ac</b><br>your mineral interest <b>1/4</b><br>dots drawn <b>256</b> · dots yours <b>64</b></p>
+            <p class="ds-dec">1 in 4<small>uniform across the section</small></p>
+            <p class="ds-note">The dashed square is any 40 acres you care to pick. It holds four of your dots out of sixteen — the same ratio as the whole section, the same ratio as a single acre. That is what <em>undivided</em> means, and it is why nobody can point at your quarter. <a href="#top" data-goto-tab="t-fraction">Concept 03</a> built this; here it becomes a measurement.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="doi-stage own-wide">
+        <div class="ds-head"><span class="n">Stage 2 · how much</span><span class="t">Counting the dots instead of drawing them</span></div>
+        <div class="ds-body">
+          <div class="ds-viz">
+            <svg viewBox="0 0 640 320" role="img" aria-label="The dotted section on the left, an arrow, and on the right the same 64 owned dots gathered into a tidy pile labelled 160 net mineral acres. The caption notes that gathering them is only counting and moves nothing on the ground.">
+              <text x="121" y="52" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing="1.2" fill="#6B675E">ON THE GROUND</text>
+              <rect x="26" y="78" width="190" height="190" fill="#F4F2EC" stroke="#243A35" stroke-width="1.25"/>
+              <g>
+            <circle cx="31.94" cy="83.94" r="2.4" fill="#B06A3B"/>
+            <circle cx="43.81" cy="83.94" r="1.6" fill="#C7C1B2"/>
+            <circle cx="55.69" cy="83.94" r="2.4" fill="#B06A3B"/>
+            <circle cx="67.56" cy="83.94" r="1.6" fill="#C7C1B2"/>
+            <circle cx="79.44" cy="83.94" r="2.4" fill="#B06A3B"/>
+            <circle cx="91.31" cy="83.94" r="1.6" fill="#C7C1B2"/>
+            <circle cx="103.19" cy="83.94" r="2.4" fill="#B06A3B"/>
+            <circle cx="115.06" cy="83.94" r="1.6" fill="#C7C1B2"/>
+            <circle cx="126.94" cy="83.94" r="2.4" fill="#B06A3B"/>
+            <circle cx="138.81" cy="83.94" r="1.6" fill="#C7C1B2"/>
+            <circle cx="150.69" cy="83.94" r="2.4" fill="#B06A3B"/>
+            <circle cx="162.56" cy="83.94" r="1.6" fill="#C7C1B2"/>
+            <circle cx="174.44" cy="83.94" r="2.4" fill="#B06A3B"/>
+            <circle cx="186.31" cy="83.94" r="1.6" fill="#C7C1B2"/>
+            <circle cx="198.19" cy="83.94" r="2.4" fill="#B06A3B"/>
+            <circle cx="210.06" cy="83.94" r="1.6" fill="#C7C1B2"/>
+            <circle cx="31.94" cy="95.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="43.81" cy="95.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="55.69" cy="95.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="67.56" cy="95.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="79.44" cy="95.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="91.31" cy="95.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="103.19" cy="95.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="115.06" cy="95.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="126.94" cy="95.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="138.81" cy="95.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="150.69" cy="95.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="162.56" cy="95.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="174.44" cy="95.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="186.31" cy="95.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="198.19" cy="95.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="210.06" cy="95.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="31.94" cy="107.69" r="2.4" fill="#B06A3B"/>
+            <circle cx="43.81" cy="107.69" r="1.6" fill="#C7C1B2"/>
+            <circle cx="55.69" cy="107.69" r="2.4" fill="#B06A3B"/>
+            <circle cx="67.56" cy="107.69" r="1.6" fill="#C7C1B2"/>
+            <circle cx="79.44" cy="107.69" r="2.4" fill="#B06A3B"/>
+            <circle cx="91.31" cy="107.69" r="1.6" fill="#C7C1B2"/>
+            <circle cx="103.19" cy="107.69" r="2.4" fill="#B06A3B"/>
+            <circle cx="115.06" cy="107.69" r="1.6" fill="#C7C1B2"/>
+            <circle cx="126.94" cy="107.69" r="2.4" fill="#B06A3B"/>
+            <circle cx="138.81" cy="107.69" r="1.6" fill="#C7C1B2"/>
+            <circle cx="150.69" cy="107.69" r="2.4" fill="#B06A3B"/>
+            <circle cx="162.56" cy="107.69" r="1.6" fill="#C7C1B2"/>
+            <circle cx="174.44" cy="107.69" r="2.4" fill="#B06A3B"/>
+            <circle cx="186.31" cy="107.69" r="1.6" fill="#C7C1B2"/>
+            <circle cx="198.19" cy="107.69" r="2.4" fill="#B06A3B"/>
+            <circle cx="210.06" cy="107.69" r="1.6" fill="#C7C1B2"/>
+            <circle cx="31.94" cy="119.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="43.81" cy="119.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="55.69" cy="119.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="67.56" cy="119.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="79.44" cy="119.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="91.31" cy="119.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="103.19" cy="119.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="115.06" cy="119.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="126.94" cy="119.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="138.81" cy="119.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="150.69" cy="119.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="162.56" cy="119.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="174.44" cy="119.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="186.31" cy="119.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="198.19" cy="119.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="210.06" cy="119.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="31.94" cy="131.44" r="2.4" fill="#B06A3B"/>
+            <circle cx="43.81" cy="131.44" r="1.6" fill="#C7C1B2"/>
+            <circle cx="55.69" cy="131.44" r="2.4" fill="#B06A3B"/>
+            <circle cx="67.56" cy="131.44" r="1.6" fill="#C7C1B2"/>
+            <circle cx="79.44" cy="131.44" r="2.4" fill="#B06A3B"/>
+            <circle cx="91.31" cy="131.44" r="1.6" fill="#C7C1B2"/>
+            <circle cx="103.19" cy="131.44" r="2.4" fill="#B06A3B"/>
+            <circle cx="115.06" cy="131.44" r="1.6" fill="#C7C1B2"/>
+            <circle cx="126.94" cy="131.44" r="2.4" fill="#B06A3B"/>
+            <circle cx="138.81" cy="131.44" r="1.6" fill="#C7C1B2"/>
+            <circle cx="150.69" cy="131.44" r="2.4" fill="#B06A3B"/>
+            <circle cx="162.56" cy="131.44" r="1.6" fill="#C7C1B2"/>
+            <circle cx="174.44" cy="131.44" r="2.4" fill="#B06A3B"/>
+            <circle cx="186.31" cy="131.44" r="1.6" fill="#C7C1B2"/>
+            <circle cx="198.19" cy="131.44" r="2.4" fill="#B06A3B"/>
+            <circle cx="210.06" cy="131.44" r="1.6" fill="#C7C1B2"/>
+            <circle cx="31.94" cy="143.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="43.81" cy="143.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="55.69" cy="143.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="67.56" cy="143.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="79.44" cy="143.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="91.31" cy="143.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="103.19" cy="143.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="115.06" cy="143.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="126.94" cy="143.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="138.81" cy="143.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="150.69" cy="143.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="162.56" cy="143.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="174.44" cy="143.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="186.31" cy="143.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="198.19" cy="143.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="210.06" cy="143.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="31.94" cy="155.19" r="2.4" fill="#B06A3B"/>
+            <circle cx="43.81" cy="155.19" r="1.6" fill="#C7C1B2"/>
+            <circle cx="55.69" cy="155.19" r="2.4" fill="#B06A3B"/>
+            <circle cx="67.56" cy="155.19" r="1.6" fill="#C7C1B2"/>
+            <circle cx="79.44" cy="155.19" r="2.4" fill="#B06A3B"/>
+            <circle cx="91.31" cy="155.19" r="1.6" fill="#C7C1B2"/>
+            <circle cx="103.19" cy="155.19" r="2.4" fill="#B06A3B"/>
+            <circle cx="115.06" cy="155.19" r="1.6" fill="#C7C1B2"/>
+            <circle cx="126.94" cy="155.19" r="2.4" fill="#B06A3B"/>
+            <circle cx="138.81" cy="155.19" r="1.6" fill="#C7C1B2"/>
+            <circle cx="150.69" cy="155.19" r="2.4" fill="#B06A3B"/>
+            <circle cx="162.56" cy="155.19" r="1.6" fill="#C7C1B2"/>
+            <circle cx="174.44" cy="155.19" r="2.4" fill="#B06A3B"/>
+            <circle cx="186.31" cy="155.19" r="1.6" fill="#C7C1B2"/>
+            <circle cx="198.19" cy="155.19" r="2.4" fill="#B06A3B"/>
+            <circle cx="210.06" cy="155.19" r="1.6" fill="#C7C1B2"/>
+            <circle cx="31.94" cy="167.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="43.81" cy="167.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="55.69" cy="167.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="67.56" cy="167.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="79.44" cy="167.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="91.31" cy="167.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="103.19" cy="167.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="115.06" cy="167.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="126.94" cy="167.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="138.81" cy="167.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="150.69" cy="167.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="162.56" cy="167.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="174.44" cy="167.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="186.31" cy="167.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="198.19" cy="167.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="210.06" cy="167.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="31.94" cy="178.94" r="2.4" fill="#B06A3B"/>
+            <circle cx="43.81" cy="178.94" r="1.6" fill="#C7C1B2"/>
+            <circle cx="55.69" cy="178.94" r="2.4" fill="#B06A3B"/>
+            <circle cx="67.56" cy="178.94" r="1.6" fill="#C7C1B2"/>
+            <circle cx="79.44" cy="178.94" r="2.4" fill="#B06A3B"/>
+            <circle cx="91.31" cy="178.94" r="1.6" fill="#C7C1B2"/>
+            <circle cx="103.19" cy="178.94" r="2.4" fill="#B06A3B"/>
+            <circle cx="115.06" cy="178.94" r="1.6" fill="#C7C1B2"/>
+            <circle cx="126.94" cy="178.94" r="2.4" fill="#B06A3B"/>
+            <circle cx="138.81" cy="178.94" r="1.6" fill="#C7C1B2"/>
+            <circle cx="150.69" cy="178.94" r="2.4" fill="#B06A3B"/>
+            <circle cx="162.56" cy="178.94" r="1.6" fill="#C7C1B2"/>
+            <circle cx="174.44" cy="178.94" r="2.4" fill="#B06A3B"/>
+            <circle cx="186.31" cy="178.94" r="1.6" fill="#C7C1B2"/>
+            <circle cx="198.19" cy="178.94" r="2.4" fill="#B06A3B"/>
+            <circle cx="210.06" cy="178.94" r="1.6" fill="#C7C1B2"/>
+            <circle cx="31.94" cy="190.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="43.81" cy="190.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="55.69" cy="190.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="67.56" cy="190.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="79.44" cy="190.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="91.31" cy="190.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="103.19" cy="190.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="115.06" cy="190.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="126.94" cy="190.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="138.81" cy="190.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="150.69" cy="190.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="162.56" cy="190.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="174.44" cy="190.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="186.31" cy="190.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="198.19" cy="190.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="210.06" cy="190.81" r="1.6" fill="#C7C1B2"/>
+            <circle cx="31.94" cy="202.69" r="2.4" fill="#B06A3B"/>
+            <circle cx="43.81" cy="202.69" r="1.6" fill="#C7C1B2"/>
+            <circle cx="55.69" cy="202.69" r="2.4" fill="#B06A3B"/>
+            <circle cx="67.56" cy="202.69" r="1.6" fill="#C7C1B2"/>
+            <circle cx="79.44" cy="202.69" r="2.4" fill="#B06A3B"/>
+            <circle cx="91.31" cy="202.69" r="1.6" fill="#C7C1B2"/>
+            <circle cx="103.19" cy="202.69" r="2.4" fill="#B06A3B"/>
+            <circle cx="115.06" cy="202.69" r="1.6" fill="#C7C1B2"/>
+            <circle cx="126.94" cy="202.69" r="2.4" fill="#B06A3B"/>
+            <circle cx="138.81" cy="202.69" r="1.6" fill="#C7C1B2"/>
+            <circle cx="150.69" cy="202.69" r="2.4" fill="#B06A3B"/>
+            <circle cx="162.56" cy="202.69" r="1.6" fill="#C7C1B2"/>
+            <circle cx="174.44" cy="202.69" r="2.4" fill="#B06A3B"/>
+            <circle cx="186.31" cy="202.69" r="1.6" fill="#C7C1B2"/>
+            <circle cx="198.19" cy="202.69" r="2.4" fill="#B06A3B"/>
+            <circle cx="210.06" cy="202.69" r="1.6" fill="#C7C1B2"/>
+            <circle cx="31.94" cy="214.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="43.81" cy="214.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="55.69" cy="214.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="67.56" cy="214.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="79.44" cy="214.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="91.31" cy="214.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="103.19" cy="214.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="115.06" cy="214.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="126.94" cy="214.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="138.81" cy="214.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="150.69" cy="214.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="162.56" cy="214.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="174.44" cy="214.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="186.31" cy="214.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="198.19" cy="214.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="210.06" cy="214.56" r="1.6" fill="#C7C1B2"/>
+            <circle cx="31.94" cy="226.44" r="2.4" fill="#B06A3B"/>
+            <circle cx="43.81" cy="226.44" r="1.6" fill="#C7C1B2"/>
+            <circle cx="55.69" cy="226.44" r="2.4" fill="#B06A3B"/>
+            <circle cx="67.56" cy="226.44" r="1.6" fill="#C7C1B2"/>
+            <circle cx="79.44" cy="226.44" r="2.4" fill="#B06A3B"/>
+            <circle cx="91.31" cy="226.44" r="1.6" fill="#C7C1B2"/>
+            <circle cx="103.19" cy="226.44" r="2.4" fill="#B06A3B"/>
+            <circle cx="115.06" cy="226.44" r="1.6" fill="#C7C1B2"/>
+            <circle cx="126.94" cy="226.44" r="2.4" fill="#B06A3B"/>
+            <circle cx="138.81" cy="226.44" r="1.6" fill="#C7C1B2"/>
+            <circle cx="150.69" cy="226.44" r="2.4" fill="#B06A3B"/>
+            <circle cx="162.56" cy="226.44" r="1.6" fill="#C7C1B2"/>
+            <circle cx="174.44" cy="226.44" r="2.4" fill="#B06A3B"/>
+            <circle cx="186.31" cy="226.44" r="1.6" fill="#C7C1B2"/>
+            <circle cx="198.19" cy="226.44" r="2.4" fill="#B06A3B"/>
+            <circle cx="210.06" cy="226.44" r="1.6" fill="#C7C1B2"/>
+            <circle cx="31.94" cy="238.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="43.81" cy="238.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="55.69" cy="238.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="67.56" cy="238.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="79.44" cy="238.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="91.31" cy="238.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="103.19" cy="238.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="115.06" cy="238.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="126.94" cy="238.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="138.81" cy="238.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="150.69" cy="238.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="162.56" cy="238.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="174.44" cy="238.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="186.31" cy="238.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="198.19" cy="238.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="210.06" cy="238.31" r="1.6" fill="#C7C1B2"/>
+            <circle cx="31.94" cy="250.19" r="2.4" fill="#B06A3B"/>
+            <circle cx="43.81" cy="250.19" r="1.6" fill="#C7C1B2"/>
+            <circle cx="55.69" cy="250.19" r="2.4" fill="#B06A3B"/>
+            <circle cx="67.56" cy="250.19" r="1.6" fill="#C7C1B2"/>
+            <circle cx="79.44" cy="250.19" r="2.4" fill="#B06A3B"/>
+            <circle cx="91.31" cy="250.19" r="1.6" fill="#C7C1B2"/>
+            <circle cx="103.19" cy="250.19" r="2.4" fill="#B06A3B"/>
+            <circle cx="115.06" cy="250.19" r="1.6" fill="#C7C1B2"/>
+            <circle cx="126.94" cy="250.19" r="2.4" fill="#B06A3B"/>
+            <circle cx="138.81" cy="250.19" r="1.6" fill="#C7C1B2"/>
+            <circle cx="150.69" cy="250.19" r="2.4" fill="#B06A3B"/>
+            <circle cx="162.56" cy="250.19" r="1.6" fill="#C7C1B2"/>
+            <circle cx="174.44" cy="250.19" r="2.4" fill="#B06A3B"/>
+            <circle cx="186.31" cy="250.19" r="1.6" fill="#C7C1B2"/>
+            <circle cx="198.19" cy="250.19" r="2.4" fill="#B06A3B"/>
+            <circle cx="210.06" cy="250.19" r="1.6" fill="#C7C1B2"/>
+            <circle cx="31.94" cy="262.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="43.81" cy="262.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="55.69" cy="262.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="67.56" cy="262.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="79.44" cy="262.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="91.31" cy="262.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="103.19" cy="262.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="115.06" cy="262.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="126.94" cy="262.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="138.81" cy="262.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="150.69" cy="262.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="162.56" cy="262.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="174.44" cy="262.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="186.31" cy="262.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="198.19" cy="262.06" r="1.6" fill="#C7C1B2"/>
+            <circle cx="210.06" cy="262.06" r="1.6" fill="#C7C1B2"/>
+              </g>
+              <text x="121" y="290" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#6B675E">640 gross acres</text>
+              <line x1="240" y1="173" x2="330" y2="173" stroke="#A23A2A" stroke-width="2"/>
+              <path d="M330 173 l-11 -6 v12 z" fill="#A23A2A"/>
+              <text x="285" y="160" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#A23A2A">count</text>
+              <text x="450" y="52" text-anchor="middle" font-family="JetBrains Mono" font-size="9" letter-spacing="1.2" fill="#6B675E">ON PAPER</text>
+              <g>
+            <circle cx="372.0" cy="96.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="394.0" cy="96.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="416.0" cy="96.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="438.0" cy="96.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="460.0" cy="96.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="482.0" cy="96.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="504.0" cy="96.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="526.0" cy="96.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="372.0" cy="118.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="394.0" cy="118.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="416.0" cy="118.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="438.0" cy="118.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="460.0" cy="118.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="482.0" cy="118.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="504.0" cy="118.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="526.0" cy="118.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="372.0" cy="140.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="394.0" cy="140.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="416.0" cy="140.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="438.0" cy="140.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="460.0" cy="140.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="482.0" cy="140.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="504.0" cy="140.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="526.0" cy="140.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="372.0" cy="162.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="394.0" cy="162.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="416.0" cy="162.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="438.0" cy="162.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="460.0" cy="162.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="482.0" cy="162.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="504.0" cy="162.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="526.0" cy="162.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="372.0" cy="184.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="394.0" cy="184.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="416.0" cy="184.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="438.0" cy="184.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="460.0" cy="184.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="482.0" cy="184.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="504.0" cy="184.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="526.0" cy="184.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="372.0" cy="206.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="394.0" cy="206.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="416.0" cy="206.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="438.0" cy="206.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="460.0" cy="206.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="482.0" cy="206.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="504.0" cy="206.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="526.0" cy="206.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="372.0" cy="228.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="394.0" cy="228.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="416.0" cy="228.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="438.0" cy="228.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="460.0" cy="228.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="482.0" cy="228.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="504.0" cy="228.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="526.0" cy="228.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="372.0" cy="250.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="394.0" cy="250.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="416.0" cy="250.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="438.0" cy="250.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="460.0" cy="250.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="482.0" cy="250.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="504.0" cy="250.0" r="6.4" fill="#B06A3B"/>
+            <circle cx="526.0" cy="250.0" r="6.4" fill="#B06A3B"/>
+              </g>
+              <text x="450" y="290" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#B06A3B">160.00 net mineral acres</text>
+            </svg>
+          </div>
+          <div class="ds-math">
+            <p class="ds-formula">gross acres <b>640.00</b><br>× mineral interest <b>1/4</b></p>
+            <p class="ds-dec">160.00<small>net mineral acres</small></p>
+            <p class="ds-note">Nothing moved. The pile on the right is the same 64 dots, gathered so they can be counted, priced, and written on a lease. Net mineral acres are an answer to <em>how much</em>, never to <em>where</em>. This is the number a bonus is paid on, the number a shut-in payment is figured on (<a href="#top" data-goto-tab="t-hold">Concept 12</a>), and the number a mineral buyer usually quotes against.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="kicker">Stage 3 · restated</p>
+      <h2>Every mineral acre holds eight royalty acres</h2>
+      <p>Here is where the third acre appears. Take one net mineral acre and divide it into eight equal parts. <strong>Each of those eighths is one royalty acre.</strong> So a single mineral acre holds eight of them, always, no matter what any lease says.</p>
+      <p>What the lease decides is how many of the eight come to <em>you</em>. A 1/8 royalty sends you one of the eight. A 1/4 royalty sends you two. The other six or seven belong to the working interest, which pays every dollar of drilling and operating cost in exchange (<a href="#top" data-goto-tab="t-lease">Concept 05</a>). Hold those two ideas apart — what the acre <em>contains</em> versus what the lease <em>delivers</em> — and the rest of this tab is arithmetic.</p>
+
+      <div class="dil" id="own">
+        <div class="dil-head">
+          <div class="dil-control">
+            <label for="own-rate">Lease royalty</label>
+            <input type="range" id="own-rate" min="0" max="4" step="1" value="0" aria-describedby="own-readout">
+            <output id="own-out" for="own-rate">1/8</output>
+          </div>
+          <p class="dil-state" id="own-state">The yardstick itself</p>
+        </div>
+
+        <div class="dil-body">
+          <div class="own-acre">
+            <p class="own-figcap"><span>▾ one net mineral acre · it holds eight royalty acres</span></p>
+            <div class="own-zones">
+              <span class="z-mine" id="own-z-mine">yours</span>
+              <span class="z-wi">the working interest's — it pays every cost</span>
+            </div>
+            <div class="own-bar" role="img" id="own-bar-img" aria-label="One net mineral acre divided into eight royalty acres, with one of the eight filled to show a one-eighth royalty.">
+              <div class="own-fill" id="own-fill"></div>
+              <span class="own-tick" style="left:12.5%"></span><span class="own-tick" style="left:25.0%"></span><span class="own-tick" style="left:37.5%"></span><span class="own-tick" style="left:50.0%"></span><span class="own-tick" style="left:62.5%"></span><span class="own-tick" style="left:75.0%"></span><span class="own-tick" style="left:87.5%"></span>
+              <div class="own-edge" id="own-edge"></div>
+              <p class="own-bar-note" id="own-bar-note">7 royalty acres stay here</p>
+            </div>
+            <div class="own-ra-scale" id="own-ra-scale"><span class="own-cellra" data-i="0"><b>1 RA</b></span><span class="own-cellra" data-i="1"><b>1 RA</b></span><span class="own-cellra" data-i="2"><b>1 RA</b></span><span class="own-cellra" data-i="3"><b>1 RA</b></span><span class="own-cellra" data-i="4"><b>1 RA</b></span><span class="own-cellra" data-i="5"><b>1 RA</b></span><span class="own-cellra" data-i="6"><b>1 RA</b></span><span class="own-cellra" data-i="7"><b>1 RA</b></span></div>
+            <div class="own-count">
+              <span class="mine" id="own-count-mine">1 of the 8 come to you</span>
+              <span id="own-count-rest">7 do not</span>
+            </div>
+          </div>
+
+          <div class="own-yard">
+            <p class="own-figcap"><span>▾ the same acre, measured against the 1/8 yardstick</span></p>
+            <div class="own-yrow">
+              <span class="own-ylbl"><b>The yardstick</b>one acre at 1/8</span>
+              <div class="own-ytrack"><div class="own-yfill bench" style="width:50%"></div></div>
+            </div>
+            <div class="own-yrow">
+              <span class="own-ylbl"><b>Your lease</b><span id="own-ylbl-rate">at 1/8</span></span>
+              <div class="own-ytrack">
+                <div class="own-yfill" id="own-yfill" style="width:50%"></div>
+                <span class="own-ymark"></span>
+              </div>
+            </div>
+            <div class="own-yscale"><span>0</span><span>1.0 RA</span><span>2.0 RA</span></div>
+          </div>
+
+          <div class="own-metrics">
+            <div class="metric m-rate">
+              <p class="m-label">Royalty in the lease</p>
+              <p class="m-num" id="own-m-rate">1/8</p>
+              <p class="m-delta" id="own-m-rate-d">0.12500 of production</p>
+            </div>
+            <div class="metric m-per">
+              <p class="m-label">Royalty acres per mineral acre</p>
+              <p class="m-num" id="own-m-per">1.0000</p>
+              <p class="m-delta">royalty rate ÷ 1/8</p>
+            </div>
+            <div class="metric m-tot">
+              <p class="m-label">Your net royalty acres</p>
+              <p class="m-num" id="own-m-tot">160.00</p>
+              <p class="m-delta">on 160.00 net mineral acres</p>
+            </div>
+          </div>
+
+          <p class="dil-readout" id="own-readout"></p>
+        </div>
+      </div>
+
+      <p class="aside-note">One honest caveat. Unlike net mineral acres, "royalty acres" is not a term with one settled definition. The dominant convention, and the one used here, restates against a 1/8 lease. Some buyers instead compute a royalty acre straight from your division-order decimal times the unit acreage, which is a different number on a pooled tract (<a href="#top" data-goto-tab="t-doi">Concept 07</a>). Neither is wrong, but they are not interchangeable, so make anyone quoting you a per-acre number show the arithmetic that produced it.</p>
+    </div>
+
+    <div class="section">
+      <p class="kicker">The three acres, together</p>
+      <h2>Same ownership, three sizes</h2>
+      <div class="own-strip">
+        <div class="own-cell c-gross">
+          <p class="k">Gross acres</p>
+          <p class="v">640.00</p>
+          <p>What the deed describes. Comes from the survey. Never changes because of anything you sign.</p>
+        </div>
+        <div class="own-cell c-nma">
+          <p class="k">Net mineral acres</p>
+          <p class="v">160.00</p>
+          <p>Gross × your undivided 1/4. Comes from the deed. Changes only when you buy, sell, or inherit.</p>
+        </div>
+        <div class="own-cell c-nra">
+          <p class="k">Net royalty acres</p>
+          <p class="v">320.00</p>
+          <p>Net mineral acres × royalty ÷ 1/8, shown here at a 1/4 lease. Comes from the <em>lease</em>. Moves every time the royalty rate does.</p>
+        </div>
+      </div>
+      <p style="margin-top:1.2rem">Two of those three are facts about your deed. The third is a fact about a document you can negotiate. That is the entire distinction, and it is worth holding onto, because the number that moves is the one most often quoted at you.</p>
+    </div>
+
+    <div class="section">
+      <p class="kicker">Why it matters</p>
+      <h2>Which acre is each number quoting?</h2>
+      <div class="grid2">
+        <div>
+          <h3>Everything on signing day is per net mineral acre</h3>
+          <p>The bonus is per net mineral acre. So is a delay rental, and so is a shut-in payment (<a href="#top" data-goto-tab="t-hold">Concept 12</a>). None of those has anything to do with royalty acres, because on signing day there is no royalty rate to measure against yet — you are still negotiating it.</p>
+          <p>So when a landman offers "a thousand an acre," that is almost always $1,000 per net mineral acre. On our example that is $160,000, and it does not change whether you settle at 1/8 or 1/4.</p>
+        </div>
+        <div>
+          <h3>Everything after a lease exists may be per royalty acre</h3>
+          <p>Once the lease exists, a royalty position can be compared against any other royalty position using the 1/8 yardstick. That is what royalty acres are for, and it is why buyers of producing royalty tend to quote in them.</p>
+          <p>Which means the same phrase, "a thousand an acre," can be $160,000 or $320,000 depending only on which acre the person on the phone means. Nobody has to be dishonest for that to happen. They just have to not say.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">The point that trips everyone up</p>
+      <p>Signing a lease at 1/4 does not give you more minerals, and it does not put more royalty acres in the ground. Every one of your mineral acres held eight royalty acres before you signed and holds eight after. What changed is that two of the eight now come to you instead of one, so the same ownership measures <strong>320 royalty acres</strong> instead of 160. The ground held still and the ruler stretched. That is also why "$25,000 an acre" is not an offer until you know which acre — at a 1/4 lease, the two readings are exactly a factor of two apart.</p>
+    </div>
+
+    <div class="ledger-wrap">
+      <h2>The arithmetic, one row per royalty rate</h2>
+      <p class="eyebrow" style="margin-top:.5rem">640 gross acres · undivided 1/4 mineral interest · 160.00 net mineral acres throughout</p>
+      <div class="table-scroll">
+        <table class="ledger">
+          <thead>
+            <tr>
+              <th>Lease royalty</th>
+              <th class="r">Decimal</th>
+              <th class="r">RA per NMA</th>
+              <th class="r">Your NRA</th>
+              <th class="r">"$1,000/acre" read as NMA</th>
+              <th class="r">"$1,000/acre" read as NRA</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr><td>1/8</td><td class="r">0.12500</td><td class="r">1.0000</td><td class="r">160.00</td><td class="r">$160,000</td><td class="r">$160,000</td></tr>
+              <tr><td>1/6</td><td class="r">0.16667</td><td class="r">1.3333</td><td class="r">213.33</td><td class="r">$160,000</td><td class="r">$213,333</td></tr>
+              <tr><td>3/16</td><td class="r">0.18750</td><td class="r">1.5000</td><td class="r">240.00</td><td class="r">$160,000</td><td class="r">$240,000</td></tr>
+              <tr><td>1/5</td><td class="r">0.20000</td><td class="r">1.6000</td><td class="r">256.00</td><td class="r">$160,000</td><td class="r">$256,000</td></tr>
+              <tr class="tot"><td>1/4</td><td class="r">0.25000</td><td class="r">2.0000</td><td class="r">320.00</td><td class="r">$160,000</td><td class="r">$320,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1.2rem">The $1,000 is an arbitrary number chosen so the arithmetic is easy to follow. It is not a market rate, and this site does not publish one — per-acre prices move constantly and depend on the play, the operator, and whether the acreage is producing. What the last two columns are for is the gap between them. Read as mineral acres, the quote is $160,000 at every royalty rate. Read as royalty acres, it doubles across the same five rows, on ownership that never changed.</p>
+      <p style="margin-top:.8rem">Two habits fall out of that. Ask which acre any per-acre figure refers to, every time, and write your own three numbers down once so you always have them: gross, net mineral, and net royalty at whatever your lease actually says. If you are not sure what your lease says, the <a href="glossary.html">Lease Clause Dictionary</a> has the royalty clauses in plain English.</p>
+    </div>
+
+  </section>
+
   <section class="panel" id="p-lease" role="tabpanel" aria-labelledby="t-lease" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 04 — the lease</p>
+      <p class="eyebrow">Concept 05 — the lease</p>
       <h1>Not a rental — a deal that lives as long as the <em>well</em> does.</h1>
-      <p class="lede">An oil and gas lease isn't like renting an apartment. It's a trade: the mineral owner hands over the right to drill, and in exchange keeps a share of everything produced without paying a cent toward the drilling. And its lifespan isn't a number of years — it's however long the oil keeps flowing.</p>
+      <p class="lede">An oil and gas lease isn't like renting an apartment. It's a trade: the mineral owner hands over the right to drill, and in exchange keeps a cost-free slice of everything produced. And its lifespan isn't a number of years — it's however long the oil keeps flowing.</p>
     </div>
 
     <div class="section" style="border-top:0;padding-top:1rem">
       <p class="kicker">Start here</p>
       <h2>First — what does "leasing" your minerals mean?</h2>
-      <p>Owning minerals doesn't produce a single barrel — someone has to drill, and drilling costs millions. So the mineral owner signs a <strong>lease</strong>: a company (the <strong>lessee</strong>) gets the exclusive right to explore and produce, and the owner (the <strong>lessor</strong>) gets paid two ways — a <strong>bonus</strong> up front just for signing, and a <strong>royalty</strong>: a fraction of production, free of the cost of drilling the well, for as long as the lease lasts.</p>
+      <p>Owning minerals doesn't produce a single barrel — someone has to drill, and drilling costs millions. So the mineral owner signs a <strong>lease</strong>: a company (the <strong>lessee</strong>) gets the exclusive right to explore and produce, and the owner (the <strong>lessor</strong>) gets paid two ways — a <strong>bonus</strong> up front just for signing, and a <strong>royalty</strong>: a fraction of production, free of drilling costs, for as long as the lease lasts.</p>
       <p>How long is that? Every lease has two clocks. The <strong>primary term</strong> is a fixed window (often 3 years) for the company to drill. If it drills and finds production, the lease rolls into the <strong>secondary term</strong> — which has no end date at all. It simply lasts as long as the well keeps producing. That's called being <strong>held by production</strong>.</p>
 
       <div class="glossary">
         <div class="term"><span class="t">Lessor / lessee</span><span class="d">Lessor = the mineral owner who signs. Lessee = the oil company that gets the right to drill.</span></div>
         <div class="term"><span class="t">Bonus</span><span class="d">Cash paid up front, per acre, just for signing — the owner keeps it even if no well is ever drilled.</span></div>
-        <div class="term"><span class="t">Royalty</span><span class="d">The owner's fraction of production (commonly 1/8 to 1/4), carved out before the operator recovers a dollar of what it spent drilling. There is a boundary to "cost-free," and the next section draws it.</span></div>
+        <div class="term"><span class="t">Royalty</span><span class="d">The owner's fraction of production (commonly 1/8 to 1/4), free of drilling and operating costs.</span></div>
         <div class="term"><span class="t">Held by production (HBP)</span><span class="d">Once a well produces, the lease stays alive indefinitely — as long as production continues.</span></div>
       </div>
 
@@ -799,7 +1649,7 @@
         <div class="lt-item alive">
           <span class="when">Year 2 · a well is drilled</span>
           <h4>Production begins — royalty checks start</h4>
-          <p>The well produces, and the owner starts receiving their royalty share of every barrel. The lease rolls from the primary term into the secondary term.</p>
+          <p>The well produces, and the owner starts receiving their royalty share of every barrel, cost-free. The lease rolls from the primary term into the secondary term.</p>
         </div>
         <div class="lt-item alive">
           <span class="when">Years 2–40+ · secondary term</span>
@@ -812,75 +1662,6 @@
           <p>When production permanently ceases, the lease terminates on its own. Full rights snap back to the mineral owner (or their heirs), who can sign a brand-new lease — new bonus, new royalty, new terms.</p>
         </div>
       </div>
-
-      <p class="aside-note">Between "production begins" and "production stops" there is a lot more fine print than this timeline shows. A lease can also stay alive through stretches when nothing is being produced at all, on the strength of a small annual payment or a drilling deadline that keeps resetting. Those are the <strong>savings clauses</strong>, and <a href="#top" data-goto-tab="t-hold">Concept 11</a> takes them apart one at a time.</p>
-    </div>
-
-    <div class="section">
-      <p class="kicker">The word that does the most work</p>
-      <h2>"Cost-free" has a boundary, and the boundary is the wellhead</h2>
-      <p>Almost every description of a royalty — including the one three paragraphs above — calls it <em>cost-free</em>. That is true, and it is the single best thing about owning a royalty. But it is true about a specific set of costs, and owners are often surprised later to learn which set.</p>
-      <p>Texas splits the money spent on a well at the wellhead. Everything spent getting oil and gas <em>out of the ground</em> — the rig, the casing and cement, the completion, the pump, the daily cost of lifting — is a <strong>production cost</strong>. A royalty owner never pays a share of any of it. That is the whole distinction between a royalty and a working interest: the working-interest owner writes those checks and takes that risk, and you do not.</p>
-      <p>Everything spent <em>after</em> the wellhead — gathering, compressing, treating, processing, transporting, and marketing, all of it aimed at turning a raw stream into something a buyer will pay a headline price for — is a <strong>post-production cost</strong>. Those are a separate question with a different answer, and the default answer in Texas is that royalty owners <em>do</em> share them, in proportion to their interest.</p>
-
-      <svg viewBox="0 0 620 276" role="img" aria-label="Two side-by-side cards divided by a vertical line labelled THE WELLHEAD. Left card, production costs: drilling and casing, completing the well, the pump and the power, day-to-day lifting costs. Badge reads NEVER YOURS; a royalty owner pays none of this. Right card, post-production costs: gathering and compression, treating and processing, transportation to market, marketing the product. Badge reads YOURS BY DEFAULT, unless your lease clearly says otherwise." style="width:100%;height:auto;max-width:640px;display:block;margin:2rem auto .8rem">
-
-      <!-- column headers -->
-      <text x="12" y="22" font-family="JetBrains Mono" font-size="10" letter-spacing="1.6" fill="#6B675E">BEFORE THE WELLHEAD</text>
-      <text x="332" y="22" font-family="JetBrains Mono" font-size="10" letter-spacing="1.6" fill="#6B675E">AFTER THE WELLHEAD</text>
-
-      <!-- left card -->
-      <rect x="12" y="30" width="276" height="214" rx="10" fill="#ECE9DF" stroke="#D8D3C7" stroke-width="1"/>
-      <text x="28" y="56" font-family="Spectral" font-size="15" font-weight="700" fill="#1B1A17">Production costs</text>
-      <text x="28" y="76" font-family="Spectral" font-size="11.5" fill="#6B675E">Everything spent getting oil</text>
-      <text x="28" y="90" font-family="Spectral" font-size="11.5" fill="#6B675E">and gas out of the ground.</text>
-      <line x1="28" y1="102" x2="272" y2="102" stroke="#D8D3C7" stroke-width="1"/>
-      <g font-family="JetBrains Mono" font-size="9.5" fill="#1B1A17">
-        <text x="40" y="120">Drilling and casing</text>
-        <text x="40" y="138">Completing the well</text>
-        <text x="40" y="156">The pump and the power</text>
-        <text x="40" y="174">Day-to-day lifting costs</text>
-      </g>
-      <g stroke="#243A35" stroke-width="1.4">
-        <line x1="28" y1="116.5" x2="35" y2="116.5"/>
-        <line x1="28" y1="134.5" x2="35" y2="134.5"/>
-        <line x1="28" y1="152.5" x2="35" y2="152.5"/>
-        <line x1="28" y1="170.5" x2="35" y2="170.5"/>
-      </g>
-      <rect x="28" y="190" width="96" height="24" rx="12" fill="#E4EFE9"/>
-      <text x="40" y="206" font-family="JetBrains Mono" font-size="9.5" letter-spacing="0.8" fill="#1D7A52">NEVER YOURS</text>
-      <text x="28" y="232" font-family="Spectral" font-size="10.5" font-style="italic" fill="#6B675E">A royalty owner pays none of this.</text>
-
-      <!-- the wellhead divider -->
-      <line x1="310" y1="8" x2="310" y2="256" stroke="#A23A2A" stroke-width="1.25"/>
-      <rect x="302" y="84" width="16" height="92" fill="#F4F2EC"/>
-      <text x="310" y="130" text-anchor="middle" transform="rotate(-90 310 130)" font-family="JetBrains Mono" font-size="9" letter-spacing="1.4" fill="#A23A2A">THE WELLHEAD</text>
-
-      <!-- right card -->
-      <rect x="332" y="30" width="276" height="214" rx="10" fill="#ECE9DF" stroke="#D8D3C7" stroke-width="1"/>
-      <text x="348" y="56" font-family="Spectral" font-size="15" font-weight="700" fill="#1B1A17">Post-production costs</text>
-      <text x="348" y="76" font-family="Spectral" font-size="11.5" fill="#6B675E">Everything spent after that,</text>
-      <text x="348" y="90" font-family="Spectral" font-size="11.5" fill="#6B675E">getting it to a buyer who pays.</text>
-      <line x1="348" y1="102" x2="592" y2="102" stroke="#D8D3C7" stroke-width="1"/>
-      <g font-family="JetBrains Mono" font-size="9.5" fill="#1B1A17">
-        <text x="360" y="120">Gathering and compression</text>
-        <text x="360" y="138">Treating and processing</text>
-        <text x="360" y="156">Transportation to market</text>
-        <text x="360" y="174">Marketing the product</text>
-      </g>
-      <g stroke="#243A35" stroke-width="1.4">
-        <line x1="348" y1="116.5" x2="355" y2="116.5"/>
-        <line x1="348" y1="134.5" x2="355" y2="134.5"/>
-        <line x1="348" y1="152.5" x2="355" y2="152.5"/>
-        <line x1="348" y1="170.5" x2="355" y2="170.5"/>
-      </g>
-      <rect x="348" y="190" width="128" height="24" rx="12" fill="#F3EBDA"/>
-      <text x="360" y="206" font-family="JetBrains Mono" font-size="9.5" letter-spacing="0.8" fill="#8A6A2E">YOURS BY DEFAULT</text>
-      <text x="348" y="232" font-family="Spectral" font-size="10.5" font-style="italic" fill="#6B675E">Unless your lease clearly says otherwise.</text>
-      </svg>
-
-      <p style="margin-top:1.4rem">So the honest version of the sentence is this: <strong>a royalty is free of the cost of getting the minerals out of the ground, and is not automatically free of the cost of getting them to market.</strong> The default can be changed, and a great many leases try to change it. Which words actually succeed is a genuinely contested question, and it is the entire subject of <a href="#top" data-goto-tab="t-ppc">Concept 10 — post-production costs</a>. If you read one other tab after this one, read that one.</p>
-      <p>Nothing here is hidden or improper. A deduction line on a check stub is usually the lease working exactly as written, decades after it was signed by someone who may not have read that clause closely. <a href="#top" data-goto-tab="t-check">Concept 07</a> shows what those lines look like on a real stub.</p>
     </div>
 
     <div class="section">
@@ -888,7 +1669,7 @@
         <div>
           <p class="kicker">Why owners care</p>
           <h3>The terms are set once</h3>
-          <p>Everything that matters — the royalty fraction, whether post-production costs come out of it, how big a unit your acres can be pooled into (<a href="#top" data-goto-tab="t-pooling">Concept 05</a>), whether one well can hold <em>all</em> your acreage or just part of it — is locked in at signing. There's no renegotiating while a lease is held by production. The moment of maximum power for a mineral owner is the moment before they sign.</p>
+          <p>Everything that matters — the royalty fraction, how big a unit your acres can be pooled into, whether one well can hold <em>all</em> your acreage or just part of it — is locked in at signing. There's no renegotiating while a lease is held by production. The moment of maximum power for a mineral owner is the moment before they sign.</p>
         </div>
         <div>
           <p class="kicker">Why companies care</p>
@@ -898,64 +1679,16 @@
       </div>
     </div>
 
-    <div class="section">
-      <p class="kicker">The arithmetic</p>
-      <h2>Two leases, same 160 acres, same month</h2>
-      <p>Here is what those signing-day words are worth in dollars. Two mineral owners each own all the minerals under 160 acres. Each signs a lease the same week. Each gets a well, and in one month that well sells 10,000 Mcf of gas for $30,000. Neither tract is pooled, so each owner's share of the well is simply their royalty fraction (<a href="#top" data-goto-tab="t-doi">Concept 06</a> builds that number properly when pooling is involved).</p>
-      <p>The only difference between them is two lines of text in a document signed years before the rig showed up.</p>
-
-      <div class="table-scroll" style="margin-top:1.2rem">
-        <table class="ledger">
-          <thead><tr><th>One month, one well</th><th class="r">Lease A — 1/8, "at the well"</th><th class="r">Lease B — 3/16, cost-free clause</th></tr></thead>
-          <tbody>
-            <tr><td>The well's gas sales</td><td class="r">$30,000.00</td><td class="r">$30,000.00</td></tr>
-            <tr><td>Your royalty fraction</td><td class="r">0.1250</td><td class="r">0.1875</td></tr>
-            <tr><td>Gross royalty</td><td class="r">$3,750.00</td><td class="r">$5,625.00</td></tr>
-            <tr><td>Severance tax on gas, 7.5%</td><td class="r">− $281.25</td><td class="r">− $421.88</td></tr>
-            <tr><td>Post-production share, 15%</td><td class="r">− $562.50</td><td class="r">$0.00</td></tr>
-            <tr class="tot"><td>Net to you, this month</td><td class="r">$2,906.25</td><td class="r">$5,203.12</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p style="margin-top:1.2rem">$2,296.87 a month between them, or a little over $27,500 in the first year, on identical acreage and identical gas. Most of the gap is the royalty fraction, but roughly a quarter of it is the deduction line alone — and that quarter is the part almost nobody negotiates, because almost nobody knows it is negotiable.</p>
-
-      <p class="aside-note">Three honest caveats on that table, because a teaching example is not a check stub. The 15% is illustrative — real post-production deductions run anywhere from a few percent to a great deal more, and they move month to month. Severance tax is charged on market value and every Texas royalty owner bears a share of it no matter what the lease says (<a href="#top" data-goto-tab="t-tax">Concept 08</a>). And a "cost-free" clause is not a magic phrase: some wordings hold up and some do not, which is exactly why <a href="#top" data-goto-tab="t-ppc">Concept 10</a> exists.</p>
-    </div>
-
-    <div class="section">
-      <p class="kicker">Where this goes next</p>
-      <h2>The lease is the root of almost everything else here</h2>
-      <p>Nearly every question a mineral owner asks later — about a decimal, a deduction, a check that stopped, a lease they think should have expired — is really a question about a document signed years ago. If one of these is your next question, here is where it's answered:</p>
-
-      <div class="table-scroll" style="margin-top:1.2rem">
-        <table class="ledger">
-          <thead><tr><th>If your next question is</th><th>Go here</th></tr></thead>
-          <tbody>
-            <tr><td>"How much of the well is actually mine?"</td><td><a href="#top" data-goto-tab="t-pooling">Concept 05 — pooling &amp; dilution</a>, then <a href="#top" data-goto-tab="t-doi">Concept 06 — your decimal</a></td></tr>
-            <tr><td>"What are all these lines on my check?"</td><td><a href="#top" data-goto-tab="t-check">Concept 07 — the royalty check</a></td></tr>
-            <tr><td>"Can they really deduct that from my royalty?"</td><td><a href="#top" data-goto-tab="t-ppc">Concept 10 — post-production costs</a></td></tr>
-            <tr><td>"Where does the money go before it reaches me?"</td><td><a href="#top" data-goto-tab="t-money">Concept 13 — the money trail</a></td></tr>
-            <tr><td>"Nothing has produced in years. Is my lease still alive?"</td><td><a href="#top" data-goto-tab="t-hold">Concept 11 — holding the lease</a></td></tr>
-            <tr><td>"How would I actually go and check?"</td><td><a href="#top" data-goto-tab="t-hbp">Concept 12 — HBP monitoring</a></td></tr>
-            <tr><td>"What does this exact clause in my lease do?"</td><td><a href="glossary.html">Lease Clause Dictionary — 138 clauses</a></td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p style="margin-top:1.4rem">The dictionary is the one to open with your own lease in front of you. Three of its ten sections cover almost everything on this page: <a href="glossary.html#cat-basics">The anatomy of a lease</a> for the granting, habendum and term clauses, <a href="glossary.html#cat-royalty">Royalty &amp; payment</a> for the royalty fraction and the words that decide who pays post-production costs, and <a href="glossary.html#cat-term">Term, continuation &amp; Pugh</a> for everything that keeps a lease alive past its primary term. Each entry says what the clause does, why it matters to you, why the operator wants it, and whether it's already sitting in the standard printed form.</p>
-    </div>
-
     <div class="callout">
       <p class="kicker">The point that trips everyone up</p>
-      <p>"My lease was for 3 years, and that was 30 years ago — surely it's over." Maybe not. If a well drilled back then is <em>still producing</em>, that lease is most likely still alive, still on its original terms, and still covering the acreage it held. The 3 years was only the drilling window. Production, not the calendar, decides when an oil and gas lease ends — and <a href="#top" data-goto-tab="t-hold">Concept 11</a> covers the clauses that can keep it alive even through years when nothing is produced at all.</p>
+      <p>"My lease was for 3 years, and that was 30 years ago — surely it's over." Maybe not. If a well drilled back then is <em>still producing</em>, that lease is most likely still alive, still on its original terms, and still covering the acreage it held. The 3 years was only the drilling window. Production, not the calendar, decides when an oil and gas lease ends.</p>
     </div>
   </section>
 
   <section class="panel" id="p-pooling" role="tabpanel" aria-labelledby="t-pooling" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 05 — pooling &amp; dilution</p>
+      <p class="eyebrow">Concept 06 — pooling &amp; dilution</p>
       <h1>The same well, split two very <em>different</em> ways.</h1>
       <p class="lede">Mineral ownership is a patchwork of separate tracts — most far too small, on their own, to justify a well. The fix is to combine them into a <em>unit</em>. But combining isn't neutral: it can quietly shrink a big owner's share while handing a small owner one they'd never get otherwise. Let's build it from the ground up.</p>
     </div>
@@ -1098,14 +1831,14 @@
       <p>"The well is on <em>my</em> land — so it's my well." Not once you're pooled. Inside a unit, production is split by acreage across <em>every</em> tract, wherever the wellbore happens to sit. Being the ground under the rig doesn't get you a bigger check — your acreage share does.</p>
     </div>
 
-    <p class="aside-note">A note for modern wells: long horizontal laterals rarely fit on a single tract, so today's units are large and cross many owners — and some split production by perforated lateral length rather than flat acreage. The "go it alone" play was strongest in the vertical-well era. How those multi-tract laterals get permitted and divided when pooling <em>isn’t</em> the answer — PSA and allocation wells — is Concept 09.</p>
+    <p class="aside-note">A note for modern wells: long horizontal laterals rarely fit on a single tract, so today's units are large and cross many owners — and some split production by perforated lateral length rather than flat acreage. The "go it alone" play was strongest in the vertical-well era. How those multi-tract laterals get permitted and divided when pooling <em>isn’t</em> the answer — PSA and allocation wells — is Concept 10.</p>
   </section>
 
-  <!-- ============ PANEL 06 — DOI ============ -->
+  <!-- ============ PANEL 07 — DOI ============ -->
   <section class="panel" id="p-doi" role="tabpanel" aria-labelledby="t-doi" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 06 — your decimal (DOI)</p>
+      <p class="eyebrow">Concept 07 — your decimal (DOI)</p>
       <h1>Why your share of the well is <em>0.00488281</em>.</h1>
       <p class="lede">When a well starts paying, you receive a document with a long decimal on it — your exact share of every dollar the well earns. That number can look bafflingly small. Here's where it comes from, one honest multiplication at a time.</p>
     </div>
@@ -1178,7 +1911,7 @@
         <div class="ds-math">
           <p class="ds-formula">your minerals <b>1/4</b><br>× lease royalty <b>1/4</b><br>× tract share of unit <b>40/320</b></p>
           <p class="ds-dec">0.00781250<small>your decimal — stage 2</small></p>
-          <p class="ds-note">From Concept 05: pooled production is shared by acreage. One new fraction joins the multiplication — your tract's slice of the unit — and the decimal drops to an eighth of what it was. Nothing was taken; your share is just of a much bigger whole.</p>
+          <p class="ds-note">From Concept 06: pooled production is shared by acreage. One new fraction joins the multiplication — your tract's slice of the unit — and the decimal drops to an eighth of what it was. Nothing was taken; your share is just of a much bigger whole.</p>
         </div>
       </div>
     </div>
@@ -1204,7 +1937,7 @@
         <div class="ds-math">
           <p class="ds-formula">your minerals <b>1/4</b><br>× lease royalty <b>1/4</b><br>× tract share of unit <b>40/320</b><br>× lateral in your unit <b>7,500/12,000</b></p>
           <p class="ds-dec">0.00488281<small>your decimal — stage 3</small></p>
-          <p class="ds-note">Modern laterals don't stop at unit lines. When one wellbore crosses two units, production is commonly allocated by how many feet of the lateral lie in each — one more fraction in the chain. (Texas courts haven't fully settled allocation-well rules; this is the common industry approach — Concept 09 takes it apart in full.)</p>
+          <p class="ds-note">Modern laterals don't stop at unit lines. When one wellbore crosses two units, production is commonly allocated by how many feet of the lateral lie in each — one more fraction in the chain. (Texas courts haven't fully settled allocation-well rules; this is the common industry approach — Concept 10 takes it apart in full.)</p>
         </div>
       </div>
     </div>
@@ -1237,11 +1970,11 @@
     </div>
   </section>
 
-  <!-- ============ PANEL 07 — ROYALTY CHECK ============ -->
+  <!-- ============ PANEL 08 — ROYALTY CHECK ============ -->
   <section class="panel" id="p-check" role="tabpanel" aria-labelledby="t-check" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 07 — the royalty check</p>
+      <p class="eyebrow">Concept 08 — the royalty check</p>
       <h1>Anatomy of a <em>$1,000</em> royalty check.</h1>
       <p class="lede">A royalty check arrives with a statement full of codes, columns, and deductions. Strip the jargon away and it's simple: what the oil sold for, your slice of it, and a couple of subtractions on the way to your bank account. Let's walk one month's check.</p>
     </div>
@@ -1249,7 +1982,7 @@
     <div class="section" style="border-top:0;padding-top:1rem">
       <p class="kicker">Start here</p>
       <h2>First — what are you actually being paid for?</h2>
-      <p>Your well produced oil this month; the operator sold it. Your <strong>gross royalty</strong> is your decimal share of that sale money — before anything is taken out. From there, two kinds of subtractions can appear on the stub: <strong>severance tax</strong>, which the state charges on minerals when they're produced and sold (more on this in Concept 08), and <strong>post-production costs</strong> — the well's share of getting the product treated, moved, and to market, which many (not all) leases let the operator deduct (<a href="#top" data-goto-tab="t-ppc">Concept 10</a> takes these apart in full).</p>
+      <p>Your well produced oil this month; the operator sold it. Your <strong>gross royalty</strong> is your decimal share of that sale money — before anything is taken out. From there, two kinds of subtractions can appear on the stub: <strong>severance tax</strong>, which the state charges on minerals when they're produced and sold (more on this in Concept 09), and <strong>post-production costs</strong> — the well's share of getting the product treated, moved, and to market, which many (not all) leases let the operator deduct (<a href="#top" data-goto-tab="t-ppc">Concept 11</a> takes these apart in full).</p>
       <p>What's left is your <strong>net</strong> — the number that actually lands in your account.</p>
 
       <div class="glossary">
@@ -1277,7 +2010,7 @@
         </table>
       </div>
 
-      <p style="margin-top:1.2rem;font-size:.95rem;color:var(--muted)">Real stubs split this across products (oil, gas, liquids) and months, and often correct earlier months — but every line on them is one of these three things: gross, a subtraction, or net. <a href="#top" data-goto-tab="t-money">Concept 13</a> follows the same dollar the other way — from the purchaser’s payment, into the operator’s bank account, and out to you.</p>
+      <p style="margin-top:1.2rem;font-size:.95rem;color:var(--muted)">Real stubs split this across products (oil, gas, liquids) and months, and often correct earlier months — but every line on them is one of these three things: gross, a subtraction, or net. <a href="#top" data-goto-tab="t-money">Concept 14</a> follows the same dollar the other way — from the purchaser’s payment, into the operator’s bank account, and out to you.</p>
     </div>
 
     <div class="section">
@@ -1301,11 +2034,11 @@
     </div>
   </section>
 
-  <!-- ============ PANEL 08 — THE TWO TAXES ============ -->
+  <!-- ============ PANEL 09 — THE TWO TAXES ============ -->
   <section class="panel" id="p-tax" role="tabpanel" aria-labelledby="t-tax" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 08 — the two taxes</p>
+      <p class="eyebrow">Concept 09 — the two taxes</p>
       <h1>One tax on the <em>candy</em>, one tax on the <em>store</em>.</h1>
       <p class="lede">Mineral owners meet two very different taxes: severance tax and ad valorem (property) tax. They confuse everyone — until you picture a candy store. One tax is charged on each candy bar as it sells. The other is charged on the store itself, just for being valuable.</p>
     </div>
@@ -1344,7 +2077,7 @@
           </div>
           <div class="tc-body">
             <p>Charged on <strong>each candy bar as it sells</strong>. The slice comes off at the register — the store never touches that money. If no candy sells this month, this tax is zero.</p>
-            <p style="margin-top:.6rem"><strong>For your minerals:</strong> the state taxes each barrel as it's produced and sold (in Texas, 4.6% for oil). It's withheld from the revenue before your royalty is paid — that's the severance line on your check stub from Concept 07. You never owe it separately; it never reached you to begin with.</p>
+            <p style="margin-top:.6rem"><strong>For your minerals:</strong> the state taxes each barrel as it's produced and sold (in Texas, 4.6% for oil). It's withheld from the revenue before your royalty is paid — that's the severance line on your check stub from Concept 08. You never owe it separately; it never reached you to begin with.</p>
           </div>
         </div>
 
@@ -1390,13 +2123,13 @@
     </div>
   </section>
 
-  <!-- ============ PANEL 09 — ALLOCATION & PSA WELLS ============ -->
+  <!-- ============ PANEL 10 — ALLOCATION & PSA WELLS ============ -->
   <section class="panel" id="p-alloc" role="tabpanel" aria-labelledby="t-alloc" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 09 — allocation &amp; PSA wells</p>
+      <p class="eyebrow">Concept 10 — allocation &amp; PSA wells</p>
       <h1>Two miles of well, three leases — and no pooling <em>at all</em>.</h1>
-      <p class="lede">Concept 05 showed separate tracts combining into a pooled unit and sharing one well by acreage. But plenty of leases cap pooled units far below what a modern two-mile lateral needs — and some forbid pooling outright. Texas's answer: let the wellbore cross the lease lines anyway, and divide the production a different way. Here's how a well with no unit pays its owners.</p>
+      <p class="lede">Concept 06 showed separate tracts combining into a pooled unit and sharing one well by acreage. But plenty of leases cap pooled units far below what a modern two-mile lateral needs — and some forbid pooling outright. Texas's answer: let the wellbore cross the lease lines anyway, and divide the production a different way. Here's how a well with no unit pays its owners.</p>
     </div>
 
     <div class="section" style="border-top:0;padding-top:1rem">
@@ -1520,7 +2253,7 @@
       <div class="ds-head"><span class="n">Worked example</span><span class="t">When "Tract B" is itself a pooled unit</span></div>
       <div class="ds-body">
         <div class="ds-viz">
-          <svg viewBox="0 0 300 200" role="img" aria-label="A second allocation well crossing three areas, where the middle area — Tract B — is itself the 320-acre pooled unit from Concept 06. Half the productive lateral lies inside Tract B.">
+          <svg viewBox="0 0 300 200" role="img" aria-label="A second allocation well crossing three areas, where the middle area — Tract B — is itself the 320-acre pooled unit from Concept 07. Half the productive lateral lies inside Tract B.">
             <rect x="20" y="40" width="78" height="120" fill="#ECE9DF" stroke="#C7C1B2" stroke-width="1" stroke-dasharray="5 4"/>
             <rect x="98" y="40" width="130" height="120" fill="#E3E7DF" stroke="#2F7E86" stroke-width="2"/>
             <rect x="228" y="40" width="52" height="120" fill="#ECE9DF" stroke="#C7C1B2" stroke-width="1" stroke-dasharray="5 4"/>
@@ -1533,9 +2266,9 @@
           </svg>
         </div>
         <div class="ds-math">
-          <p class="ds-formula">your DOI inside the unit <b>0.00781250</b><br><span style="color:var(--muted)">(Concept 06, Stage 2)</span><br>× Tract B's participation factor <b>5,000/10,000</b></p>
+          <p class="ds-formula">your DOI inside the unit <b>0.00781250</b><br><span style="color:var(--muted)">(Concept 07, Stage 2)</span><br>× Tract B's participation factor <b>5,000/10,000</b></p>
           <p class="ds-dec">0.00390625<small>your decimal — this well</small></p>
-          <p class="ds-note">In the real Permian, the "tracts" an allocation well crosses are often whole pooled units. Production is split among the tracts first — the participation factor — and then your unit decimal divides your tract's slice. This is Concept 06's Stage 3 seen from the other side, on a second well with a different lateral.</p>
+          <p class="ds-note">In the real Permian, the "tracts" an allocation well crosses are often whole pooled units. Production is split among the tracts first — the participation factor — and then your unit decimal divides your tract's slice. This is Concept 07's Stage 3 seen from the other side, on a second well with a different lateral.</p>
         </div>
       </div>
     </div>
@@ -1550,7 +2283,7 @@
         <div>
           <p class="kicker">Check the formula</p>
           <h3>The split is a choice, not a law</h3>
-          <p>Footage-based allocation quietly assumes every foot of lateral produces equally — but frac stages aren't evenly spaced, rock isn't uniform, and some PSAs use acreage or a blend instead. Your division order shows the result as a single decimal, so ask what formula produced it. The operator's permit filings (the RRC's Form P-16 acreage designation and the plat) show the footage claimed for each tract — that's where you check the operator's math, just like Concept 06 taught.</p>
+          <p>Footage-based allocation quietly assumes every foot of lateral produces equally — but frac stages aren't evenly spaced, rock isn't uniform, and some PSAs use acreage or a blend instead. Your division order shows the result as a single decimal, so ask what formula produced it. The operator's permit filings (the RRC's Form P-16 acreage designation and the plat) show the footage claimed for each tract — that's where you check the operator's math, just like Concept 07 taught.</p>
         </div>
       </div>
     </div>
@@ -1566,13 +2299,13 @@
     </div>
   </section>
 
-  <!-- ============ PANEL 10 — POST-PRODUCTION COSTS ============ -->
+  <!-- ============ PANEL 11 — POST-PRODUCTION COSTS ============ -->
   <section class="panel" id="p-ppc" role="tabpanel" aria-labelledby="t-ppc" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 10 — post-production costs</p>
+      <p class="eyebrow">Concept 11 — post-production costs</p>
       <h1>The oil is sold 200 miles from your <em>well</em>. Who pays for the trip?</h1>
-      <p class="lede">The <a href="#top" data-goto-tab="t-check">check stub in Concept 07</a> had a line called "post-production." A line like that — sometimes labelled "deducts," "gathering," or "transp" — can quietly take 5%, 15%, sometimes more of your royalty. It isn't a tax and nobody is hiding it. It's the cost of moving raw oil and gas from your wellhead to the place it's actually worth something — and whether you help pay it was decided by a few words in your lease, long before the well was drilled.</p>
+      <p class="lede">The <a href="#top" data-goto-tab="t-check">check stub in Concept 08</a> had a line called "post-production." A line like that — sometimes labelled "deducts," "gathering," or "transp" — can quietly take 5%, 15%, sometimes more of your royalty. It isn't a tax and nobody is hiding it. It's the cost of moving raw oil and gas from your wellhead to the place it's actually worth something — and whether you help pay it was decided by a few words in your lease, long before the well was drilled.</p>
     </div>
 
     <div class="section" style="border-top:0;padding-top:1rem">
@@ -1754,7 +2487,7 @@
             </svg>
           </div>
           <div class="tc-body">
-            <p>A <strong>state tax</strong> on each barrel or Mcf as it's produced and sold. The rate is fixed by the Legislature (4.6% for oil, 7.5% for gas), it applies to everyone the same way, and it's withheld before your check is cut. You can't lease your way out of it. <a href="#top" data-goto-tab="t-tax">Concept 08</a> covers it in full.</p>
+            <p>A <strong>state tax</strong> on each barrel or Mcf as it's produced and sold. The rate is fixed by the Legislature (4.6% for oil, 7.5% for gas), it applies to everyone the same way, and it's withheld before your check is cut. You can't lease your way out of it. <a href="#top" data-goto-tab="t-tax">Concept 09</a> covers it in full.</p>
           </div>
         </div>
 
@@ -1906,13 +2639,13 @@
     </div>
   </section>
 
-  <!-- ============ PANEL 11 — HOLDING THE LEASE (SAVINGS CLAUSES) ============ -->
+  <!-- ============ PANEL 12 — HOLDING THE LEASE (SAVINGS CLAUSES) ============ -->
   <section class="panel" id="p-hold" role="tabpanel" aria-labelledby="t-hold" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 11 — savings clauses</p>
+      <p class="eyebrow">Concept 12 — savings clauses</p>
       <h1>A lease can stay alive for years without selling a single <em>barrel</em>.</h1>
-      <p class="lede"><a href="#top" data-goto-tab="t-lease">Concept 04</a> said a lease lasts "as long as oil or gas is produced." That sentence has fine print. A handful of clauses — the <strong>savings clauses</strong> — bridge the gaps when production isn't happening: while a finished well waits on a pipeline, after a well quits, between wells. They exist for good reasons. But one of them, the <strong>shut-in royalty</strong>, is written into most printed lease forms at a price set decades ago and with no time limit at all — and it is the single easiest thing on the page to fix before you sign.</p>
+      <p class="lede"><a href="#top" data-goto-tab="t-lease">Concept 05</a> said a lease lasts "as long as oil or gas is produced." That sentence has fine print. A handful of clauses — the <strong>savings clauses</strong> — bridge the gaps when production isn't happening: while a finished well waits on a pipeline, after a well quits, between wells. They exist for good reasons. But one of them, the <strong>shut-in royalty</strong>, is written into most printed lease forms at a price set decades ago and with no time limit at all — and it is the single easiest thing on the page to fix before you sign.</p>
     </div>
 
     <div class="section" style="border-top:0;padding-top:1rem">
@@ -2102,15 +2835,15 @@
 
     <div class="callout">
       <p class="kicker">The point that trips everyone up</p>
-      <p>"Nothing has been produced in four years, so my lease has to be dead by now." Not necessarily &mdash; and this is exactly what the savings clauses are for. A modest annual shut-in payment, or a cessation window that keeps getting restarted, can hold a lease through years of silence, perfectly lawfully. The mirror image is also true: an operator can <em>think</em> a lease is held and be wrong, because a shut-in payment went to the wrong person or arrived late, or because the well was never actually capable of producing in paying quantities. Neither side finds out automatically. <a href="#top" data-goto-tab="t-hbp">Concept 12</a> is about how you go and check.</p>
+      <p>"Nothing has been produced in four years, so my lease has to be dead by now." Not necessarily &mdash; and this is exactly what the savings clauses are for. A modest annual shut-in payment, or a cessation window that keeps getting restarted, can hold a lease through years of silence, perfectly lawfully. The mirror image is also true: an operator can <em>think</em> a lease is held and be wrong, because a shut-in payment went to the wrong person or arrived late, or because the well was never actually capable of producing in paying quantities. Neither side finds out automatically. <a href="#top" data-goto-tab="t-hbp">Concept 13</a> is about how you go and check.</p>
     </div>
   </section>
 
-  <!-- ============ PANEL 12 — HBP MONITORING & TERMINATION RISK ============ -->
+  <!-- ============ PANEL 13 — HBP MONITORING & TERMINATION RISK ============ -->
   <section class="panel" id="p-hbp" role="tabpanel" aria-labelledby="t-hbp" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 12 — HBP monitoring</p>
+      <p class="eyebrow">Concept 13 — HBP monitoring</p>
       <h1>The lease that's been quietly dead since <em>2022</em>.</h1>
       <p class="lede">A lease held by production doesn't end with a letter, a lawsuit, or a filing. It ends by itself — the moment production in paying quantities permanently stops and no savings clause catches it. Nobody is notified. The operator's map still shades your acreage as held. The county records still show the lease. The only person with any real incentive to notice is you, and the only way to notice is to read the public record on purpose.</p>
     </div>
@@ -2118,7 +2851,7 @@
     <div class="section" style="border-top:0;padding-top:1rem">
       <p class="kicker">Start here</p>
       <h2>First — why a lease can end without anyone doing anything</h2>
-      <p>This is the piece that surprises people, and it's the engine behind everything else on this page. A Texas oil and gas lease is not a contract that has to be cancelled. It is a conveyance of the minerals subject to a built-in expiry date — lawyers call it a <strong>fee simple determinable</strong> with a <strong>special limitation</strong>. The habendum clause from <a href="#top" data-goto-tab="t-hold">Concept 11</a> is that limitation: the lease lasts "as long as oil or gas is produced," and when that stops being true, the estate ends on its own.</p>
+      <p>This is the piece that surprises people, and it's the engine behind everything else on this page. A Texas oil and gas lease is not a contract that has to be cancelled. It is a conveyance of the minerals subject to a built-in expiry date — lawyers call it a <strong>fee simple determinable</strong> with a <strong>special limitation</strong>. The habendum clause from <a href="#top" data-goto-tab="t-hold">Concept 12</a> is that limitation: the lease lasts "as long as oil or gas is produced," and when that stops being true, the estate ends on its own.</p>
       <p>No notice. No forfeiture suit. No cure period unless the lease wrote one in. The minerals simply revert to you the instant the condition fails — a moment that may pass, entirely unremarked, while everyone involved carries on assuming the lease is fine.</p>
       <p>The catch is that "the condition failed" is easy to say and hard to prove, and there are more ways for a lease to survive than most owners expect. So the job isn't to declare leases dead. It's to build a file.</p>
 
@@ -2345,7 +3078,7 @@
         <div class="lt-item">
           <span class="when">Question 1</span>
           <h4>Is there other production holding the same lease?</h4>
-          <p>A lease is held by production <em>from the leased premises</em> — or, if your tract was pooled, by production anywhere in the unit. One well quitting on a lease with three wells changes nothing. And under <a href="#top" data-goto-tab="t-pooling">Concept 05</a>, a well a mile away on someone else's tract can be holding yours, provided the pooling was valid and your acreage is really in that unit. Check the unit designation of record, not just the well nearest you.</p>
+          <p>A lease is held by production <em>from the leased premises</em> — or, if your tract was pooled, by production anywhere in the unit. One well quitting on a lease with three wells changes nothing. And under <a href="#top" data-goto-tab="t-pooling">Concept 06</a>, a well a mile away on someone else's tract can be holding yours, provided the pooling was valid and your acreage is really in that unit. Check the unit designation of record, not just the well nearest you.</p>
         </div>
         <div class="lt-item">
           <span class="when">Question 2</span>
@@ -2355,7 +3088,7 @@
         <div class="lt-item">
           <span class="when">Question 3</span>
           <h4>Was a shut-in royalty tendered — properly?</h4>
-          <p>A shut-in payment can hold the lease through the whole quiet stretch. But it only works if the well was genuinely capable of producing in paying quantities as it sat, and if the payment was made on time, in the right amount, to the right party. Your own bank records are the primary source here, and a payment sent to a predecessor in title or to the wrong address is one of the most common failures. See <a href="#top" data-goto-tab="t-hold">Concept 11</a>.</p>
+          <p>A shut-in payment can hold the lease through the whole quiet stretch. But it only works if the well was genuinely capable of producing in paying quantities as it sat, and if the payment was made on time, in the right amount, to the right party. Your own bank records are the primary source here, and a payment sent to a predecessor in title or to the wrong address is one of the most common failures. See <a href="#top" data-goto-tab="t-hold">Concept 12</a>.</p>
         </div>
         <div class="lt-item">
           <span class="when">Question 4</span>
@@ -2431,7 +3164,7 @@
             <tr><td>Royalty</td><td class="r">1/8 &nbsp;(0.12500)</td><td class="r">1/4 &nbsp;(0.25000)</td></tr>
             <tr><td>Bonus per net acre</td><td class="r">&mdash; already paid</td><td class="r">$1,000</td></tr>
             <tr><td>Bonus on 160 net acres</td><td class="r">&mdash;</td><td class="r">$160,000</td></tr>
-            <tr><td>Post-production costs</td><td class="r">Deductible &mdash; "at the well"</td><td class="r">Negotiable &mdash; see <a href="#top" data-goto-tab="t-ppc">Concept 10</a></td></tr>
+            <tr><td>Post-production costs</td><td class="r">Deductible &mdash; "at the well"</td><td class="r">Negotiable &mdash; see <a href="#top" data-goto-tab="t-ppc">Concept 11</a></td></tr>
             <tr><td>Shut-in clause</td><td class="r">$1/acre, uncapped</td><td class="r">$50/acre, 2-year cap</td></tr>
             <tr class="tot"><td>Difference on the royalty alone</td><td class="r">&mdash;</td><td class="r">2&times; on every barrel, forever</td></tr>
           </tbody>
@@ -2469,13 +3202,13 @@
   </section>
 
   <!-- ============ SUPPORT TAB ============ -->
-  <!-- ============ PANEL 13 — THE MONEY TRAIL ============ -->
+  <!-- ============ PANEL 14 — THE MONEY TRAIL ============ -->
   <section class="panel" id="p-money" role="tabpanel" aria-labelledby="t-money" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 13 — the money trail</p>
+      <p class="eyebrow">Concept 14 — the money trail</p>
       <h1>Your royalty is in the same bank account as their <em>payroll</em>.</h1>
-      <p class="lede"><a href="#top" data-goto-tab="t-check">Concept 07</a> read a check stub from the top down. This is the half nobody explains: what happens <em>before</em> the stub is printed. Somebody buys the oil. One payment lands in one ordinary company bank account. A computer splits it across thousands of owners. Things come off the top. A check goes out — or quietly doesn't. Almost every royalty dispute you will ever have is really an argument about one of those steps.</p>
+      <p class="lede"><a href="#top" data-goto-tab="t-check">Concept 08</a> read a check stub from the top down. This is the half nobody explains: what happens <em>before</em> the stub is printed. Somebody buys the oil. One payment lands in one ordinary company bank account. A computer splits it across thousands of owners. Things come off the top. A check goes out — or quietly doesn't. Almost every royalty dispute you will ever have is really an argument about one of those steps.</p>
     </div>
 
     <div class="section" style="border-top:0;padding-top:1rem">
@@ -2484,8 +3217,8 @@
       <p>This page sits at the end of the getting-paid chain, so it borrows from earlier concepts. You don't need to go back and re-read them; here they are in one line each.</p>
 
       <div class="glossary">
-        <div class="term"><span class="t">Royalty</span><span class="d">Your share of what the well produces, kept out of the lease. You pay none of the cost of drilling. <a href="#top" data-goto-tab="t-lease">Concept 04</a>.</span></div>
-        <div class="term"><span class="t">Decimal interest</span><span class="d">Your royalty fraction multiplied out against your acreage and the size of the unit — a long number like 0.00488281. It's what the computer actually uses. <a href="#top" data-goto-tab="t-doi">Concept 06</a>.</span></div>
+        <div class="term"><span class="t">Royalty</span><span class="d">Your share of what the well produces, kept out of the lease. You pay none of the cost of drilling. <a href="#top" data-goto-tab="t-lease">Concept 05</a>.</span></div>
+        <div class="term"><span class="t">Decimal interest</span><span class="d">Your royalty fraction multiplied out against your acreage and the size of the unit — a long number like 0.00488281. It's what the computer actually uses. <a href="#top" data-goto-tab="t-doi">Concept 07</a>.</span></div>
         <div class="term"><span class="t">Division order</span><span class="d">A form confirming your name, address, tax ID and that decimal. It tells a company where to send money. It does not change your lease.</span></div>
       </div>
 
@@ -2618,7 +3351,7 @@
       <p class="kicker">Step three — the split</p>
       <h2>The deck: one lump sum, exploded</h2>
       <p>Inside the operator's revenue accounting department is the <strong>division of interest</strong> — the deck. It lists every person and entity with a claim on that well and each one's decimal. Once a month the lump sum is exploded across it: volume × price × your decimal = your gross share. Simple arithmetic, run across sometimes thousands of owners.</p>
-      <p>Here is one month on a well with a 1/5 lease royalty, using the decimal built in <a href="#top" data-goto-tab="t-doi">Concept 06</a>:</p>
+      <p>Here is one month on a well with a 1/5 lease royalty, using the decimal built in <a href="#top" data-goto-tab="t-doi">Concept 07</a>:</p>
 
       <div class="table-scroll" style="margin-top:1.2rem">
         <table class="ledger">
@@ -2643,7 +3376,7 @@
     <div class="section">
       <p class="kicker">Step four — off the top</p>
       <h2>What comes out before anyone gets paid</h2>
-      <p>Texas taxes production at the wellhead. The operator remits the tax and charges every interest owner, including you, a proportionate share. This part is not controversial — practically every Texas lease has the royalty owner bearing a share of production taxes, and even strongly owner-favourable clauses carve taxes out as an allowed charge. <a href="#top" data-goto-tab="t-tax">Concept 08</a> takes the two taxes apart in full.</p>
+      <p>Texas taxes production at the wellhead. The operator remits the tax and charges every interest owner, including you, a proportionate share. This part is not controversial — practically every Texas lease has the royalty owner bearing a share of production taxes, and even strongly owner-favourable clauses carve taxes out as an allowed charge. <a href="#top" data-goto-tab="t-tax">Concept 09</a> takes the two taxes apart in full.</p>
 
       <div class="table-scroll" style="margin-top:1.2rem">
         <table class="ledger">
@@ -2652,7 +3385,7 @@
             <tr><td>Severance tax — oil</td><td>4.6% of market value</td><td>No. Reduced rates exist for some wells</td></tr>
             <tr><td>Severance tax — natural gas</td><td>7.5% of market value</td><td>No. Reduced rates exist for some wells</td></tr>
             <tr><td>Federal backup withholding</td><td>24%, when the payor has no valid W-9</td><td>Yes — return the W-9</td></tr>
-            <tr><td>Post-production costs</td><td>Set by your lease, not by law</td><td>Sometimes — see <a href="#top" data-goto-tab="t-ppc">Concept 10</a></td></tr>
+            <tr><td>Post-production costs</td><td>Set by your lease, not by law</td><td>Sometimes — see <a href="#top" data-goto-tab="t-ppc">Concept 11</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -3109,6 +3842,7 @@
           <div class="step"><span class="chip live">Live</span><span class="t">Surface vs. mineral estate · severance<small>The two stacked estates and the dominant-estate rule</small></span></div>
           <div class="step"><span class="chip live">Live</span><span class="t">Separate tracts &amp; common ownership<small>Why differing fractions create separate tracts</small></span></div>
           <div class="step"><span class="chip live">Live</span><span class="t">Fractional &amp; undivided interests<small>Co-tenancy, net mineral acres, partition</small></span></div>
+          <div class="step"><span class="chip live">Live</span><span class="t">Measuring ownership<small>Gross acres, net mineral acres, net royalty acres, and the 1/8 yardstick</small></span></div>
           <div class="step"><span class="chip next">Next</span><span class="t">Accommodation doctrine &amp; surface use<small>How the dominant estate must treat the surface owner</small></span></div>
         </div>
       </div>
@@ -3116,8 +3850,8 @@
       <div class="tier">
         <div class="tier-head"><span class="tier-num">TIER 2</span><h3>The lease</h3><span class="tier-sub">Turning ownership into production.</span></div>
         <div class="steps">
-          <div class="step"><span class="chip live">Live</span><span class="t">The lease — signing to termination<small>Bonus, royalty, primary vs. secondary term, held by production; where "cost-free" stops, and a worked two-lease ledger</small></span></div>
-          <div class="step"><span class="chip later">Planned</span><span class="t">Royalty vs. working interest<small>The other side of the wellhead: who bears cost, who carries the risk</small></span></div>
+          <div class="step"><span class="chip live">Live</span><span class="t">The lease — signing to termination<small>Bonus, royalty, primary vs. secondary term, held by production</small></span></div>
+          <div class="step"><span class="chip later">Planned</span><span class="t">Royalty vs. working interest<small>Who bears cost, who doesn't</small></span></div>
           <div class="step"><span class="chip live">Live</span><span class="t">Held by production &amp; savings clauses<small>The four bridges; the capped-vs-uncapped shut-in slider</small></span></div>
           <div class="step"><span class="chip later">Planned</span><span class="t">Pugh clauses &amp; retained acreage<small>Releasing the acreage a well doesn't develop</small></span></div>
         </div>
@@ -3176,11 +3910,11 @@
       <span>Texas oil &amp; gas</span>
     </div>
     <p class="disc">These visualizations are simplified teaching tools. They are not legal advice. Created by George Tharp, JD.</p>
-    <p class="disc support-foot">Looking up a clause in your own lease? See the <a href="glossary.html">Lease Clause Dictionary</a> — 138 clauses in plain English.</p>
+    <p class="disc support-foot">Looking up a clause in your own lease? See the <a href="glossary.html">Lease Clause Dictionary</a> — 140 clauses in plain English.</p>
     <p class="disc support-foot">Own minerals outside Texas? <a href="regulators/index.html">Where to look it up</a>
       — the Railroad Commission's equivalent in the ten biggest producing states, and the one document to pull in each.</p>
     <p class="disc support-foot">Free to use, always. If it helped you, you can <a href="#top" data-goto-tab="t-support">support the site</a> — thank you.</p>
-    <p class="disc foot-ver">v1.8.0 · updated August 8, 2026</p>
+    <p class="disc foot-ver">v1.8.0 · updated August 16, 2026</p>
   </div>
 </footer>
 
