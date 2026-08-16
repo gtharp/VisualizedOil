@@ -176,6 +176,85 @@
     setEstate("mineral");
   };
 
+  /* ---------- CONCEPT 04 · MEASURING OWNERSHIP ---------- */
+  const initOwnership = () => {
+    const slider = $("own-rate");
+    if (!slider) return;
+
+    const NMA = "160.00";
+
+    /* pct  = share of ONE mineral acre that comes to you (figure A). Never
+              reaches 100 — that would be an 8/8 royalty, which no lease is.
+       yard = share of the 0–2.0 royalty-acre track (figure B). The 1/4 stop
+              is 100% by construction, so the bar fills exactly when the
+              lease is double the 1/8 yardstick.
+       per  = royalty acres delivered per mineral acre = rate ÷ (1/8). */
+    const STOPS = [
+        {label:"1/8",dec:"0.12500",pct:12.5,yard:50.0,per:"1.0000",mine:"1",rest:"7",total:"160.00",state:"The yardstick itself",note:"One eighth <em>is</em> the yardstick. Exactly one of the acre's eight royalty acres comes to you, which is why a mineral acre leased at 1/8 equals 1.0000 royalty acres by definition. This is the only rate where the two numbers match, and it is the whole reason people assume they always do."},
+        {label:"1/6",dec:"0.16667",pct:16.6667,yard:66.6667,per:"1.3333",mine:"1.3333",rest:"6.6667",total:"213.33",state:"An older lease",note:"1/6 shows up in leases signed decades ago. A third more of the acre comes to you than the yardstick takes, so one mineral acre now yields 1.3333 royalty acres. You did not acquire anything. The lease simply hands you more of what the acre already held."},
+        {label:"3/16",dec:"0.18750",pct:18.75,yard:75.0,per:"1.5000",mine:"1.5",rest:"6.5",total:"240.00",state:"A common ask",note:"3/16 is one and a half eighths, so one and a half of the acre's eight royalty acres come to you. Notice the top bar has not moved once across any of these stops. The acre still holds eight."},
+        {label:"1/5",dec:"0.20000",pct:20.0,yard:80.0,per:"1.6000",mine:"1.6",rest:"6.4",total:"256.00",state:"A common ask",note:"1/5 does not land on an eighth, and that is fine. Royalty acres are a ratio, not a count of blocks, so 1/5 divided by 1/8 gives 1.6 royalty acres for every mineral acre you own."},
+        {label:"1/4",dec:"0.25000",pct:25.0,yard:100.0,per:"2.0000",mine:"2",rest:"6",total:"320.00",state:"Top of the usual range",note:"1/4 takes two of the acre's eight, exactly double the yardstick, so your royalty acres are exactly twice your mineral acres. Same 640 acres, same undivided quarter, same deed. The only thing that changed is two characters in a lease."}
+    ];
+
+    const fill = $("own-fill"),
+      edge = $("own-edge"),
+      barNote = $("own-bar-note"),
+      zMine = $("own-z-mine"),
+      yfill = $("own-yfill"),
+      ylblRate = $("own-ylbl-rate"),
+      cells = [...document.querySelectorAll("#own-ra-scale .own-cellra")],
+      out = $("own-out"),
+      state = $("own-state"),
+      barImg = $("own-bar-img"),
+      countMine = $("own-count-mine"),
+      countRest = $("own-count-rest"),
+      mRate = $("own-m-rate"),
+      mRateD = $("own-m-rate-d"),
+      mPer = $("own-m-per"),
+      mTot = $("own-m-tot"),
+      readout = $("own-readout");
+
+    const update = () => {
+      const d = STOPS[Number(slider.value)];
+      const per = Number(d.per);
+
+      /* figure A — the acre and the eight royalty acres inside it */
+      fill.style.width = d.pct + "%";
+      edge.style.left = d.pct + "%";
+      zMine.style.flexBasis = d.pct + "%";
+      barNote.textContent = d.rest + " royalty acres stay here";
+      cells.forEach((c, k) => {
+        c.classList.remove("mine", "part");
+        if (k + 1 <= Math.floor(per)) c.classList.add("mine");
+        else if (k < per) c.classList.add("part");
+      });
+
+      /* figure B — the same acre against the 1/8 yardstick */
+      yfill.style.width = d.yard + "%";
+      ylblRate.textContent = "at " + d.label;
+
+      /* readouts */
+      out.textContent = d.label;
+      state.textContent = d.state;
+      barImg.setAttribute("aria-label",
+        "One net mineral acre divided into eight royalty acres, with " + d.mine +
+        " of the eight filled to show a " + d.label + " royalty.");
+      countMine.textContent = d.mine + " of the 8 come to you";
+      countRest.textContent = d.rest + " do not";
+      mRate.textContent = d.label;
+      mRateD.textContent = d.dec + " of production";
+      mPer.textContent = d.per;
+      mTot.textContent = d.total;
+      readout.innerHTML = d.note +
+        " Your mineral acres did not move: still <strong>" + NMA +
+        "</strong>, still an undivided quarter of the same 640.";
+    };
+
+    slider.addEventListener("input", update);
+    update();
+  };
+
   /* ---------- CONCEPT 02 · SEPARATE TRACTS TIMELINE ---------- */
   const initTimeline = () => {
     const back = $("tl-back");
@@ -603,6 +682,7 @@
   /* ---------- boot ---------- */
   initTabs();
   initStudio();
+  initOwnership();
   initTimeline();
   initDilution();
   initAllocation();
