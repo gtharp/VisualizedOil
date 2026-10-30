@@ -867,7 +867,8 @@ see:{tab:"t-measure",label:"Concept 04 — Measuring ownership"}}
 
   let chipHtml = '<button class="chip" data-cat="all" aria-pressed="true">All</button>';
   CATS.forEach(([id, label]) => {
-    const short = label.replace(/ &amp;.*$/, "").replace(/,.*$/, "");
+    let short = label.replace(/ &amp;.*$/, "").replace(/,.*$/, "");
+    if (short === label) short = id.charAt(0).toUpperCase() + id.slice(1);
     chipHtml += `<button class="chip" data-cat="${id}" aria-pressed="false">${short}</button>`;
   });
   chipsEl.innerHTML = chipHtml;
