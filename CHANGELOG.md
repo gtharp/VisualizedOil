@@ -42,6 +42,68 @@ Nothing staged.
 
 ---
 
+## 2026-11-02 — Search snippets: titles, descriptions, share cards, clause terms
+
+`index.html` 1.8.0 → **1.8.1** (patch)
+`glossary.html` 1.3.0 → **1.3.1** (patch)
+`regulators/*.html` 1.1.0 → **1.1.1** (patch, all eleven pages)
+Files: `index.html` · `glossary.html` · `js/glossary.js` · `regulators/index.html` ·
+`regulators/texas.html` · `regulators/pennsylvania.html` · `regulators/new-mexico.html` ·
+`regulators/louisiana.html` · `regulators/oklahoma.html` · `regulators/north-dakota.html` ·
+`regulators/west-virginia.html` · `regulators/colorado.html` · `regulators/ohio.html` ·
+`regulators/wyoming.html` · `sitemap.xml` · `CHANGELOG.md`
+
+**Changed**
+
+- **Every `<title>` rewritten to lead with the search term**, not the brand
+  or the agency's full legal name. The hub's title was 123 characters and the
+  state pages ran 88–108; Google cuts off at about 60, so the part that
+  survived was "Texas — Railroad Commission of Texas | Where a mi…". Now:
+  `index.html` "Texas Mineral Rights & Royalties Explained", `glossary.html`
+  "Oil and Gas Lease Clauses Explained", hub "Oil and Gas Regulators by
+  State", and each state "<Agency> Lookup for Mineral Owners" (Oklahoma drops
+  the last three words to fit; Louisiana leads with SONRIS, the database
+  name people actually search). All end "| Oil, Visualized". Lengths 49–69;
+  the four over 60 lose only the brand suffix to truncation.
+- **Meta descriptions rewritten on `index.html`, `glossary.html` and the
+  hub** to 140–160 characters. They were 125 (and opened with the brand),
+  218 and 242. The ten state descriptions were already in range and are
+  unchanged.
+- JSON-LD `WebPage` / `CollectionPage` `name` (and `description` where it
+  changed) updated on all thirteen pages to match the new head tags, and
+  `dateModified` moved to today.
+
+**Fixed**
+
+- **No Open Graph or Twitter card tags anywhere on the site.** All thirteen
+  pages now carry `og:type`, `og:site_name`, `og:locale`, `og:title`,
+  `og:description`, `og:url` (the canonical URL) and `twitter:card` =
+  `summary` with matching title and description. No `og:image` yet — none
+  exists. When a 1200×630 share image is made, add `og:image` and
+  `twitter:image` and switch the card to `summary_large_image`.
+- **The dictionary's DefinedTermSet held no terms.** `js/glossary.js` now
+  appends a second JSON-LD block at runtime: one `DefinedTerm` per clause
+  (140), each with `name`, `description` (the plain-English definition),
+  `url` pointing at its own `#clause-N` card, and `inDefinedTermSet`
+  referencing the static set by `@id`. Built from the same `CLAUSES` array
+  that renders the cards, so it cannot drift and adds no bytes to the HTML.
+- `glossary.html` dates had drifted: the header comment said 2026-07-27 and
+  the JSON-LD `dateModified` said 2026-07-26 against a 2026-08-16 release.
+  All dates now agree.
+
+**Notes.** This reverses two earlier calls recorded in the 2026-07-27 entry
+below. The `twitter:` tags were declined then and `og:` was held for an
+image; both now ship without one, because a text-only card still beats the
+scraped fallback. The DefinedTerms were skipped then to avoid copying about
+80 KB into the HTML; building them in the browser avoids that. That entry's
+larger point still stands: the clause *text* is only in the served HTML
+after JavaScript runs, and structured data doesn't change that. Google has
+no rich result for `DefinedTermSet`, so check the terms with the Schema
+Markup Validator rather than the Rich Results Test. `sitemap.xml` `lastmod`
+is now 2026-11-02 for all thirteen URLs. Page bodies are unchanged.
+
+---
+
 ## 2026-08-16 — Measuring ownership: a new Concept 04, and the ladder renumbered
 
 `index.html` 1.7.0 → **1.8.0** (minor)

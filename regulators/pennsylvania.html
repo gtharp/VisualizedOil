@@ -2,8 +2,8 @@
 <!--
   ============================================================
   Oil, Visualized  ·  regulators/pennsylvania.html
-  Version:      1.1.0
-  Last updated: 2026-07-27
+  Version:      1.1.1
+  Last updated: 2026-11-02
   State page: Pennsylvania — DEP Office of Oil and Gas Management.
   Prior build (1.0.3): PATCH — meta description rewritten. All ten
       state pages shared one templated description with the state
@@ -11,13 +11,19 @@
       Each page now describes its own document to pull. Texas also
       claimed to differ from the Texas Railroad Commission, which
       is itself. Page body unchanged.
-  This build (1.1.0): MINOR — schema.org JSON-LD added. A block
+  Prior build (1.1.0): MINOR — schema.org JSON-LD added. A block
       in the head describes this page's agency as a
       GovernmentOrganization, plus WebPage, BreadcrumbList, and the
       shared WebSite / publisher / author nodes. Invisible to
       readers; it is what a search engine reads instead of guessing.
       No og: or twitter: tags — deliberate, not an oversight.
       Nothing else on the page changed.
+  This build (1.1.1): PATCH — search snippet. <title> rewritten to
+      lead with the search term and fit ~60 characters; Open Graph
+      (og:*) and twitter:card "summary" tags added so shared links
+      get a proper preview card (no og:image yet — none exists).
+      JSON-LD name / dateModified updated to match. Page body
+      unchanged.
   NOTE: bump "Version" and "Last updated" on every commit.
   ============================================================
 -->
@@ -26,10 +32,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Pennsylvania has no general Marcellus pooling, so no state unit plat exists. Pull the DEP well record, then finish the job at the county Recorder of Deeds.">
-<meta name="version" content="1.1.0">
-<meta name="last-updated" content="2026-07-27">
-<title>Pennsylvania — DEP Office of Oil and Gas Management | Where a mineral owner looks it up | Oil, Visualized</title>
+<meta name="version" content="1.1.1">
+<meta name="last-updated" content="2026-11-02">
+<title>Pennsylvania DEP Well Lookup for Mineral Owners | Oil, Visualized</title>
 <link rel="canonical" href="https://visualizedoil.com/regulators/pennsylvania.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Oil, Visualized">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Pennsylvania DEP Well Lookup for Mineral Owners">
+<meta property="og:description" content="Pennsylvania has no general Marcellus pooling, so no state unit plat exists. Pull the DEP well record, then finish the job at the county Recorder of Deeds.">
+<meta property="og:url" content="https://visualizedoil.com/regulators/pennsylvania.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pennsylvania DEP Well Lookup for Mineral Owners">
+<meta name="twitter:description" content="Pennsylvania has no general Marcellus pooling, so no state unit plat exists. Pull the DEP well record, then finish the job at the county Recorder of Deeds.">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <script type="application/ld+json">
   {
@@ -67,9 +82,9 @@
         "@type": "WebPage",
         "@id": "https://visualizedoil.com/regulators/pennsylvania.html#webpage",
         "url": "https://visualizedoil.com/regulators/pennsylvania.html",
-        "name": "Pennsylvania — DEP Office of Oil and Gas Management | Where a mineral owner looks it up | Oil, Visualized",
+        "name": "Pennsylvania DEP Well Lookup for Mineral Owners | Oil, Visualized",
         "description": "Pennsylvania has no general Marcellus pooling, so no state unit plat exists. Pull the DEP well record, then finish the job at the county Recorder of Deeds.",
-        "dateModified": "2026-07-27",
+        "dateModified": "2026-11-02",
         "isPartOf": {
           "@id": "https://visualizedoil.com/#website"
         },
@@ -288,7 +303,7 @@
     
     <p class="disc support-foot">Free to use, always. If it helped you, you can
       <a href="../index.html#t-support">support the site</a> — thank you.</p>
-    <p class="disc foot-ver">Where to look it up v1.1.0 &middot; updated July 27, 2026</p>
+    <p class="disc foot-ver">Where to look it up v1.1.1 &middot; updated November 2, 2026</p>
   </div>
 </footer>
 

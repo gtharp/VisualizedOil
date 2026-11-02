@@ -2,18 +2,23 @@
 <!--
   ============================================================
   Oil, Visualized  ·  regulators/index.html
-  Version:      1.1.0
-  Last updated: 2026-07-27
+  Version:      1.1.1
+  Last updated: 2026-11-02
   Hub page for the regulators section. Tile map, the ten state cards,
   the comparison table, the 1859-to-now history, the interactive API
   number decoder, and the federal / nationwide picture.
   Prior build (1.0.3): PATCH — no change to this page. Version
       stamp moved so the eleven pages in this section stay in sync
       after the ten state meta descriptions were rewritten.
-  This build (1.1.0): MINOR — schema.org JSON-LD added: a
+  Prior build (1.1.0): MINOR — schema.org JSON-LD added: a
       CollectionPage with an ItemList of the ten state pages, plus
       BreadcrumbList and the shared WebSite / publisher / author
       nodes. Nothing else on the page changed.
+  This build (1.1.1): PATCH — search snippet. <title> (was 123
+      chars) and meta description (was 242) rewritten; Open Graph
+      and twitter:card "summary" tags added (no og:image yet).
+      JSON-LD name / description / dateModified updated to match.
+      Page body unchanged.
   NOTE: bump "Version" and "Last updated" on every commit.
   ============================================================
 -->
@@ -21,11 +26,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Every oil and gas state has an agency like the Texas Railroad Commission — under a different name. Who they are, what one document a mineral owner should pull in each of the ten biggest producing states, and why Pennsylvania is the exception.">
-<meta name="version" content="1.1.0">
-<meta name="last-updated" content="2026-07-27">
-<title>Who regulates your well — the Railroad Commission and its equivalents in the ten biggest producing states | Oil, Visualized</title>
+<meta name="description" content="Every oil state has its own Railroad Commission under another name. Find the agency for your well in the top ten producing states and the record to pull.">
+<meta name="version" content="1.1.1">
+<meta name="last-updated" content="2026-11-02">
+<title>Oil and Gas Regulators by State | Oil, Visualized</title>
 <link rel="canonical" href="https://visualizedoil.com/regulators/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Oil, Visualized">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Oil and Gas Regulators by State">
+<meta property="og:description" content="Every oil state has its own Railroad Commission under another name. Find the agency for your well in the top ten producing states and the record to pull.">
+<meta property="og:url" content="https://visualizedoil.com/regulators/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Oil and Gas Regulators by State">
+<meta name="twitter:description" content="Every oil state has its own Railroad Commission under another name. Find the agency for your well in the top ten producing states and the record to pull.">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <script type="application/ld+json">
   {
@@ -63,9 +77,9 @@
         "@type": "CollectionPage",
         "@id": "https://visualizedoil.com/regulators/#webpage",
         "url": "https://visualizedoil.com/regulators/",
-        "name": "Who regulates your well — the Railroad Commission and its equivalents in the ten biggest producing states | Oil, Visualized",
-        "description": "Every oil and gas state has an agency like the Texas Railroad Commission — under a different name. Who they are, what one document a mineral owner should pull in each of the ten biggest producing states, and why Pennsylvania is the exception.",
-        "dateModified": "2026-07-27",
+        "name": "Oil and Gas Regulators by State | Oil, Visualized",
+        "description": "Every oil state has its own Railroad Commission under another name. Find the agency for your well in the top ten producing states and the record to pull.",
+        "dateModified": "2026-11-02",
         "isPartOf": {
           "@id": "https://visualizedoil.com/#website"
         },
@@ -941,7 +955,7 @@
     
     <p class="disc support-foot">Free to use, always. If it helped you, you can
       <a href="../index.html#t-support">support the site</a> — thank you.</p>
-    <p class="disc foot-ver">Where to look it up v1.1.0 &middot; updated July 27, 2026</p>
+    <p class="disc foot-ver">Where to look it up v1.1.1 &middot; updated November 2, 2026</p>
   </div>
 </footer>
 
