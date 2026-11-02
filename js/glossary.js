@@ -894,6 +894,29 @@ see:{tab:"t-measure",label:"Concept 04 — Measuring ownership"}}
   });
   resultsEl.innerHTML = html;
 
+  /* ---------- structured data ----------
+     One schema.org DefinedTerm per clause, built from the same
+     CLAUSES array that renders the cards above, so the markup can
+     never drift from what's on screen and no clause text is
+     duplicated into glossary.html. Each term points by @id at the
+     DefinedTermSet declared in the static JSON-LD block in the
+     page head. JSON.stringify guarantees the block parses. */
+  const LD_BASE = "https://visualizedoil.com/glossary.html";
+  const ld = document.createElement("script");
+  ld.type = "application/ld+json";
+  ld.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": CLAUSES.map((c) => ({
+      "@type": "DefinedTerm",
+      "@id": `${LD_BASE}#clause-${c.n}`,
+      "url": `${LD_BASE}#clause-${c.n}`,
+      "name": c.term,
+      "description": c.def,
+      "inDefinedTermSet": { "@id": `${LD_BASE}#dictionary` }
+    }))
+  });
+  document.head.appendChild(ld);
+
   /* ---------- filter ---------- */
   const search = document.getElementById("gsearch");
   const clearBtn = document.getElementById("gclear");
