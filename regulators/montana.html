@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  Oil, Visualized  ·  regulators/montana.html
+  Version:      1.2.4
+  Last updated: 2026-11-06
+  State page: Montana. Board of Oil and Gas Conservation (MBOGC).
+  This build (1.2.0): MINOR. New page. The first state outside the
+      ten biggest producers, and the first state page built as a
+      full owner's guide: at-a-glance facts, ten things to know,
+      an "if you know Texas" comparison, a check-stub waterfall
+      (interactive), the production tax table, the forced pooling
+      flow and penalties, the payment timeline, leases / title /
+      surface, a deadlines table, lookup links, and a glossary.
+      Built only from the Montana Content Brief v2 (as of
+      2026-11-06; law cited to MCA 2025). Items the brief marks
+      VERIFY carry an "under review" tag or are left out.
+      Interactive pieces live in js/regulators.js (initWaterfall);
+      new components in css/regulators.css under "DEEP STATE
+      PAGE COMPONENTS".
+  This build (1.2.1): PATCH. Open items researched. Bluebird
+      Energy cite filled in (2024 MT 10); Wicklund reporter cites
+      added (383 Mont. 1, 367 P.3d 403); permit-life note updated
+      with the Board's April 8, 2026 direction (no rule adopted);
+      resident-withholding wording tightened. "Cite pending"
+      tag retired.
+  This build (1.2.2): PATCH. Both remaining open items closed
+      from the MCA 2025 text and DOR's live page. (1) The 0.3% is
+      inside the 14.8% (15-36-304(7)); "Under review" tag removed
+      from the waterfall note. (2) Withholding applies to every
+      royalty owner regardless of residency (15-30-2537, -2538);
+      tag removed. Also: 6% history explained (DOR page still says
+      6%), "remitter itself" exclusion added, exempt-org sworn
+      report under 15-30-2539(2)(d) noted.
+  This build (1.2.3): PATCH. Updated from the rule text itself
+      (ARM 36.22.1242 and 42.17.601 to 42.17.605, supplied by the
+      author): privilege and license tax at 60% from 4/1/26; what
+      withholding covers; small-producer and Sept 15 notice rules;
+      $166/month threshold; exempt-org letter steps with 30-day
+      decision; credit claiming for trusts, K-1 owners; 1099 by
+      Jan 31; production tax not creditable; two deadline rows.
+  This build (1.2.4): PATCH. ARM 36.22.604 checked against the
+      rule text: 6-month permit life confirmed (unamended since
+      1995, no extension); last "Under review" tags removed; added
+      the 10-day window to demand a hearing on a drilling permit.
+  STYLE: no em-dashes on this page (brief requirement).
+  NOTE: bump "Version" and "Last updated" on every commit.
+  ============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Montana royalty owners pay a 14.8% production tax from the first barrel, and the Board of Oil and Gas Conservation can force-pool you. A guide for owners who know Texas.">
+<meta name="version" content="1.2.4">
+<meta name="last-updated" content="2026-11-06">
+<title>Montana Oil and Gas Board Guide for Mineral Owners | Oil, Visualized</title>
+<link rel="canonical" href="https://visualizedoil.com/regulators/montana.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Oil, Visualized">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Montana Oil and Gas Board Guide for Mineral Owners">
+<meta property="og:description" content="Montana royalty owners pay a 14.8% production tax from the first barrel, and the Board of Oil and Gas Conservation can force-pool you. A guide for owners who know Texas.">
+<meta property="og:url" content="https://visualizedoil.com/regulators/montana.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Montana Oil and Gas Board Guide for Mineral Owners">
+<meta name="twitter:description" content="Montana royalty owners pay a 14.8% production tax from the first barrel, and the Board of Oil and Gas Conservation can force-pool you. A guide for owners who know Texas.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://visualizedoil.com/#website",
+        "url": "https://visualizedoil.com/",
+        "name": "Oil, Visualized",
+        "alternateName": "Oil, Visualized — the mineral estate, drawn",
+        "description": "A free educational site explaining Texas oil and gas mineral ownership, royalty and lease concepts to mineral and royalty owners, using interactive diagrams.",
+        "inLanguage": "en-US",
+        "publisher": {
+          "@id": "https://visualizedoil.com/#publisher"
+        },
+        "creator": {
+          "@id": "https://visualizedoil.com/#george"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://visualizedoil.com/#publisher",
+        "name": "HydroThorpe LLC",
+        "url": "https://visualizedoil.com/"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://visualizedoil.com/#george",
+        "name": "George Tharp",
+        "honorificSuffix": "JD",
+        "jobTitle": "Author"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://visualizedoil.com/regulators/montana.html#webpage",
+        "url": "https://visualizedoil.com/regulators/montana.html",
+        "name": "Montana Oil and Gas Board Guide for Mineral Owners | Oil, Visualized",
+        "description": "Montana royalty owners pay a 14.8% production tax from the first barrel, and the Board of Oil and Gas Conservation can force-pool you. A guide for owners who know Texas.",
+        "dateModified": "2026-11-06",
+        "isPartOf": {
+          "@id": "https://visualizedoil.com/#website"
+        },
+        "inLanguage": "en-US",
+        "about": {
+          "@id": "https://visualizedoil.com/regulators/montana.html#agency"
+        },
+        "mainEntity": {
+          "@id": "https://visualizedoil.com/regulators/montana.html#agency"
+        },
+        "breadcrumb": {
+          "@id": "https://visualizedoil.com/regulators/montana.html#breadcrumb"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Oil, Visualized",
+            "item": "https://visualizedoil.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Where to look it up",
+            "item": "https://visualizedoil.com/regulators/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Montana"
+          }
+        ],
+        "@id": "https://visualizedoil.com/regulators/montana.html#breadcrumb"
+      },
+      {
+        "@type": "GovernmentOrganization",
+        "@id": "https://visualizedoil.com/regulators/montana.html#agency",
+        "name": "Montana Board of Oil and Gas Conservation",
+        "alternateName": [
+          "MBOGC",
+          "Montana Board of Oil and Gas"
+        ],
+        "url": "https://dnrc.mt.gov/BOGC",
+        "description": "The quasi-judicial Montana board, attached to the Department of Natural Resources and Conservation, that creates spacing units and pools interests by order after public hearings.",
+        "areaServed": {
+          "@type": "State",
+          "name": "Montana",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "MT",
+            "addressCountry": "US"
+          }
+        },
+        "knowsAbout": [
+          "Oil and gas well permitting",
+          "Spacing units and forced pooling",
+          "Well and production records"
+        ]
+      }
+    ]
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Spectral:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/regulators.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="../index.html">
+      <span class="mark">Oil, Visualized<span class="dot">.</span></span>
+      <span class="sub hide-sm">the mineral estate, drawn</span>
+    </a>
+    <nav class="headnav" aria-label="Site sections">
+      <a class="navlink" href="../index.html">Concepts</a>
+      <a class="navlink" href="../glossary.html">Clause dictionary</a>
+      <a class="navlink" href="index.html" aria-current="page">Where to look it up</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <nav class="crumb" aria-label="Breadcrumb">
+    <a href="../index.html">Oil, Visualized</a>
+    <span class="sep">/</span>
+    <a href="index.html">Where to look it up</a>
+    <span class="sep">/</span>
+    <span class="here">Montana</span>
+  </nav>
+
+  <div class="hero compact">
+    <p class="eyebrow">Beyond the ten &middot; API state code 25</p>
+    <h1>Montana: the <em>Board</em>.</h1>
+    <p class="lede">The Montana Board of Oil and Gas Conservation decides who shares in a well, and it can
+      pool you whether or not you signed a lease. Royalty owners pay a 14.8% production tax from the first
+      barrel, and many checks also have state income tax withheld. If you learned minerals in Texas, a
+      surprising amount of what you know runs the other way here.</p>
+    <nav class="toc" aria-label="On this page">
+      <a href="#glance">At a glance</a>
+      <a href="#know">Top ten</a>
+      <a href="#texas">If you know Texas</a>
+      <a href="#taxes">Taxes</a>
+      <a href="#pooling">Forced pooling</a>
+      <a href="#paid">Getting paid</a>
+      <a href="#title">Leases &amp; title</a>
+      <a href="#deadlines">Deadlines</a>
+      <a href="#lookup">Look it up</a>
+      <a href="#glossary">Glossary</a>
+    </nav>
+  </div>
+
+  <!-- ========== 1. AT A GLANCE ========== -->
+  <div class="section" id="glance" style="border-top:0;padding-top:1rem">
+    <p class="kicker">At a glance</p>
+    <h2>Montana in ten lines</h2>
+
+    <dl class="facts">
+      <div class="frow"><dt>Regulator</dt><dd><b>Montana Board of Oil and Gas Conservation (MBOGC)</b>, a quasi-judicial board attached to the Department of Natural Resources and Conservation (DNRC). Main office in Billings, field office in Shelby. Six scheduled hearings a year.</dd></div>
+      <div class="frow"><dt>Main play</dt><dd>Bakken / Three Forks, Williston Basin (Richland, Roosevelt and Sheridan counties)</dd></div>
+      <div class="frow"><dt>Who makes the unit</dt><dd><b>The Board, by order</b>: temporary spacing units first, then permanent units. The lease does not.</dd></div>
+      <div class="frow"><dt>Royalty production tax</dt><dd><b>14.8%</b> on every category of oil and gas <span class="cite">MCA 15-36-304</span></dd></div>
+      <div class="frow"><dt>Income tax withheld on royalty</dt><dd>The top individual rate: <b>5.65% for 2026</b>, 5.4% from January 1, 2027 <span class="cite">MCA 15-30-2538, -2103</span></dd></div>
+      <div class="frow"><dt>Forced pooling</dt><dd><b>Yes, routine.</b> 200% risk penalty on drilling and completion costs. An unleased owner gets a 1/8 royalty until payout. <span class="cite">MCA 82-11-202</span></dd></div>
+      <div class="frow"><dt>First royalty check due</dt><dd>120 days after first production is marketed, then every 60 days (oil) or 90 days (gas) <span class="cite">MCA 82-10-103</span></dd></div>
+      <div class="frow"><dt>Late-payment interest</dt><dd>The greater of <b>15%</b> or prime plus 6 points <span class="cite">MCA 82-10-103; 31-1-107</span></dd></div>
+      <div class="frow"><dt>Dormant mineral act</dt><dd><b>None.</b> Severed minerals do not lapse for non-use.</dd></div>
+      <div class="frow"><dt>Well data</dt><dd>Public as filed. No confidential (tight-hole) period.</dd></div>
+      <div class="frow"><dt>API state code</dt><dd><b>25</b>. Richland 083, Roosevelt 085, Sheridan 091.</dd></div>
+    </dl>
+    <p class="verify">Law cited to the Montana Code Annotated 2025 (MCA 2025), as of November 2026. The printed
+      code controls over the online version. Rates and deadlines change; confirm anything you intend to rely
+      on against <a href="https://mca.legmt.gov" rel="noopener">mca.legmt.gov</a> and
+      <a href="https://dnrc.mt.gov/BOGC" rel="noopener">the Board's own site</a>.</p>
+  </div>
+
+  <!-- ========== 2. TOP THINGS ========== -->
+  <div class="section" id="know">
+    <p class="kicker">Start here</p>
+    <h2>Top things every Montana mineral owner should know</h2>
+
+    <div class="cards">
+      <div class="card tax">
+        <span class="lbl">Tax</span>
+        <h3>Royalty owners pay 14.8% production tax from the first barrel.</h3>
+        <p>The operator pays it and takes your share out of your check, unless your lease says otherwise.
+          Working interest owners get a 0.5% rate for the first 18 months of a new horizontal well. Royalty
+          owners do not. <span class="cite">15-36-304, -310</span></p>
+      </div>
+      <div class="card tax">
+        <span class="lbl">Tax</span>
+        <h3>Many royalty checks also have Montana income tax withheld.</h3>
+        <p>Larger payors withhold at the state's top income tax rate (5.65% for 2026). The money is not lost:
+          it is a credit you claim on a Montana return. Qualifying tax-exempt organizations can stop it, but
+          only with a written request that reaches the payor and the Department of Revenue <b>before
+          November 1</b> of the prior year. <span class="cite">15-30-2538, -2539</span></p>
+      </div>
+      <div class="card">
+        <h3>The Board, not your lease, decides who shares in a well.</h3>
+        <p>Montana builds drilling units by Board order after a public hearing. Your share of a well is your
+          acres in the unit divided by the unit's total acres, times your royalty, as fixed by the order for
+          that well. <span class="cite">82-11-201, -202</span></p>
+      </div>
+      <div class="card">
+        <h3>Unleased? You can be force-pooled.</h3>
+        <p>If you refuse to join a well after written demand, the operator recovers 200% of your share of
+          drilling and completion costs (plus 100% of surface equipment and operating costs) out of your share
+          of production. Meanwhile you receive a 1/8 royalty. After payout, you own your full working interest
+          share and pay your share of costs. <span class="cite">82-11-202(2)</span></p>
+      </div>
+      <div class="card">
+        <h3>Answer the 30-day election letter.</h3>
+        <p>Silence counts as a refusal. Penalties also apply after any written demand, and a refusal
+          <b>follows the minerals to the next owner</b> (<i>Phoenix Capital</i>, 2024).
+          <span class="cite">82-11-202(3)</span></p>
+      </div>
+      <div class="card">
+        <h3>Late royalties earn at least 15% interest.</h3>
+        <p>Accepting a catch-up payment does not by itself give up the interest claim, so reserve it in
+          writing. <span class="cite">82-10-103; 31-1-107</span></p>
+      </div>
+      <div class="card">
+        <h3>Keep your address current in the county records.</h3>
+        <p>Board hearing notices and well proposals go to your address of record at the county clerk and
+          recorder. If an operator cannot find you, after 6 months your money goes into a court-supervised
+          trust. After 5 years without contact, it is presumed abandoned to the Montana Department of Revenue.
+          <span class="cite">82-1-302, -305; 70-9-803</span></p>
+      </div>
+      <div class="card">
+        <h3>Old minerals do not expire for non-use.</h3>
+        <p>Montana has no dormant mineral act. North Dakota, next door, has one.</p>
+      </div>
+      <div class="card">
+        <h3>Montana reads mineral reservations in favor of the seller.</h3>
+        <p>That is the reverse of the Texas rule. Old deeds in Montana chains of title are construed under
+          Montana law. <span class="cite">70-1-516</span></p>
+      </div>
+      <div class="card">
+        <h3>Low prices do not excuse a shut-in.</h3>
+        <p>Under Montana's temporary cessation rule, only a sudden stoppage or mechanical breakdown counts, and
+          only if the operator fixes it promptly. (<i>Somont</i>, 2002 and 2006)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 3. IF YOU KNOW TEXAS ========== -->
+  <div class="section" id="texas">
+    <p class="kicker">The translation table</p>
+    <h2>If you know Texas</h2>
+    <p>Most out-of-state owners, landmen and trust officers handling Montana interests learned the business in
+      Texas. This is what changes when you cross the line. Statute numbers in the Montana column are MCA 2025
+      unless marked otherwise.</p>
+
+    <div class="vs-wrap" style="margin-top:1.4rem">
+    <table class="vs">
+      <thead>
+        <tr><th scope="col">Topic</th><th scope="col">Texas</th><th scope="col">Montana</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Regulator</th><td class="tx" data-k="Texas">Railroad Commission</td><td class="st" data-k="Montana">Board of Oil and Gas Conservation. Units, pooling, and well density are decided at hearings.</td></tr>
+        <tr><th scope="row">Who makes the unit</th><td class="tx" data-k="Texas">The operator, under the lease pooling clause. Forced pooling (MIPA) is rare.</td><td class="st" data-k="Montana"><b>The Board creates spacing units by order.</b> Forced pooling of every interest in a permanent unit is routine. <span class="cite">82-11-201, -202</span></td></tr>
+        <tr><th scope="row">Unleased owner</th><td class="tx" data-k="Texas">Effectively not force-pooled</td><td class="st" data-k="Montana">Holds a 1/8 royalty until payout, then a working interest share. <span class="cite">82-11-202(2)(c)</span></td></tr>
+        <tr><th scope="row">Risk penalty</th><td class="tx" data-k="Texas">Up to 100% under MIPA (rarely used)</td><td class="st" data-k="Montana"><b>200%</b> of drilling and completion costs, plus 100% of surface equipment and operating costs. <span class="cite">82-11-202(2)(b)</span></td></tr>
+        <tr><th scope="row">Horizontal well across tracts</th><td class="tx" data-k="Texas">Allocation and production sharing agreement (PSA) wells</td><td class="st" data-k="Montana">The Board orders an "overlapping" temporary unit limited to production from one well. Interest decimals go well by well, order by order.</td></tr>
+        <tr><th scope="row">First royalty payment</th><td class="tx" data-k="Texas">120 days after the end of the month of first sale (Nat. Res. Code &sect;91.402)</td><td class="st" data-k="Montana">120 days after the first production is marketed; then 60 days oil, 90 days gas. <span class="cite">82-10-103</span></td></tr>
+        <tr><th scope="row">Division orders</th><td class="tx" data-k="Texas">Statutory division order (&sect;91.402)</td><td class="st" data-k="Montana">Cannot alter the lease or relieve the lessee of lease duties. <span class="cite">82-10-110</span></td></tr>
+        <tr><th scope="row">Check stub</th><td class="tx" data-k="Texas">Statutory content</td><td class="st" data-k="Montana">Eleven required items, and <b>every charge listed line by line</b>. A knowing violation is a misdemeanor. <span class="cite">82-10-104</span></td></tr>
+        <tr><th scope="row">Production tax on royalty</th><td class="tx" data-k="Texas">Severance tax under Tax Code chs. 201, 202</td><td class="st" data-k="Montana"><b>14.8%</b> nonworking interest rate, no new-well rate. <span class="cite">15-36-304</span></td></tr>
+        <tr><th scope="row">State income tax withholding</th><td class="tx" data-k="Texas">None (no state income tax)</td><td class="st" data-k="Montana">Payor withholds the top state rate from royalty payments. <span class="cite">15-30-2538</span></td></tr>
+        <tr><th scope="row">Unlocatable owner's money</th><td class="tx" data-k="Texas">Texas Comptroller unclaimed property</td><td class="st" data-k="Montana">Court trust after 6 months <span class="cite">82-1-302, -305</span>. Unclaimed property after 5 years of dormancy <span class="cite">70-9-803</span>.</td></tr>
+        <tr><th scope="row">Recording act</th><td class="tx" data-k="Texas">Notice</td><td class="st" data-k="Montana">Race-notice: a later good-faith buyer who records first wins. <span class="cite">70-21-304</span></td></tr>
+        <tr><th scope="row">Ambiguous mineral reservation</th><td class="tx" data-k="Texas">Construed against the grantor</td><td class="st" data-k="Montana"><b>Construed for the grantor.</b> <span class="cite">70-1-516</span>; <i>Wicklund v. Sundheim</i>, 2016 MT 62, 383 Mont. 1</td></tr>
+        <tr><th scope="row">Dormant minerals</th><td class="tx" data-k="Texas">No statute</td><td class="st" data-k="Montana">No statute. Repeated bills since 1977 all failed.</td></tr>
+        <tr><th scope="row">Temporary cessation</th><td class="tx" data-k="Texas">Same root rule, read broadly</td><td class="st" data-k="Montana">Kept narrow: mechanical cause plus prompt repair only. Price and the economy do not count. (<i>Somont</i>, 2002 and 2006)</td></tr>
+        <tr><th scope="row">Surface damages</th><td class="tx" data-k="Texas">No general statute</td><td class="st" data-k="Montana">Surface Owner Damage and Disruption Compensation Act. <span class="cite">82-10-501 to -511</span></td></tr>
+        <tr><th scope="row">Well data</th><td class="tx" data-k="Texas">RRC records</td><td class="st" data-k="Montana">Public as filed, with no confidentiality period</td></tr>
+        <tr><th scope="row">Production reporting</th><td class="tx" data-k="Texas">Lease-level oil, well-level gas</td><td class="st" data-k="Montana">By well. Watch out: a "lease" in Board data is a Department of Revenue reporting unit, not the oil and gas lease.</td></tr>
+        <tr><th scope="row">Drilling permit life</th><td class="tx" data-k="Texas">Longer</td><td class="st" data-k="Montana">6 months unless drilling starts, with no extension: a new application and fee are required. <span class="cite">ARM 36.22.604(3)</span></td></tr>
+        <tr><th scope="row">Court review of agency orders</th><td class="tx" data-k="Texas">Substantial evidence review</td><td class="st" data-k="Montana">Fresh (de novo) proceeding in district court, but courts defer to a thorough Board (<i>Ostby</i>, 2014; <i>Phoenix Capital</i>, 2024). <b>In practice, win at the hearing.</b></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ========== 4. TAXES ========== -->
+  <div class="section" id="taxes">
+    <p class="kicker">Taxes, visualized</p>
+    <h2>Two taxes come off a Montana royalty check</h2>
+    <p>The first is the <b>oil and gas production tax</b>, a tax on the product, paid by the operator and
+      charged to you. The second is <b>state income tax withholding</b>, a prepayment of your own income tax
+      that you settle on a Montana return. They are separate lines on the stub and work differently.</p>
+
+    <div class="panel" id="waterfall">
+      <div class="panel-head">
+        <p class="k">From gross value to your check</p>
+        <h3>The check-stub waterfall</h3>
+      </div>
+      <div class="panel-body">
+        <div class="wf-controls">
+          <label for="wf-gross">Your gross royalty value $
+            <input type="number" id="wf-gross" min="0" step="50" value="1000" inputmode="decimal">
+          </label>
+          <span>Withholding rate
+            <span class="wf-seg" role="group" aria-label="Withholding year">
+              <button type="button" data-wf-year="2026" aria-pressed="true">2026: 5.65%</button>
+              <button type="button" data-wf-year="2027" aria-pressed="false">2027 on: 5.4%</button>
+              <button type="button" data-wf-year="exempt" aria-pressed="false">Exempt / none</button>
+            </span>
+          </span>
+        </div>
+
+        <div class="wf" aria-live="polite">
+          <div class="wf-row">
+            <span class="lab">Gross royalty value<small>your share of the sale</small></span>
+            <span class="wf-track"><span class="wf-bar gross" id="wf-b-gross"></span></span>
+            <span class="amt" id="wf-a-gross">$1,000.00</span>
+          </div>
+          <div class="wf-row">
+            <span class="lab">Production tax, 14.8%<small>MCA 15-36-304</small></span>
+            <span class="wf-track"><span class="wf-bar ptax" id="wf-b-ptax"></span></span>
+            <span class="amt neg" id="wf-a-ptax">&minus;$148.00</span>
+          </div>
+          <div class="wf-row">
+            <span class="lab">Income tax withheld<small id="wf-l-wh">5.65% &middot; MCA 15-30-2538</small></span>
+            <span class="wf-track"><span class="wf-bar wh" id="wf-b-wh"></span></span>
+            <span class="amt neg" id="wf-a-wh">&minus;$48.14</span>
+          </div>
+          <div class="wf-row">
+            <span class="lab">Net check<small>what reaches you</small></span>
+            <span class="wf-track"><span class="wf-bar net" id="wf-b-net"></span></span>
+            <span class="amt" id="wf-a-net">$803.86</span>
+          </div>
+        </div>
+
+        <p class="wf-note">The production tax is gone for good, and it cannot be claimed as income tax
+          withholding <span class="cite">ARM 42.17.602(1)(i)</span>. The withholding is not lost: it is a credit on
+          your Montana income tax return, and an exempt owner withheld on in error claims a refund from the
+          Department of Revenue.</p>
+        <p class="panel-foot">Illustrative only. Post-production deductions, if your lease allows them, are left
+          out. The withholding base is the net Montana royalty reported in Box 2 of your Form 1099-MISC; this
+          illustration assumes that equals the amount left after production tax, and your payor's base may
+          differ. The 14.8% already includes the 0.3% Board privilege and license tax and resource distribution
+          account tax, so nothing is added on top of it <span class="cite">15-36-304(7)</span>.</p>
+      </div>
+    </div>
+
+    <h3 class="sub">Working interest gets a break. Royalty does not.</h3>
+    <p>The production tax has a reduced rate for new wells, but only for the working interest. Every
+      nonworking interest (royalty, overriding royalty) pays 14.8% in every category, from day one.
+      <span class="cite">MCA 15-36-304; MCA 2025, last amended 2023</span></p>
+    <div class="table-scroll">
+      <table class="ledger">
+        <thead>
+          <tr><th>Category</th><th class="r">Working interest</th><th class="r">Royalty / ORRI</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Horizontal well oil, first 18 months</td><td class="r"><b>0.5%</b></td><td class="r"><b>14.8%</b></td></tr>
+          <tr><td>Horizontal well oil, after 18 months (post-1999 / pre-1999 wells)</td><td class="r">9% / 12.5%</td><td class="r">14.8%</td></tr>
+          <tr><td>Oil, primary recovery, first 12 months</td><td class="r"><b>0.5%</b></td><td class="r"><b>14.8%</b></td></tr>
+          <tr><td>Oil, after 12 months (post-1999 / pre-1999)</td><td class="r">9% / 12.5%</td><td class="r">14.8%</td></tr>
+          <tr><td>Gas, first 12 months</td><td class="r"><b>0.5%</b></td><td class="r"><b>14.8%</b></td></tr>
+          <tr><td>Gas, after 12 months (post-1999 / pre-1999)</td><td class="r">9% / 14.8%</td><td class="r">14.8%</td></tr>
+          <tr><td>Incremental secondary / tertiary recovery</td><td class="r">8.5% / 5.8%</td><td class="r">14.8%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <h3>The production tax</h3>
+        <ul class="plist">
+          <li><b>Who pays.</b> The operator pays the tax for all owners. Unless a contract or lease provides
+            otherwise, it deducts each royalty owner's share from settlements <span class="cite">15-36-310</span>.
+            The tax is paid quarterly, within 60 days after quarter end <span class="cite">15-36-311</span>.</li>
+          <li><b>Exempt.</b> Interests owned by the state or local governments <span class="cite">15-36-304(8)</span>.
+            Royalties received by tribes under Indian Mineral Leasing Act leases, by the United States as trustee
+            for individual Indians, and by federal, state, county and municipal governments
+            <span class="cite">15-36-309</span>.</li>
+          <li><b>New-well window.</b> The working interest's 18-month reduced rate starts at first production and
+            runs straight through, whether or not production is continuous. It does not restart for a new owner
+            who buys a well after the window has run (<i>Bluebird Energy LLC v. Dep't of Revenue</i>, 2024 MT 10).</li>
+          <li><b>The 0.3% is inside the rate.</b> The statute adjusts every rate to <i>include</i> the Board's privilege
+            and license tax and the natural resource distribution account tax, which together total 0.3%
+            <span class="cite">15-36-304(7)</span>. From April 1, 2026 the Board set its privilege and license tax at
+            60% of the rate authorized by statute <span class="cite">ARM 36.22.1242(2); 82-11-131</span>. That only
+            changes how the 0.3% is divided. The total rate you pay stays 14.8%.</li>
+          <li><b>It is not an income tax.</b> Tax-exempt owners still bear it.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Income tax withholding</h3>
+        <ul class="plist">
+          <li><b>Rate.</b> The payor (the "remitter") withholds the highest marginal individual rate from each
+            royalty payment: <b>5.65% for 2026, 5.4% from January 1, 2027</b>
+            <span class="cite">15-30-2538, amended 2025; 15-30-2103</span>. The base is the net Montana royalty
+            in Box 2 of Form 1099-MISC.</li>
+          <li><b>Ignore the old 6%.</b> Before 2025 the statute fixed the rate at 6%. The 2025 amendment tied it to
+            the top income tax rate instead. The Department of Revenue's own withholding web page and many
+            secondary sources still say 6% as of November 2026, and so does the text of the Department's rules
+            (ARM 42.17.601 and 42.17.603, last amended 2024). The statute controls.</li>
+          <li><b>What it covers.</b> Royalty, overriding royalty, production payments, and any other nonworking
+            interest, including advance royalty payments tied to production. An owner who takes production in kind
+            must send the withholding to the Department itself. <span class="cite">ARM 42.17.601</span></li>
+          <li><b>Who is withheld on.</b> Every royalty owner, <b>resident or not</b>, unless excluded below. The statute
+            applies to "each royalty payment made to a royalty owner," and neither it nor the Department's
+            withholding page limits it to nonresidents. What matters is that the property is in Montana.
+            <span class="cite">15-30-2537, -2538</span></li>
+          <li><b>Who is excluded</b> <span class="cite">15-30-2539</span>: governments; tribes, for on-reservation
+            Indian Mineral Leasing Act production; the United States as trustee for individual Indians; publicly
+            traded partnerships; organizations exempt under 15-31-102; a royalty owner that is the remitter itself;
+            and small producers averaging under 100,000 barrels of oil and 500 MMcf of gas a year over three prior
+            calendar years. The Department tells each oil and gas producer by September 15 whether it must withhold
+            the next year. The small-producer exception does not cover a payor that is not itself a producer, and if
+            a producer's oil or its gas crosses the line, both are withheld on.
+            <span class="cite">ARM 42.17.601(2), 42.17.603(1), (3), (5)</span></li>
+          <li><b>Small payments.</b> The Department lets payors skip withholding on royalty owners paid less than
+            $2,000 a year or less than $166 a month <span class="cite">15-30-2539(3); ARM 42.17.603(12)</span>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">Tax-exempt owners: the November 1 letter</p>
+      <p>A qualifying exempt organization is not excluded automatically. It must send a report to <strong>both the
+        payor and the Department of Revenue</strong>, and the report can be a letter <span class="cite">15-30-2539(2)(d);
+        ARM 42.17.603(10)</span>:</p>
+      <ul class="plist">
+        <li>on the organization's <b>letterhead</b>, requesting exemption from MCA 15-30-2536 through 15-30-2547;</li>
+        <li><b>received</b> by the payor and the Department <b>before November 1</b> of the year before the exemption
+          year (a letter that arrives November 1 or later counts toward the year after);</li>
+        <li>the Department notifies the organization and the payor of <b>acceptance or denial within 30 days</b>;</li>
+        <li>no annual renewal unless the Department asks.</li>
+      </ul>
+      <p>Publicly traded partnerships use the same letter, which must also state that the partnership is publicly
+        traded <span class="cite">ARM 42.17.603(9)</span>. When a producer sells, the buyer becomes the remitter and
+        keeps withholding <span class="cite">ARM 42.17.603(4)</span>. The new payor has not received the old letter,
+        so send it again after any acquisition or change in revenue system.</p>
+      <p><strong>Getting money back.</strong> The withholding is claimed as a credit on a Montana individual or
+        corporate income tax return, with the Form 1099-MISC attached <span class="cite">ARM 42.17.602(1)(a)</span>.
+        Owners of a pass-through entity claim their share from the Montana Schedule K-1. An estate or trust and its
+        beneficiaries share the credit in proportion to the royalty income each reports
+        <span class="cite">ARM 42.17.602(1)(b)-(g)</span>. An exempt owner withheld on in error claims a refund from
+        the Department; the payor cannot refund tax it already remitted. The refund deadline is the later of the
+        general assessment period or 1 year from payment <span class="cite">15-30-2609(2)(a)</span>.</p>
+      <p><strong>Read your Form 1099-MISC.</strong> Every payor must furnish one (or a Form 1042-S for a foreign
+        person) by January 31, even a payor exempt from withholding <span class="cite">ARM 42.17.605(1)(c)-(e)</span>.
+        Box 16 (state tax withheld) and Box 17 (payer's state number) show Montana withholding by payor.</p>
+    </div>
+  </div>
+
+  <!-- ========== 5. FORCED POOLING ========== -->
+  <div class="section" id="pooling">
+    <p class="kicker">Forced pooling</p>
+    <h2>How the Board puts you in a well</h2>
+    <p>In Montana the Board, not the lease, builds the unit. It creates a <b>temporary spacing unit</b> by order
+      for a new well. After the well, it sets a <b>permanent spacing unit</b> and, if needed, <b>pools</b> all
+      interests in it. Current Bakken orders use two- to eight-section units, 200-foot heel and toe and 500-foot
+      lateral setbacks, and allow several additional wells per unit. <span class="cite">MCA 82-11-201, -202</span></p>
+
+    <div class="panel">
+      <div class="panel-head">
+        <p class="k">From unit to payout</p>
+        <h3>The forced pooling path</h3>
+      </div>
+      <div class="panel-body">
+        <ol class="flow">
+          <li data-n="1"><span class="t">Spacing unit</span><span class="d">The Board creates a temporary spacing unit by order, later a permanent one.</span><span class="w">Board order</span></li>
+          <li data-n="2"><span class="t">Well proposal letter</span><span class="d">Well location, depth, target formations, estimated costs, spud date.</span><span class="w">Certified mail or signed receipt</span></li>
+          <li data-n="3" class="hot"><span class="t">30-day election</span><span class="d">Pay or agree in writing, or you are presumed to refuse. Silence is a refusal.</span><span class="w">30 days &middot; 82-11-202(3)</span></li>
+          <li data-n="4"><span class="t">Board hearing</span><span class="d">Notice mailed to your county address of record, plus published notice.</span><span class="w">20+ days notice &middot; 82-11-141(4)</span></li>
+          <li data-n="5"><span class="t">Pooling order</span><span class="d">Terms must be just and reasonable. Pooled production counts as produced from each tract.</span><span class="w">Within 30 days &middot; 82-11-141(6)</span></li>
+          <li data-n="6" class="hot"><span class="t">Cost recovery</span><span class="d">Out of a refusing owner's share of production only. Unleased owner holds a 1/8 royalty meanwhile.</span><span class="w">200% / 100%</span></li>
+          <li data-n="7"><span class="t">Payout</span><span class="d">You own your full working interest share and pay your share of future costs.</span><span class="w">82-11-202(2)(c)</span></li>
+        </ol>
+        <p class="panel-foot">The steps are not always in calendar order. Pooling after the wells are completed is
+          normal practice, so a pooling order can come years after the election that decides an owner's
+          economics (<i>Phoenix Capital</i>, 2024). Since 2023 the operator may spud before the 30 days run, but
+          the election window still runs its full 30 days.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">The penalties for a refusing owner</p>
+      <p>Recovered only out of that owner's share of production, and <strong>mandatory once a refusal follows
+        written demand</strong>. <span class="cite">82-11-202(2)</span></p>
+      <div class="nums">
+        <div class="num"><span class="v">200%</span><span class="c">of your share of drilling, completion, and in-well equipment costs</span></div>
+        <div class="num"><span class="v">100%</span><span class="c">of your share of new surface equipment and of operating costs until payout</span></div>
+        <div class="num"><span class="v">1/8</span><span class="c">landowner royalty for an unleased owner (less burdens on its interest) until payout</span></div>
+      </div>
+      <p style="margin-top:1rem">On request, the operator must send an unleased owner monthly statements of costs,
+        production, and proceeds <span class="cite">82-11-202(2)(d)</span>.</p>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <h3>What the operator must show</h3>
+        <p>A pooling order requires <span class="cite">82-11-202(1)(b)</span>:</p>
+        <ul class="plist">
+          <li>a permanent spacing unit;</li>
+          <li>an applicant that owns an interest or has drilled or proposes a well;</li>
+          <li>an <b>unsuccessful, good-faith attempt to pool voluntarily</b>;</li>
+          <li>a hearing.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>The 30-day election</h3>
+        <p>An owner is presumed to refuse if it neither pays nor agrees in writing within <b>30 days</b> of a
+          notice delivered by written acknowledgment or certified mail. The notice must state the well location,
+          depth, target formations, estimated costs, and spud date. <span class="cite">82-11-202(3), amended 2023</span></p>
+      </div>
+    </div>
+
+    <div class="casebox">
+      <div class="ch">
+        <p class="k">Case to know</p>
+        <h3><i>Phoenix Capital Group Holdings v. Board of Oil &amp; Gas Conservation</i>, 2024 MT 89 (unanimous)</h3>
+      </div>
+      <ul>
+        <li><b>Good faith is judged against the owner at the time</b> of the offers. The operator owes no fresh
+          offer to someone who buys later.</li>
+        <li><b>Pooling after the wells are completed is normal practice.</b> A pooling order can come years after
+          the election that decides an owner's economics.</li>
+        <li><b>An election letter is a "written demand"</b> if it carries costs, a deadline, and a penalty warning.
+          Penalties then apply even without the 30-day presumption.</li>
+        <li><b>No late buy-in.</b> A later offer to pay, by the owner or a buyer, does not undo a refusal.</li>
+        <li><b>A buyer is bound by the seller's refusal.</b> In this Richland County unit, the buyer received the
+          12.5% royalty, with penalties charged against its working interest share.</li>
+      </ul>
+    </div>
+
+    <p class="verify" style="font-style:normal"><b>Before buying or inheriting Montana minerals</b>, pull the Board's
+      pooling orders for each unit and ask for every well proposal and election the prior owner received. If a
+      pooling application names you, raise objections at the Board hearing: objections not raised there are
+      treated as waived, and court review is deferential.</p>
+  </div>
+
+  <!-- ========== 6. GETTING PAID ========== -->
+  <div class="section" id="paid">
+    <p class="kicker">Getting paid</p>
+    <h2>When the check is due, and what it must say</h2>
+    <p>In Montana, payment is "of the essence" of the lease. <span class="cite">MCA 82-10-103(1)</span></p>
+
+    <div class="panel">
+      <div class="panel-head">
+        <p class="k">Days after first production is marketed</p>
+        <h3>The payment timeline</h3>
+      </div>
+      <div class="panel-body">
+        <div class="ptl" role="img" aria-label="Payment timeline. First royalty check due 120 days after first production is marketed. After that, oil is paid every 60 days (days 180, 240, 300, 360) and gas every 90 days (days 210, 300).">
+          <div class="ptl-lane">
+            <span class="nm">Oil</span>
+            <div class="ptl-track">
+              <span class="ptl-mk start" style="left:0%"><span>0</span></span>
+              <span class="ptl-mk first" style="left:33.333%"><span>120</span></span>
+              <span class="ptl-mk" style="left:50%"><span>180</span></span>
+              <span class="ptl-mk" style="left:66.667%"><span>240</span></span>
+              <span class="ptl-mk" style="left:83.333%"><span>300</span></span>
+              <span class="ptl-mk" style="left:100%"><span>360</span></span>
+            </div>
+          </div>
+          <div class="ptl-lane">
+            <span class="nm">Gas</span>
+            <div class="ptl-track">
+              <span class="ptl-mk start" style="left:0%"><span>0</span></span>
+              <span class="ptl-mk first" style="left:33.333%"><span>120</span></span>
+              <span class="ptl-mk" style="left:58.333%"><span>210</span></span>
+              <span class="ptl-mk" style="left:83.333%"><span>300</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="ptl-key">
+          <div class="first"><b>120 days</b>First payment, counted from when initial production is marketed.</div>
+          <div><b>Then 60 / 90 days</b>Every 60 days for oil and 90 days for gas.</div>
+          <div><b>Small balances</b>May be paid semiannually (under $50) or annually (under $10).</div>
+        </div>
+        <p class="panel-foot">MCA 82-10-103(2). Late payments carry interest at the greater of 15% or prime plus 6
+          points, from the due date <span class="cite">82-10-103(2); 31-1-107</span>.</p>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <h3>Interest, and how not to waive it</h3>
+        <ul class="plist">
+          <li><b>Rate.</b> The greater of 15% or prime plus 6 points, from the due date.</li>
+          <li><b>When it does not apply.</b> To owners taking production in kind, or while a genuine title or
+            entitlement dispute affects distribution <span class="cite">82-10-103(4)</span>. Fast curative work
+            protects the interest claim.</li>
+          <li><b>Catch-up payments.</b> Accepting sporadic catch-up payments did not waive interest (<i>Textana v.
+            Klabzuba</i>, 2009 MT 401). But Montana law still treats accepting "the whole principal, as such" as a
+            waiver <span class="cite">27-1-214</span>, so <b>reserve interest in writing</b> when suspended funds are
+            released.</li>
+        </ul>
+        <h3 class="sub">Demand and suit</h3>
+        <ul class="plist">
+          <li>Written demand for an accounting; if it is not met in 60 days, suit in the county where the land lies
+            <span class="cite">82-10-101</span>.</li>
+          <li>Payment suits go in the county where the well is located <span class="cite">82-10-103(3)</span>.</li>
+          <li><b>The prevailing party recovers attorney fees either way</b>, so a weak claim can cost you.</li>
+          <li><b>Limitations</b> <span class="cite">27-2-202</span>: 6 years on a written contract, 5 years unwritten,
+            3 years for other obligations not founded on a writing. Which period applies depends on how the claim is
+            characterized.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>The check stub</h3>
+        <p>Montana requires <b>eleven items</b> on every stub, including the production period, lease identifier,
+          product, volumes, <b>taxes withheld by amount and type</b>, net values, and contact information.
+          <b>Every charge must be listed by line item.</b> A knowing violation is a misdemeanor. This is your tool
+          for testing deductions. <span class="cite">82-10-104</span></p>
+        <h3 class="sub">Deductions</h3>
+        <p>No Montana Supreme Court decision settles post-production costs on private (fee) leases, so lease
+          language controls. State trust land leases reserve royalty free of costs and deductions.</p>
+        <h3 class="sub">Division orders</h3>
+        <p>A Montana division order <span class="cite">82-10-110</span> must warrant the division of interest, list
+          each payee's name, address and tax ID, and require notice of ownership changes. It <b>cannot alter the
+          lease or relieve the lessee of lease duties</b>. Signing to get paid does not give up lease rights.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p class="kicker">Unlocatable owners and unclaimed money</p>
+      <ul class="plist" style="margin-top:.4rem">
+        <li>A holder may keep an unlocatable owner's bonus, rental, or royalty no more than <strong>6 months</strong>.
+          It must then petition the district court to create a trust, with the clerk of court (or the Department of
+          Revenue) as trustee <span class="cite">82-1-302, -305</span>.</li>
+        <li>An owner can file its address and interest with the county clerk and recorder for <strong>$5</strong>,
+          which creates a presumption of ownership <span class="cite">82-1-306</span>.</li>
+        <li>Mineral proceeds are presumed abandoned to the Department of Revenue after <strong>5 years</strong> of
+          dormancy <span class="cite">70-9-803(1)(q)</span>.</li>
+        <li><strong>Heirs:</strong> search both the county court records and the Department of Revenue unclaimed
+          property database.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ========== 7. LEASES, TITLE, SURFACE ========== -->
+  <div class="section" id="title">
+    <p class="kicker">Leases, title, and surface</p>
+    <h2>Where Montana title work differs</h2>
+
+    <div class="grid2">
+      <div>
+        <h3>Recording: race-notice</h3>
+        <p>An unrecorded deed is void against a later good-faith buyer for value who records first
+          <span class="cite">70-21-304</span>. Record promptly in the Montana county: instruments recorded only in
+          another state are not notice there.</p>
+
+        <h3 class="sub">Reservations are read for the grantor</h3>
+        <p>In <i>Wicklund v. Sundheim</i>, 2016 MT 62, 383 Mont. 1, 367 P.3d 403 (Richland County):</p>
+        <ul class="plist">
+          <li>an ambiguous 1953 royalty reservation was construed in favor of the grantor under
+            <span class="cite">70-1-516</span>, the reverse of the Texas rule;</li>
+          <li>an expert's opinion on what the deed language meant was inadmissible;</li>
+          <li>old division orders, a communitization agreement, and years of royalty paid without objection were
+            strong evidence of intent;</li>
+          <li><b>laches</b> (losing a claim by unreasonable delay) failed, because the owners asserted the interest
+            whenever development occurred.</li>
+        </ul>
+        <p><b>Keep old division orders and payment records.</b> They are evidence of what a reservation means.</p>
+
+        <h3 class="sub">Other title points</h3>
+        <ul class="plist">
+          <li>Eastern Montana counties sold tax-deed land reserving a 6&frac14;% royalty, and some state "mortgage
+            lands" carry a 6&frac14;% state royalty.</li>
+          <li>Homestead-era federal mineral reservations are common.</li>
+          <li>On the Fort Peck Reservation (Valley, Roosevelt, Daniels and Sheridan counties), Indian trust minerals
+            sit in a checkerboard with private land, and federal approvals can slow unit-wide payment.</li>
+        </ul>
+
+        <h3 class="sub">No dormant mineral act</h3>
+        <p>Montana considered and rejected dormant or abandoned mineral bills in 1977, 1979, 1981, 1983, 1985, 1987,
+          1989, 1993, 2005, and 2007. No such provision is in the 2025 Code. Severed minerals do not lapse for
+          non-use.</p>
+      </div>
+      <div>
+        <h3>Keeping a lease alive (<i>Somont</i>)</h3>
+        <p>A Montana oil and gas lease ends automatically when paying production stops. The lessee must pass a
+          two-step test, well by well (<i>Somont</i>, 2002 MT 141 and 2006 MT 90):</p>
+        <ul class="plist">
+          <li><b>Step 1, paying quantities.</b> Economics count here.</li>
+          <li><b>Step 2, temporary cessation.</b> The stoppage must come from a sudden stoppage or mechanical
+            breakdown "or the like," with immediate, diligent repair. Low prices, the economy, and the operator's
+            finances do not count.</li>
+        </ul>
+        <p>Bakken leases are mostly held by unit production under pooling orders, so this bites hardest on older
+          vertical-well leases and price-driven shut-ins.</p>
+
+        <h3 class="sub">Releasing an expired lease</h3>
+        <ul class="plist">
+          <li>The lessee must record a release within <b>60 days</b> of expiration. It is a misdemeanor if not cured
+            within 30 days of the owner's written notice <span class="cite">82-1-201</span>.</li>
+          <li><b>Lawsuit route:</b> written demand at least 20 days before suit. The owner recovers $100, costs,
+            attorney fees, and proven damages; the lessee gets fees if forfeiture is not proved. A lessee that
+            releases after suit is filed still counts toward the owner prevailing (<i>Somont II</i>, 2006 MT 90)
+            <span class="cite">82-1-203</span>.</li>
+          <li><b>No-lawsuit route:</b> if the lease expired by its terms <b>more than 3 years ago</b>, the owner
+            serves a notice. Unless the lessee records an affidavit that the lease is still in effect within
+            <b>60 days</b>, the owner records proof of service and the lease is terminated of record
+            <span class="cite">82-1-202</span>.</li>
+        </ul>
+
+        <h3 class="sub">Pore space</h3>
+        <p>If deeds do not say who owns underground storage space, the surface owner is presumed to own it
+          <span class="cite">82-11-180(3)</span>. The rule does not apply on an Indian reservation without tribal
+          action. Mineral-only owners should not assume they own pore space.</p>
+
+        <h3 class="sub">Surface damages</h3>
+        <ul class="plist">
+          <li>The operator must give written notice <b>20 to 180 days</b> before surface disturbance, to the surface
+            owner's county record address <span class="cite">82-10-503</span>.</li>
+          <li>Damages cover lost agricultural production and income, lost land value, and lost improvement value
+            <span class="cite">82-10-504</span>.</li>
+          <li>The parties must negotiate in good faith. The owner may elect annual payments (exploration damage is a
+            lump sum). An annual payment unpaid 60 days after notice is owed <b>double</b>.</li>
+          <li>Defective notice does not stop the mineral owner's right of entry (<i>Pinnacle Gas</i>, 2009 MT 12).
+            Surface use agreements are where real terms are won.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 8. KEY DEADLINES ========== -->
+  <div class="section" id="deadlines">
+    <p class="kicker">Key deadlines</p>
+    <h2>The Montana clock</h2>
+    <div class="table-scroll">
+      <table class="ledger">
+        <thead><tr><th>Event</th><th>Deadline</th><th>Cite</th></tr></thead>
+        <tbody>
+          <tr><td>Board hearing notice to owners</td><td>Mailed at least 20 days before the hearing, to the county clerk address of record</td><td>82-11-141(4)</td></tr>
+          <tr><td>Board order after hearing</td><td>Within 30 days</td><td>82-11-141(6)</td></tr>
+          <tr><td>Well proposal election</td><td>30 days from notice</td><td>82-11-202(3)</td></tr>
+          <tr><td>Written demand for a hearing on a drilling permit</td><td>Within 10 days after the permit notice is published</td><td>ARM 36.22.604(1); 36.22.601</td></tr>
+          <tr><td>Drilling permit life</td><td>6 months from issuance unless drilling starts; no extension, a new application and fee are required</td><td>ARM 36.22.604(3)</td></tr>
+          <tr><td>Spud report to Board</td><td>Within 72 hours</td><td>ARM 36.22.604(4)</td></tr>
+          <tr><td>Monthly production report (Form 6)</td><td>Last day of the following month</td><td>ARM 36.22.1242(1)</td></tr>
+          <tr><td>Surface owner notice</td><td>20 to 180 days before surface disturbance</td><td>82-10-503</td></tr>
+          <tr><td>First royalty payment</td><td>120 days after first production is marketed</td><td>82-10-103(2)</td></tr>
+          <tr><td>Ongoing royalty payments</td><td>60 days oil, 90 days gas</td><td>82-10-103(2)</td></tr>
+          <tr><td>Accounting demand</td><td>60 days to comply before suit</td><td>82-10-101</td></tr>
+          <tr><td>Exempt-organization withholding exemption</td><td>Received by payor and DOR before November 1 of the prior year</td><td>ARM 42.17.603(10)</td></tr>
+          <tr><td>Department decision on an exemption letter</td><td>Within 30 days of receipt</td><td>ARM 42.17.603(10)</td></tr>
+          <tr><td>Form 1099-MISC from each payor</td><td>By January 31</td><td>ARM 42.17.605(1)(d)</td></tr>
+          <tr><td>Withholding refund claim</td><td>Later of the assessment period or 1 year from payment</td><td>15-30-2609(2)(a)</td></tr>
+          <tr><td>Unlocatable owner funds</td><td>Court trust petition after 6 months</td><td>82-1-305</td></tr>
+          <tr><td>Unclaimed mineral proceeds</td><td>Presumed abandoned after 5 years</td><td>70-9-803(1)(q)</td></tr>
+          <tr><td>Lease release</td><td>60 days after expiration</td><td>82-1-201</td></tr>
+          <tr><td>Demand before release suit</td><td>At least 20 days</td><td>82-1-203</td></tr>
+          <tr><td>Expired-lease notice procedure</td><td>Lease expired 3+ years; lessee has 60 days to file an affidavit</td><td>82-1-202(2)-(4)</td></tr>
+          <tr><td>Limitations, written contract</td><td>6 years</td><td>27-2-202</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="verify">MCA unless marked ARM (Administrative Rules of Montana). Drilling permit life: the 6-month term in
+      ARM 36.22.604(3) has not been amended since 1995. At its April 8, 2026 business meeting the Board concluded
+      that a one-year permit would make sense and directed staff to develop a permit review policy or rule; if the
+      Board adopts one, this row will change.</p>
+  </div>
+
+  <!-- ========== 9. LOOK IT UP ========== -->
+  <div class="section" id="lookup">
+    <p class="kicker">Look it up yourself</p>
+    <h2>Where the Montana records live</h2>
+    <p>Every Board record is public as filed. Start with DataMiner, search by township and range, and export to CSV.
+      Remember that a "lease" in Board data is a Department of Revenue reporting unit, not your oil and gas lease.</p>
+    <div class="links">
+      <a class="lnk" href="https://dnrc.mt.gov/BOGC" rel="noopener"><span class="n">Board of Oil and Gas Conservation</span><span class="u">dnrc.mt.gov/BOGC</span><span class="d">Board home, hearing calendar, dockets and orders.</span></a>
+      <a class="lnk" href="https://bogapps.dnrc.mt.gov/dataminer/Default.aspx" rel="noopener"><span class="n">DataMiner</span><span class="u">bogapps.dnrc.mt.gov/dataminer</span><span class="d">Wells, permits, completions, production by well, purchasers, and Board orders by township-range. CSV export.</span></a>
+      <a class="lnk" href="https://bogfiles.dnrc.mt.gov" rel="noopener"><span class="n">Hearing files</span><span class="u">bogfiles.dnrc.mt.gov</span><span class="d">Hearing files, orders, and minutes.</span></a>
+      <a class="lnk" href="https://bogwebfiles.dnrc.mt.gov/WeeklyActivityLetter/" rel="noopener"><span class="n">Weekly Activity Letter</span><span class="u">bogwebfiles.dnrc.mt.gov/WeeklyActivityLetter</span><span class="d">Weekly permits and completions with initial production rates.</span></a>
+      <a class="lnk" href="https://www.mtpublicnotices.com" rel="noopener"><span class="n">Montana public notices</span><span class="u">mtpublicnotices.com</span><span class="d">Pending drilling permit notices. Search "Montana Board of Oil and Gas". A written demand for a hearing must be filed within 10 days of publication, or the permit issues.</span></a>
+      <a class="lnk" href="https://mca.legmt.gov" rel="noopener"><span class="n">Montana Code Annotated</span><span class="u">mca.legmt.gov</span><span class="d">Statutes. Title 82 is oil and gas; Title 15 is taxes.</span></a>
+      <a class="lnk" href="https://revenue.mt.gov" rel="noopener"><span class="n">Department of Revenue</span><span class="u">revenue.mt.gov</span><span class="d">Production tax, royalty withholding, and unclaimed property.</span></a>
+      <a class="lnk" href="https://dnrc.mt.gov/TrustLand" rel="noopener"><span class="n">State trust lands</span><span class="u">dnrc.mt.gov/TrustLand</span><span class="d">State trust land leases.</span></a>
+    </div>
+    <div class="grid2">
+      <div>
+        <h3>Your legal description</h3>
+        <p>DataMiner and the Board's orders are organized by township and range. Get the section, township and
+          range off your deed or an old check stub before you start.</p>
+      </div>
+      <div>
+        <h3>The API number</h3>
+        <p>Every Montana well number begins <b class="mono">25</b>. The Bakken counties are Richland
+          <b class="mono">083</b>, Roosevelt <b class="mono">085</b> and Sheridan <b class="mono">091</b>.
+          <a href="index.html#apidecoder">Take one apart</a> if you have not seen the structure before.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 10. GLOSSARY ========== -->
+  <div class="section" id="glossary">
+    <p class="kicker">Glossary</p>
+    <h2>Montana terms that differ from Texas</h2>
+    <div class="glossary">
+      <div class="term"><span class="t">Temporary spacing unit (TSU)</span><span class="d">A unit the Board creates for a new well in an unproven area.</span></div>
+      <div class="term"><span class="t">Permanent spacing unit</span><span class="d">The unit set after the well, based on evidence. Pooling orders attach here.</span></div>
+      <div class="term"><span class="t">Overlapping TSU</span><span class="d">A unit laid over older units for one well, limited to that well's production. Montana's answer to the Texas allocation well.</span></div>
+      <div class="term"><span class="t">Density order</span><span class="d">A Board order allowing additional wells in a unit.</span></div>
+      <div class="term"><span class="t">Nonworking interest</span><span class="d">Royalty, overriding royalty, and similar cost-free interests. Taxed at 14.8%.</span></div>
+      <div class="term"><span class="t">Remitter</span><span class="d">Whoever pays the royalty and withholds Montana income tax. Sometimes a subsidiary with a different name than the operator. When a producer sells, the buyer becomes the remitter.</span></div>
+      <div class="term"><span class="t">"Lease" in Board data</span><span class="d">A Department of Revenue reporting unit, not the oil and gas lease.</span></div>
+      <div class="term"><span class="t">Wildcat</span><span class="d">The field label on most Bakken horizontals in Board records.</span></div>
+      <div class="term"><span class="t">Payout</span><span class="d">When the consenting owners have recovered costs plus penalties from a refusing owner's share.</span></div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p class="kicker">The thing to remember</p>
+    <p>In Montana the Board holds the <strong>unit</strong>, and the order for each well fixes your share of it.
+      Your <strong>ownership</strong> still lives with the county clerk and recorder, and so does the address the
+      Board will use to notify you. Keep it current.</p>
+  </div>
+
+  <!-- ========== SOURCES ========== -->
+  <div class="section" id="sources">
+    <p class="kicker">Sources and as-of date</p>
+    <h2>Where this page comes from</h2>
+    <p>Law cited to the Montana Code Annotated 2025, retrieved October 24 to November 6, 2026. The printed code
+      controls over the online version. Content as of November 6, 2026. ARM rules cited were checked against the current rule text
+      (ARM 36.22.604, 36.22.1242, and 42.17.601 to 42.17.605). A cursory search of the 2025 session found no change
+      to the royalty payment or pooling statutes beyond what this page reflects; the Legislature holds no regular
+      session in 2026.</p>
+    <ul class="srcs">
+      <li>MCA 15-36-304, 15-36-309, 15-36-310 (oil and gas production tax): <a href="https://mca.legmt.gov/bills/mca/title_0150/chapter_0360/part_0030/section_0040/0150-0360-0030-0040.html" rel="noopener">mca.legmt.gov</a></li>
+      <li>MCA 15-30-2537, 15-30-2538 (amd. Ch. 545, L. 2025), 15-30-2539 (royalty withholding): <a href="https://mca.legmt.gov/bills/mca/title_0150/chapter_0300/part_0250/section_0380/0150-0300-0250-0380.html" rel="noopener">mca.legmt.gov</a></li>
+      <li>MCA 15-30-2103 (income tax rates; top rate 5.65%): <a href="https://mca.legmt.gov/bills/mca/title_0150/chapter_0300/part_0210/section_0030/0150-0300-0210-0030.html" rel="noopener">mca.legmt.gov</a></li>
+      <li>Montana Department of Revenue, Mineral Royalty Withholding page (retrieved November 6, 2026): <a href="https://revenue.mt.gov/taxes/natural-resource-taxes/Mineral-Royalty-Withholding" rel="noopener">revenue.mt.gov</a></li>
+      <li>Montana Department of Revenue, HB 337 rate changes: <a href="https://revenue.mt.gov/news/recent-news/HB-337" rel="noopener">revenue.mt.gov</a></li>
+      <li>ARM 42.17.601 to 42.17.605 (mineral royalty withholding: covered payments, credits, thresholds and exemptions, registration, filing), as amended through 2024</li>
+      <li>ARM 36.22.604 (permit issuance, 10-day hearing demand, 6-month expiration, 72-hour spud notice; last amended 1995)</li>
+      <li>ARM 36.22.1242 (Form 6 production report; privilege and license tax at 60% of the statutory rate, effective April 1, 2026; MAR Notice No. 2025-230)</li>
+      <li>Board of Oil and Gas Conservation, April 8, 2026 business meeting (drilling permit duration) and June 2026 agenda: <a href="https://bogfiles.dnrc.mt.gov" rel="noopener">bogfiles.dnrc.mt.gov</a></li>
+      <li>MCA 82-11-202 (pooling): <a href="https://mca.legmt.gov/bills/mca/title_0820/chapter_0110/part_0020/section_0020/0820-0110-0020-0020.html" rel="noopener">mca.legmt.gov</a></li>
+      <li>MCA 82-10-103 (royalty payment and interest): <a href="https://mca.legmt.gov/bills/mca/title_0820/chapter_0100/part_0010/section_0030/0820-0100-0010-0030.html" rel="noopener">mca.legmt.gov</a></li>
+      <li>MCA 82-10-110 (division orders): <a href="https://mca.legmt.gov/bills/mca/title_0820/chapter_0100/part_0010/section_0100/0820-0100-0010-0100.html" rel="noopener">mca.legmt.gov</a></li>
+      <li>MCA 82-10-504 (surface damages): <a href="https://mca.legmt.gov/bills/mca/title_0820/chapter_0100/part_0050/section_0040/0820-0100-0050-0040.html" rel="noopener">mca.legmt.gov</a></li>
+      <li>MCA 82-1-202 (expired lease notice): <a href="https://mca.legmt.gov/bills/mca/title_0820/chapter_0010/part_0020/section_0020/0820-0010-0020-0020.html" rel="noopener">mca.legmt.gov</a></li>
+      <li>MCA 31-1-107 (interest): <a href="https://mca.legmt.gov/bills/mca/title_0310/chapter_0010/part_0010/section_0070/0310-0010-0010-0070.html" rel="noopener">mca.legmt.gov</a></li>
+      <li><i>Phoenix Capital Grp. Holdings v. Bd. of Oil &amp; Gas Conservation</i>, 2024 MT 89: <a href="https://law.justia.com/cases/montana/supreme-court/2024/da-23-0289.html" rel="noopener">law.justia.com</a></li>
+      <li><i>Bluebird Energy LLC v. Dep't of Revenue</i>, 2024 MT 10 (No. DA 23-0280, decided January 23, 2024): <a href="https://law.justia.com/cases/montana/supreme-court/2024/da-23-0280.html" rel="noopener">law.justia.com</a></li>
+      <li><i>Wicklund v. Sundheim</i>, 2016 MT 62, 383 Mont. 1, 367 P.3d 403; <i>Somont Oil Co. v. A &amp; G Drilling</i>, 2002 MT 141 and 2006 MT 90; <i>Textana v. Klabzuba</i>, 2009 MT 401; <i>Ostby v. Bd. of Oil &amp; Gas Conservation</i>, 2014 MT 105; <i>Pinnacle Gas v. Diamond Cross</i>, 2009 MT 12 (Montana Supreme Court opinion search, courts.mt.gov)</li>
+      <li>Montana Board of Oil and Gas Conservation: <a href="https://dnrc.mt.gov/BOGC" rel="noopener">dnrc.mt.gov/BOGC</a>; DataMiner: <a href="https://bogapps.dnrc.mt.gov/dataminer/Default.aspx" rel="noopener">bogapps.dnrc.mt.gov</a></li>
+      <li>Montana dormant mineral bills, 1977 to 2007: courts.mt.gov and archive.legmt.gov bill files, for example <a href="https://courts.mt.gov/external/leg/bills/1987/senate/SB086.pdf" rel="noopener">SB 86 (1987)</a></li>
+    </ul>
+    <p class="verify">Not legal or tax advice. A research summary for teaching, not a title opinion or a substitute for
+      the advice of a Montana-licensed attorney or tax professional.</p>
+  </div>
+
+  <nav class="pager" aria-label="Other states">
+    <a href="north-dakota.html">&larr; Next door: North Dakota</a>
+    <a href="index.html">All states &rarr;</a>
+  </nav>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="row">
+      <span>Oil, Visualized &middot; Where to look it up &middot; Montana</span>
+      <span>United States &middot; oil &amp; gas</span>
+    </div>
+    <p class="disc">This page summarizes Montana law and public government records as of November 2026 (MCA 2025).
+      It is a teaching tool, not legal or tax advice, and not a substitute for a title examination or the advice of
+      a licensed attorney in Montana. Agency names, forms, websites, rates and fees change. Confirm anything you
+      intend to rely on with the agency or the code itself. Created by George Tharp, JD.</p>
+
+    <p class="disc support-foot">Free to use, always. If it helped you, you can
+      <a href="../index.html#t-support">support the site</a>. Thank you.</p>
+    <p class="disc foot-ver">Where to look it up v1.2.4 &middot; updated November 6, 2026</p>
+  </div>
+</footer>
+
+<script src="../js/regulators.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "45b28b18bc3640c0902177ae7597416b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

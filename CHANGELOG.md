@@ -42,6 +42,187 @@ Nothing staged.
 
 ---
 
+## 2026-11-06 — Montana: drilling permit rule confirmed
+
+`regulators/montana.html` 1.2.3 → **1.2.4** (patch)
+Files: `regulators/montana.html` · `CHANGELOG.md`
+
+Source: current text of ARM 36.22.604, supplied by the author.
+
+**Changed**
+
+- Drilling permit life confirmed at **6 months** from issuance unless
+  drilling starts. The rule is unamended since 1995 and has no extension;
+  a lapsed permit needs a new application and fee. "Under review" tags
+  removed from the Texas table and the deadlines table. The Board's April
+  2026 interest in a one-year term stays in the note under the table.
+- The sources note no longer refers to "Under review" items; the page has
+  none left.
+
+**Added**
+
+- Deadline row and lookup-link note: a **written demand for a hearing** on a
+  drilling permit must be filed within **10 days** after the permit notice
+  is published, or the permit issues (ARM 36.22.604(1), 36.22.601).
+
+---
+
+## 2026-11-06 — Montana: updated from the ARM rule text
+
+`regulators/montana.html` 1.2.2 → **1.2.3** (patch)
+Files: `regulators/montana.html` · `CHANGELOG.md`
+
+Source: the author supplied current copies of ARM 36.22.1242 and ARM
+42.17.601 through 42.17.605.
+
+**Fixed**
+
+- **The privilege and license tax is 60% of the statutory rate** from April
+  1, 2026 (ARM 36.22.1242(2), MAR 2025-230). The brief's 73.33% was wrong.
+  The page never showed that figure; it now gives the 60% rule and repeats
+  that the royalty owner's total stays 14.8%.
+- **Small-payment waiver is $166 a month** (ARM 42.17.603(12)), not "per
+  period".
+
+**Added**
+
+- What withholding covers: royalty, ORRI, production payments, advance
+  royalties; take-in-kind owners remit themselves (42.17.601).
+- Small-producer exception details: three-prior-year average, Department
+  notice by September 15, no exception for non-producer payors, oil and gas
+  withheld together if either crosses the line (42.17.601(2), 603(1), (3), (5)).
+- Exempt-organization letter steps, including the Department's 30-day
+  accept/deny notice and the parallel letter for publicly traded partnerships
+  (42.17.603(9), (10)). Replaces the earlier "sworn form vs. letter" hedge.
+- When a producer sells, the buyer becomes the remitter (42.17.603(4)); also
+  added to the glossary.
+- How to claim the credit: individual or corporate return with the 1099
+  attached, K-1 owners, estates, trusts and beneficiaries (42.17.602).
+  Production tax cannot be claimed as withholding (602(1)(i)), noted under
+  the waterfall.
+- Every payor furnishes a 1099-MISC (or 1042-S) by January 31, even if it is
+  exempt from withholding (42.17.605).
+- Deadline rows: Department decision on an exemption letter (30 days); Form
+  1099-MISC from each payor (January 31). Production report row now names
+  Form 6.
+- The 6% note now says the rules' own text (last amended 2024) still says 6%.
+
+---
+
+## 2026-11-06 — Montana: last two open items closed
+
+`regulators/montana.html` 1.2.1 → **1.2.2** (patch)
+Files: `regulators/montana.html` · `CHANGELOG.md`
+
+**Fixed**
+
+- **0.3% component.** MCA 15-36-304(7) adjusts every production tax rate to
+  *include* the 0.3% Board privilege and license tax and resource
+  distribution account tax. Royalty owners pay a flat 14.8%; the April 1,
+  2026 rule change (ARM 36.22.1242) only re-splits the 0.3%. "Under review"
+  tag removed.
+- **Residents and withholding.** MCA 15-30-2538 reaches "each royalty
+  payment made to a royalty owner," and 15-30-2537 defines royalty owner
+  with no residency limit. DOR's live page applies it to any payment from
+  Montana property. The page now says residents are withheld on too. Tag
+  removed.
+
+**Changed**
+
+- The 6% note now explains that the statute said 6% until the 2025
+  amendment (Ch. 545, L. 2025), and that DOR's own web page still says 6%.
+- Exclusion list gains "the remitter itself" and the 3-year rolling
+  average for small payors (15-30-2539).
+- Exempt-organization callout notes the statute's sworn report on a DOR
+  form (15-30-2539(2)(d)) alongside the rule's letterhead letter.
+
+**Notes**
+
+The only remaining "Under review" tag is the drilling permit life (6 months
+under ARM 36.22.604; the Board is weighing one year). rules.mt.gov was not
+reachable from this session, so ARM 36.22.1242 and 42.17.603 were not
+re-read directly.
+
+---
+
+## 2026-11-06 — Montana open items researched
+
+`regulators/montana.html` 1.2.0 → **1.2.1** (patch)
+Files: `regulators/montana.html` · `CHANGELOG.md`
+
+**Fixed**
+
+- *Bluebird Energy* cite filled in: **2024 MT 10** (DA 23-0280, Jan. 23,
+  2024). "Cite pending" tag removed.
+- *Wicklund v. Sundheim* reporter cites added: 383 Mont. 1, 367 P.3d 403.
+
+**Changed**
+
+- Drilling permit life note: the Board concluded at its April 8, 2026
+  business meeting that a one-year permit made sense and directed staff to
+  develop a policy or rule. No adopted change found, so 6 months stands
+  (still tagged "Under review").
+- Withholding: the page now says the statute lists no residency exemption,
+  so residents should not assume they are exempt. Practice stays "Under
+  review".
+- Sources note: a cursory search found no 2025 change to the royalty
+  payment or pooling statutes; there was no regular session in 2026.
+
+**Notes**
+
+Still open: the 0.3% Board / resource-account split under ARM 36.22.1242
+(MAR 2025-230 adopted December 19, 2025, effective April 1, 2026; the
+reported percentages conflict), so the page still shows a flat 14.8%.
+
+---
+
+## 2026-11-06 — Montana: the first state beyond the ten
+
+`regulators/*.html` 1.1.1 → **1.2.0** (minor, all twelve pages)
+Files: `regulators/montana.html` (new) · `regulators/index.html` · the ten other
+state pages (version stamp only) · `css/regulators.css` · `js/regulators.js` ·
+`sitemap.xml` · `README.md` · `CHANGELOG.md`
+
+**Added**
+
+- **`regulators/montana.html`** — Montana Board of Oil and Gas Conservation.
+  The first state page built as a full owner's guide rather than a
+  one-document lookup, written for owners, heirs, landmen and trust officers
+  who know Texas. Sections: at-a-glance facts; ten things to know (taxes
+  first); an "If you know Texas" comparison table (stacks into cards on a
+  phone); taxes, with an interactive check-stub waterfall (gross → 14.8%
+  production tax → income tax withholding at 5.65% / 5.4% / exempt → net)
+  and the working-interest vs. royalty rate table; the forced pooling flow,
+  the 200% / 100% / 1/8 penalty strip and a *Phoenix Capital* (2024 MT 89)
+  case box; the payment timeline (120 days, then 60 oil / 90 gas), interest,
+  stub, division order and unclaimed-money rules; leases, title and surface;
+  a deadlines table; lookup links; glossary; sources. Every figure cited to
+  MCA 2025, as of November 2026. Built only from the Montana Content Brief
+  v2; items the brief marks VERIFY carry an "Under review" / "Cite pending"
+  tag. No em-dashes on the page, per the brief.
+- **Hub: "Beyond the ten" section** with a Montana card, after the ten
+  state cards. The MT map tile is now a link (dashed ochre, "+" in the rank
+  slot) with its own legend entry. JSON-LD ItemList gains Montana as item 11.
+- **API decoder** steps through Montana (25: Richland 083, Roosevelt 085,
+  Sheridan 091).
+- **`css/regulators.css`: "Deep state page components"** — contents strip,
+  under-review tag, numbered cards, `.vs` comparison table, panel, waterfall,
+  process flow, number strip, case box, payment timeline. Generic names so a
+  later deep state page can reuse them.
+- **`js/regulators.js`: `initWaterfall()`**, guarded like the other two
+  modules.
+- `sitemap.xml` lists `montana.html`.
+
+**Notes**
+
+Left out of the page on purpose: the 0.3% Board / resource-account split
+(the stub may or may not show it, so the page shows a flat 14.8%), any
+statement that Montana residents are exempt from withholding (the page says
+out-of-state owners should expect it), and the brief's internal open-items
+table. The ten other state pages changed only in their version stamps.
+
+---
+
 ## 2026-11-02 — Search snippets: titles, descriptions, share cards, clause terms
 
 `index.html` 1.8.0 → **1.8.1** (patch)

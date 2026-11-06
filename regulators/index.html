@@ -2,8 +2,8 @@
 <!--
   ============================================================
   Oil, Visualized  ·  regulators/index.html
-  Version:      1.1.1
-  Last updated: 2026-11-02
+  Version:      1.2.0
+  Last updated: 2026-11-06
   Hub page for the regulators section. Tile map, the ten state cards,
   the comparison table, the 1859-to-now history, the interactive API
   number decoder, and the federal / nationwide picture.
@@ -14,11 +14,17 @@
       CollectionPage with an ItemList of the ten state pages, plus
       BreadcrumbList and the shared WebSite / publisher / author
       nodes. Nothing else on the page changed.
-  This build (1.1.1): PATCH — search snippet. <title> (was 123
+  Prior build (1.1.1): PATCH — search snippet. <title> (was 123
       chars) and meta description (was 242) rewritten; Open Graph
       and twitter:card "summary" tags added (no og:image yet).
       JSON-LD name / description / dateModified updated to match.
       Page body unchanged.
+  This build (1.2.0): MINOR — Montana added as the first state
+      "beyond the ten": the MT map tile is now a link (dashed
+      ochre, "+" in the rank slot, new legend entry), a "Beyond
+      the ten" card section follows the ten cards, and the
+      JSON-LD ItemList gains Montana as item 11. The API decoder
+      (js/regulators.js) now steps through Montana (25).
   NOTE: bump "Version" and "Last updated" on every commit.
   ============================================================
 -->
@@ -27,8 +33,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Every oil state has its own Railroad Commission under another name. Find the agency for your well in the top ten producing states and the record to pull.">
-<meta name="version" content="1.1.1">
-<meta name="last-updated" content="2026-11-02">
+<meta name="version" content="1.2.0">
+<meta name="last-updated" content="2026-11-06">
 <title>Oil and Gas Regulators by State | Oil, Visualized</title>
 <link rel="canonical" href="https://visualizedoil.com/regulators/">
 <meta property="og:type" content="website">
@@ -79,7 +85,7 @@
         "url": "https://visualizedoil.com/regulators/",
         "name": "Oil and Gas Regulators by State | Oil, Visualized",
         "description": "Every oil state has its own Railroad Commission under another name. Find the agency for your well in the top ten producing states and the record to pull.",
-        "dateModified": "2026-11-02",
+        "dateModified": "2026-11-06",
         "isPartOf": {
           "@id": "https://visualizedoil.com/#website"
         },
@@ -112,7 +118,7 @@
         "@type": "ItemList",
         "@id": "https://visualizedoil.com/regulators/#statelist",
         "name": "State oil and gas regulators",
-        "numberOfItems": 10,
+        "numberOfItems": 11,
         "itemListElement": [
           {
             "@type": "ListItem",
@@ -173,6 +179,12 @@
             "position": 10,
             "name": "Wyoming",
             "url": "https://visualizedoil.com/regulators/wyoming.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "name": "Montana",
+            "url": "https://visualizedoil.com/regulators/montana.html"
           }
         ]
       }
@@ -278,9 +290,10 @@
       <rect x="57" y="114" width="52" height="52" rx="6" fill="var(--paper-2)"/>
       <text x="83.0" y="146.0" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="500" fill="#a8a294">ID</text>
       </g>
-      <g class="tile">
-      <rect x="114" y="114" width="52" height="52" rx="6" fill="var(--mineral-lite)" stroke="var(--hair-2)" stroke-width="1"/>
-      <text x="140.0" y="146.0" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="500" fill="#4c5c56">MT</text>
+      <g class="tile pick" data-href="montana.html" tabindex="0" role="link" aria-label="Montana — Board of Oil and Gas Conservation (beyond the ten)">
+      <rect x="114" y="114" width="52" height="52" rx="6" fill="var(--surface-lite)" stroke="var(--surface)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="119" y="127" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#3a2c10" opacity=".72">+</text>
+      <text x="140.0" y="146.0" text-anchor="middle" font-family="JetBrains Mono" font-size="15" font-weight="700" fill="#3a2c10">MT</text>
       </g>
       <g class="tile pick" data-href="north-dakota.html" tabindex="0" role="link" aria-label="North Dakota — NDIC Oil and Gas Division">
       <rect x="171" y="114" width="52" height="52" rx="6" fill="var(--surface)"/>
@@ -473,6 +486,7 @@
           <span class="lg"><i style="background:var(--surface)"></i> Conservation commission &mdash; the state creates your unit by order</span>
           <span class="lg"><i style="background:var(--mineral)"></i> Environmental or natural-resources department &mdash; unit orders exist, but newer and narrower</span>
           <span class="lg"><i style="background:var(--paper);border:2px solid var(--survey)"></i> No general pooling for the main play &mdash; the unit lives in the deed records</span>
+          <span class="lg"><i style="background:var(--surface-lite);border:1.5px dashed var(--surface)"></i> Beyond the ten &mdash; a full owner's guide (Montana)</span>
           <span class="lg"><i style="background:var(--mineral-lite)"></i> Also reports oil or gas production</span>
           <span class="lg"><i style="background:var(--paper-2)"></i> No reported production</span>
         </div>
@@ -570,6 +584,24 @@
         <span class="pull">Pull: <b>The Form 1 permit to drill and the drilling and spacing unit order</b></span>
         <span class="chips"><span class="chip-s chip-free">Free</span><span class="chip-s chip-pool">Spacing & pooling orders</span></span>
         <span class="go">Read the Wyoming page &rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="kicker">Beyond the ten</p>
+    <h2>Smaller producers, deeper guides</h2>
+    <p>Some states never make the top-ten list but come up constantly for out-of-state owners, usually because a
+      big play crosses a state line. These pages go further than the ten: taxes, pooling, payment rules, title
+      quirks and deadlines, each with a side-by-side against Texas.</p>
+    <div class="states">
+      <a class="scard" href="montana.html">
+        <span class="rank">Bakken, west of the line &middot; API 25</span>
+        <span class="st">Montana</span>
+        <span class="ag">Board of Oil and Gas Conservation</span>
+        <span class="pull">Know: <b>14.8% production tax on royalty from the first barrel, and forced pooling with a 200% penalty</b></span>
+        <span class="chips"><span class="chip-s chip-free">Free</span><span class="chip-s chip-pool">Forced pooling: routine</span></span>
+        <span class="go">Read the Montana guide &rarr;</span>
       </a>
     </div>
   </div>
@@ -955,7 +987,7 @@
     
     <p class="disc support-foot">Free to use, always. If it helped you, you can
       <a href="../index.html#t-support">support the site</a> — thank you.</p>
-    <p class="disc foot-ver">Where to look it up v1.1.1 &middot; updated November 2, 2026</p>
+    <p class="disc foot-ver">Where to look it up v1.2.0 &middot; updated November 6, 2026</p>
   </div>
 </footer>
 
