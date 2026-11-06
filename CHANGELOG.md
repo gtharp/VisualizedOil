@@ -42,6 +42,48 @@ Nothing staged.
 
 ---
 
+## 2026-11-06 — Montana: updated from the ARM rule text
+
+`regulators/montana.html` 1.2.2 → **1.2.3** (patch)
+Files: `regulators/montana.html` · `CHANGELOG.md`
+
+Source: the author supplied current copies of ARM 36.22.1242 and ARM
+42.17.601 through 42.17.605.
+
+**Fixed**
+
+- **The privilege and license tax is 60% of the statutory rate** from April
+  1, 2026 (ARM 36.22.1242(2), MAR 2025-230). The brief's 73.33% was wrong.
+  The page never showed that figure; it now gives the 60% rule and repeats
+  that the royalty owner's total stays 14.8%.
+- **Small-payment waiver is $166 a month** (ARM 42.17.603(12)), not "per
+  period".
+
+**Added**
+
+- What withholding covers: royalty, ORRI, production payments, advance
+  royalties; take-in-kind owners remit themselves (42.17.601).
+- Small-producer exception details: three-prior-year average, Department
+  notice by September 15, no exception for non-producer payors, oil and gas
+  withheld together if either crosses the line (42.17.601(2), 603(1), (3), (5)).
+- Exempt-organization letter steps, including the Department's 30-day
+  accept/deny notice and the parallel letter for publicly traded partnerships
+  (42.17.603(9), (10)). Replaces the earlier "sworn form vs. letter" hedge.
+- When a producer sells, the buyer becomes the remitter (42.17.603(4)); also
+  added to the glossary.
+- How to claim the credit: individual or corporate return with the 1099
+  attached, K-1 owners, estates, trusts and beneficiaries (42.17.602).
+  Production tax cannot be claimed as withholding (602(1)(i)), noted under
+  the waterfall.
+- Every payor furnishes a 1099-MISC (or 1042-S) by January 31, even if it is
+  exempt from withholding (42.17.605).
+- Deadline rows: Department decision on an exemption letter (30 days); Form
+  1099-MISC from each payor (January 31). Production report row now names
+  Form 6.
+- The 6% note now says the rules' own text (last amended 2024) still says 6%.
+
+---
+
 ## 2026-11-06 — Montana: last two open items closed
 
 `regulators/montana.html` 1.2.1 → **1.2.2** (patch)

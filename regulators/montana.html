@@ -2,7 +2,7 @@
 <!--
   ============================================================
   Oil, Visualized  ·  regulators/montana.html
-  Version:      1.2.2
+  Version:      1.2.3
   Last updated: 2026-11-06
   State page: Montana. Board of Oil and Gas Conservation (MBOGC).
   This build (1.2.0): MINOR. New page. The first state outside the
@@ -32,6 +32,13 @@
       tag removed. Also: 6% history explained (DOR page still says
       6%), "remitter itself" exclusion added, exempt-org sworn
       report under 15-30-2539(2)(d) noted.
+  This build (1.2.3): PATCH. Updated from the rule text itself
+      (ARM 36.22.1242 and 42.17.601 to 42.17.605, supplied by the
+      author): privilege and license tax at 60% from 4/1/26; what
+      withholding covers; small-producer and Sept 15 notice rules;
+      $166/month threshold; exempt-org letter steps with 30-day
+      decision; credit claiming for trusts, K-1 owners; 1099 by
+      Jan 31; production tax not creditable; two deadline rows.
   STYLE: no em-dashes on this page (brief requirement).
   NOTE: bump "Version" and "Last updated" on every commit.
   ============================================================
@@ -41,7 +48,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Montana royalty owners pay a 14.8% production tax from the first barrel, and the Board of Oil and Gas Conservation can force-pool you. A guide for owners who know Texas.">
-<meta name="version" content="1.2.2">
+<meta name="version" content="1.2.3">
 <meta name="last-updated" content="2026-11-06">
 <title>Montana Oil and Gas Board Guide for Mineral Owners | Oil, Visualized</title>
 <link rel="canonical" href="https://visualizedoil.com/regulators/montana.html">
@@ -394,8 +401,9 @@
           </div>
         </div>
 
-        <p class="wf-note">The production tax is gone for good. The withholding is not: it is a credit on your
-          Montana income tax return, and an exempt owner withheld on in error claims a refund from the
+        <p class="wf-note">The production tax is gone for good, and it cannot be claimed as income tax
+          withholding <span class="cite">ARM 42.17.602(1)(i)</span>. The withholding is not lost: it is a credit on
+          your Montana income tax return, and an exempt owner withheld on in error claims a refund from the
           Department of Revenue.</p>
         <p class="panel-foot">Illustrative only. Post-production deductions, if your lease allows them, are left
           out. The withholding base is the net Montana royalty reported in Box 2 of your Form 1099-MISC; this
@@ -442,8 +450,9 @@
             who buys a well after the window has run (<i>Bluebird Energy LLC v. Dep't of Revenue</i>, 2024 MT 10).</li>
           <li><b>The 0.3% is inside the rate.</b> The statute adjusts every rate to <i>include</i> the Board's privilege
             and license tax and the natural resource distribution account tax, which together total 0.3%
-            <span class="cite">15-36-304(7)</span>. When the Board changes how that 0.3% is split (as it did by rule
-            effective April 1, 2026), the total rate you pay stays 14.8%.</li>
+            <span class="cite">15-36-304(7)</span>. From April 1, 2026 the Board set its privilege and license tax at
+            60% of the rate authorized by statute <span class="cite">ARM 36.22.1242(2); 82-11-131</span>. That only
+            changes how the 0.3% is divided. The total rate you pay stays 14.8%.</li>
           <li><b>It is not an income tax.</b> Tax-exempt owners still bear it.</li>
         </ul>
       </div>
@@ -456,7 +465,11 @@
             in Box 2 of Form 1099-MISC.</li>
           <li><b>Ignore the old 6%.</b> Before 2025 the statute fixed the rate at 6%. The 2025 amendment tied it to
             the top income tax rate instead. The Department of Revenue's own withholding web page and many
-            secondary sources still say 6% as of November 2026. The statute controls.</li>
+            secondary sources still say 6% as of November 2026, and so does the text of the Department's rules
+            (ARM 42.17.601 and 42.17.603, last amended 2024). The statute controls.</li>
+          <li><b>What it covers.</b> Royalty, overriding royalty, production payments, and any other nonworking
+            interest, including advance royalty payments tied to production. An owner who takes production in kind
+            must send the withholding to the Department itself. <span class="cite">ARM 42.17.601</span></li>
           <li><b>Who is withheld on.</b> Every royalty owner, <b>resident or not</b>, unless excluded below. The statute
             applies to "each royalty payment made to a royalty owner," and neither it nor the Department's
             withholding page limits it to nonresidents. What matters is that the property is in Montana.
@@ -464,28 +477,43 @@
           <li><b>Who is excluded</b> <span class="cite">15-30-2539</span>: governments; tribes, for on-reservation
             Indian Mineral Leasing Act production; the United States as trustee for individual Indians; publicly
             traded partnerships; organizations exempt under 15-31-102; a royalty owner that is the remitter itself;
-            and small payors averaging under 100,000 barrels of oil and 500 MMcf of gas a year (a 3-year rolling
-            average). The Department of Revenue may also waive withholding on
-            payments under $166 per period or $2,000 a year.</li>
+            and small producers averaging under 100,000 barrels of oil and 500 MMcf of gas a year over three prior
+            calendar years. The Department tells each oil and gas producer by September 15 whether it must withhold
+            the next year. The small-producer exception does not cover a payor that is not itself a producer, and if
+            a producer's oil or its gas crosses the line, both are withheld on.
+            <span class="cite">ARM 42.17.601(2), 42.17.603(1), (3), (5)</span></li>
+          <li><b>Small payments.</b> The Department lets payors skip withholding on royalty owners paid less than
+            $2,000 a year or less than $166 a month <span class="cite">15-30-2539(3); ARM 42.17.603(12)</span>.</li>
         </ul>
       </div>
     </div>
 
     <div class="callout">
       <p class="kicker">Tax-exempt owners: the November 1 letter</p>
-      <p>A qualifying exempt organization (or publicly traded partnership) is not excluded automatically. The
-        statute requires it to report to the payor and the Department of Revenue, under oath and on a form the
-        Department prescribes, the information showing it qualifies <span class="cite">15-30-2539(2)(d)</span>; the
-        Department's rule describes this as a letter on the organization's letterhead requesting exemption. It
-        must <strong>reach both the payor and the Department of Revenue before November 1</strong> of the year
-        before the exemption year. No annual renewal is required unless the Department asks
-        <span class="cite">ARM 42.17.603(10)</span>. A new payor, after an acquisition or a change in revenue
-        system, has not received the old letter, so send it again.</p>
-      <p>Getting money back: taxable owners claim the withholding as a credit on a Montana return. An exempt
-        owner withheld on in error claims a refund from the Department of Revenue; the payor cannot refund tax
-        it already remitted. The refund deadline is the later of the general assessment period or 1 year from
-        payment <span class="cite">15-30-2609(2)(a)</span>. Box 16 (state tax withheld) and Box 17 (payer's state
-        number) of each Form 1099-MISC show Montana withholding by payor.</p>
+      <p>A qualifying exempt organization is not excluded automatically. It must send a report to <strong>both the
+        payor and the Department of Revenue</strong>, and the report can be a letter <span class="cite">15-30-2539(2)(d);
+        ARM 42.17.603(10)</span>:</p>
+      <ul class="plist">
+        <li>on the organization's <b>letterhead</b>, requesting exemption from MCA 15-30-2536 through 15-30-2547;</li>
+        <li><b>received</b> by the payor and the Department <b>before November 1</b> of the year before the exemption
+          year (a letter that arrives November 1 or later counts toward the year after);</li>
+        <li>the Department notifies the organization and the payor of <b>acceptance or denial within 30 days</b>;</li>
+        <li>no annual renewal unless the Department asks.</li>
+      </ul>
+      <p>Publicly traded partnerships use the same letter, which must also state that the partnership is publicly
+        traded <span class="cite">ARM 42.17.603(9)</span>. When a producer sells, the buyer becomes the remitter and
+        keeps withholding <span class="cite">ARM 42.17.603(4)</span>. The new payor has not received the old letter,
+        so send it again after any acquisition or change in revenue system.</p>
+      <p><strong>Getting money back.</strong> The withholding is claimed as a credit on a Montana individual or
+        corporate income tax return, with the Form 1099-MISC attached <span class="cite">ARM 42.17.602(1)(a)</span>.
+        Owners of a pass-through entity claim their share from the Montana Schedule K-1. An estate or trust and its
+        beneficiaries share the credit in proportion to the royalty income each reports
+        <span class="cite">ARM 42.17.602(1)(b)-(g)</span>. An exempt owner withheld on in error claims a refund from
+        the Department; the payor cannot refund tax it already remitted. The refund deadline is the later of the
+        general assessment period or 1 year from payment <span class="cite">15-30-2609(2)(a)</span>.</p>
+      <p><strong>Read your Form 1099-MISC.</strong> Every payor must furnish one (or a Form 1042-S for a foreign
+        person) by January 31, even a payor exempt from withholding <span class="cite">ARM 42.17.605(1)(c)-(e)</span>.
+        Box 16 (state tax withheld) and Box 17 (payer's state number) show Montana withholding by payor.</p>
     </div>
   </div>
 
@@ -775,12 +803,14 @@
           <tr><td>Well proposal election</td><td>30 days from notice</td><td>82-11-202(3)</td></tr>
           <tr><td>Drilling permit life</td><td>6 months unless drilling starts <span class="tagr">Under review</span></td><td>ARM 36.22.604(3)</td></tr>
           <tr><td>Spud report to Board</td><td>Within 72 hours</td><td>ARM 36.22.604(4)</td></tr>
-          <tr><td>Monthly production report</td><td>End of the following month</td><td>ARM 36.22.1242</td></tr>
+          <tr><td>Monthly production report (Form 6)</td><td>Last day of the following month</td><td>ARM 36.22.1242(1)</td></tr>
           <tr><td>Surface owner notice</td><td>20 to 180 days before surface disturbance</td><td>82-10-503</td></tr>
           <tr><td>First royalty payment</td><td>120 days after first production is marketed</td><td>82-10-103(2)</td></tr>
           <tr><td>Ongoing royalty payments</td><td>60 days oil, 90 days gas</td><td>82-10-103(2)</td></tr>
           <tr><td>Accounting demand</td><td>60 days to comply before suit</td><td>82-10-101</td></tr>
           <tr><td>Exempt-organization withholding exemption</td><td>Received by payor and DOR before November 1 of the prior year</td><td>ARM 42.17.603(10)</td></tr>
+          <tr><td>Department decision on an exemption letter</td><td>Within 30 days of receipt</td><td>ARM 42.17.603(10)</td></tr>
+          <tr><td>Form 1099-MISC from each payor</td><td>By January 31</td><td>ARM 42.17.605(1)(d)</td></tr>
           <tr><td>Withholding refund claim</td><td>Later of the assessment period or 1 year from payment</td><td>15-30-2609(2)(a)</td></tr>
           <tr><td>Unlocatable owner funds</td><td>Court trust petition after 6 months</td><td>82-1-305</td></tr>
           <tr><td>Unclaimed mineral proceeds</td><td>Presumed abandoned after 5 years</td><td>70-9-803(1)(q)</td></tr>
@@ -838,7 +868,7 @@
       <div class="term"><span class="t">Overlapping TSU</span><span class="d">A unit laid over older units for one well, limited to that well's production. Montana's answer to the Texas allocation well.</span></div>
       <div class="term"><span class="t">Density order</span><span class="d">A Board order allowing additional wells in a unit.</span></div>
       <div class="term"><span class="t">Nonworking interest</span><span class="d">Royalty, overriding royalty, and similar cost-free interests. Taxed at 14.8%.</span></div>
-      <div class="term"><span class="t">Remitter</span><span class="d">Whoever pays the royalty and withholds Montana income tax. Sometimes a subsidiary with a different name than the operator.</span></div>
+      <div class="term"><span class="t">Remitter</span><span class="d">Whoever pays the royalty and withholds Montana income tax. Sometimes a subsidiary with a different name than the operator. When a producer sells, the buyer becomes the remitter.</span></div>
       <div class="term"><span class="t">"Lease" in Board data</span><span class="d">A Department of Revenue reporting unit, not the oil and gas lease.</span></div>
       <div class="term"><span class="t">Wildcat</span><span class="d">The field label on most Bakken horizontals in Board records.</span></div>
       <div class="term"><span class="t">Payout</span><span class="d">When the consenting owners have recovered costs plus penalties from a refusing owner's share.</span></div>
@@ -867,7 +897,8 @@
       <li>MCA 15-30-2103 (income tax rates; top rate 5.65%): <a href="https://mca.legmt.gov/bills/mca/title_0150/chapter_0300/part_0210/section_0030/0150-0300-0210-0030.html" rel="noopener">mca.legmt.gov</a></li>
       <li>Montana Department of Revenue, Mineral Royalty Withholding page (retrieved November 6, 2026): <a href="https://revenue.mt.gov/taxes/natural-resource-taxes/Mineral-Royalty-Withholding" rel="noopener">revenue.mt.gov</a></li>
       <li>Montana Department of Revenue, HB 337 rate changes: <a href="https://revenue.mt.gov/news/recent-news/HB-337" rel="noopener">revenue.mt.gov</a></li>
-      <li>ARM 42.17.603 (exempt-organization requests)</li>
+      <li>ARM 42.17.601 to 42.17.605 (mineral royalty withholding: covered payments, credits, thresholds and exemptions, registration, filing), as amended through 2024</li>
+      <li>ARM 36.22.1242 (Form 6 production report; privilege and license tax at 60% of the statutory rate, effective April 1, 2026; MAR Notice No. 2025-230)</li>
       <li>Board of Oil and Gas Conservation, April 8, 2026 business meeting (drilling permit duration) and June 2026 agenda: <a href="https://bogfiles.dnrc.mt.gov" rel="noopener">bogfiles.dnrc.mt.gov</a></li>
       <li>MCA 82-11-202 (pooling): <a href="https://mca.legmt.gov/bills/mca/title_0820/chapter_0110/part_0020/section_0020/0820-0110-0020-0020.html" rel="noopener">mca.legmt.gov</a></li>
       <li>MCA 82-10-103 (royalty payment and interest): <a href="https://mca.legmt.gov/bills/mca/title_0820/chapter_0100/part_0010/section_0030/0820-0100-0010-0030.html" rel="noopener">mca.legmt.gov</a></li>
@@ -905,7 +936,7 @@
 
     <p class="disc support-foot">Free to use, always. If it helped you, you can
       <a href="../index.html#t-support">support the site</a>. Thank you.</p>
-    <p class="disc foot-ver">Where to look it up v1.2.2 &middot; updated November 6, 2026</p>
+    <p class="disc foot-ver">Where to look it up v1.2.3 &middot; updated November 6, 2026</p>
   </div>
 </footer>
 
