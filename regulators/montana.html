@@ -2,7 +2,7 @@
 <!--
   ============================================================
   Oil, Visualized  ·  regulators/montana.html
-  Version:      1.2.1
+  Version:      1.2.2
   Last updated: 2026-11-06
   State page: Montana. Board of Oil and Gas Conservation (MBOGC).
   This build (1.2.0): MINOR. New page. The first state outside the
@@ -24,6 +24,14 @@
       with the Board's April 8, 2026 direction (no rule adopted);
       resident-withholding wording tightened. "Cite pending"
       tag retired.
+  This build (1.2.2): PATCH. Both remaining open items closed
+      from the MCA 2025 text and DOR's live page. (1) The 0.3% is
+      inside the 14.8% (15-36-304(7)); "Under review" tag removed
+      from the waterfall note. (2) Withholding applies to every
+      royalty owner regardless of residency (15-30-2537, -2538);
+      tag removed. Also: 6% history explained (DOR page still says
+      6%), "remitter itself" exclusion added, exempt-org sworn
+      report under 15-30-2539(2)(d) noted.
   STYLE: no em-dashes on this page (brief requirement).
   NOTE: bump "Version" and "Last updated" on every commit.
   ============================================================
@@ -33,7 +41,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Montana royalty owners pay a 14.8% production tax from the first barrel, and the Board of Oil and Gas Conservation can force-pool you. A guide for owners who know Texas.">
-<meta name="version" content="1.2.1">
+<meta name="version" content="1.2.2">
 <meta name="last-updated" content="2026-11-06">
 <title>Montana Oil and Gas Board Guide for Mineral Owners | Oil, Visualized</title>
 <link rel="canonical" href="https://visualizedoil.com/regulators/montana.html">
@@ -392,8 +400,8 @@
         <p class="panel-foot">Illustrative only. Post-production deductions, if your lease allows them, are left
           out. The withholding base is the net Montana royalty reported in Box 2 of your Form 1099-MISC; this
           illustration assumes that equals the amount left after production tax, and your payor's base may
-          differ. Whether a stub shows the production tax as a flat 14.8% or with a share of the 0.3% Board and
-          resource account component is <span class="tagr">Under review</span>, so it is shown here as 14.8%.</p>
+          differ. The 14.8% already includes the 0.3% Board privilege and license tax and resource distribution
+          account tax, so nothing is added on top of it <span class="cite">15-36-304(7)</span>.</p>
       </div>
     </div>
 
@@ -432,6 +440,10 @@
           <li><b>New-well window.</b> The working interest's 18-month reduced rate starts at first production and
             runs straight through, whether or not production is continuous. It does not restart for a new owner
             who buys a well after the window has run (<i>Bluebird Energy LLC v. Dep't of Revenue</i>, 2024 MT 10).</li>
+          <li><b>The 0.3% is inside the rate.</b> The statute adjusts every rate to <i>include</i> the Board's privilege
+            and license tax and the natural resource distribution account tax, which together total 0.3%
+            <span class="cite">15-36-304(7)</span>. When the Board changes how that 0.3% is split (as it did by rule
+            effective April 1, 2026), the total rate you pay stays 14.8%.</li>
           <li><b>It is not an income tax.</b> Tax-exempt owners still bear it.</li>
         </ul>
       </div>
@@ -440,17 +452,20 @@
         <ul class="plist">
           <li><b>Rate.</b> The payor (the "remitter") withholds the highest marginal individual rate from each
             royalty payment: <b>5.65% for 2026, 5.4% from January 1, 2027</b>
-            <span class="cite">15-30-2538; 15-30-2103</span>. The base is the net Montana royalty in Box 2 of
-            Form 1099-MISC.</li>
-          <li><b>Ignore the old 6%.</b> Older Department of Revenue guidance and many secondary sources still say
-            6%. The statute controls.</li>
-          <li><b>Who is withheld on.</b> Out-of-state owners should expect it. The statute itself lists no residency
-            exemption, so Montana residents should not assume they are exempt either. How payors treat resident
-            owners in practice is <span class="tagr">Under review</span></li>
+            <span class="cite">15-30-2538, amended 2025; 15-30-2103</span>. The base is the net Montana royalty
+            in Box 2 of Form 1099-MISC.</li>
+          <li><b>Ignore the old 6%.</b> Before 2025 the statute fixed the rate at 6%. The 2025 amendment tied it to
+            the top income tax rate instead. The Department of Revenue's own withholding web page and many
+            secondary sources still say 6% as of November 2026. The statute controls.</li>
+          <li><b>Who is withheld on.</b> Every royalty owner, <b>resident or not</b>, unless excluded below. The statute
+            applies to "each royalty payment made to a royalty owner," and neither it nor the Department's
+            withholding page limits it to nonresidents. What matters is that the property is in Montana.
+            <span class="cite">15-30-2537, -2538</span></li>
           <li><b>Who is excluded</b> <span class="cite">15-30-2539</span>: governments; tribes, for on-reservation
             Indian Mineral Leasing Act production; the United States as trustee for individual Indians; publicly
-            traded partnerships; organizations exempt under 15-31-102; and small payors averaging under 100,000
-            barrels of oil and 500 MMcf of gas a year. The Department of Revenue may also waive withholding on
+            traded partnerships; organizations exempt under 15-31-102; a royalty owner that is the remitter itself;
+            and small payors averaging under 100,000 barrels of oil and 500 MMcf of gas a year (a 3-year rolling
+            average). The Department of Revenue may also waive withholding on
             payments under $166 per period or $2,000 a year.</li>
         </ul>
       </div>
@@ -458,9 +473,12 @@
 
     <div class="callout">
       <p class="kicker">Tax-exempt owners: the November 1 letter</p>
-      <p>A qualifying exempt organization stops withholding with a letter, on its letterhead, requesting
-        exemption. It must <strong>reach both the payor and the Department of Revenue before November 1</strong>
-        of the year before the exemption year. No annual renewal is required unless the Department asks
+      <p>A qualifying exempt organization (or publicly traded partnership) is not excluded automatically. The
+        statute requires it to report to the payor and the Department of Revenue, under oath and on a form the
+        Department prescribes, the information showing it qualifies <span class="cite">15-30-2539(2)(d)</span>; the
+        Department's rule describes this as a letter on the organization's letterhead requesting exemption. It
+        must <strong>reach both the payor and the Department of Revenue before November 1</strong> of the year
+        before the exemption year. No annual renewal is required unless the Department asks
         <span class="cite">ARM 42.17.603(10)</span>. A new payor, after an acquisition or a change in revenue
         system, has not received the old letter, so send it again.</p>
       <p>Getting money back: taxable owners claim the withholding as a credit on a Montana return. An exempt
@@ -845,7 +863,9 @@
       session in 2026.</p>
     <ul class="srcs">
       <li>MCA 15-36-304, 15-36-309, 15-36-310 (oil and gas production tax): <a href="https://mca.legmt.gov/bills/mca/title_0150/chapter_0360/part_0030/section_0040/0150-0360-0030-0040.html" rel="noopener">mca.legmt.gov</a></li>
-      <li>MCA 15-30-2538, 15-30-2539 (royalty withholding): <a href="https://mca.legmt.gov/bills/mca/title_0150/chapter_0300/part_0250/section_0380/0150-0300-0250-0380.html" rel="noopener">mca.legmt.gov</a></li>
+      <li>MCA 15-30-2537, 15-30-2538 (amd. Ch. 545, L. 2025), 15-30-2539 (royalty withholding): <a href="https://mca.legmt.gov/bills/mca/title_0150/chapter_0300/part_0250/section_0380/0150-0300-0250-0380.html" rel="noopener">mca.legmt.gov</a></li>
+      <li>MCA 15-30-2103 (income tax rates; top rate 5.65%): <a href="https://mca.legmt.gov/bills/mca/title_0150/chapter_0300/part_0210/section_0030/0150-0300-0210-0030.html" rel="noopener">mca.legmt.gov</a></li>
+      <li>Montana Department of Revenue, Mineral Royalty Withholding page (retrieved November 6, 2026): <a href="https://revenue.mt.gov/taxes/natural-resource-taxes/Mineral-Royalty-Withholding" rel="noopener">revenue.mt.gov</a></li>
       <li>Montana Department of Revenue, HB 337 rate changes: <a href="https://revenue.mt.gov/news/recent-news/HB-337" rel="noopener">revenue.mt.gov</a></li>
       <li>ARM 42.17.603 (exempt-organization requests)</li>
       <li>Board of Oil and Gas Conservation, April 8, 2026 business meeting (drilling permit duration) and June 2026 agenda: <a href="https://bogfiles.dnrc.mt.gov" rel="noopener">bogfiles.dnrc.mt.gov</a></li>
@@ -885,7 +905,7 @@
 
     <p class="disc support-foot">Free to use, always. If it helped you, you can
       <a href="../index.html#t-support">support the site</a>. Thank you.</p>
-    <p class="disc foot-ver">Where to look it up v1.2.1 &middot; updated November 6, 2026</p>
+    <p class="disc foot-ver">Where to look it up v1.2.2 &middot; updated November 6, 2026</p>
   </div>
 </footer>
 

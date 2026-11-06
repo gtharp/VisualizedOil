@@ -42,6 +42,42 @@ Nothing staged.
 
 ---
 
+## 2026-11-06 — Montana: last two open items closed
+
+`regulators/montana.html` 1.2.1 → **1.2.2** (patch)
+Files: `regulators/montana.html` · `CHANGELOG.md`
+
+**Fixed**
+
+- **0.3% component.** MCA 15-36-304(7) adjusts every production tax rate to
+  *include* the 0.3% Board privilege and license tax and resource
+  distribution account tax. Royalty owners pay a flat 14.8%; the April 1,
+  2026 rule change (ARM 36.22.1242) only re-splits the 0.3%. "Under review"
+  tag removed.
+- **Residents and withholding.** MCA 15-30-2538 reaches "each royalty
+  payment made to a royalty owner," and 15-30-2537 defines royalty owner
+  with no residency limit. DOR's live page applies it to any payment from
+  Montana property. The page now says residents are withheld on too. Tag
+  removed.
+
+**Changed**
+
+- The 6% note now explains that the statute said 6% until the 2025
+  amendment (Ch. 545, L. 2025), and that DOR's own web page still says 6%.
+- Exclusion list gains "the remitter itself" and the 3-year rolling
+  average for small payors (15-30-2539).
+- Exempt-organization callout notes the statute's sworn report on a DOR
+  form (15-30-2539(2)(d)) alongside the rule's letterhead letter.
+
+**Notes**
+
+The only remaining "Under review" tag is the drilling permit life (6 months
+under ARM 36.22.604; the Board is weighing one year). rules.mt.gov was not
+reachable from this session, so ARM 36.22.1242 and 42.17.603 were not
+re-read directly.
+
+---
+
 ## 2026-11-06 — Montana open items researched
 
 `regulators/montana.html` 1.2.0 → **1.2.1** (patch)
