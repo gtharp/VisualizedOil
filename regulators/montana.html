@@ -2,7 +2,7 @@
 <!--
   ============================================================
   Oil, Visualized  ·  regulators/montana.html
-  Version:      1.2.0
+  Version:      1.2.1
   Last updated: 2026-11-06
   State page: Montana. Board of Oil and Gas Conservation (MBOGC).
   This build (1.2.0): MINOR. New page. The first state outside the
@@ -18,6 +18,12 @@
       Interactive pieces live in js/regulators.js (initWaterfall);
       new components in css/regulators.css under "DEEP STATE
       PAGE COMPONENTS".
+  This build (1.2.1): PATCH. Open items researched. Bluebird
+      Energy cite filled in (2024 MT 10); Wicklund reporter cites
+      added (383 Mont. 1, 367 P.3d 403); permit-life note updated
+      with the Board's April 8, 2026 direction (no rule adopted);
+      resident-withholding wording tightened. "Cite pending"
+      tag retired.
   STYLE: no em-dashes on this page (brief requirement).
   NOTE: bump "Version" and "Last updated" on every commit.
   ============================================================
@@ -27,7 +33,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Montana royalty owners pay a 14.8% production tax from the first barrel, and the Board of Oil and Gas Conservation can force-pool you. A guide for owners who know Texas.">
-<meta name="version" content="1.2.0">
+<meta name="version" content="1.2.1">
 <meta name="last-updated" content="2026-11-06">
 <title>Montana Oil and Gas Board Guide for Mineral Owners | Oil, Visualized</title>
 <link rel="canonical" href="https://visualizedoil.com/regulators/montana.html">
@@ -317,7 +323,7 @@
         <tr><th scope="row">State income tax withholding</th><td class="tx" data-k="Texas">None (no state income tax)</td><td class="st" data-k="Montana">Payor withholds the top state rate from royalty payments. <span class="cite">15-30-2538</span></td></tr>
         <tr><th scope="row">Unlocatable owner's money</th><td class="tx" data-k="Texas">Texas Comptroller unclaimed property</td><td class="st" data-k="Montana">Court trust after 6 months <span class="cite">82-1-302, -305</span>. Unclaimed property after 5 years of dormancy <span class="cite">70-9-803</span>.</td></tr>
         <tr><th scope="row">Recording act</th><td class="tx" data-k="Texas">Notice</td><td class="st" data-k="Montana">Race-notice: a later good-faith buyer who records first wins. <span class="cite">70-21-304</span></td></tr>
-        <tr><th scope="row">Ambiguous mineral reservation</th><td class="tx" data-k="Texas">Construed against the grantor</td><td class="st" data-k="Montana"><b>Construed for the grantor.</b> <span class="cite">70-1-516</span>; <i>Wicklund v. Sundheim</i>, 2016 MT 62</td></tr>
+        <tr><th scope="row">Ambiguous mineral reservation</th><td class="tx" data-k="Texas">Construed against the grantor</td><td class="st" data-k="Montana"><b>Construed for the grantor.</b> <span class="cite">70-1-516</span>; <i>Wicklund v. Sundheim</i>, 2016 MT 62, 383 Mont. 1</td></tr>
         <tr><th scope="row">Dormant minerals</th><td class="tx" data-k="Texas">No statute</td><td class="st" data-k="Montana">No statute. Repeated bills since 1977 all failed.</td></tr>
         <tr><th scope="row">Temporary cessation</th><td class="tx" data-k="Texas">Same root rule, read broadly</td><td class="st" data-k="Montana">Kept narrow: mechanical cause plus prompt repair only. Price and the economy do not count. (<i>Somont</i>, 2002 and 2006)</td></tr>
         <tr><th scope="row">Surface damages</th><td class="tx" data-k="Texas">No general statute</td><td class="st" data-k="Montana">Surface Owner Damage and Disruption Compensation Act. <span class="cite">82-10-501 to -511</span></td></tr>
@@ -425,7 +431,7 @@
             <span class="cite">15-36-309</span>.</li>
           <li><b>New-well window.</b> The working interest's 18-month reduced rate starts at first production and
             runs straight through, whether or not production is continuous. It does not restart for a new owner
-            (<i>Bluebird Energy v. Dep't of Revenue</i>, Mont. 2024). <span class="tagr">Cite pending</span></li>
+            who buys a well after the window has run (<i>Bluebird Energy LLC v. Dep't of Revenue</i>, 2024 MT 10).</li>
           <li><b>It is not an income tax.</b> Tax-exempt owners still bear it.</li>
         </ul>
       </div>
@@ -438,8 +444,9 @@
             Form 1099-MISC.</li>
           <li><b>Ignore the old 6%.</b> Older Department of Revenue guidance and many secondary sources still say
             6%. The statute controls.</li>
-          <li><b>Who is withheld on.</b> Out-of-state owners should expect it. Whether Montana residents are also
-            withheld on is <span class="tagr">Under review</span></li>
+          <li><b>Who is withheld on.</b> Out-of-state owners should expect it. The statute itself lists no residency
+            exemption, so Montana residents should not assume they are exempt either. How payors treat resident
+            owners in practice is <span class="tagr">Under review</span></li>
           <li><b>Who is excluded</b> <span class="cite">15-30-2539</span>: governments; tribes, for on-reservation
             Indian Mineral Leasing Act production; the United States as trustee for individual Indians; publicly
             traded partnerships; organizations exempt under 15-31-102; and small payors averaging under 100,000
@@ -664,7 +671,7 @@
           another state are not notice there.</p>
 
         <h3 class="sub">Reservations are read for the grantor</h3>
-        <p>In <i>Wicklund v. Sundheim</i>, 2016 MT 62 (Richland County):</p>
+        <p>In <i>Wicklund v. Sundheim</i>, 2016 MT 62, 383 Mont. 1, 367 P.3d 403 (Richland County):</p>
         <ul class="plist">
           <li>an ambiguous 1953 royalty reservation was construed in favor of the grantor under
             <span class="cite">70-1-516</span>, the reverse of the Texas rule;</li>
@@ -766,8 +773,10 @@
         </tbody>
       </table>
     </div>
-    <p class="verify">MCA unless marked ARM (Administrative Rules of Montana). ARM rules are being confirmed against
-      rules.mt.gov; the Board was moving toward a one-year drilling permit life in April 2026.</p>
+    <p class="verify">MCA unless marked ARM (Administrative Rules of Montana). Drilling permit life: at its April 8,
+      2026 business meeting the Board concluded that a one-year permit would make sense and directed staff to
+      develop a permit review policy or rule. As of November 2026 no adopted rule change was found, so the
+      6-month term in ARM 36.22.604 still stands. Check the Board's current dockets before relying on it.</p>
   </div>
 
   <!-- ========== 9. LOOK IT UP ========== -->
@@ -831,12 +840,15 @@
     <h2>Where this page comes from</h2>
     <p>Law cited to the Montana Code Annotated 2025, retrieved October 24 to November 6, 2026. The printed code
       controls over the online version. Content as of November 6, 2026. Items tagged
-      <span class="tagr">Under review</span> or <span class="tagr">Cite pending</span> are not settled.</p>
+      <span class="tagr">Under review</span> are not settled. A cursory search of the 2025 session found no change
+      to the royalty payment or pooling statutes beyond what this page reflects; the Legislature holds no regular
+      session in 2026.</p>
     <ul class="srcs">
       <li>MCA 15-36-304, 15-36-309, 15-36-310 (oil and gas production tax): <a href="https://mca.legmt.gov/bills/mca/title_0150/chapter_0360/part_0030/section_0040/0150-0360-0030-0040.html" rel="noopener">mca.legmt.gov</a></li>
       <li>MCA 15-30-2538, 15-30-2539 (royalty withholding): <a href="https://mca.legmt.gov/bills/mca/title_0150/chapter_0300/part_0250/section_0380/0150-0300-0250-0380.html" rel="noopener">mca.legmt.gov</a></li>
       <li>Montana Department of Revenue, HB 337 rate changes: <a href="https://revenue.mt.gov/news/recent-news/HB-337" rel="noopener">revenue.mt.gov</a></li>
       <li>ARM 42.17.603 (exempt-organization requests)</li>
+      <li>Board of Oil and Gas Conservation, April 8, 2026 business meeting (drilling permit duration) and June 2026 agenda: <a href="https://bogfiles.dnrc.mt.gov" rel="noopener">bogfiles.dnrc.mt.gov</a></li>
       <li>MCA 82-11-202 (pooling): <a href="https://mca.legmt.gov/bills/mca/title_0820/chapter_0110/part_0020/section_0020/0820-0110-0020-0020.html" rel="noopener">mca.legmt.gov</a></li>
       <li>MCA 82-10-103 (royalty payment and interest): <a href="https://mca.legmt.gov/bills/mca/title_0820/chapter_0100/part_0010/section_0030/0820-0100-0010-0030.html" rel="noopener">mca.legmt.gov</a></li>
       <li>MCA 82-10-110 (division orders): <a href="https://mca.legmt.gov/bills/mca/title_0820/chapter_0100/part_0010/section_0100/0820-0100-0010-0100.html" rel="noopener">mca.legmt.gov</a></li>
@@ -844,7 +856,8 @@
       <li>MCA 82-1-202 (expired lease notice): <a href="https://mca.legmt.gov/bills/mca/title_0820/chapter_0010/part_0020/section_0020/0820-0010-0020-0020.html" rel="noopener">mca.legmt.gov</a></li>
       <li>MCA 31-1-107 (interest): <a href="https://mca.legmt.gov/bills/mca/title_0310/chapter_0010/part_0010/section_0070/0310-0010-0010-0070.html" rel="noopener">mca.legmt.gov</a></li>
       <li><i>Phoenix Capital Grp. Holdings v. Bd. of Oil &amp; Gas Conservation</i>, 2024 MT 89: <a href="https://law.justia.com/cases/montana/supreme-court/2024/da-23-0289.html" rel="noopener">law.justia.com</a></li>
-      <li><i>Wicklund v. Sundheim</i>, 2016 MT 62; <i>Somont Oil Co. v. A &amp; G Drilling</i>, 2002 MT 141 and 2006 MT 90; <i>Textana v. Klabzuba</i>, 2009 MT 401; <i>Ostby v. Bd. of Oil &amp; Gas Conservation</i>, 2014 MT 105; <i>Pinnacle Gas v. Diamond Cross</i>, 2009 MT 12 (Montana Supreme Court opinion search, courts.mt.gov)</li>
+      <li><i>Bluebird Energy LLC v. Dep't of Revenue</i>, 2024 MT 10 (No. DA 23-0280, decided January 23, 2024): <a href="https://law.justia.com/cases/montana/supreme-court/2024/da-23-0280.html" rel="noopener">law.justia.com</a></li>
+      <li><i>Wicklund v. Sundheim</i>, 2016 MT 62, 383 Mont. 1, 367 P.3d 403; <i>Somont Oil Co. v. A &amp; G Drilling</i>, 2002 MT 141 and 2006 MT 90; <i>Textana v. Klabzuba</i>, 2009 MT 401; <i>Ostby v. Bd. of Oil &amp; Gas Conservation</i>, 2014 MT 105; <i>Pinnacle Gas v. Diamond Cross</i>, 2009 MT 12 (Montana Supreme Court opinion search, courts.mt.gov)</li>
       <li>Montana Board of Oil and Gas Conservation: <a href="https://dnrc.mt.gov/BOGC" rel="noopener">dnrc.mt.gov/BOGC</a>; DataMiner: <a href="https://bogapps.dnrc.mt.gov/dataminer/Default.aspx" rel="noopener">bogapps.dnrc.mt.gov</a></li>
       <li>Montana dormant mineral bills, 1977 to 2007: courts.mt.gov and archive.legmt.gov bill files, for example <a href="https://courts.mt.gov/external/leg/bills/1987/senate/SB086.pdf" rel="noopener">SB 86 (1987)</a></li>
     </ul>
@@ -872,7 +885,7 @@
 
     <p class="disc support-foot">Free to use, always. If it helped you, you can
       <a href="../index.html#t-support">support the site</a>. Thank you.</p>
-    <p class="disc foot-ver">Where to look it up v1.2.0 &middot; updated November 6, 2026</p>
+    <p class="disc foot-ver">Where to look it up v1.2.1 &middot; updated November 6, 2026</p>
   </div>
 </footer>
 

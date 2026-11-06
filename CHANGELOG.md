@@ -42,6 +42,37 @@ Nothing staged.
 
 ---
 
+## 2026-11-06 — Montana open items researched
+
+`regulators/montana.html` 1.2.0 → **1.2.1** (patch)
+Files: `regulators/montana.html` · `CHANGELOG.md`
+
+**Fixed**
+
+- *Bluebird Energy* cite filled in: **2024 MT 10** (DA 23-0280, Jan. 23,
+  2024). "Cite pending" tag removed.
+- *Wicklund v. Sundheim* reporter cites added: 383 Mont. 1, 367 P.3d 403.
+
+**Changed**
+
+- Drilling permit life note: the Board concluded at its April 8, 2026
+  business meeting that a one-year permit made sense and directed staff to
+  develop a policy or rule. No adopted change found, so 6 months stands
+  (still tagged "Under review").
+- Withholding: the page now says the statute lists no residency exemption,
+  so residents should not assume they are exempt. Practice stays "Under
+  review".
+- Sources note: a cursory search found no 2025 change to the royalty
+  payment or pooling statutes; there was no regular session in 2026.
+
+**Notes**
+
+Still open: the 0.3% Board / resource-account split under ARM 36.22.1242
+(MAR 2025-230 adopted December 19, 2025, effective April 1, 2026; the
+reported percentages conflict), so the page still shows a flat 14.8%.
+
+---
+
 ## 2026-11-06 — Montana: the first state beyond the ten
 
 `regulators/*.html` 1.1.1 → **1.2.0** (minor, all twelve pages)
