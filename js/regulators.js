@@ -3,10 +3,11 @@
 
   /* ============================================================
      Oil, Visualized — regulators section script
-     Two guarded modules: the tile map (click a state, go to its
-     page) and the API number decoder. Each returns early if its
-     markup isn't present, so the same file is safe to load on
-     both the hub and the ten state pages.
+     Three guarded modules: the tile map (click a state, go to its
+     page), the API number decoder, and the check-stub waterfall
+     (montana.html). Each returns early if its markup isn't
+     present, so the same file is safe to load on the hub and
+     every state page.
      ============================================================ */
 
   const $ = (id) => document.getElementById(id);
@@ -44,6 +45,7 @@
     { c: "05", n: "Colorado", label: "county", co: [["123", "Weld"], ["045", "Garfield"], ["001", "Adams"], ["067", "La Plata"]] },
     { c: "17", n: "Louisiana", label: "parish", co: [["031", "DeSoto"], ["081", "Red River"], ["015", "Bossier"], ["017", "Caddo"]] },
     { c: "30", n: "New Mexico", label: "county", co: [["025", "Lea"], ["015", "Eddy"], ["045", "San Juan"], ["005", "Chaves"]] },
+    { c: "25", n: "Montana", label: "county", co: [["083", "Richland"], ["085", "Roosevelt"], ["091", "Sheridan"]] },
     { c: "33", n: "North Dakota", label: "county", co: [["053", "McKenzie"], ["105", "Williams"], ["061", "Mountrail"], ["025", "Dunn"]] },
     { c: "34", n: "Ohio", label: "county", co: [["013", "Belmont"], ["111", "Monroe"], ["019", "Carroll"], ["067", "Harrison"]] },
     { c: "35", n: "Oklahoma", label: "county", co: [["073", "Kingfisher"], ["017", "Canadian"], ["051", "Grady"], ["011", "Blaine"]] },
@@ -155,7 +157,75 @@
     render();
   };
 
+
+  /* ---------- CHECK-STUB WATERFALL (montana.html) ----------
+     Gross royalty value -> production tax -> income tax
+     withholding -> net. Rates come from the Montana Content
+     Brief (MCA 2025): 14.8% nonworking-interest production tax
+     (15-36-304); withholding at the top individual rate, 5.65%
+     for 2026 and 5.4% from 2027 (15-30-2538, -2103). The page
+     states the illustration's assumption that the withholding
+     base equals the amount left after production tax.        */
+  const initWaterfall = () => {
+    const root = $("waterfall");
+    if (!root) return;
+
+    const PTAX = 0.148;
+    const WH = { "2026": 0.0565, "2027": 0.054, exempt: 0 };
+    const WH_LABEL = {
+      "2026": "5.65% \u00b7 MCA 15-30-2538",
+      "2027": "5.4% \u00b7 MCA 15-30-2538",
+      exempt: "exempt or not withheld \u00b7 15-30-2539"
+    };
+    let year = "2026";
+
+    const input = $("wf-gross");
+    const fmt = (n) =>
+      "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const cents = (n) => Math.round(n * 100) / 100;
+    const bar = (id, left, width) => {
+      const b = $(id);
+      b.style.left = left + "%";
+      b.style.width = Math.max(width, 0) + "%";
+    };
+
+    const render = () => {
+      let gross = parseFloat(input.value);
+      if (!isFinite(gross) || gross < 0) gross = 0;
+      const ptax = cents(gross * PTAX);
+      const wh = cents((gross - ptax) * WH[year]);
+      const net = cents(gross - ptax - wh);
+      const pct = (v) => (gross > 0 ? (v / gross) * 100 : 0);
+
+      bar("wf-b-gross", 0, gross > 0 ? 100 : 0);
+      bar("wf-b-ptax", pct(gross - ptax), pct(ptax));
+      bar("wf-b-wh", pct(net), pct(wh));
+      bar("wf-b-net", 0, pct(net));
+
+      $("wf-a-gross").textContent = fmt(gross);
+      $("wf-a-ptax").textContent = "\u2212" + fmt(ptax);
+      $("wf-a-wh").textContent = "\u2212" + fmt(wh);
+      $("wf-a-net").textContent = fmt(net);
+      $("wf-l-wh").textContent = WH_LABEL[year];
+
+      root.querySelectorAll("[data-wf-year]").forEach((b) =>
+        b.setAttribute("aria-pressed", String(b.getAttribute("data-wf-year") === year))
+      );
+    };
+
+    input.addEventListener("input", render);
+    root.querySelectorAll("[data-wf-year]").forEach((b) =>
+      b.addEventListener("click", () => {
+        year = b.getAttribute("data-wf-year");
+        render();
+      })
+    );
+
+    render();
+  };
+
   /* ---------- boot ---------- */
   initMap();
   initApi();
+  initWaterfall();
 })();

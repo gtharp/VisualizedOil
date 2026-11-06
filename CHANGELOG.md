@@ -42,6 +42,53 @@ Nothing staged.
 
 ---
 
+## 2026-11-06 — Montana: the first state beyond the ten
+
+`regulators/*.html` 1.1.1 → **1.2.0** (minor, all twelve pages)
+Files: `regulators/montana.html` (new) · `regulators/index.html` · the ten other
+state pages (version stamp only) · `css/regulators.css` · `js/regulators.js` ·
+`sitemap.xml` · `README.md` · `CHANGELOG.md`
+
+**Added**
+
+- **`regulators/montana.html`** — Montana Board of Oil and Gas Conservation.
+  The first state page built as a full owner's guide rather than a
+  one-document lookup, written for owners, heirs, landmen and trust officers
+  who know Texas. Sections: at-a-glance facts; ten things to know (taxes
+  first); an "If you know Texas" comparison table (stacks into cards on a
+  phone); taxes, with an interactive check-stub waterfall (gross → 14.8%
+  production tax → income tax withholding at 5.65% / 5.4% / exempt → net)
+  and the working-interest vs. royalty rate table; the forced pooling flow,
+  the 200% / 100% / 1/8 penalty strip and a *Phoenix Capital* (2024 MT 89)
+  case box; the payment timeline (120 days, then 60 oil / 90 gas), interest,
+  stub, division order and unclaimed-money rules; leases, title and surface;
+  a deadlines table; lookup links; glossary; sources. Every figure cited to
+  MCA 2025, as of November 2026. Built only from the Montana Content Brief
+  v2; items the brief marks VERIFY carry an "Under review" / "Cite pending"
+  tag. No em-dashes on the page, per the brief.
+- **Hub: "Beyond the ten" section** with a Montana card, after the ten
+  state cards. The MT map tile is now a link (dashed ochre, "+" in the rank
+  slot) with its own legend entry. JSON-LD ItemList gains Montana as item 11.
+- **API decoder** steps through Montana (25: Richland 083, Roosevelt 085,
+  Sheridan 091).
+- **`css/regulators.css`: "Deep state page components"** — contents strip,
+  under-review tag, numbered cards, `.vs` comparison table, panel, waterfall,
+  process flow, number strip, case box, payment timeline. Generic names so a
+  later deep state page can reuse them.
+- **`js/regulators.js`: `initWaterfall()`**, guarded like the other two
+  modules.
+- `sitemap.xml` lists `montana.html`.
+
+**Notes**
+
+Left out of the page on purpose: the 0.3% Board / resource-account split
+(the stub may or may not show it, so the page shows a flat 14.8%), any
+statement that Montana residents are exempt from withholding (the page says
+out-of-state owners should expect it), and the brief's internal open-items
+table. The ten other state pages changed only in their version stamps.
+
+---
+
 ## 2026-11-02 — Search snippets: titles, descriptions, share cards, clause terms
 
 `index.html` 1.8.0 → **1.8.1** (patch)

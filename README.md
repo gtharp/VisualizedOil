@@ -40,7 +40,7 @@ pooling, and getting paid — and eventually into advanced and out-of-state topi
 |---|---|---|
 | **The concepts** | `index.html` | The Texas curriculum — fourteen concepts across Tiers 1–5, one tab each, simplest first |
 | **The clause dictionary** | `glossary.html` | 140 common lease clauses in plain English, searchable and filterable |
-| **Where to look it up** | `regulators/` | The Railroad Commission and its equivalents in the ten biggest producing states — hub plus one page per state |
+| **Where to look it up** | `regulators/` | The Railroad Commission and its equivalents in the ten biggest producing states — hub plus one page per state — and deeper owner's guides "beyond the ten" (Montana) |
 
 ## How it's built
 
@@ -63,6 +63,7 @@ regulators/
   colorado.html            │
   ohio.html                │
   wyoming.html             ┘
+  montana.html             beyond the ten: full owner's guide (taxes, pooling, payment, title)
 css/
   base.css                 tokens + shared chrome — EVERY page loads this first
   concepts.css             index.html only: tab strip, panels, concepts 01–13
@@ -71,7 +72,7 @@ css/
 js/
   app.js                   index.html: tab router + concept interactions
   glossary.js              glossary.html: clause data + search/filter
-  regulators.js            regulators/: map tiles + API number decoder
+  regulators.js            regulators/: map tiles + API number decoder + check-stub waterfall
 sitemap.xml  robots.txt  CNAME  LICENSE
 ROADMAP.md   what's live, what's next, the six-tier plan, build conventions
 CHANGELOG.md what changed, when, and in which file — newest first
@@ -117,7 +118,7 @@ All references are **relative**, so the site previews correctly by opening
 | 13 | HBP monitoring & lease termination risk | ✅ Live |
 | 14 | The money trail — purchaser to mailbox | ✅ Live |
 | — | **Lease Clause Dictionary** (`glossary.html`, 140 clauses) | ✅ Live |
-| — | **Where to look it up** (`regulators/`, hub + 10 states) | ✅ Live |
+| — | **Where to look it up** (`regulators/`, hub + 10 states + Montana) | ✅ Live |
 | — | Accommodation doctrine · proration units · unitization · NRI | ◻ Planned |
 | — | Chain of title · operator transfers & bankruptcy | ◻ Planned |
 | — | Wellbore diagram gallery · commissioned diagrams | ◻ Planned |
