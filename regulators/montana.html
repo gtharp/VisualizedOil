@@ -2,7 +2,7 @@
 <!--
   ============================================================
   Oil, Visualized  ·  regulators/montana.html
-  Version:      1.2.3
+  Version:      1.2.4
   Last updated: 2026-11-06
   State page: Montana. Board of Oil and Gas Conservation (MBOGC).
   This build (1.2.0): MINOR. New page. The first state outside the
@@ -39,6 +39,10 @@
       $166/month threshold; exempt-org letter steps with 30-day
       decision; credit claiming for trusts, K-1 owners; 1099 by
       Jan 31; production tax not creditable; two deadline rows.
+  This build (1.2.4): PATCH. ARM 36.22.604 checked against the
+      rule text: 6-month permit life confirmed (unamended since
+      1995, no extension); last "Under review" tags removed; added
+      the 10-day window to demand a hearing on a drilling permit.
   STYLE: no em-dashes on this page (brief requirement).
   NOTE: bump "Version" and "Last updated" on every commit.
   ============================================================
@@ -48,7 +52,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Montana royalty owners pay a 14.8% production tax from the first barrel, and the Board of Oil and Gas Conservation can force-pool you. A guide for owners who know Texas.">
-<meta name="version" content="1.2.3">
+<meta name="version" content="1.2.4">
 <meta name="last-updated" content="2026-11-06">
 <title>Montana Oil and Gas Board Guide for Mineral Owners | Oil, Visualized</title>
 <link rel="canonical" href="https://visualizedoil.com/regulators/montana.html">
@@ -344,7 +348,7 @@
         <tr><th scope="row">Surface damages</th><td class="tx" data-k="Texas">No general statute</td><td class="st" data-k="Montana">Surface Owner Damage and Disruption Compensation Act. <span class="cite">82-10-501 to -511</span></td></tr>
         <tr><th scope="row">Well data</th><td class="tx" data-k="Texas">RRC records</td><td class="st" data-k="Montana">Public as filed, with no confidentiality period</td></tr>
         <tr><th scope="row">Production reporting</th><td class="tx" data-k="Texas">Lease-level oil, well-level gas</td><td class="st" data-k="Montana">By well. Watch out: a "lease" in Board data is a Department of Revenue reporting unit, not the oil and gas lease.</td></tr>
-        <tr><th scope="row">Drilling permit life</th><td class="tx" data-k="Texas">Longer</td><td class="st" data-k="Montana">6 months unless drilling starts. <span class="cite">ARM 36.22.604</span> <span class="tagr">Under review</span></td></tr>
+        <tr><th scope="row">Drilling permit life</th><td class="tx" data-k="Texas">Longer</td><td class="st" data-k="Montana">6 months unless drilling starts, with no extension: a new application and fee are required. <span class="cite">ARM 36.22.604(3)</span></td></tr>
         <tr><th scope="row">Court review of agency orders</th><td class="tx" data-k="Texas">Substantial evidence review</td><td class="st" data-k="Montana">Fresh (de novo) proceeding in district court, but courts defer to a thorough Board (<i>Ostby</i>, 2014; <i>Phoenix Capital</i>, 2024). <b>In practice, win at the hearing.</b></td></tr>
       </tbody>
     </table>
@@ -801,7 +805,8 @@
           <tr><td>Board hearing notice to owners</td><td>Mailed at least 20 days before the hearing, to the county clerk address of record</td><td>82-11-141(4)</td></tr>
           <tr><td>Board order after hearing</td><td>Within 30 days</td><td>82-11-141(6)</td></tr>
           <tr><td>Well proposal election</td><td>30 days from notice</td><td>82-11-202(3)</td></tr>
-          <tr><td>Drilling permit life</td><td>6 months unless drilling starts <span class="tagr">Under review</span></td><td>ARM 36.22.604(3)</td></tr>
+          <tr><td>Written demand for a hearing on a drilling permit</td><td>Within 10 days after the permit notice is published</td><td>ARM 36.22.604(1); 36.22.601</td></tr>
+          <tr><td>Drilling permit life</td><td>6 months from issuance unless drilling starts; no extension, a new application and fee are required</td><td>ARM 36.22.604(3)</td></tr>
           <tr><td>Spud report to Board</td><td>Within 72 hours</td><td>ARM 36.22.604(4)</td></tr>
           <tr><td>Monthly production report (Form 6)</td><td>Last day of the following month</td><td>ARM 36.22.1242(1)</td></tr>
           <tr><td>Surface owner notice</td><td>20 to 180 days before surface disturbance</td><td>82-10-503</td></tr>
@@ -821,10 +826,10 @@
         </tbody>
       </table>
     </div>
-    <p class="verify">MCA unless marked ARM (Administrative Rules of Montana). Drilling permit life: at its April 8,
-      2026 business meeting the Board concluded that a one-year permit would make sense and directed staff to
-      develop a permit review policy or rule. As of November 2026 no adopted rule change was found, so the
-      6-month term in ARM 36.22.604 still stands. Check the Board's current dockets before relying on it.</p>
+    <p class="verify">MCA unless marked ARM (Administrative Rules of Montana). Drilling permit life: the 6-month term in
+      ARM 36.22.604(3) has not been amended since 1995. At its April 8, 2026 business meeting the Board concluded
+      that a one-year permit would make sense and directed staff to develop a permit review policy or rule; if the
+      Board adopts one, this row will change.</p>
   </div>
 
   <!-- ========== 9. LOOK IT UP ========== -->
@@ -838,7 +843,7 @@
       <a class="lnk" href="https://bogapps.dnrc.mt.gov/dataminer/Default.aspx" rel="noopener"><span class="n">DataMiner</span><span class="u">bogapps.dnrc.mt.gov/dataminer</span><span class="d">Wells, permits, completions, production by well, purchasers, and Board orders by township-range. CSV export.</span></a>
       <a class="lnk" href="https://bogfiles.dnrc.mt.gov" rel="noopener"><span class="n">Hearing files</span><span class="u">bogfiles.dnrc.mt.gov</span><span class="d">Hearing files, orders, and minutes.</span></a>
       <a class="lnk" href="https://bogwebfiles.dnrc.mt.gov/WeeklyActivityLetter/" rel="noopener"><span class="n">Weekly Activity Letter</span><span class="u">bogwebfiles.dnrc.mt.gov/WeeklyActivityLetter</span><span class="d">Weekly permits and completions with initial production rates.</span></a>
-      <a class="lnk" href="https://www.mtpublicnotices.com" rel="noopener"><span class="n">Montana public notices</span><span class="u">mtpublicnotices.com</span><span class="d">Pending drilling permit notices. Search "Montana Board of Oil and Gas".</span></a>
+      <a class="lnk" href="https://www.mtpublicnotices.com" rel="noopener"><span class="n">Montana public notices</span><span class="u">mtpublicnotices.com</span><span class="d">Pending drilling permit notices. Search "Montana Board of Oil and Gas". A written demand for a hearing must be filed within 10 days of publication, or the permit issues.</span></a>
       <a class="lnk" href="https://mca.legmt.gov" rel="noopener"><span class="n">Montana Code Annotated</span><span class="u">mca.legmt.gov</span><span class="d">Statutes. Title 82 is oil and gas; Title 15 is taxes.</span></a>
       <a class="lnk" href="https://revenue.mt.gov" rel="noopener"><span class="n">Department of Revenue</span><span class="u">revenue.mt.gov</span><span class="d">Production tax, royalty withholding, and unclaimed property.</span></a>
       <a class="lnk" href="https://dnrc.mt.gov/TrustLand" rel="noopener"><span class="n">State trust lands</span><span class="u">dnrc.mt.gov/TrustLand</span><span class="d">State trust land leases.</span></a>
@@ -887,8 +892,8 @@
     <p class="kicker">Sources and as-of date</p>
     <h2>Where this page comes from</h2>
     <p>Law cited to the Montana Code Annotated 2025, retrieved October 24 to November 6, 2026. The printed code
-      controls over the online version. Content as of November 6, 2026. Items tagged
-      <span class="tagr">Under review</span> are not settled. A cursory search of the 2025 session found no change
+      controls over the online version. Content as of November 6, 2026. ARM rules cited were checked against the current rule text
+      (ARM 36.22.604, 36.22.1242, and 42.17.601 to 42.17.605). A cursory search of the 2025 session found no change
       to the royalty payment or pooling statutes beyond what this page reflects; the Legislature holds no regular
       session in 2026.</p>
     <ul class="srcs">
@@ -898,6 +903,7 @@
       <li>Montana Department of Revenue, Mineral Royalty Withholding page (retrieved November 6, 2026): <a href="https://revenue.mt.gov/taxes/natural-resource-taxes/Mineral-Royalty-Withholding" rel="noopener">revenue.mt.gov</a></li>
       <li>Montana Department of Revenue, HB 337 rate changes: <a href="https://revenue.mt.gov/news/recent-news/HB-337" rel="noopener">revenue.mt.gov</a></li>
       <li>ARM 42.17.601 to 42.17.605 (mineral royalty withholding: covered payments, credits, thresholds and exemptions, registration, filing), as amended through 2024</li>
+      <li>ARM 36.22.604 (permit issuance, 10-day hearing demand, 6-month expiration, 72-hour spud notice; last amended 1995)</li>
       <li>ARM 36.22.1242 (Form 6 production report; privilege and license tax at 60% of the statutory rate, effective April 1, 2026; MAR Notice No. 2025-230)</li>
       <li>Board of Oil and Gas Conservation, April 8, 2026 business meeting (drilling permit duration) and June 2026 agenda: <a href="https://bogfiles.dnrc.mt.gov" rel="noopener">bogfiles.dnrc.mt.gov</a></li>
       <li>MCA 82-11-202 (pooling): <a href="https://mca.legmt.gov/bills/mca/title_0820/chapter_0110/part_0020/section_0020/0820-0110-0020-0020.html" rel="noopener">mca.legmt.gov</a></li>
@@ -936,7 +942,7 @@
 
     <p class="disc support-foot">Free to use, always. If it helped you, you can
       <a href="../index.html#t-support">support the site</a>. Thank you.</p>
-    <p class="disc foot-ver">Where to look it up v1.2.3 &middot; updated November 6, 2026</p>
+    <p class="disc foot-ver">Where to look it up v1.2.4 &middot; updated November 6, 2026</p>
   </div>
 </footer>
 

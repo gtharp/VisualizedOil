@@ -42,6 +42,31 @@ Nothing staged.
 
 ---
 
+## 2026-11-06 — Montana: drilling permit rule confirmed
+
+`regulators/montana.html` 1.2.3 → **1.2.4** (patch)
+Files: `regulators/montana.html` · `CHANGELOG.md`
+
+Source: current text of ARM 36.22.604, supplied by the author.
+
+**Changed**
+
+- Drilling permit life confirmed at **6 months** from issuance unless
+  drilling starts. The rule is unamended since 1995 and has no extension;
+  a lapsed permit needs a new application and fee. "Under review" tags
+  removed from the Texas table and the deadlines table. The Board's April
+  2026 interest in a one-year term stays in the note under the table.
+- The sources note no longer refers to "Under review" items; the page has
+  none left.
+
+**Added**
+
+- Deadline row and lookup-link note: a **written demand for a hearing** on a
+  drilling permit must be filed within **10 days** after the permit notice
+  is published, or the permit issues (ARM 36.22.604(1), 36.22.601).
+
+---
+
 ## 2026-11-06 — Montana: updated from the ARM rule text
 
 `regulators/montana.html` 1.2.2 → **1.2.3** (patch)
