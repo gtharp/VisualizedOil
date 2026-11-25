@@ -452,9 +452,15 @@ options, lightest first:
 > and hub-and-spoke turns one page into eleven rankable URLs. Weigh that against tier
 > order when picking what's next.
 
-0. **Verify the regulator ad valorem column** against primary law and correct
-   `data`-driven copy on the four weakest states — this is the only thing currently on
-   the site flagged as needing confirmation.
+0. **Verify the regulator ad valorem column** against primary law and correct the
+   copy on the weakest states — the only thing on the site flagged as needing
+   confirmation. **In progress (2026-11-25):** findings so far are under "Follow-ups on
+   this section" above; no page copy changed yet. Next step: the author pulls the
+   statute text (TX Tax Code §§1.04, 23.175; 68 O.S. §1001; N.D.C.C. ch. 57-51; NMSA
+   ch. 7 art. 32; La. R.S. 47:1957 and La. Const. art. VII §18; C.R.S. 39-7-101/102;
+   W.S. 39-13-103 and 39-14-203; R.C. 5713.051; W. Va. Code §11-1C-10) and the hub and
+   state pages get corrected from it. Pennsylvania can be fixed now on the 2002
+   Fayette County case.
 1. ~~Finish **Tier 1** — Accommodation doctrine & surface use~~ — **done**, shipped
    as Concept 05 in `index.html` 1.9.0. Tier 1 is complete.
 2. Add the **Gallery** section/tab with the three existing diagrams — the most

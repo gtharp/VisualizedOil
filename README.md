@@ -99,7 +99,7 @@ All references are **relative**, so the site previews correctly by opening
 
 ## Status
 
-**v1.9 — fifteen concepts, the clause dictionary, and the ten-state regulator section.**
+**v1.10 — fifteen concepts, the clause dictionary, and the ten-state regulator section.**
 
 | Tab | Concept | Status |
 |---|---|---|
