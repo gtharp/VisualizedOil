@@ -592,11 +592,11 @@
       },
       {
         t: "Test 2 \u00B7 Bob can't reasonably work around it",
-        c: "Could Bob keep farming some other way? Hand-moved pipe or flooding the field aren't realistic replacements for a pivot on this ground, so he has no reasonable alternative. This is where most surface owners lose. The alternative only has to exist on the tract the owner actually owns, and an alternative that is merely more expensive or less convenient still counts as reasonable."
+        c: "Could Bob keep farming some other way? In the 1971 case this example is drawn from, witnesses said farm labor was too scarce to move pipe by hand, and a reversible sprinkler had to be watched day and night. Neither was a realistic replacement, so the owner had no reasonable alternative. This is where most surface owners lose. The alternative only has to exist on the tract the owner actually owns, and an alternative that is merely more expensive or less convenient still counts as reasonable."
       },
       {
         t: "Test 3 \u00B7 the operator has an ordinary alternative",
-        c: "A center pivot never reaches the corners of a square field. The operator can drill from a corner pad, and with a horizontal well the lateral can still run under the whole tract. That's a reasonable, customary method available on this same lease, so all three tests are met and the operator has to use it. The pivot makes its full circle again."
+        c: "A center pivot never reaches the corners of a square field. The operator can drill from a corner pad, and with a horizontal well the lateral can still run under the whole tract. That's a reasonable, customary method the industry already uses, so all three tests are met and the operator has to use it. The pivot makes its full circle again."
       }
     ];
 

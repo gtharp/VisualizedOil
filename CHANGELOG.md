@@ -16,7 +16,7 @@ because they ship independently:
 
 | Stream | Versioned in | Footer stamp reads |
 |---|---|---|
-| `index.html` | header comment + `<meta name="version">` + footer line | `v1.9.1 · updated …` |
+| `index.html` | header comment + `<meta name="version">` + footer line | `v1.9.2 · updated …` |
 | `glossary.html` | same three places | `Dictionary v1.3.2 · updated …` |
 | `regulators/*.html` | same three places; the pages move together on a minor, and a single page can take its own patches (Montana is at 1.2.4 while the rest sit at 1.2.0) | `Where to look it up v1.2.0 · updated …` |
 
@@ -39,6 +39,44 @@ differently, Changed.
 ## Unreleased
 
 Nothing staged.
+
+---
+
+## 2026-11-25 — Surface use: verified against the full opinions
+
+`index.html` 1.9.1 → **1.9.2** (patch)
+Files: `index.html` · `js/app.js` · `ROADMAP.md` · `CHANGELOG.md`
+
+Source: full text of *Getty*, *Haupt*, *Merriman* and *Coyote Lake Ranch*,
+supplied by the author. Pin cites are in `ROADMAP.md`'s case-law note.
+
+**Fixed**
+
+- **The operator's alternative no longer has to be "on the lease."** None of the
+  four opinions says that. Test 3 in the stepper, the ledger and the note under
+  the stepper now use the test's own words: a reasonable, customary,
+  industry-accepted alternative.
+- **Getty's outcome.** The table said the court "ruled for the surface owner." It
+  affirmed the court of civil appeals, which sent the case back for a new trial.
+- **Test 2's rejected alternatives.** "Flood the field" wasn't in the case. The
+  plat and caption now use what the Getty witnesses actually rejected: hand-moved
+  pipe (labor too scarce) and a reversible sprinkler (had to be watched day and
+  night).
+
+**Changed**
+
+- **Getty row** gives the real facts: a center pivot riding seven feet up, four of
+  its six circles knocked out by 17- and 34-foot pumps, and two other operators on
+  the same farm already using cellars and hydraulic pumps.
+- **Merriman row** adds that he never explained why his pens couldn't be rebuilt
+  elsewhere on his 40 acres.
+- **"Water" dropped** from the examples of unpaid reasonable use. It's true under
+  a case the page doesn't cite, so it came out rather than go unsupported.
+
+**Added**
+
+- ***Tarrant County WCID No. One v. Haupt*** (1993) in the case table: the
+  doctrine applies when a government owns the surface.
 
 ---
 

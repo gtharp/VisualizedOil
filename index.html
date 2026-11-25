@@ -2,9 +2,18 @@
 <!--
   ============================================================
   Oil, Visualized  ·  index.html
-  Version:      1.9.1
+  Version:      1.9.2
   Last updated: 2026-11-25
-  This build (1.9.1): PATCH — Concept 05 case details checked
+  This build (1.9.2): PATCH — Concept 05 verified against the
+      full opinions. Removed the "on the lease" limit on the
+      operator's alternatives (not in any of the four cases);
+      Getty described as a remand for new trial, with its real
+      facts (center pivot, four of six circles, cellars and
+      hydraulic pumps on the same farm); Haupt added to the case
+      table; Test 2 now uses Getty's actual rejected alternatives
+      (hand-moved pipe, reversible sprinkler); "water" dropped
+      from the no-payment examples.
+  Prior build (1.9.1): PATCH — Concept 05 case details checked
       against published summaries and excerpts of the three
       opinions: Getty's 17- and 34-foot units and the under-seven-
       foot hydraulic alternative; Merriman's same-tract rule and
@@ -183,7 +192,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Free interactive diagrams that explain Texas mineral rights: surface vs. mineral estate, net mineral acres, leases, pooling, decimals and the royalty check.">
-<meta name="version" content="1.9.1">
+<meta name="version" content="1.9.2">
 <meta name="last-updated" content="2026-11-25">
 <title>Texas Mineral Rights &amp; Royalties Explained | Oil, Visualized</title>
 <link rel="canonical" href="https://visualizedoil.com/">
@@ -1667,7 +1676,7 @@
       <p class="kicker">Start here</p>
       <h2>First — who gets to use the surface?</h2>
       <p>Go back to Bob's 160 acres. Bob owns the surface; Carl and Susan own the minerals underneath. Minerals are worthless if nobody can reach them, so the law gives the mineral estate a built-in right to use the surface. Carl and Susan almost never use that right themselves. They lease it, along with the minerals, to an oil company — the <strong>operator</strong> — which is who actually shows up with a drilling rig. (Concept 06 covers the lease itself.)</p>
-      <p>That right covers roads, well pads, pipelines, tanks, and water, to the extent they're <strong>reasonably necessary</strong>. Bob can't refuse, and by default he isn't owed a dollar for reasonable use. What follows is the one situation where the law makes the operator adjust.</p>
+      <p>That right covers roads, well pads, pipelines, and tanks, to the extent they're <strong>reasonably necessary</strong>. Bob can't refuse, and by default he isn't owed a dollar for reasonable use. What follows is the one situation where the law makes the operator adjust.</p>
 
       <div class="glossary">
         <div class="term"><span class="t">Dominant estate</span><span class="d">The mineral estate. It carries the right to use the surface as reasonably necessary to find and produce the minerals.</span></div>
@@ -1766,7 +1775,7 @@
                 <rect x="70" y="322" width="150" height="56" rx="4" fill="#F4F2EC" stroke="#1B1A17"/>
                 <text x="145" y="337" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#1B1A17">BOB'S OTHER OPTIONS</text>
                 <text x="145" y="352" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#6B675E">hand-moved pipe ✕</text>
-                <text x="145" y="366" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#6B675E">flood the field ✕</text>
+                <text x="145" y="366" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#6B675E">reversible sprinkler ✕</text>
               </g>
 
               <!-- step 3: the corner pad -->
@@ -1790,13 +1799,13 @@
             <ol class="ac-tests">
               <li data-ac-test><span class="q">Does the well wreck a use Bob already has?</span><span class="v" data-ac-v>—</span></li>
               <li data-ac-test><span class="q">Is Bob unable to reasonably work around it?</span><span class="v" data-ac-v>—</span></li>
-              <li data-ac-test><span class="q">Does the operator have a customary alternative on the lease?</span><span class="v" data-ac-v>—</span></li>
+              <li data-ac-test><span class="q">Does the operator have a customary industry alternative?</span><span class="v" data-ac-v>—</span></li>
             </ol>
           </div>
         </div>
       </div>
 
-      <p style="margin-top:1.4rem">Notice that Bob doesn't get to choose where the well goes. He only gets to show that the operator's choice breaks something he can't fix, and that the industry has a normal way around it. If the operator's alternative would mean drilling off the lease, or doing something the industry doesn't ordinarily do, the test fails and the original location stands.</p>
+      <p style="margin-top:1.4rem">Notice that Bob doesn't get to choose where the well goes. He only gets to show that the operator's choice breaks something he can't fix, and that the industry has a normal way around it. If the only alternatives are ones the industry doesn't ordinarily use, the test fails and the original location stands. And if there's only one reasonable way to produce the minerals, the operator may use it even if it destroys the surface use.</p>
     </div>
 
     <!-- LEDGER -->
@@ -1811,7 +1820,7 @@
           <tbody>
             <tr><td>1 · Is an existing use completely blocked or substantially impaired?</td><td>Yes — the arm can't make its circle</td><td>Yes — the well gets in the way of how the cattle are worked</td></tr>
             <tr><td>2 · Does the surface owner have no reasonable way to keep that use going?</td><td>Yes — no practical way to irrigate this field otherwise</td><td><strong>No</strong> — the operation can be rearranged on the same tract. Interference, inconvenience and extra cost aren't enough</td></tr>
-            <tr><td>3 · Does the operator have a reasonable, customary alternative on the lease?</td><td>Yes — drill from a corner the pivot never reaches</td><td>Never reached</td></tr>
+            <tr><td>3 · Does the operator have a reasonable, customary, industry-accepted alternative?</td><td>Yes — drill from a corner the pivot never reaches</td><td>Never reached</td></tr>
             <tr class="tot"><td>Result</td><td>The operator must use the alternative</td><td>The operator's location stands</td></tr>
           </tbody>
         </table>
@@ -1825,8 +1834,9 @@
             <tr><th>Year</th><th>Case</th><th>What it added</th></tr>
           </thead>
           <tbody>
-            <tr><td>1971</td><td><em>Getty Oil Co. v. Jones</em></td><td>Created the doctrine. The operator's pumping units, 17 and 34 feet tall, blocked the owner's irrigation system. Other operators on the same tract used hydraulic units under seven feet, and units could also be set lower in cellars. The court ruled for the surface owner</td></tr>
-            <tr><td>2013</td><td><em>Merriman v. XTO Energy</em></td><td>Restated it as a three-part test with the burden on the surface owner. A rancher lost because his evidence showed only interference, inconvenience and added cost. The question is whether the owner has a reasonable alternative on the tract he owns, not on other land he leases</td></tr>
+            <tr><td>1971</td><td><em>Getty Oil Co. v. Jones</em></td><td>Created the doctrine. Getty's pumping units, 17 and 34 feet tall, stood in the path of a center-pivot system whose pipe rode seven feet off the ground, and knocked out four of its six circles. On the same farm, another operator had set its pumps in concrete cellars and a third used hydraulic pumps under seven feet. The court sided with the surface owner on the law and sent the case back for a new trial</td></tr>
+            <tr><td>2013</td><td><em>Merriman v. XTO Energy</em></td><td>Restated it as a three-part test with the burden on the surface owner. A rancher lost because his evidence showed only interference, inconvenience and added cost; he never explained why his pens couldn't be rebuilt elsewhere on his 40 acres. Only the tract he owns counts, not land he leases</td></tr>
+            <tr><td>1993</td><td><em>Tarrant County WCID No. One v. Haupt</em></td><td>Applied the doctrine when a government owns the surface. A water district flooded a tract for a reservoir; directional or platform drilling were the possible alternatives to drilling through the lake</td></tr>
             <tr><td>2016</td><td><em>Coyote Lake Ranch v. City of Lubbock</em></td><td>Applied the same balance to a severed <em>groundwater</em> estate, for conflicts the deed doesn't settle. Where the deed speaks to the issue, the deed controls</td></tr>
           </tbody>
         </table>
@@ -1852,7 +1862,7 @@
 
       <div class="callout">
         <p class="kicker">The point that trips everyone up</p>
-        <p>"They're using my land — they have to pay me." Not in Texas, not by default. Reasonable use of the surface is part of what the mineral estate already owns, so the law owes Bob nothing for a pad, a road, or the water the operator reasonably uses. Several other producing states, Oklahoma and North Dakota among them, have surface damage statutes that require payment. Texas has no general one. A Texas surface owner gets paid when a contract says so, or when the operator goes beyond reasonable use.</p>
+        <p>"They're using my land — they have to pay me." Not in Texas, not by default. Reasonable use of the surface is part of what the mineral estate already owns, so the law owes Bob nothing for a pad or a road the operator reasonably needs. Several other producing states, Oklahoma and North Dakota among them, have surface damage statutes that require payment. Texas has no general one. A Texas surface owner gets paid when a contract says so, or when the operator goes beyond reasonable use.</p>
       </div>
     </div>
   </section>
@@ -4160,7 +4170,7 @@
     <p class="disc support-foot">Own minerals outside Texas? <a href="regulators/index.html">Where to look it up</a>
       — the Railroad Commission's equivalent in the ten biggest producing states, and the one document to pull in each.</p>
     <p class="disc support-foot">Free to use, always. If it helped you, you can <a href="#top" data-goto-tab="t-support">support the site</a> — thank you.</p>
-    <p class="disc foot-ver">v1.9.1 · updated November 25, 2026</p>
+    <p class="disc foot-ver">v1.9.2 · updated November 25, 2026</p>
   </div>
 </footer>
 

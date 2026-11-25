@@ -55,7 +55,7 @@ material lives, so the ladder never has to stop and explain another jurisdiction
   and offers an optional Venmo donation (embedded QR + payment link, `@George-Tharp`);
   support links also sit in the global footer and at the foot of Concept 01
 - **Versioning** — every page carries its own version, in three places each (header
-  comment, meta tags, footer line). Current: `index.html` **v1.9.1**, `glossary.html`
+  comment, meta tags, footer line). Current: `index.html` **v1.9.2**, `glossary.html`
   **v1.3.2**, `regulators/` **v1.2.0** (Montana at **v1.2.4** after its patch run). The scheme is in build conventions below; the
   history is in [`CHANGELOG.md`](./CHANGELOG.md)
 - **Wellbore gallery** — in progress; three diagrams ready to feature, not yet built
@@ -122,7 +122,7 @@ material lives, so the ladder never has to stop and explain another jurisdiction
 | **Live** | Separate tracts & common ownership | A tract is defined by ownership, not fences; a 4-step timeline showing one tract splitting into two across generations |
 | **Live** | Fractional & undivided interests | Undivided interest = a fraction of every acre at once; net mineral acres; fractionalization across 3 generations |
 | **Live** | Measuring ownership | The three meanings of *acre*: gross acres (survey), net mineral acres (deed), net royalty acres (lease). A 640-ac section with an undivided 1/4 carried through three stages — a NOT-THIS/THIS dot field, the same 64 dots gathered into 160 NMA, then a royalty slider over two figures: the eight royalty acres inside one mineral acre, and the same acre against the 1/8 yardstick. Built as Concept 04 |
-| **Live** | Accommodation doctrine & surface use | The dominant estate's right to use the surface and its one limit. A four-step stepper on Bob's 160 acres from Concept 01, now under a center pivot: the operator stakes a well in the circle, then the three-part test (existing use substantially impaired → no reasonable alternative for the surface owner → a customary alternative for the operator on the lease) moves it to a corner pad. A two-field ledger (pivot vs. cattle pens), a three-case table (*Getty* 1971, *Merriman* 2013, *Coyote Lake Ranch* 2016), and the callout that reasonable use is unpaid in Texas. Built as Concept 05 |
+| **Live** | Accommodation doctrine & surface use | The dominant estate's right to use the surface and its one limit. A four-step stepper on Bob's 160 acres from Concept 01, now under a center pivot: the operator stakes a well in the circle, then the three-part test (existing use substantially impaired → no reasonable alternative for the surface owner → a customary, industry-accepted alternative for the operator) moves it to a corner pad. A two-field ledger (pivot vs. cattle pens), a four-case table (*Getty* 1971, *Haupt* 1993, *Merriman* 2013, *Coyote Lake Ranch* 2016), and the callout that reasonable use is unpaid in Texas. Built as Concept 05 |
 
 ## TIER 2 — The lease
 *Turning ownership into production.*
@@ -469,33 +469,40 @@ options, lightest first:
 
 ## Case-law maintenance note
 
-Concept 05 (surface use) names three Texas Supreme Court cases: *Getty Oil Co. v.
-Jones* (1971), *Merriman v. XTO Energy* (2013) and *Coyote Lake Ranch v. City of
-Lubbock* (2016). It gives years, not reporter citations. Checked on **25 November
-2026** against published summaries and quoted excerpts (Justia's Coyote Lake summary,
-FindLaw / Lexology / Brown & Fortunato notes on Merriman, practitioner papers on
-Getty). The full opinions themselves could not be opened from the build session:
-case-law hosts were unreachable. What the page now states, and its support:
+Concept 05 (surface use) names four Texas Supreme Court cases, years only. **Verified
+against the full opinions on 25 November 2026** (author-supplied copies):
 
-- *Getty Oil Co. v. Jones*, 470 S.W.2d 618 (Tex. 1971) — pumping units 17 and 34 feet
-  tall blocked the surface owner's irrigation system; other operators on the same
-  tract used hydraulic units under seven feet; cellars were the other proposed
-  alternative; the court ruled for the surface owner. Secondary sources describe the
-  irrigation system inconsistently, so the page doesn't name its type
-- *Merriman v. XTO Energy, Inc.*, 407 S.W.3d 244 (Tex. 2013) — three-part test, burden
-  on the surface owner; the alternatives inquiry is limited to the tract the owner
-  owns (the court of appeals erred by looking at land he leased); evidence of
-  interference, inconvenience and added cost doesn't show the absence of a reasonable
-  alternative; summary judgment for XTO affirmed
-- *Coyote Lake Ranch, LLC v. City of Lubbock*, 498 S.W.3d 53 (Tex. May 27, 2016) — the
+- *Getty Oil Co. v. Jones*, 470 S.W.2d 618 (Tex. 1971) — Jones's "Valley System" was
+  a self-propelled center pivot: 1,300 ft of pipe seven feet off the ground, six pivot
+  points covering the tract "except for a few corner areas" (at 620). Getty's two new
+  beam units, 17 and 34 ft, knocked out four of the six pivots (at 620). On the same
+  farm Adobe set beam pumps in concrete cellars and Amerada used hydraulic units under
+  seven feet (at 620). Cellars would have cost under $12,000; hydraulic pumps under
+  $5,000 more up front plus $350–$1,000 a year (at 622). Rule at 622; burden on the
+  surface owner at 623; the two-step inquiry at 627–28 (op. on reh'g). Disposition:
+  court of civil appeals affirmed, i.e. JNOV reversed and the case **remanded for a new
+  trial**, not a final judgment for Jones. Majority dates the pivot to 1963; the
+  dissent says 1965. Greenhill's concurrence limits the holding to conditions existing
+  when the pumps went in
+- *Tarrant County WCID No. One v. Haupt, Inc.*, 854 S.W.2d 909 (Tex. 1993) — doctrine
+  applies when a governmental entity owns the surface; directional or platform drilling
+  as the alternatives; remanded
+- *Merriman v. XTO Energy, Inc.*, 407 S.W.3d 244 (Tex. June 21, 2013) — three-part test
+  and burden at 249; "merely more inconvenient or less economically beneficial" is not
+  enough (at 249); leased land excluded (at 250); existing use framed as the cattle
+  operation, not general agriculture (at 250–51); no evidence pens couldn't be built
+  elsewhere on the 40-acre tract (at 251–52); summary judgment for XTO affirmed
+- *Coyote Lake Ranch, LLC v. City of Lubbock*, 498 S.W.3d 53 (Tex. May 27, 2016) —
   doctrine applies to conflicts between a severed groundwater estate and the surface
-  estate that the parties' agreement doesn't govern
-- **Least-supported claim on the tab:** that the operator's alternative must be
-  available *on the lease*. It rests on a secondary source quoting the Getty line of
-  cases ("in the leased premises"). Confirm against the Getty text when it can be read
+  estate "not governed by the express terms of the parties' agreement" (at 64);
+  restates the Merriman test; temporary injunction's reversal affirmed and case
+  remanded
 
-Read the three opinions in full once a copy is reachable, and re-check before any
-substantial edit to Concept 05.
+**Corrected on verification:** the tab had said the operator's alternative must be
+available *on the lease*. None of the four opinions says that; the test is
+"reasonable, customary, and industry-accepted methods available to the lessee"
+(Merriman at 249). Removed. Getty's outcome is now described as a remand for new
+trial. Re-check before any substantial edit to Concept 05.
 
 Concept 12 is the first tab whose accuracy decays with time — it names decided
 cases. Verified current as of **23 July 2026**:
