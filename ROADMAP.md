@@ -55,7 +55,7 @@ material lives, so the ladder never has to stop and explain another jurisdiction
   and offers an optional Venmo donation (embedded QR + payment link, `@George-Tharp`);
   support links also sit in the global footer and at the foot of Concept 01
 - **Versioning** — every page carries its own version, in three places each (header
-  comment, meta tags, footer line). Current: `index.html` **v1.8.1**, `glossary.html`
+  comment, meta tags, footer line). Current: `index.html` **v1.8.2**, `glossary.html`
   **v1.3.1**, `regulators/` **v1.2.0** (Montana at **v1.2.4** after its patch run). The scheme is in build conventions below; the
   history is in [`CHANGELOG.md`](./CHANGELOG.md)
 - **Wellbore gallery** — in progress; three diagrams ready to feature, not yet built

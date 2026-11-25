@@ -16,9 +16,9 @@ because they ship independently:
 
 | Stream | Versioned in | Footer stamp reads |
 |---|---|---|
-| `index.html` | header comment + `<meta name="version">` + footer line | `v1.6 · updated …` |
-| `glossary.html` | same three places | `Dictionary v1.1.1 · updated …` |
-| `regulators/*.html` | same three places, all eleven pages move together | `Where to look it up v1.0.0 · updated …` |
+| `index.html` | header comment + `<meta name="version">` + footer line | `v1.8.2 · updated …` |
+| `glossary.html` | same three places | `Dictionary v1.3.1 · updated …` |
+| `regulators/*.html` | same three places; the pages move together on a minor, and a single page can take its own patches (Montana is at 1.2.4 while the rest sit at 1.2.0) | `Where to look it up v1.2.0 · updated …` |
 
 So entries are grouped by **date**, and each names the page versions it moved and
 the files it touched. Stylesheets and scripts (`css/`, `js/`) carry no version of
@@ -39,6 +39,26 @@ differently, Changed.
 ## Unreleased
 
 Nothing staged.
+
+---
+
+## 2026-11-25 — Roadmap tab concept count; docs brought current
+
+`index.html` 1.8.1 → **1.8.2** (patch)
+Files: `index.html` · `CHANGELOG.md` · `ROADMAP.md`
+
+**Fixed**
+
+- **Roadmap tab lede** said "Thirteen concepts are live today." It has been
+  fourteen since Concept 04 shipped in 1.8.0. Now reads "Fourteen."
+
+**Notes**
+
+Docs only, no reader-visible change: `ROADMAP.md` got the 14-tab table, the
+current page versions, the 14-URL sitemap count, and Montana in the status and
+reference-shelf tables, and accommodation doctrine is now marked Next to match
+the Roadmap tab. The "How to read an entry" table above now shows current
+footer stamps and says a single regulator page can take its own patches.
 
 ---
 
