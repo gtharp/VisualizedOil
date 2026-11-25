@@ -379,7 +379,7 @@
     const MODES = {
       pooled: {
         label: "Pooled unit well",
-        text: "The three tracts pool into one <strong>400-acre unit</strong>. The Railroad Commission treats the whole unit as a single lease \u2014 the interior lines vanish for spacing purposes \u2014 and production is shared by <strong>acreage</strong>: Tract A takes 160/400 = 40%, B takes 40%, C takes 20%. This is Concept 05."
+        text: "The three tracts pool into one <strong>400-acre unit</strong>. The Railroad Commission treats the whole unit as a single lease \u2014 the interior lines vanish for spacing purposes \u2014 and production is shared by <strong>acreage</strong>: Tract A takes 160/400 = 40%, B takes 40%, C takes 20%. This is Concept 07."
       },
       psa: {
         label: "PSA well",
@@ -566,6 +566,150 @@
   };
 
   /* ---------- CONCEPT 12 · HBP MONITORING: READ THE RECORD ---------- */
+  /* ---------- SURFACE USE: THE ACCOMMODATION TEST (05) ---------- */
+  const initAccommodation = () => {
+    const back = $("ac-back");
+    if (!back) return;
+
+    const next = $("ac-next"),
+      root = $("accom"),
+      dots = [...root.querySelectorAll("[data-ac-dot]")],
+      layers = [...root.querySelectorAll("[data-ac-show], [data-ac-ghost]")],
+      tests = [...root.querySelectorAll("[data-ac-test]")],
+      badge = $("ac-badge"),
+      title = $("ac-title"),
+      cap = $("ac-cap"),
+      info = root.querySelector(".ac-info");
+
+    const STEPS = [
+      {
+        t: "The plan",
+        c: "The operator picks a well site in the middle of Bob's irrigated circle. By default it can: the dominant estate may use the surface as reasonably necessary, and choosing the location is part of that. If Bob wants it moved, the burden is on him to prove all three things below."
+      },
+      {
+        t: "Test 1 \u00B7 an existing use is wrecked",
+        c: "A pumping unit standing in the arm's path stops the pivot cold. Bob can no longer water his circle, so the use isn't just made harder, it's substantially impaired. It also has to be a use Bob already has. A plan to put in irrigation next year wouldn't count."
+      },
+      {
+        t: "Test 2 \u00B7 Bob can't reasonably work around it",
+        c: "Could Bob keep farming some other way? In the 1971 case this example is drawn from, witnesses said farm labor was too scarce to move pipe by hand, and a reversible sprinkler had to be watched day and night. Neither was a realistic replacement, so the owner had no reasonable alternative. This is where most surface owners lose. The alternative only has to exist on the tract the owner actually owns, and an alternative that is merely more expensive or less convenient still counts as reasonable."
+      },
+      {
+        t: "Test 3 \u00B7 the operator has an ordinary alternative",
+        c: "A center pivot never reaches the corners of a square field. The operator can drill from a corner pad, and with a horizontal well the lateral can still run under the whole tract. That's a reasonable, customary method the industry already uses, so all three tests are met and the operator has to use it. The pivot makes its full circle again."
+      }
+    ];
+
+    let verdict = null;
+    let i = 0;
+    const render = () => {
+      const s = STEPS[i];
+      badge.textContent = `Step ${i + 1} of ${STEPS.length}`;
+      title.textContent = s.t;
+      cap.textContent = s.c;
+      layers.forEach((el) => {
+        const show = el.dataset.acShow ? el.dataset.acShow.split(",").map(Number) : null;
+        const ghost = el.dataset.acGhost ? el.dataset.acGhost.split(",").map(Number) : [];
+        let o = show ? (show.includes(i) ? 1 : 0) : 1;
+        if (ghost.includes(i)) o = 0.28;
+        el.style.opacity = o;
+      });
+      tests.forEach((li, k) => {
+        const done = k < i;
+        li.classList.toggle("yes", done);
+        li.classList.toggle("cur", k === i - 1);
+        li.querySelector("[data-ac-v]").textContent = done ? "Yes" : "\u2014";
+      });
+      if (i === STEPS.length - 1) {
+        if (!verdict) {
+          verdict = document.createElement("span");
+          verdict.className = "ac-verdict";
+          verdict.textContent = "All three met \u2192 the operator must accommodate";
+          info.appendChild(verdict);
+        }
+      } else if (verdict) { verdict.remove(); verdict = null; }
+      dots.forEach((d, k) => d.classList.toggle("on", k === i));
+      back.disabled = i === 0;
+      next.disabled = i === STEPS.length - 1;
+    };
+
+    back.addEventListener("click", () => { if (i > 0) { i--; render(); } });
+    next.addEventListener("click", () => { if (i < STEPS.length - 1) { i++; render(); } });
+    render();
+  };
+
+  /* ---------- SURFACE USE: REAL-CASE TOGGLE FIGURES (05) ---------- */
+  const initAcFigures = () => {
+    const FIGS = {
+      "ac-merr": {
+        shown: {
+          t: "What he showed",
+          c: "The fence around the well pad blocked his pens, the corral by the barn couldn't be expanded, and the equipment sat where cattle were loaded. All true. But it proved only that the well got in his way, made things less convenient, and would cost him money. That's not enough."
+        },
+        needed: {
+          t: "What he had to show",
+          c: "That he had no reasonable way to keep running cattle on the 40 acres he owned. He never explained why pens couldn't be built somewhere else on that tract, and he owned a portable squeeze chute. The land he leased didn't count either way: the court looked only at the tract he owned. Summary judgment for XTO was affirmed."
+        }
+      },
+      "ac-coyote": {
+        deed: {
+          t: "What the deed settles",
+          items: [
+            "The City may drill water wells “at any time and location” to get at the water",
+            "No City well within a quarter mile of an existing windmill",
+            "$3 an acre a year for ground taken by housing, fenced enclosures and roads",
+            "The City pays for damage to surface property",
+            "Gates in outside fences, cattle guards on inside ones"
+          ]
+        },
+        gap: {
+          t: "What it leaves open",
+          items: [
+            "Whether the City may drill wherever it likes, even where a less damaging site would reach the same water",
+            "How much grass it may mow or blade for paths and roads",
+            "Whether power lines go overhead or underground"
+          ],
+          verdict: "The deed is silent here → the accommodation doctrine applies"
+        }
+      }
+    };
+
+    Object.entries(FIGS).forEach(([id, states]) => {
+      const root = $(id);
+      if (!root) return;
+      const btns = [...root.querySelectorAll("[data-fs-btn]")],
+        layers = [...root.querySelectorAll("[data-fs]")],
+        title = root.querySelector("[data-fs-title]"),
+        cap = root.querySelector("[data-fs-cap]"),
+        list = root.querySelector("[data-fs-list]");
+
+      const show = (key) => {
+        const st = states[key];
+        btns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.fsBtn === key)));
+        layers.forEach((l) => { l.style.opacity = l.dataset.fs.split(" ").includes(key) ? 1 : 0; });
+        title.textContent = st.t;
+        if (cap) cap.textContent = st.c;
+        if (list) {
+          list.innerHTML = "";
+          st.items.forEach((txt) => {
+            const li = document.createElement("li");
+            li.textContent = txt;
+            list.appendChild(li);
+          });
+          if (st.verdict) {
+            const li = document.createElement("li");
+            li.className = "verdict";
+            li.innerHTML = '<span class="ac-verdict"></span>';
+            li.firstChild.textContent = st.verdict;
+            list.appendChild(li);
+          }
+        }
+      };
+      btns.forEach((b) => b.addEventListener("click", () => show(b.dataset.fsBtn)));
+      show(btns[0].dataset.fsBtn);
+    });
+  };
+
   const initHbpMonitor = () => {
     const back = $("hb-back");
     if (!back) return;
@@ -683,6 +827,8 @@
   initTabs();
   initStudio();
   initOwnership();
+  initAccommodation();
+  initAcFigures();
   initTimeline();
   initDilution();
   initAllocation();

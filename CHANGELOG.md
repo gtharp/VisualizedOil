@@ -16,9 +16,9 @@ because they ship independently:
 
 | Stream | Versioned in | Footer stamp reads |
 |---|---|---|
-| `index.html` | header comment + `<meta name="version">` + footer line | `v1.6 · updated …` |
-| `glossary.html` | same three places | `Dictionary v1.1.1 · updated …` |
-| `regulators/*.html` | same three places, all eleven pages move together | `Where to look it up v1.0.0 · updated …` |
+| `index.html` | header comment + `<meta name="version">` + footer line | `v1.10.0 · updated …` |
+| `glossary.html` | same three places | `Dictionary v1.3.2 · updated …` |
+| `regulators/*.html` | same three places; the pages move together on a minor, and a single page can take its own patches (Montana is at 1.2.4 while the rest sit at 1.2.0) | `Where to look it up v1.2.0 · updated …` |
 
 So entries are grouped by **date**, and each names the page versions it moved and
 the files it touched. Stylesheets and scripts (`css/`, `js/`) carry no version of
@@ -39,6 +39,199 @@ differently, Changed.
 ## Unreleased
 
 Nothing staged.
+
+---
+
+## 2026-11-25 — Surface use: three real-case figures
+
+`index.html` 1.9.2 → **1.10.0** (minor)
+Files: `index.html` · `css/concepts.css` · `js/app.js` · `ROADMAP.md` · `CHANGELOG.md`
+
+**Added**
+
+- **"How tall is too tall?"** after the stepper: the facts of *Getty* drawn to one
+  scale. One drawing holds all four pumping units under a single 7-foot pivot-pipe
+  line: Getty's 34- and 17-foot beam pumps (red, pipe blocked), the second
+  operator's hydraulic pump under 7 feet, and the third operator's beam pump sunk
+  in a concrete cellar (teal, pipe passes). Numbered caption cards underneath give
+  height, verdict and the cost testimony. Then the airspace holding in a sentence.
+- **"Why the rancher lost"** after the two-field ledger: *Merriman*'s 40 acres as a
+  sketch (house, barn, pens, fenced well pad, leased land beside it) with a two-way
+  toggle. *He showed*: the pad cuts off the pens. *He had to show*: open ground on
+  the same tract marked "pens here?", and the leased land greyed out as
+  "doesn't count."
+- **"The deed decides first"** after the case table: *Coyote Lake*'s ranch with a
+  *Deed settles / Left open* toggle. Settled: the City's existing wells and a
+  quarter-mile no-drill circle around each windmill, with the deed's terms listed
+  beside. Left open: new well sites, mowed paths and an overhead power line, ending
+  on "the deed is silent here → the accommodation doctrine applies." A paragraph
+  below notes the injunction was too broad and three justices would have left well
+  locations to the deed.
+- **`initAcFigures()`** in `js/app.js`, one guarded helper driving both toggles.
+
+**Notes**
+
+Every fact in the three figures comes from the opinions themselves. Positions on
+the Merriman and Coyote Lake sketches are illustrative and labelled so; the Getty
+heights are to scale except the cellar depth, which is labelled illustrative.
+Checked at iPhone 13 and 1280px desktop: no horizontal scroll, no script errors.
+
+---
+
+## 2026-11-25 — Surface use: verified against the full opinions
+
+`index.html` 1.9.1 → **1.9.2** (patch)
+Files: `index.html` · `js/app.js` · `ROADMAP.md` · `CHANGELOG.md`
+
+Source: full text of *Getty*, *Haupt*, *Merriman* and *Coyote Lake Ranch*,
+supplied by the author. Pin cites are in `ROADMAP.md`'s case-law note.
+
+**Fixed**
+
+- **The operator's alternative no longer has to be "on the lease."** None of the
+  four opinions says that. Test 3 in the stepper, the ledger and the note under
+  the stepper now use the test's own words: a reasonable, customary,
+  industry-accepted alternative.
+- **Getty's outcome.** The table said the court "ruled for the surface owner." It
+  affirmed the court of civil appeals, which sent the case back for a new trial.
+- **Test 2's rejected alternatives.** "Flood the field" wasn't in the case. The
+  plat and caption now use what the Getty witnesses actually rejected: hand-moved
+  pipe (labor too scarce) and a reversible sprinkler (had to be watched day and
+  night).
+
+**Changed**
+
+- **Getty row** gives the real facts: a center pivot riding seven feet up, four of
+  its six circles knocked out by 17- and 34-foot pumps, and two other operators on
+  the same farm already using cellars and hydraulic pumps.
+- **Merriman row** adds that he never explained why his pens couldn't be rebuilt
+  elsewhere on his 40 acres.
+- **"Water" dropped** from the examples of unpaid reasonable use. It's true under
+  a case the page doesn't cite, so it came out rather than go unsupported.
+
+**Added**
+
+- ***Tarrant County WCID No. One v. Haupt*** (1993) in the case table: the
+  doctrine applies when a government owns the surface.
+
+---
+
+## 2026-11-25 — Surface use: case details checked
+
+`index.html` 1.9.0 → **1.9.1** (patch)
+Files: `index.html` · `js/app.js` · `ROADMAP.md` · `CHANGELOG.md`
+
+**Fixed**
+
+- **Merriman was described wrongly.** The case table said a rancher lost because
+  he "could work cattle elsewhere," and the cattle column said pens "can be built
+  somewhere else on the ranch." The court limited the alternatives question to the
+  tract the surface owner owns, and held that interference, inconvenience and added
+  cost don't prove there's no reasonable alternative. Case table, ledger column and
+  the stepper's Test 2 caption now say that.
+
+**Changed**
+
+- **Getty row** now gives the facts as reported: pumping units 17 and 34 feet tall,
+  hydraulic units under seven feet used by other operators on the same tract,
+  cellars as the other option, judgment for the surface owner. It no longer calls
+  the irrigation system a "rolling sprinkler," since sources describe it
+  inconsistently.
+- **Coyote Lake row** adds that the doctrine applies only where the deed is silent.
+
+**Notes**
+
+Checked against published summaries and quoted excerpts, not the full opinions,
+which couldn't be opened from the build session. Details and the one remaining
+weak point (alternatives "on the lease") are in `ROADMAP.md`'s case-law note.
+
+---
+
+## 2026-11-25 — Surface use: a new Concept 05, and Tier 1 is complete
+
+`index.html` 1.8.2 → **1.9.0** (minor)
+`glossary.html` 1.3.1 → **1.3.2** (patch)
+Files: `index.html` · `css/concepts.css` · `js/app.js` · `glossary.html` ·
+`js/glossary.js` · `sitemap.xml` · `ROADMAP.md` · `README.md` · `CHANGELOG.md`
+
+**Added**
+
+- **Concept 05, "Surface use."** The last Tier 1 tab, on the accommodation
+  doctrine: the dominant estate may use the surface as reasonably necessary, but
+  must use a reasonable alternative when its chosen method would wreck an
+  existing surface use the owner can't work around. It sits after Measuring
+  ownership and before The lease, so the operator is introduced lightly with a
+  pointer forward to Concept 06.
+
+  The example reuses Bob's 160 acres from Concept 01, now farmed under a
+  center pivot. A four-step stepper on one plan view: the operator stakes a well
+  inside the circle; Test 1 (an existing use is substantially impaired — the arm
+  can't pass); Test 2 (the surface owner has no reasonable alternative); Test 3
+  (the operator has a customary alternative on the lease — a corner pad, which a
+  pivot never reaches). A three-line checklist beside the plat fills in as the
+  steps advance and ends on "the operator must accommodate."
+
+  A two-column ledger runs the same test on cattle pens, which fail at Test 2
+  because they can be rebuilt elsewhere. A case table names *Getty Oil Co. v.
+  Jones* (1971), *Merriman v. XTO Energy* (2013) and *Coyote Lake Ranch v. City
+  of Lubbock* (2016), years only. The callout: reasonable surface use is unpaid
+  in Texas by default, and Texas has no general surface damage statute, unlike
+  Oklahoma and North Dakota.
+
+- **`initAccommodation()` in `js/app.js`,** a guarded module like the others.
+- **The `.ac-*` block in `css/concepts.css`.** The tab reuses the `.dil` shell
+  and the `.tl-*` stepper chrome from Concepts 06 and 14; new are the plat
+  layout, the test checklist and the verdict chip.
+- **Dictionary see-links to Concept 05** on clauses 75 (surface use
+  restrictions, which pointed at Concept 01), 78 (surface damages), 79 (damage
+  schedule), 81 (water consent) and 82 (off-lease use).
+
+**Changed**
+
+- **The concept ladder renumbered, 14 tabs to 15.** Concepts 01–04 hold; The
+  lease and everything below shift one, 05–14 → 06–15. Tab and panel IDs are
+  semantic and did not move, so every deep link still resolves. Moved: tab
+  numerals, panel eyebrows, numbered cross-references in prose, panel banner
+  comments, the `see:` labels in `js/glossary.js`, section comments in
+  `css/concepts.css`, the JSON-LD `ItemList` (now fifteen items), and the tier
+  tables in `ROADMAP.md` and `README.md`. Build-history comments at the top of
+  `index.html` keep the numbers they were written with.
+- **Concept 01's dominant-estate paragraph** now points forward to Concept 05.
+- **The Roadmap tab** marks accommodation doctrine Live and says fifteen
+  concepts.
+
+**Fixed**
+
+- The allocation-well readout in Concept 11 said the pooled unit "is Concept
+  05." Pooling had been Concept 06 since 1.8.0 and the 1.8.0 renumber missed
+  this string in `js/app.js`. Now reads Concept 07.
+
+**Notes**
+
+The three cases were written from working knowledge without the opinions
+open; `ROADMAP.md`'s case-law note flags them for a read-through. Separately,
+the regulator ad valorem check was started but changed no page copy. Findings
+so far are under the follow-ups in `ROADMAP.md`.
+
+---
+
+## 2026-11-25 — Roadmap tab concept count; docs brought current
+
+`index.html` 1.8.1 → **1.8.2** (patch)
+Files: `index.html` · `CHANGELOG.md` · `ROADMAP.md`
+
+**Fixed**
+
+- **Roadmap tab lede** said "Thirteen concepts are live today." It has been
+  fourteen since Concept 04 shipped in 1.8.0. Now reads "Fourteen."
+
+**Notes**
+
+Docs only, no reader-visible change: `ROADMAP.md` got the 14-tab table, the
+current page versions, the 14-URL sitemap count, and Montana in the status and
+reference-shelf tables, and accommodation doctrine is now marked Next to match
+the Roadmap tab. The "How to read an entry" table above now shows current
+footer stamps and says a single regulator page can take its own patches.
 
 ---
 
