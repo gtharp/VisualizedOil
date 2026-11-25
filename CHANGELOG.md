@@ -16,7 +16,7 @@ because they ship independently:
 
 | Stream | Versioned in | Footer stamp reads |
 |---|---|---|
-| `index.html` | header comment + `<meta name="version">` + footer line | `v1.9.0 · updated …` |
+| `index.html` | header comment + `<meta name="version">` + footer line | `v1.9.1 · updated …` |
 | `glossary.html` | same three places | `Dictionary v1.3.2 · updated …` |
 | `regulators/*.html` | same three places; the pages move together on a minor, and a single page can take its own patches (Montana is at 1.2.4 while the rest sit at 1.2.0) | `Where to look it up v1.2.0 · updated …` |
 
@@ -39,6 +39,37 @@ differently, Changed.
 ## Unreleased
 
 Nothing staged.
+
+---
+
+## 2026-11-25 — Surface use: case details checked
+
+`index.html` 1.9.0 → **1.9.1** (patch)
+Files: `index.html` · `js/app.js` · `ROADMAP.md` · `CHANGELOG.md`
+
+**Fixed**
+
+- **Merriman was described wrongly.** The case table said a rancher lost because
+  he "could work cattle elsewhere," and the cattle column said pens "can be built
+  somewhere else on the ranch." The court limited the alternatives question to the
+  tract the surface owner owns, and held that interference, inconvenience and added
+  cost don't prove there's no reasonable alternative. Case table, ledger column and
+  the stepper's Test 2 caption now say that.
+
+**Changed**
+
+- **Getty row** now gives the facts as reported: pumping units 17 and 34 feet tall,
+  hydraulic units under seven feet used by other operators on the same tract,
+  cellars as the other option, judgment for the surface owner. It no longer calls
+  the irrigation system a "rolling sprinkler," since sources describe it
+  inconsistently.
+- **Coyote Lake row** adds that the doctrine applies only where the deed is silent.
+
+**Notes**
+
+Checked against published summaries and quoted excerpts, not the full opinions,
+which couldn't be opened from the build session. Details and the one remaining
+weak point (alternatives "on the lease") are in `ROADMAP.md`'s case-law note.
 
 ---
 

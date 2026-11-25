@@ -55,7 +55,7 @@ material lives, so the ladder never has to stop and explain another jurisdiction
   and offers an optional Venmo donation (embedded QR + payment link, `@George-Tharp`);
   support links also sit in the global footer and at the foot of Concept 01
 - **Versioning** — every page carries its own version, in three places each (header
-  comment, meta tags, footer line). Current: `index.html` **v1.9.0**, `glossary.html`
+  comment, meta tags, footer line). Current: `index.html` **v1.9.1**, `glossary.html`
   **v1.3.2**, `regulators/` **v1.2.0** (Montana at **v1.2.4** after its patch run). The scheme is in build conventions below; the
   history is in [`CHANGELOG.md`](./CHANGELOG.md)
 - **Wellbore gallery** — in progress; three diagrams ready to feature, not yet built
@@ -471,12 +471,31 @@ options, lightest first:
 
 Concept 05 (surface use) names three Texas Supreme Court cases: *Getty Oil Co. v.
 Jones* (1971), *Merriman v. XTO Energy* (2013) and *Coyote Lake Ranch v. City of
-Lubbock* (2016). It gives years, not reporter citations. **Written from the author's
-working knowledge on 25 November 2026, without the opinions open** — the build
-session couldn't reach the court or statute sites. Read all three opinions before
-the tab is treated as verified, and in particular confirm the *Getty* facts as stated
-(pumping units too tall for a rolling sprinkler system; lower-profile units, some
-set below ground, as the industry alternative).
+Lubbock* (2016). It gives years, not reporter citations. Checked on **25 November
+2026** against published summaries and quoted excerpts (Justia's Coyote Lake summary,
+FindLaw / Lexology / Brown & Fortunato notes on Merriman, practitioner papers on
+Getty). The full opinions themselves could not be opened from the build session:
+case-law hosts were unreachable. What the page now states, and its support:
+
+- *Getty Oil Co. v. Jones*, 470 S.W.2d 618 (Tex. 1971) — pumping units 17 and 34 feet
+  tall blocked the surface owner's irrigation system; other operators on the same
+  tract used hydraulic units under seven feet; cellars were the other proposed
+  alternative; the court ruled for the surface owner. Secondary sources describe the
+  irrigation system inconsistently, so the page doesn't name its type
+- *Merriman v. XTO Energy, Inc.*, 407 S.W.3d 244 (Tex. 2013) — three-part test, burden
+  on the surface owner; the alternatives inquiry is limited to the tract the owner
+  owns (the court of appeals erred by looking at land he leased); evidence of
+  interference, inconvenience and added cost doesn't show the absence of a reasonable
+  alternative; summary judgment for XTO affirmed
+- *Coyote Lake Ranch, LLC v. City of Lubbock*, 498 S.W.3d 53 (Tex. May 27, 2016) — the
+  doctrine applies to conflicts between a severed groundwater estate and the surface
+  estate that the parties' agreement doesn't govern
+- **Least-supported claim on the tab:** that the operator's alternative must be
+  available *on the lease*. It rests on a secondary source quoting the Getty line of
+  cases ("in the leased premises"). Confirm against the Getty text when it can be read
+
+Read the three opinions in full once a copy is reachable, and re-check before any
+substantial edit to Concept 05.
 
 Concept 12 is the first tab whose accuracy decays with time — it names decided
 cases. Verified current as of **23 July 2026**:

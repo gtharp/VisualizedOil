@@ -592,7 +592,7 @@
       },
       {
         t: "Test 2 \u00B7 Bob can't reasonably work around it",
-        c: "Could Bob keep farming some other way? Hand-moved pipe or flooding the field aren't realistic replacements for a pivot on this ground, so he has no reasonable alternative. This is where most surface owners lose. A rancher who can simply build new cattle pens elsewhere fails this test, even if moving them costs money."
+        c: "Could Bob keep farming some other way? Hand-moved pipe or flooding the field aren't realistic replacements for a pivot on this ground, so he has no reasonable alternative. This is where most surface owners lose. The alternative only has to exist on the tract the owner actually owns, and an alternative that is merely more expensive or less convenient still counts as reasonable."
       },
       {
         t: "Test 3 \u00B7 the operator has an ordinary alternative",
