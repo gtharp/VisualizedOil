@@ -638,6 +638,78 @@
     render();
   };
 
+  /* ---------- SURFACE USE: REAL-CASE TOGGLE FIGURES (05) ---------- */
+  const initAcFigures = () => {
+    const FIGS = {
+      "ac-merr": {
+        shown: {
+          t: "What he showed",
+          c: "The fence around the well pad blocked his pens, the corral by the barn couldn't be expanded, and the equipment sat where cattle were loaded. All true. But it proved only that the well got in his way, made things less convenient, and would cost him money. That's not enough."
+        },
+        needed: {
+          t: "What he had to show",
+          c: "That he had no reasonable way to keep running cattle on the 40 acres he owned. He never explained why pens couldn't be built somewhere else on that tract, and he owned a portable squeeze chute. The land he leased didn't count either way: the court looked only at the tract he owned. Summary judgment for XTO was affirmed."
+        }
+      },
+      "ac-coyote": {
+        deed: {
+          t: "What the deed settles",
+          items: [
+            "The City may drill water wells “at any time and location” to get at the water",
+            "No City well within a quarter mile of an existing windmill",
+            "$3 an acre a year for ground taken by housing, fenced enclosures and roads",
+            "The City pays for damage to surface property",
+            "Gates in outside fences, cattle guards on inside ones"
+          ]
+        },
+        gap: {
+          t: "What it leaves open",
+          items: [
+            "Whether the City may drill wherever it likes, even where a less damaging site would reach the same water",
+            "How much grass it may mow or blade for paths and roads",
+            "Whether power lines go overhead or underground"
+          ],
+          verdict: "The deed is silent here → the accommodation doctrine applies"
+        }
+      }
+    };
+
+    Object.entries(FIGS).forEach(([id, states]) => {
+      const root = $(id);
+      if (!root) return;
+      const btns = [...root.querySelectorAll("[data-fs-btn]")],
+        layers = [...root.querySelectorAll("[data-fs]")],
+        title = root.querySelector("[data-fs-title]"),
+        cap = root.querySelector("[data-fs-cap]"),
+        list = root.querySelector("[data-fs-list]");
+
+      const show = (key) => {
+        const st = states[key];
+        btns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.fsBtn === key)));
+        layers.forEach((l) => { l.style.opacity = l.dataset.fs.split(" ").includes(key) ? 1 : 0; });
+        title.textContent = st.t;
+        if (cap) cap.textContent = st.c;
+        if (list) {
+          list.innerHTML = "";
+          st.items.forEach((txt) => {
+            const li = document.createElement("li");
+            li.textContent = txt;
+            list.appendChild(li);
+          });
+          if (st.verdict) {
+            const li = document.createElement("li");
+            li.className = "verdict";
+            li.innerHTML = '<span class="ac-verdict"></span>';
+            li.firstChild.textContent = st.verdict;
+            list.appendChild(li);
+          }
+        }
+      };
+      btns.forEach((b) => b.addEventListener("click", () => show(b.dataset.fsBtn)));
+      show(btns[0].dataset.fsBtn);
+    });
+  };
+
   const initHbpMonitor = () => {
     const back = $("hb-back");
     if (!back) return;
@@ -756,6 +828,7 @@
   initStudio();
   initOwnership();
   initAccommodation();
+  initAcFigures();
   initTimeline();
   initDilution();
   initAllocation();

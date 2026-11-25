@@ -55,7 +55,7 @@ material lives, so the ladder never has to stop and explain another jurisdiction
   and offers an optional Venmo donation (embedded QR + payment link, `@George-Tharp`);
   support links also sit in the global footer and at the foot of Concept 01
 - **Versioning** — every page carries its own version, in three places each (header
-  comment, meta tags, footer line). Current: `index.html` **v1.9.2**, `glossary.html`
+  comment, meta tags, footer line). Current: `index.html` **v1.10.0**, `glossary.html`
   **v1.3.2**, `regulators/` **v1.2.0** (Montana at **v1.2.4** after its patch run). The scheme is in build conventions below; the
   history is in [`CHANGELOG.md`](./CHANGELOG.md)
 - **Wellbore gallery** — in progress; three diagrams ready to feature, not yet built
@@ -122,7 +122,7 @@ material lives, so the ladder never has to stop and explain another jurisdiction
 | **Live** | Separate tracts & common ownership | A tract is defined by ownership, not fences; a 4-step timeline showing one tract splitting into two across generations |
 | **Live** | Fractional & undivided interests | Undivided interest = a fraction of every acre at once; net mineral acres; fractionalization across 3 generations |
 | **Live** | Measuring ownership | The three meanings of *acre*: gross acres (survey), net mineral acres (deed), net royalty acres (lease). A 640-ac section with an undivided 1/4 carried through three stages — a NOT-THIS/THIS dot field, the same 64 dots gathered into 160 NMA, then a royalty slider over two figures: the eight royalty acres inside one mineral acre, and the same acre against the 1/8 yardstick. Built as Concept 04 |
-| **Live** | Accommodation doctrine & surface use | The dominant estate's right to use the surface and its one limit. A four-step stepper on Bob's 160 acres from Concept 01, now under a center pivot: the operator stakes a well in the circle, then the three-part test (existing use substantially impaired → no reasonable alternative for the surface owner → a customary, industry-accepted alternative for the operator) moves it to a corner pad. A two-field ledger (pivot vs. cattle pens), a four-case table (*Getty* 1971, *Haupt* 1993, *Merriman* 2013, *Coyote Lake Ranch* 2016), and the callout that reasonable use is unpaid in Texas. Built as Concept 05 |
+| **Live** | Accommodation doctrine & surface use | The dominant estate's right to use the surface and its one limit. A four-step stepper on Bob's 160 acres from Concept 01, now under a center pivot: the operator stakes a well in the circle, then the three-part test (existing use substantially impaired → no reasonable alternative for the surface owner → a customary, industry-accepted alternative for the operator) moves it to a corner pad. A two-field ledger (pivot vs. cattle pens), a four-case table (*Getty* 1971, *Haupt* 1993, *Merriman* 2013, *Coyote Lake Ranch* 2016), and the callout that reasonable use is unpaid in Texas. Three real-case figures from the opinions: Getty's four pumping units to scale against the 7-ft pivot pipe, Merriman's 40 acres (what he showed vs. what he had to show), and Coyote Lake's ranch (what the deed settles vs. what it leaves open). Built as Concept 05 |
 
 ## TIER 2 — The lease
 *Turning ownership into production.*

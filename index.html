@@ -2,9 +2,16 @@
 <!--
   ============================================================
   Oil, Visualized  ·  index.html
-  Version:      1.9.2
+  Version:      1.10.0
   Last updated: 2026-11-25
-  This build (1.9.2): PATCH — Concept 05 verified against the
+  This build (1.10.0): MINOR — three real-case figures in
+      Concept 05, all from the opinions' own facts: Getty's four
+      pumping units drawn to scale against the 7-foot pivot pipe;
+      Merriman's 40 acres with a He showed / He had to show
+      toggle; Coyote Lake's ranch with a Deed settles / Left open
+      toggle. New initAcFigures() in js/app.js; .ac-hfig,
+      .ac-hcard, .ac-fig and .ac-list in css/concepts.css.
+  Prior build (1.9.2): PATCH — Concept 05 verified against the
       full opinions. Removed the "on the lease" limit on the
       operator's alternatives (not in any of the four cases);
       Getty described as a remand for new trial, with its real
@@ -192,7 +199,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Free interactive diagrams that explain Texas mineral rights: surface vs. mineral estate, net mineral acres, leases, pooling, decimals and the royalty check.">
-<meta name="version" content="1.9.2">
+<meta name="version" content="1.10.0">
 <meta name="last-updated" content="2026-11-25">
 <title>Texas Mineral Rights &amp; Royalties Explained | Oil, Visualized</title>
 <link rel="canonical" href="https://visualizedoil.com/">
@@ -1808,6 +1815,26 @@
       <p style="margin-top:1.4rem">Notice that Bob doesn't get to choose where the well goes. He only gets to show that the operator's choice breaks something he can't fix, and that the industry has a normal way around it. If the only alternatives are ones the industry doesn't ordinarily use, the test fails and the original location stands. And if there's only one reasonable way to produce the minerals, the operator may use it even if it destroys the surface use.</p>
     </div>
 
+    <!-- REAL CASE: GETTY, TO SCALE -->
+    <div class="section">
+      <p class="kicker">The real case behind the picture</p>
+      <h2>How tall is too tall?</h2>
+      <p>Bob's field is a simplified version of <em>Getty Oil Co. v. Jones</em>, the 1971 case that created the rule. The farmer's center pivot carried 1,300 feet of pipe seven feet off the ground, and it watered his whole tract except the corners. Getty put up two beam pumps that the pipe couldn't clear. Meanwhile two other oil companies on the same farm had already solved the problem. Drawn to scale:</p>
+
+      <div class="ac-hfig">
+        <svg class="ac-hsvg" viewBox="0 0 512 248" role="img" aria-label="Four pumping units drawn to the same scale under a center pivot pipe 7 feet off the ground. 1: Getty's 34-foot beam pump and 2: its 17-foot beam pump both block the pipe. 3: a hydraulic pump under 7 feet and 4: a beam pump set in a concrete cellar both let the pipe pass over."><line x1="44" y1="151" x2="38" y2="151" stroke="#6B675E" stroke-width="1"/><text x="36" y="148" text-anchor="end" font-family="JetBrains Mono" font-weight="700" font-size="12" fill="#1B1A17">7 ft</text><text x="36" y="162" text-anchor="end" font-family="JetBrains Mono" font-size="10" fill="#6B675E">pipe</text><line x1="44" y1="186" x2="160" y2="186" stroke="#C8A45E" stroke-width="3"/><rect x="66.0" y="182" width="72" height="4" rx="1" fill="#1B1A17"/><path d="M83.0,182 L96.0,38.1 L109.0,182" fill="none" stroke="#1B1A17" stroke-width="2.2"/><line x1="56.0" y1="40.1" x2="144.0" y2="36.1" stroke="#1B1A17" stroke-width="3.2" stroke-linecap="round"/><path d="M142.0,10.9 Q152.0,38.1 142.0,65.3" fill="none" stroke="#1B1A17" stroke-width="3.2" stroke-linecap="round"/><line x1="144.0" y1="65.3" x2="144.0" y2="182" stroke="#1B1A17" stroke-width="1.2"/><circle cx="66.0" cy="148.6" r="10.2" fill="#6B675E"/><line x1="66.0" y1="148.6" x2="60.0" y2="40.1" stroke="#1B1A17" stroke-width="1.6"/><line x1="44" y1="151" x2="160" y2="151" stroke="#A23A2A" stroke-width="3" stroke-dasharray="7 4"/><g stroke="#A23A2A" stroke-width="3"><line x1="120.0" y1="143" x2="134.0" y2="159"/><line x1="134.0" y1="143" x2="120.0" y2="159"/></g><circle cx="58" cy="16" r="10" fill="#A23A2A"/><text x="58" y="20.5" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="12" fill="#fff">1</text><line x1="160" y1="186" x2="276" y2="186" stroke="#C8A45E" stroke-width="3"/><rect x="182.0" y="182" width="72" height="4" rx="1" fill="#1B1A17"/><path d="M199.0,182 L212.0,112.0 L225.0,182" fill="none" stroke="#1B1A17" stroke-width="2.2"/><line x1="184.4" y1="114.0" x2="247.6" y2="110.0" stroke="#1B1A17" stroke-width="3.2" stroke-linecap="round"/><path d="M245.6,98.5 Q255.6,112.0 245.6,125.6" fill="none" stroke="#1B1A17" stroke-width="3.2" stroke-linecap="round"/><line x1="247.6" y1="125.6" x2="247.6" y2="182" stroke="#1B1A17" stroke-width="1.2"/><circle cx="194.4" cy="167.3" r="5.1" fill="#6B675E"/><line x1="194.4" y1="167.3" x2="188.4" y2="114.0" stroke="#1B1A17" stroke-width="1.6"/><line x1="160" y1="151" x2="276" y2="151" stroke="#A23A2A" stroke-width="3" stroke-dasharray="7 4"/><g stroke="#A23A2A" stroke-width="3"><line x1="236.0" y1="143" x2="250.0" y2="159"/><line x1="250.0" y1="143" x2="236.0" y2="159"/></g><circle cx="174" cy="16" r="10" fill="#A23A2A"/><text x="174" y="20.5" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="12" fill="#fff">2</text><line x1="276" y1="186" x2="392" y2="186" stroke="#C8A45E" stroke-width="3"/><rect x="320.0" y="158" width="28" height="28" rx="3" fill="#6B675E"/><rect x="330.0" y="155" width="8" height="4" fill="#1B1A17"/><rect x="310.0" y="182" width="48" height="4" rx="1" fill="#1B1A17"/><line x1="276" y1="151" x2="392" y2="151" stroke="#2F7E86" stroke-width="3"/><circle cx="290" cy="16" r="10" fill="#2F7E86"/><text x="290" y="20.5" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="12" fill="#fff">3</text><rect x="404" y="186" width="92" height="58" fill="#ECE9DF"/><path d="M404,186 V244 H496 V186" fill="none" stroke="#6B675E" stroke-width="3"/><line x1="392" y1="186" x2="404" y2="186" stroke="#C8A45E" stroke-width="3"/><line x1="496" y1="186" x2="508" y2="186" stroke="#C8A45E" stroke-width="3"/><rect x="414.0" y="237" width="72" height="4" rx="1" fill="#1B1A17"/><path d="M431.0,237 L444.0,167.1 L457.0,237" fill="none" stroke="#1B1A17" stroke-width="2.2"/><line x1="416.4" y1="169.1" x2="479.6" y2="165.1" stroke="#1B1A17" stroke-width="3.2" stroke-linecap="round"/><path d="M477.6,153.5 Q487.6,167.1 477.6,180.7" fill="none" stroke="#1B1A17" stroke-width="3.2" stroke-linecap="round"/><line x1="479.6" y1="180.7" x2="479.6" y2="237" stroke="#1B1A17" stroke-width="1.2"/><circle cx="426.4" cy="222.3" r="5.1" fill="#6B675E"/><line x1="426.4" y1="222.3" x2="420.4" y2="169.1" stroke="#1B1A17" stroke-width="1.6"/><line x1="392" y1="151" x2="508" y2="151" stroke="#2F7E86" stroke-width="3"/><circle cx="406" cy="16" r="10" fill="#2F7E86"/><text x="406" y="20.5" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="12" fill="#fff">4</text></svg>
+        <div class="ac-heights">
+          <div class="ac-hcard block"><span class="num">1</span><span class="n">Getty's beam pump</span><span class="h">34 ft tall</span><span class="v">Blocks the pivot</span></div>
+          <div class="ac-hcard block"><span class="num">2</span><span class="n">Getty's other beam pump</span><span class="h">17 ft tall</span><span class="v">Blocks the pivot</span></div>
+          <div class="ac-hcard pass"><span class="num">3</span><span class="n">Hydraulic pump</span><span class="h">Under 7 ft</span><span class="v">Pipe passes over</span><span class="d">Used by a second operator on the same farm. Est. under $5,000 more than Getty's pumps, plus $350–$1,000 a year</span></div>
+          <div class="ac-hcard pass"><span class="num">4</span><span class="n">Beam pump in a cellar</span><span class="h">Top under 7 ft</span><span class="v">Pipe passes over</span><span class="d">Used by a third operator on the same farm. Est. under $12,000 for cellars at Getty's two wells</span></div>
+        </div>
+      </div>
+      <p class="ac-fignote">All four drawn to the same scale. Cellar depth is illustrative. Cost estimates are from testimony in the case.</p>
+
+      <p style="margin-top:1.2rem">Getty's lease said nothing about how tall its equipment could be. The court held that the "reasonably necessary" limit covers the air above the ground, not just the ground itself. With two working alternatives in use a few hundred yards away, a jury could find that 17- and 34-foot pumps weren't reasonably necessary.</p>
+    </div>
+
     <!-- LEDGER -->
     <div class="ledger-wrap">
       <h2>Two fields, one test</h2>
@@ -1826,7 +1853,77 @@
         </table>
       </div>
 
-      <h2 style="margin-top:2.4rem">Where the rule came from</h2>
+    </div>
+
+    <!-- REAL CASE: MERRIMAN'S 40 ACRES -->
+    <div class="section">
+      <p class="kicker">Where most surface owners lose</p>
+      <h2>Why the rancher lost</h2>
+      <p>In <em>Merriman v. XTO Energy</em> (2013), a rancher owned the surface of a 40-acre tract with his home, a barn, and permanent pens where he sorted and worked his cattle once a year. XTO drilled a gas well that cut off his pens. He proved the well got in the way. He lost anyway. Switch between what he showed and what the law required.</p>
+
+      <div class="dil ac-fig" id="ac-merr">
+        <div class="dil-head">
+          <div class="seg" role="group" aria-label="Which side of the evidence to show">
+            <button data-fs-btn="shown" aria-pressed="true">He showed</button>
+            <button data-fs-btn="needed" aria-pressed="false">He had to show</button>
+          </div>
+        </div>
+        <div class="dil-body ac-fig-body">
+          <svg viewBox="0 0 400 300" role="img" aria-label="Sketch of a 40-acre tract with a house, barn and cattle pens; a fenced well pad sits between the barn and the pens. A second view adds open ground on the same tract where pens could have been rebuilt, and greys out the land the rancher leased.">
+            <!-- owned tract -->
+            <rect x="14" y="30" width="250" height="250" fill="#ECE9DF" stroke="#C8A45E" stroke-width="2"/>
+            <text x="14" y="20" font-family="JetBrains Mono" font-size="11" letter-spacing="1" fill="#6B675E">HIS 40 ACRES · OWNED</text>
+            <!-- house -->
+            <path d="M40,70 L58,56 L76,70 V92 H40 Z" fill="#E7D3A8" stroke="#8a6a2e" stroke-width="1.5"/>
+            <text x="58" y="108" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#5a4516">house</text>
+            <!-- barn -->
+            <rect x="40" y="140" width="46" height="34" fill="#B06A3B"/>
+            <text x="63" y="190" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#5a4516">barn</text>
+            <!-- pens -->
+            <g stroke="#5a4516" stroke-width="1.5" fill="none">
+              <rect x="150" y="130" width="80" height="56"/><line x1="176" y1="130" x2="176" y2="186"/><line x1="203" y1="130" x2="203" y2="186"/><line x1="150" y1="158" x2="230" y2="158"/>
+            </g>
+            <text x="190" y="202" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#5a4516">pens</text>
+            <!-- well pad -->
+            <rect x="96" y="122" width="44" height="70" fill="#F4F2EC" stroke="#A23A2A" stroke-width="2" stroke-dasharray="5 3"/>
+            <use href="#ac-pj" x="102" y="146" width="32" height="24"/>
+            <text x="118" y="114" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#A23A2A">well pad</text>
+            <g class="ac-layer" data-fs="shown">
+              <g stroke="#A23A2A" stroke-width="3"><line x1="180" y1="146" x2="200" y2="170"/><line x1="200" y1="146" x2="180" y2="170"/></g>
+              <text x="160" y="226" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#A23A2A">cut off by the pad fence</text>
+            </g>
+            <g class="ac-layer" data-fs="needed">
+              <rect x="150" y="226" width="90" height="40" fill="none" stroke="#2F7E86" stroke-width="2" stroke-dasharray="6 4"/>
+              <text x="195" y="251" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="700" font-size="16" fill="#2F7E86">pens here?</text>
+              <text x="32" y="240" font-family="JetBrains Mono" font-size="11" fill="#2F7E86">open ground</text>
+              <text x="32" y="254" font-family="JetBrains Mono" font-size="11" fill="#2F7E86">on the same tract</text>
+            </g>
+            <!-- leased land -->
+            <g>
+              <rect x="280" y="30" width="106" height="110" fill="#E7D3A8" stroke="#C8A45E" stroke-width="1.5"/>
+              <rect x="280" y="152" width="106" height="128" fill="#E7D3A8" stroke="#C8A45E" stroke-width="1.5"/>
+              <text x="333" y="82" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#5a4516">leased</text>
+              <text x="333" y="216" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#5a4516">leased</text>
+            </g>
+            <g class="ac-layer" data-fs="needed">
+              <rect x="280" y="30" width="106" height="250" fill="#F4F2EC" opacity=".82"/>
+              <line x1="286" y1="36" x2="380" y2="274" stroke="#6B675E" stroke-width="1.5"/>
+              <rect x="290" y="143" width="86" height="40" rx="4" fill="#F4F2EC" stroke="#6B675E"/>
+              <text x="333" y="160" text-anchor="middle" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#1B1A17">doesn't</text>
+              <text x="333" y="175" text-anchor="middle" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#1B1A17">count</text>
+            </g>
+            <text x="200" y="296" text-anchor="middle" font-family="JetBrains Mono" font-size="9.5" fill="#6B675E">SKETCH · POSITIONS ILLUSTRATIVE</text>
+          </svg>
+          <div class="ac-fig-info" aria-live="polite">
+            <p class="tl-title" data-fs-title>What he showed</p>
+            <p class="tl-cap" data-fs-cap></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ledger-wrap">
+      <h2>Where the rule came from</h2>
       <p class="eyebrow" style="margin-top:.5rem">Texas Supreme Court decisions</p>
       <div class="table-scroll">
         <table class="ledger">
@@ -1841,6 +1938,64 @@
           </tbody>
         </table>
       </div>
+    </div>
+
+    <!-- REAL CASE: COYOTE LAKE, DEED FIRST -->
+    <div class="section">
+      <p class="kicker">When there's a contract</p>
+      <h2>The deed decides first. The doctrine fills the gaps.</h2>
+      <p>In 1953, in the middle of a record drought, the City of Lubbock bought the groundwater under the 26,600-acre Coyote Lake Ranch, about 90 miles away. In 2012 the City planned up to 20 test wells and 60 more after that, and started mowing paths through the native grass on sand dunes. The ranch said that would cause wind erosion. In <em>Coyote Lake Ranch v. City of Lubbock</em> (2016), the court applied the accommodation doctrine to groundwater, but only to what the deed didn't already settle.</p>
+
+      <div class="dil ac-fig" id="ac-coyote">
+        <div class="dil-head">
+          <div class="seg" role="group" aria-label="Which part of the deed to show">
+            <button data-fs-btn="deed" aria-pressed="true">Deed settles</button>
+            <button data-fs-btn="gap" aria-pressed="false">Left open</button>
+          </div>
+        </div>
+        <div class="dil-body ac-fig-body">
+          <svg viewBox="0 0 400 300" role="img" aria-label="Sketch of the ranch. One view shows the deed's fixed rules: the City's existing wells along the north edge and a quarter-mile no-drill circle around each windmill. The other view shows what the deed left open: new well sites, mowed paths and power lines.">
+            <rect x="14" y="30" width="372" height="240" fill="#ECE9DF" stroke="#C8A45E" stroke-width="2"/>
+            <text x="14" y="20" font-family="JetBrains Mono" font-size="11" letter-spacing="1" fill="#6B675E">THE RANCH · 26,600 ACRES · ABOUT 6 MILES ACROSS</text>
+            <!-- dunes texture -->
+            <g fill="none" stroke="#C8A45E" stroke-width="1" opacity=".6">
+              <path d="M40,120 q20,-10 40,0 t40,0"/><path d="M220,200 q20,-10 40,0 t40,0"/><path d="M90,230 q20,-10 40,0 t40,0"/>
+            </g>
+            <!-- windmills: always visible as dots -->
+            <g fill="#1B1A17">
+              <circle cx="80" cy="170" r="3.5"/><circle cx="170" cy="95" r="3.5"/><circle cx="240" cy="240" r="3.5"/><circle cx="330" cy="170" r="3.5"/><circle cx="120" cy="250" r="3.5"/>
+            </g>
+            <g class="ac-layer" data-fs="deed">
+              <g fill="#A23A2A" fill-opacity=".12" stroke="#A23A2A" stroke-width="1.5">
+                <circle cx="80" cy="170" r="14"/><circle cx="170" cy="95" r="14"/><circle cx="240" cy="240" r="14"/><circle cx="330" cy="170" r="14"/><circle cx="120" cy="250" r="14"/>
+              </g>
+              <g fill="#2F7E86"><circle cx="70" cy="44" r="4.5"/><circle cx="115" cy="44" r="4.5"/><circle cx="160" cy="44" r="4.5"/><circle cx="205" cy="44" r="4.5"/><circle cx="250" cy="44" r="4.5"/><circle cx="295" cy="44" r="4.5"/><circle cx="340" cy="44" r="4.5"/></g>
+              <text x="200" y="64" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#2F7E86">the City's 7 existing wells</text>
+              <text x="330" y="200" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#A23A2A">¼-mile no-drill</text>
+              <text x="330" y="214" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#A23A2A">around windmills</text>
+            </g>
+            <g class="ac-layer" data-fs="gap">
+              <g fill="none" stroke="#A23A2A" stroke-width="2" stroke-dasharray="5 4">
+                <path d="M200,44 V150 H290"/><path d="M200,150 H110 V215"/><path d="M200,150 V225"/>
+              </g>
+              <g fill="#F4F2EC" stroke="#1B1A17" stroke-width="1.5">
+                <circle cx="200" cy="150" r="5"/><circle cx="250" cy="150" r="5"/><circle cx="290" cy="150" r="5"/><circle cx="150" cy="150" r="5"/><circle cx="110" cy="150" r="5"/><circle cx="110" cy="215" r="5"/><circle cx="200" cy="190" r="5"/><circle cx="200" cy="225" r="5"/>
+              </g>
+              <path d="M24,124 L380,124" fill="none" stroke="#1B1A17" stroke-width="1.5" stroke-dasharray="1 4"/>
+              <text x="380" y="117" text-anchor="end" font-family="JetBrains Mono" font-size="11" fill="#1B1A17">overhead power line?</text>
+              <text x="296" y="140" font-family="JetBrains Mono" font-size="11" fill="#1B1A17">new wells</text>
+              <text x="212" y="212" font-family="JetBrains Mono" font-size="11" fill="#A23A2A">mowed paths</text>
+            </g>
+            <text x="200" y="292" text-anchor="middle" font-family="JetBrains Mono" font-size="9.5" fill="#6B675E">SKETCH · POSITIONS ILLUSTRATIVE · ¼-MILE CIRCLES ROUGHLY TO SCALE</text>
+          </svg>
+          <div class="ac-fig-info" aria-live="polite">
+            <p class="tl-title" data-fs-title>What the deed settles</p>
+            <ul class="ac-list" data-fs-list></ul>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top:1.4rem">The ranch didn't get everything it asked for. The trial court had stopped all mowing and all new power lines, and the Supreme Court said that went too far: the deed plainly gives the City the right to reach its water. The case went back for the trial court to apply the doctrine to the open questions. Three justices would have gone further and left well locations entirely to the deed. The lesson for owners is the same either way: <strong>what a deed or lease says comes first</strong>, and the doctrine only fills the silence.</p>
     </div>
 
     <!-- PROSE -->
@@ -4170,7 +4325,7 @@
     <p class="disc support-foot">Own minerals outside Texas? <a href="regulators/index.html">Where to look it up</a>
       — the Railroad Commission's equivalent in the ten biggest producing states, and the one document to pull in each.</p>
     <p class="disc support-foot">Free to use, always. If it helped you, you can <a href="#top" data-goto-tab="t-support">support the site</a> — thank you.</p>
-    <p class="disc foot-ver">v1.9.2 · updated November 25, 2026</p>
+    <p class="disc foot-ver">v1.10.0 · updated November 25, 2026</p>
   </div>
 </footer>
 

@@ -16,7 +16,7 @@ because they ship independently:
 
 | Stream | Versioned in | Footer stamp reads |
 |---|---|---|
-| `index.html` | header comment + `<meta name="version">` + footer line | `v1.9.2 · updated …` |
+| `index.html` | header comment + `<meta name="version">` + footer line | `v1.10.0 · updated …` |
 | `glossary.html` | same three places | `Dictionary v1.3.2 · updated …` |
 | `regulators/*.html` | same three places; the pages move together on a minor, and a single page can take its own patches (Montana is at 1.2.4 while the rest sit at 1.2.0) | `Where to look it up v1.2.0 · updated …` |
 
@@ -39,6 +39,42 @@ differently, Changed.
 ## Unreleased
 
 Nothing staged.
+
+---
+
+## 2026-11-25 — Surface use: three real-case figures
+
+`index.html` 1.9.2 → **1.10.0** (minor)
+Files: `index.html` · `css/concepts.css` · `js/app.js` · `ROADMAP.md` · `CHANGELOG.md`
+
+**Added**
+
+- **"How tall is too tall?"** after the stepper: the facts of *Getty* drawn to one
+  scale. One drawing holds all four pumping units under a single 7-foot pivot-pipe
+  line: Getty's 34- and 17-foot beam pumps (red, pipe blocked), the second
+  operator's hydraulic pump under 7 feet, and the third operator's beam pump sunk
+  in a concrete cellar (teal, pipe passes). Numbered caption cards underneath give
+  height, verdict and the cost testimony. Then the airspace holding in a sentence.
+- **"Why the rancher lost"** after the two-field ledger: *Merriman*'s 40 acres as a
+  sketch (house, barn, pens, fenced well pad, leased land beside it) with a two-way
+  toggle. *He showed*: the pad cuts off the pens. *He had to show*: open ground on
+  the same tract marked "pens here?", and the leased land greyed out as
+  "doesn't count."
+- **"The deed decides first"** after the case table: *Coyote Lake*'s ranch with a
+  *Deed settles / Left open* toggle. Settled: the City's existing wells and a
+  quarter-mile no-drill circle around each windmill, with the deed's terms listed
+  beside. Left open: new well sites, mowed paths and an overhead power line, ending
+  on "the deed is silent here → the accommodation doctrine applies." A paragraph
+  below notes the injunction was too broad and three justices would have left well
+  locations to the deed.
+- **`initAcFigures()`** in `js/app.js`, one guarded helper driving both toggles.
+
+**Notes**
+
+Every fact in the three figures comes from the opinions themselves. Positions on
+the Merriman and Coyote Lake sketches are illustrative and labelled so; the Getty
+heights are to scale except the cellar depth, which is labelled illustrative.
+Checked at iPhone 13 and 1280px desktop: no horizontal scroll, no script errors.
 
 ---
 
