@@ -379,7 +379,7 @@
     const MODES = {
       pooled: {
         label: "Pooled unit well",
-        text: "The three tracts pool into one <strong>400-acre unit</strong>. The Railroad Commission treats the whole unit as a single lease \u2014 the interior lines vanish for spacing purposes \u2014 and production is shared by <strong>acreage</strong>: Tract A takes 160/400 = 40%, B takes 40%, C takes 20%. This is Concept 05."
+        text: "The three tracts pool into one <strong>400-acre unit</strong>. The Railroad Commission treats the whole unit as a single lease \u2014 the interior lines vanish for spacing purposes \u2014 and production is shared by <strong>acreage</strong>: Tract A takes 160/400 = 40%, B takes 40%, C takes 20%. This is Concept 07."
       },
       psa: {
         label: "PSA well",
@@ -566,6 +566,78 @@
   };
 
   /* ---------- CONCEPT 12 · HBP MONITORING: READ THE RECORD ---------- */
+  /* ---------- SURFACE USE: THE ACCOMMODATION TEST (05) ---------- */
+  const initAccommodation = () => {
+    const back = $("ac-back");
+    if (!back) return;
+
+    const next = $("ac-next"),
+      root = $("accom"),
+      dots = [...root.querySelectorAll("[data-ac-dot]")],
+      layers = [...root.querySelectorAll("[data-ac-show], [data-ac-ghost]")],
+      tests = [...root.querySelectorAll("[data-ac-test]")],
+      badge = $("ac-badge"),
+      title = $("ac-title"),
+      cap = $("ac-cap"),
+      info = root.querySelector(".ac-info");
+
+    const STEPS = [
+      {
+        t: "The plan",
+        c: "The operator picks a well site in the middle of Bob's irrigated circle. By default it can: the dominant estate may use the surface as reasonably necessary, and choosing the location is part of that. If Bob wants it moved, the burden is on him to prove all three things below."
+      },
+      {
+        t: "Test 1 \u00B7 an existing use is wrecked",
+        c: "A pumping unit standing in the arm's path stops the pivot cold. Bob can no longer water his circle, so the use isn't just made harder, it's substantially impaired. It also has to be a use Bob already has. A plan to put in irrigation next year wouldn't count."
+      },
+      {
+        t: "Test 2 \u00B7 Bob can't reasonably work around it",
+        c: "Could Bob keep farming some other way? Hand-moved pipe or flooding the field aren't realistic replacements for a pivot on this ground, so he has no reasonable alternative. This is where most surface owners lose. A rancher who can simply build new cattle pens elsewhere fails this test, even if moving them costs money."
+      },
+      {
+        t: "Test 3 \u00B7 the operator has an ordinary alternative",
+        c: "A center pivot never reaches the corners of a square field. The operator can drill from a corner pad, and with a horizontal well the lateral can still run under the whole tract. That's a reasonable, customary method available on this same lease, so all three tests are met and the operator has to use it. The pivot makes its full circle again."
+      }
+    ];
+
+    let verdict = null;
+    let i = 0;
+    const render = () => {
+      const s = STEPS[i];
+      badge.textContent = `Step ${i + 1} of ${STEPS.length}`;
+      title.textContent = s.t;
+      cap.textContent = s.c;
+      layers.forEach((el) => {
+        const show = el.dataset.acShow ? el.dataset.acShow.split(",").map(Number) : null;
+        const ghost = el.dataset.acGhost ? el.dataset.acGhost.split(",").map(Number) : [];
+        let o = show ? (show.includes(i) ? 1 : 0) : 1;
+        if (ghost.includes(i)) o = 0.28;
+        el.style.opacity = o;
+      });
+      tests.forEach((li, k) => {
+        const done = k < i;
+        li.classList.toggle("yes", done);
+        li.classList.toggle("cur", k === i - 1);
+        li.querySelector("[data-ac-v]").textContent = done ? "Yes" : "\u2014";
+      });
+      if (i === STEPS.length - 1) {
+        if (!verdict) {
+          verdict = document.createElement("span");
+          verdict.className = "ac-verdict";
+          verdict.textContent = "All three met \u2192 the operator must accommodate";
+          info.appendChild(verdict);
+        }
+      } else if (verdict) { verdict.remove(); verdict = null; }
+      dots.forEach((d, k) => d.classList.toggle("on", k === i));
+      back.disabled = i === 0;
+      next.disabled = i === STEPS.length - 1;
+    };
+
+    back.addEventListener("click", () => { if (i > 0) { i--; render(); } });
+    next.addEventListener("click", () => { if (i < STEPS.length - 1) { i++; render(); } });
+    render();
+  };
+
   const initHbpMonitor = () => {
     const back = $("hb-back");
     if (!back) return;
@@ -683,6 +755,7 @@
   initTabs();
   initStudio();
   initOwnership();
+  initAccommodation();
   initTimeline();
   initDilution();
   initAllocation();

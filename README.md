@@ -38,7 +38,7 @@ pooling, and getting paid — and eventually into advanced and out-of-state topi
 
 | Section | Lives at | What it is |
 |---|---|---|
-| **The concepts** | `index.html` | The Texas curriculum — fourteen concepts across Tiers 1–5, one tab each, simplest first |
+| **The concepts** | `index.html` | The Texas curriculum — fifteen concepts across Tiers 1–5, one tab each, simplest first |
 | **The clause dictionary** | `glossary.html` | 140 common lease clauses in plain English, searchable and filterable |
 | **Where to look it up** | `regulators/` | The Railroad Commission and its equivalents in the ten biggest producing states — hub plus one page per state — and deeper owner's guides "beyond the ten" (Montana) |
 
@@ -66,7 +66,7 @@ regulators/
   montana.html             beyond the ten: full owner's guide (taxes, pooling, payment, title)
 css/
   base.css                 tokens + shared chrome — EVERY page loads this first
-  concepts.css             index.html only: tab strip, panels, concepts 01–13
+  concepts.css             index.html only: tab strip, panels, concepts 01–15
   glossary.css             glossary.html only: toolbar, chips, clause cards
   regulators.css           regulators/ only: tile map, API decoder, state cards
 js/
@@ -99,7 +99,7 @@ All references are **relative**, so the site previews correctly by opening
 
 ## Status
 
-**v1.8 — fourteen concepts, the clause dictionary, and the ten-state regulator section.**
+**v1.9 — fifteen concepts, the clause dictionary, and the ten-state regulator section.**
 
 | Tab | Concept | Status |
 |---|---|---|
@@ -107,19 +107,20 @@ All references are **relative**, so the site previews correctly by opening
 | 02 | Separate tracts & common ownership | ✅ Live |
 | 03 | Fractional & undivided interests | ✅ Live |
 | 04 | Measuring ownership — gross, net mineral & net royalty acres | ✅ Live |
-| 05 | The lease — signing to termination | ✅ Live |
-| 06 | Pooling & dilution | ✅ Live |
-| 07 | Your decimal — division orders (DOI) | ✅ Live |
-| 08 | The royalty check | ✅ Live |
-| 09 | Severance tax vs. ad valorem tax | ✅ Live |
-| 10 | Allocation & PSA wells | ✅ Live |
-| 11 | Post-production costs | ✅ Live |
-| 12 | Holding the lease — HBP & savings clauses | ✅ Live |
-| 13 | HBP monitoring & lease termination risk | ✅ Live |
-| 14 | The money trail — purchaser to mailbox | ✅ Live |
+| 05 | Surface use — the accommodation doctrine | ✅ Live |
+| 06 | The lease — signing to termination | ✅ Live |
+| 07 | Pooling & dilution | ✅ Live |
+| 08 | Your decimal — division orders (DOI) | ✅ Live |
+| 09 | The royalty check | ✅ Live |
+| 10 | Severance tax vs. ad valorem tax | ✅ Live |
+| 11 | Allocation & PSA wells | ✅ Live |
+| 12 | Post-production costs | ✅ Live |
+| 13 | Holding the lease — HBP & savings clauses | ✅ Live |
+| 14 | HBP monitoring & lease termination risk | ✅ Live |
+| 15 | The money trail — purchaser to mailbox | ✅ Live |
 | — | **Lease Clause Dictionary** (`glossary.html`, 140 clauses) | ✅ Live |
 | — | **Where to look it up** (`regulators/`, hub + 10 states + Montana) | ✅ Live |
-| — | Accommodation doctrine · proration units · unitization · NRI | ◻ Planned |
+| — | Proration units · unitization · NRI | ◻ Planned |
 | — | Chain of title · operator transfers & bankruptcy | ◻ Planned |
 | — | Wellbore diagram gallery · commissioned diagrams | ◻ Planned |
 | — | Offshore/OCS · Ohio ODMA · NM unitization | ◻ Future |

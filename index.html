@@ -2,9 +2,19 @@
 <!--
   ============================================================
   Oil, Visualized  ·  index.html
-  Version:      1.8.2
+  Version:      1.9.0
   Last updated: 2026-11-25
-  This build (1.8.2): PATCH — Roadmap tab lede said "Thirteen
+  This build (1.9.0): MINOR — new Concept 05, "Surface use,"
+      closing Tier 1: the accommodation doctrine as a four-step
+      stepper on Bob's center-pivot field (Getty / Merriman
+      three-part test), a two-field ledger, a three-case table,
+      and the no-payment-by-default callout. Inserted after
+      Measuring ownership; The lease and everything below it
+      renumbered 06-15 (tab and panel IDs unchanged). New
+      initAccommodation() in js/app.js, .ac-* block in
+      css/concepts.css. Fixed a stale "This is Concept 05" in the
+      allocation-well readout (pooling was already 06).
+  Prior build (1.8.2): PATCH — Roadmap tab lede said "Thirteen
       concepts are live today"; corrected to fourteen, the count
       since 1.8.0. Copy fix only.
   Prior build (1.8.1): PATCH — search snippet only. <title> and
@@ -166,7 +176,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Free interactive diagrams that explain Texas mineral rights: surface vs. mineral estate, net mineral acres, leases, pooling, decimals and the royalty check.">
-<meta name="version" content="1.8.2">
+<meta name="version" content="1.9.0">
 <meta name="last-updated" content="2026-11-25">
 <title>Texas Mineral Rights &amp; Royalties Explained | Oil, Visualized</title>
 <link rel="canonical" href="https://visualizedoil.com/">
@@ -263,8 +273,8 @@
         "@type": "ItemList",
         "@id": "https://visualizedoil.com/#conceptlist",
         "name": "The Oil, Visualized concept ladder",
-        "description": "Fourteen Texas mineral ownership concepts, simplest first.",
-        "numberOfItems": 14,
+        "description": "Fifteen Texas mineral ownership concepts, simplest first.",
+        "numberOfItems": 15,
         "itemListOrder": "https://schema.org/ItemListOrderAscending",
         "itemListElement": [
           {
@@ -290,52 +300,57 @@
           {
             "@type": "ListItem",
             "position": 5,
-            "name": "05. The lease"
+            "name": "05. Surface use"
           },
           {
             "@type": "ListItem",
             "position": 6,
-            "name": "06. Pooling & dilution"
+            "name": "06. The lease"
           },
           {
             "@type": "ListItem",
             "position": 7,
-            "name": "07. Your decimal (DOI)"
+            "name": "07. Pooling & dilution"
           },
           {
             "@type": "ListItem",
             "position": 8,
-            "name": "08. The royalty check"
+            "name": "08. Your decimal (DOI)"
           },
           {
             "@type": "ListItem",
             "position": 9,
-            "name": "09. The two taxes"
+            "name": "09. The royalty check"
           },
           {
             "@type": "ListItem",
             "position": 10,
-            "name": "10. Allocation wells"
+            "name": "10. The two taxes"
           },
           {
             "@type": "ListItem",
             "position": 11,
-            "name": "11. Post-production costs"
+            "name": "11. Allocation wells"
           },
           {
             "@type": "ListItem",
             "position": 12,
-            "name": "12. Holding the lease"
+            "name": "12. Post-production costs"
           },
           {
             "@type": "ListItem",
             "position": 13,
-            "name": "13. HBP monitoring"
+            "name": "13. Holding the lease"
           },
           {
             "@type": "ListItem",
             "position": 14,
-            "name": "14. The money trail"
+            "name": "14. HBP monitoring"
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "name": "15. The money trail"
           }
         ]
       }
@@ -371,16 +386,17 @@
       <button class="tab" role="tab" id="t-tracts" aria-controls="p-tracts" aria-selected="false"><span class="num">02</span> Separate tracts</button>
       <button class="tab" role="tab" id="t-fraction" aria-controls="p-fraction" aria-selected="false"><span class="num">03</span> Fractional interests</button>
       <button class="tab" role="tab" id="t-measure" aria-controls="p-measure" aria-selected="false"><span class="num">04</span> Measuring ownership</button>
-      <button class="tab" role="tab" id="t-lease" aria-controls="p-lease" aria-selected="false"><span class="num">05</span> The lease</button>
-      <button class="tab" role="tab" id="t-pooling" aria-controls="p-pooling" aria-selected="false"><span class="num">06</span> Pooling &amp; dilution</button>
-      <button class="tab" role="tab" id="t-doi" aria-controls="p-doi" aria-selected="false"><span class="num">07</span> Your decimal (DOI)</button>
-      <button class="tab" role="tab" id="t-check" aria-controls="p-check" aria-selected="false"><span class="num">08</span> The royalty check</button>
-      <button class="tab" role="tab" id="t-tax" aria-controls="p-tax" aria-selected="false"><span class="num">09</span> The two taxes</button>
-      <button class="tab" role="tab" id="t-alloc" aria-controls="p-alloc" aria-selected="false"><span class="num">10</span> Allocation wells</button>
-      <button class="tab" role="tab" id="t-ppc" aria-controls="p-ppc" aria-selected="false"><span class="num">11</span> Post-production costs</button>
-      <button class="tab" role="tab" id="t-hold" aria-controls="p-hold" aria-selected="false"><span class="num">12</span> Holding the lease</button>
-      <button class="tab" role="tab" id="t-hbp" aria-controls="p-hbp" aria-selected="false"><span class="num">13</span> HBP monitoring</button>
-      <button class="tab" role="tab" id="t-money" aria-controls="p-money" aria-selected="false"><span class="num">14</span> The money trail</button>
+      <button class="tab" role="tab" id="t-accom" aria-controls="p-accom" aria-selected="false"><span class="num">05</span> Surface use</button>
+      <button class="tab" role="tab" id="t-lease" aria-controls="p-lease" aria-selected="false"><span class="num">06</span> The lease</button>
+      <button class="tab" role="tab" id="t-pooling" aria-controls="p-pooling" aria-selected="false"><span class="num">07</span> Pooling &amp; dilution</button>
+      <button class="tab" role="tab" id="t-doi" aria-controls="p-doi" aria-selected="false"><span class="num">08</span> Your decimal (DOI)</button>
+      <button class="tab" role="tab" id="t-check" aria-controls="p-check" aria-selected="false"><span class="num">09</span> The royalty check</button>
+      <button class="tab" role="tab" id="t-tax" aria-controls="p-tax" aria-selected="false"><span class="num">10</span> The two taxes</button>
+      <button class="tab" role="tab" id="t-alloc" aria-controls="p-alloc" aria-selected="false"><span class="num">11</span> Allocation wells</button>
+      <button class="tab" role="tab" id="t-ppc" aria-controls="p-ppc" aria-selected="false"><span class="num">12</span> Post-production costs</button>
+      <button class="tab" role="tab" id="t-hold" aria-controls="p-hold" aria-selected="false"><span class="num">13</span> Holding the lease</button>
+      <button class="tab" role="tab" id="t-hbp" aria-controls="p-hbp" aria-selected="false"><span class="num">14</span> HBP monitoring</button>
+      <button class="tab" role="tab" id="t-money" aria-controls="p-money" aria-selected="false"><span class="num">15</span> The money trail</button>
       <button class="tab" role="tab" id="t-support" aria-controls="p-support" aria-selected="false"><span class="num">♥</span> Support</button>
       <button class="tab" role="tab" id="t-roadmap" aria-controls="p-roadmap" aria-selected="false"><span class="num">→</span> Roadmap</button>
     </div>
@@ -606,7 +622,7 @@
           <p class="kicker">Severance</p>
           <h3>One ground, two estates</h3>
           <p>When minerals are sold or reserved apart from the surface, the tract is <em>severed</em>. From that moment there are two estates that can be owned, leased, taxed, and sold independently.</p>
-          <p>The mineral estate is the <strong>dominant estate</strong>: it carries the implied right to use as much of the surface as reasonably necessary to find and produce the minerals. Bob owns the dirt, but Carl and Susan own what's under it — and the right to come get it.</p>
+          <p>The mineral estate is the <strong>dominant estate</strong>: it carries the implied right to use as much of the surface as reasonably necessary to find and produce the minerals. Bob owns the dirt, but Carl and Susan own what's under it — and the right to come get it. That right has one narrow limit, the accommodation doctrine, which Concept 05 walks through.</p>
         </div>
         <div>
           <p class="kicker">What makes a tract</p>
@@ -832,7 +848,7 @@
         <div class="term"><span class="t">Gross acres</span><span class="d">The size of the tract on the ground, as the deed describes it. A full section is 640 gross acres whether one person owns it or four hundred people do.</span></div>
         <div class="term"><span class="t">Mineral interest</span><span class="d">Your undivided fraction of the minerals under that tract. Undivided means it applies to every acre at once, not to a mapped-off corner — that's <a href="#top" data-goto-tab="t-fraction">Concept 03</a>.</span></div>
         <div class="term"><span class="t">Net mineral acres (NMA)</span><span class="d">Your fraction × the gross acres. A quantity, not a location. This is what a bonus is paid on.</span></div>
-        <div class="term"><span class="t">Royalty rate</span><span class="d">The fraction of production the lease reserves to you: 1/8, 3/16, 1/5, 1/4. It comes from the lease, not the deed — see <a href="#top" data-goto-tab="t-lease">Concept 05</a>.</span></div>
+        <div class="term"><span class="t">Royalty rate</span><span class="d">The fraction of production the lease reserves to you: 1/8, 3/16, 1/5, 1/4. It comes from the lease, not the deed — see <a href="#top" data-goto-tab="t-lease">Concept 06</a>.</span></div>
         <div class="term"><span class="t">Net royalty acres (NRA)</span><span class="d">Your net mineral acres restated as if every one of them were leased at 1/8. A common yardstick, so royalty positions written on different lease terms can be compared.</span></div>
         <div class="term"><span class="t">The 1/8 yardstick</span><span class="d">Why 1/8? Because for most of the last century almost every Texas lease reserved 1/8, so it became the standard unit. It outlived the market that created it.</span></div>
       </div>
@@ -1473,7 +1489,7 @@
           <div class="ds-math">
             <p class="ds-formula">gross acres <b>640.00</b><br>× mineral interest <b>1/4</b></p>
             <p class="ds-dec">160.00<small>net mineral acres</small></p>
-            <p class="ds-note">Nothing moved. The pile on the right is the same 64 dots, gathered so they can be counted, priced, and written on a lease. Net mineral acres are an answer to <em>how much</em>, never to <em>where</em>. This is the number a bonus is paid on, the number a shut-in payment is figured on (<a href="#top" data-goto-tab="t-hold">Concept 12</a>), and the number a mineral buyer usually quotes against.</p>
+            <p class="ds-note">Nothing moved. The pile on the right is the same 64 dots, gathered so they can be counted, priced, and written on a lease. Net mineral acres are an answer to <em>how much</em>, never to <em>where</em>. This is the number a bonus is paid on, the number a shut-in payment is figured on (<a href="#top" data-goto-tab="t-hold">Concept 13</a>), and the number a mineral buyer usually quotes against.</p>
           </div>
         </div>
       </div>
@@ -1483,7 +1499,7 @@
       <p class="kicker">Stage 3 · restated</p>
       <h2>Every mineral acre holds eight royalty acres</h2>
       <p>Here is where the third acre appears. Take one net mineral acre and divide it into eight equal parts. <strong>Each of those eighths is one royalty acre.</strong> So a single mineral acre holds eight of them, always, no matter what any lease says.</p>
-      <p>What the lease decides is how many of the eight come to <em>you</em>. A 1/8 royalty sends you one of the eight. A 1/4 royalty sends you two. The other six or seven belong to the working interest, which pays every dollar of drilling and operating cost in exchange (<a href="#top" data-goto-tab="t-lease">Concept 05</a>). Hold those two ideas apart — what the acre <em>contains</em> versus what the lease <em>delivers</em> — and the rest of this tab is arithmetic.</p>
+      <p>What the lease decides is how many of the eight come to <em>you</em>. A 1/8 royalty sends you one of the eight. A 1/4 royalty sends you two. The other six or seven belong to the working interest, which pays every dollar of drilling and operating cost in exchange (<a href="#top" data-goto-tab="t-lease">Concept 06</a>). Hold those two ideas apart — what the acre <em>contains</em> versus what the lease <em>delivers</em> — and the rest of this tab is arithmetic.</p>
 
       <div class="dil" id="own">
         <div class="dil-head">
@@ -1553,7 +1569,7 @@
         </div>
       </div>
 
-      <p class="aside-note">One honest caveat. Unlike net mineral acres, "royalty acres" is not a term with one settled definition. The dominant convention, and the one used here, restates against a 1/8 lease. Some buyers instead compute a royalty acre straight from your division-order decimal times the unit acreage, which is a different number on a pooled tract (<a href="#top" data-goto-tab="t-doi">Concept 07</a>). Neither is wrong, but they are not interchangeable, so make anyone quoting you a per-acre number show the arithmetic that produced it.</p>
+      <p class="aside-note">One honest caveat. Unlike net mineral acres, "royalty acres" is not a term with one settled definition. The dominant convention, and the one used here, restates against a 1/8 lease. Some buyers instead compute a royalty acre straight from your division-order decimal times the unit acreage, which is a different number on a pooled tract (<a href="#top" data-goto-tab="t-doi">Concept 08</a>). Neither is wrong, but they are not interchangeable, so make anyone quoting you a per-acre number show the arithmetic that produced it.</p>
     </div>
 
     <div class="section">
@@ -1585,7 +1601,7 @@
       <div class="grid2">
         <div>
           <h3>Everything on signing day is per net mineral acre</h3>
-          <p>The bonus is per net mineral acre. So is a delay rental, and so is a shut-in payment (<a href="#top" data-goto-tab="t-hold">Concept 12</a>). None of those has anything to do with royalty acres, because on signing day there is no royalty rate to measure against yet — you are still negotiating it.</p>
+          <p>The bonus is per net mineral acre. So is a delay rental, and so is a shut-in payment (<a href="#top" data-goto-tab="t-hold">Concept 13</a>). None of those has anything to do with royalty acres, because on signing day there is no royalty rate to measure against yet — you are still negotiating it.</p>
           <p>So when a landman offers "a thousand an acre," that is almost always $1,000 per net mineral acre. On our example that is $160,000, and it does not change whether you settle at 1/8 or 1/4.</p>
         </div>
         <div>
@@ -1631,10 +1647,214 @@
 
   </section>
 
+  <!-- ============ PANEL 05 — SURFACE USE & THE ACCOMMODATION DOCTRINE ============ -->
+  <section class="panel" id="p-accom" role="tabpanel" aria-labelledby="t-accom" tabindex="0">
+
+    <div class="hero">
+      <p class="eyebrow">Concept 05 — surface use</p>
+      <h1>The minerals <em>win</em> — but sometimes they have to <em>make room</em>.</h1>
+      <p class="lede">Concept 01 said the mineral estate is the dominant one: whoever develops the minerals can use the surface to get at them, without asking the surface owner and without paying. That's true, but it isn't unlimited. Texas courts carved out one narrow exception, the <strong>accommodation doctrine</strong>. It protects a surface owner's existing use when the operator has a reasonable way to drill without wrecking it.</p>
+    </div>
+
+    <div class="section" style="border-top:0;padding-top:1rem">
+      <p class="kicker">Start here</p>
+      <h2>First — who gets to use the surface?</h2>
+      <p>Go back to Bob's 160 acres. Bob owns the surface; Carl and Susan own the minerals underneath. Minerals are worthless if nobody can reach them, so the law gives the mineral estate a built-in right to use the surface. Carl and Susan almost never use that right themselves. They lease it, along with the minerals, to an oil company — the <strong>operator</strong> — which is who actually shows up with a drilling rig. (Concept 06 covers the lease itself.)</p>
+      <p>That right covers roads, well pads, pipelines, tanks, and water, to the extent they're <strong>reasonably necessary</strong>. Bob can't refuse, and by default he isn't owed a dollar for reasonable use. What follows is the one situation where the law makes the operator adjust.</p>
+
+      <div class="glossary">
+        <div class="term"><span class="t">Dominant estate</span><span class="d">The mineral estate. It carries the right to use the surface as reasonably necessary to find and produce the minerals.</span></div>
+        <div class="term"><span class="t">Servient estate</span><span class="d">The surface estate. It has to put up with that reasonable use.</span></div>
+        <div class="term"><span class="t">Reasonably necessary</span><span class="d">The outer limit of the mineral side's right. Using more surface than the job needs, or using it carelessly, isn't protected.</span></div>
+        <div class="term"><span class="t">Existing use</span><span class="d">What the surface owner is actually doing with the land now — not a plan to do something later.</span></div>
+        <div class="term"><span class="t">Accommodation doctrine</span><span class="d">The rule that the operator must use a reasonable alternative when its chosen method would wreck an existing surface use the owner can't work around.</span></div>
+        <div class="term"><span class="t">Surface use agreement</span><span class="d">A contract between operator and surface owner fixing locations, roads, and payments. It's how most surface owners get protection the law doesn't give them by default.</span></div>
+      </div>
+
+      <p style="margin-top:1.6rem">Bob farms his 160 acres under a center-pivot irrigation system: one long sprinkler arm on wheels, pivoting around the middle of the field to water a giant circle. The operator stakes a well right in the middle of that circle. Step through the test a court would apply.</p>
+
+      <div class="dil" id="accom">
+        <div class="dil-head">
+          <div class="tl-steps" aria-hidden="true">
+            <span class="tl-dot on" data-ac-dot></span><span class="tl-dot" data-ac-dot></span><span class="tl-dot" data-ac-dot></span><span class="tl-dot" data-ac-dot></span>
+          </div>
+          <div class="tl-nav">
+            <button id="ac-back" aria-label="Previous step" disabled>&#9664; Back</button>
+            <button id="ac-next" aria-label="Next step">Next &#9654;</button>
+          </div>
+        </div>
+
+        <div class="dil-body ac-body">
+          <div class="ac-plat">
+            <svg viewBox="0 0 460 470" role="img" aria-label="Plan view of a 160-acre field with a center-pivot irrigation circle. A planned well sits inside the circle in the path of the sprinkler arm; an alternative well pad sits in the southeast corner the sprinkler never reaches.">
+              <defs>
+                <symbol id="ac-pj" viewBox="0 0 40 30">
+                  <rect x="2" y="25" width="36" height="4" rx="1" fill="#1B1A17"/>
+                  <path d="M14,25 L20,9 L26,25" fill="none" stroke="#1B1A17" stroke-width="2.4"/>
+                  <line x1="4" y1="10" x2="34" y2="7" stroke="#1B1A17" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M33,4 Q39,8 34,14" fill="none" stroke="#1B1A17" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="35" y1="13" x2="35" y2="25" stroke="#1B1A17" stroke-width="1.2"/>
+                </symbol>
+              </defs>
+
+              <!-- north arrow -->
+              <g transform="translate(437,30)">
+                <line x1="0" y1="14" x2="0" y2="-10" stroke="#1B1A17" stroke-width="1.5"/>
+                <path d="M0,-16 L5,-6 L-5,-6 Z" fill="#A23A2A"/>
+                <text x="0" y="28" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#6B675E">N</text>
+              </g>
+
+              <!-- the quarter section -->
+              <rect x="50" y="50" width="360" height="360" fill="#ECE9DF" stroke="#C8A45E" stroke-width="2"/>
+              <text x="50" y="40" font-family="JetBrains Mono" font-size="10" letter-spacing="1.5" fill="#6B675E">BOB'S SURFACE · 160 ACRES</text>
+
+              <!-- pivot circle and crop rings -->
+              <circle cx="230" cy="230" r="175" fill="#E7D3A8" stroke="#C8A45E" stroke-width="1.5"/>
+              <g fill="none" stroke="#C8A45E" stroke-width="1" stroke-dasharray="2 5" opacity=".8">
+                <circle cx="230" cy="230" r="145"/><circle cx="230" cy="230" r="115"/>
+                <circle cx="230" cy="230" r="85"/><circle cx="230" cy="230" r="55"/>
+              </g>
+
+              <!-- corner labels -->
+              <g id="ac-corners" class="ac-layer" data-ac-show="0,3" font-family="JetBrains Mono" font-size="8.5" fill="#6B675E">
+                <text x="58" y="66">corner</text>
+                <text x="402" y="66" text-anchor="end">corner</text>
+                <text x="58" y="402">corner</text>
+              </g>
+
+              <!-- full sweep, step 3 -->
+              <circle id="ac-full" class="ac-layer" data-ac-show="3" cx="230" cy="230" r="175" fill="none" stroke="#2F7E86" stroke-width="3" stroke-dasharray="10 6"/>
+
+              <!-- pivot arm -->
+              <line x1="230" y1="230" x2="381.6" y2="142.5" stroke="#1B1A17" stroke-width="3" stroke-linecap="round"/>
+              <g fill="#1B1A17"><circle cx="230" cy="230" r="6"/><circle cx="268" cy="208" r="3"/><circle cx="306" cy="186" r="3"/><circle cx="344" cy="164" r="3"/><circle cx="381.6" cy="142.5" r="3.5"/></g>
+              <text x="236" y="250" font-family="JetBrains Mono" font-size="8.5" fill="#5a4516">PIVOT</text>
+
+              <!-- direction of travel -->
+              <path d="M397.7,151.8 A185,185 0 0 0 360.8,99.2" fill="none" stroke="#5a4516" stroke-width="1.4" marker-end="url(#ac-arrow)"/>
+              <text x="396" y="170" font-family="JetBrains Mono" font-size="8" fill="#5a4516">arm travels</text>
+              <defs><marker id="ac-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#5a4516"/></marker></defs>
+
+              <!-- the planned well, inside the circle -->
+              <g id="ac-well-a" class="ac-layer" data-ac-ghost="3">
+                <line x1="285" y1="135" x2="285" y2="50" stroke="#6B675E" stroke-width="2" stroke-dasharray="5 4"/>
+                <rect x="266" y="120" width="38" height="30" fill="#F4F2EC" stroke="#1B1A17" stroke-width="1.2"/>
+                <use href="#ac-pj" x="267" y="121" width="36" height="27"/>
+              </g>
+              <g class="ac-layer" data-ac-show="0,1,2">
+                <text x="260" y="128" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#1B1A17">PLANNED WELL</text>
+                <text x="260" y="139" text-anchor="end" font-family="JetBrains Mono" font-size="8" fill="#6B675E">road from the north line</text>
+              </g>
+
+              <!-- step 1-2: the arm can't pass -->
+              <g id="ac-block" class="ac-layer" data-ac-show="1,2">
+                <line x1="230" y1="230" x2="317.5" y2="78.4" stroke="#A23A2A" stroke-width="3" stroke-dasharray="6 4"/>
+                <rect x="70" y="276" width="150" height="38" rx="4" fill="#F4F2EC" stroke="#A23A2A"/>
+                <text x="145" y="291" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#A23A2A">THE ARM CAN'T PASS</text>
+                <text x="145" y="305" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#A23A2A">the circle is broken</text>
+              </g>
+
+              <!-- step 2: Bob's alternatives -->
+              <g id="ac-alt" class="ac-layer" data-ac-show="2">
+                <rect x="70" y="322" width="150" height="56" rx="4" fill="#F4F2EC" stroke="#1B1A17"/>
+                <text x="145" y="337" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#1B1A17">BOB'S OTHER OPTIONS</text>
+                <text x="145" y="352" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#6B675E">hand-moved pipe ✕</text>
+                <text x="145" y="366" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#6B675E">flood the field ✕</text>
+              </g>
+
+              <!-- step 3: the corner pad -->
+              <g id="ac-pad" class="ac-layer" data-ac-show="3">
+                <path d="M300,152 C340,250 360,320 372,362" fill="none" stroke="#2F7E86" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ac-arrow)"/>
+                <rect x="366" y="366" width="38" height="30" fill="#F4F2EC" stroke="#2F7E86" stroke-width="2"/>
+                <use href="#ac-pj" x="367" y="367" width="36" height="27"/>
+                <line x1="404" y1="381" x2="410" y2="381" stroke="#6B675E" stroke-width="2" stroke-dasharray="3 2"/>
+                <text x="362" y="430" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="#2F7E86">WELL MOVED TO THE SE CORNER</text>
+                <text x="362" y="442" text-anchor="end" font-family="JetBrains Mono" font-size="8" fill="#6B675E">road comes in off the east line</text>
+              </g>
+
+              <text x="230" y="462" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" letter-spacing="1" fill="#6B675E">PLAN VIEW · ½ MILE ON A SIDE · NOT A SURVEY</text>
+            </svg>
+          </div>
+
+          <div class="ac-info" aria-live="polite">
+            <span class="tl-badge" id="ac-badge">Step 1 of 4</span>
+            <p class="tl-title" id="ac-title">The plan</p>
+            <p class="tl-cap" id="ac-cap">The operator picks a well site in the middle of Bob's irrigated circle. By default it can: the dominant estate may use the surface as reasonably necessary, and choosing the location is part of that. If Bob wants it moved, the burden is on him to prove all three things below.</p>
+            <ol class="ac-tests">
+              <li data-ac-test><span class="q">Does the well wreck a use Bob already has?</span><span class="v" data-ac-v>—</span></li>
+              <li data-ac-test><span class="q">Is Bob unable to reasonably work around it?</span><span class="v" data-ac-v>—</span></li>
+              <li data-ac-test><span class="q">Does the operator have a customary alternative on the lease?</span><span class="v" data-ac-v>—</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top:1.4rem">Notice that Bob doesn't get to choose where the well goes. He only gets to show that the operator's choice breaks something he can't fix, and that the industry has a normal way around it. If the operator's alternative would mean drilling off the lease, or doing something the industry doesn't ordinarily do, the test fails and the original location stands.</p>
+    </div>
+
+    <!-- LEDGER -->
+    <div class="ledger-wrap">
+      <h2>Two fields, one test</h2>
+      <p class="eyebrow" style="margin-top:.5rem">The surface owner carries the burden on every line</p>
+      <div class="table-scroll">
+        <table class="ledger">
+          <thead>
+            <tr><th>Question</th><th>Bob's pivot circle</th><th>Cattle pens</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1 · Is an existing use completely blocked or substantially impaired?</td><td>Yes — the arm can't make its circle</td><td>Yes — the well sits where the cattle are worked</td></tr>
+            <tr><td>2 · Does the surface owner have no reasonable way to keep that use going?</td><td>Yes — no practical way to irrigate this field otherwise</td><td><strong>No</strong> — pens can be built somewhere else on the ranch. Cost and inconvenience aren't enough</td></tr>
+            <tr><td>3 · Does the operator have a reasonable, customary alternative on the lease?</td><td>Yes — drill from a corner the pivot never reaches</td><td>Never reached</td></tr>
+            <tr class="tot"><td>Result</td><td>The operator must use the alternative</td><td>The operator's location stands</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 style="margin-top:2.4rem">Where the rule came from</h2>
+      <p class="eyebrow" style="margin-top:.5rem">Texas Supreme Court decisions</p>
+      <div class="table-scroll">
+        <table class="ledger">
+          <thead>
+            <tr><th>Year</th><th>Case</th><th>What it added</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1971</td><td><em>Getty Oil Co. v. Jones</em></td><td>Created the doctrine. The operator's pumping units were too tall for the owner's rolling sprinkler system to pass; lower-profile units, some set below ground level, were the industry alternative</td></tr>
+            <tr><td>2013</td><td><em>Merriman v. XTO Energy</em></td><td>Restated it as a three-part test with the burden on the surface owner, and held that a rancher who could work cattle elsewhere hadn't met it</td></tr>
+            <tr><td>2016</td><td><em>Coyote Lake Ranch v. City of Lubbock</em></td><td>Applied the same balance to a severed <em>groundwater</em> estate, not just oil and gas</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PROSE -->
+    <div class="section">
+      <div class="grid2">
+        <div>
+          <p class="kicker">Why surface owners care</p>
+          <h3>The doctrine is a shield, not a paycheck</h3>
+          <p>It protects only a use that already exists, only when the owner can't adapt, and only when the operator has an ordinary alternative on the same lease. It never pays the surface owner anything. A planned subdivision, a future orchard, or "I was going to build there someday" doesn't qualify.</p>
+          <p>Real protection comes from contracts: a surface use agreement, or surface clauses in the lease when the mineral owner and the surface owner are the same person. Locations, roads, damage payments, and cleanup all live there. The <a href="glossary.html#cat-surface">Surface &amp; operations</a> section of the Lease Clause Dictionary covers the common ones.</p>
+        </div>
+        <div>
+          <p class="kicker">Why operators care</p>
+          <h3>Predictability, and the corner pad</h3>
+          <p>The operator keeps the right to choose, and a court only steps in at the far edge. A clear test means fewer surprises after millions are committed to a location. And horizontal drilling has made accommodation easier: one pad tucked in a corner can send laterals under the whole field, so there's often an ordinary alternative that costs very little.</p>
+          <p>Using more surface than reasonably necessary, or using it carelessly, is a separate matter. That isn't protected by the dominant estate at all, and the operator can be liable for the damage.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p class="kicker">The point that trips everyone up</p>
+        <p>"They're using my land — they have to pay me." Not in Texas, not by default. Reasonable use of the surface is part of what the mineral estate already owns, so the law owes Bob nothing for a pad, a road, or the water the operator reasonably uses. Several other producing states, Oklahoma and North Dakota among them, have surface damage statutes that require payment. Texas has no general one. A Texas surface owner gets paid when a contract says so, or when the operator goes beyond reasonable use.</p>
+      </div>
+    </div>
+  </section>
+
+
   <section class="panel" id="p-lease" role="tabpanel" aria-labelledby="t-lease" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 05 — the lease</p>
+      <p class="eyebrow">Concept 06 — the lease</p>
       <h1>Not a rental — a deal that lives as long as the <em>well</em> does.</h1>
       <p class="lede">An oil and gas lease isn't like renting an apartment. It's a trade: the mineral owner hands over the right to drill, and in exchange keeps a cost-free slice of everything produced. And its lifespan isn't a number of years — it's however long the oil keeps flowing.</p>
     </div>
@@ -1707,7 +1927,7 @@
   <section class="panel" id="p-pooling" role="tabpanel" aria-labelledby="t-pooling" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 06 — pooling &amp; dilution</p>
+      <p class="eyebrow">Concept 07 — pooling &amp; dilution</p>
       <h1>The same well, split two very <em>different</em> ways.</h1>
       <p class="lede">Mineral ownership is a patchwork of separate tracts — most far too small, on their own, to justify a well. The fix is to combine them into a <em>unit</em>. But combining isn't neutral: it can quietly shrink a big owner's share while handing a small owner one they'd never get otherwise. Let's build it from the ground up.</p>
     </div>
@@ -1850,14 +2070,14 @@
       <p>"The well is on <em>my</em> land — so it's my well." Not once you're pooled. Inside a unit, production is split by acreage across <em>every</em> tract, wherever the wellbore happens to sit. Being the ground under the rig doesn't get you a bigger check — your acreage share does.</p>
     </div>
 
-    <p class="aside-note">A note for modern wells: long horizontal laterals rarely fit on a single tract, so today's units are large and cross many owners — and some split production by perforated lateral length rather than flat acreage. The "go it alone" play was strongest in the vertical-well era. How those multi-tract laterals get permitted and divided when pooling <em>isn’t</em> the answer — PSA and allocation wells — is Concept 10.</p>
+    <p class="aside-note">A note for modern wells: long horizontal laterals rarely fit on a single tract, so today's units are large and cross many owners — and some split production by perforated lateral length rather than flat acreage. The "go it alone" play was strongest in the vertical-well era. How those multi-tract laterals get permitted and divided when pooling <em>isn’t</em> the answer — PSA and allocation wells — is Concept 11.</p>
   </section>
 
-  <!-- ============ PANEL 07 — DOI ============ -->
+  <!-- ============ PANEL 08 — DOI ============ -->
   <section class="panel" id="p-doi" role="tabpanel" aria-labelledby="t-doi" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 07 — your decimal (DOI)</p>
+      <p class="eyebrow">Concept 08 — your decimal (DOI)</p>
       <h1>Why your share of the well is <em>0.00488281</em>.</h1>
       <p class="lede">When a well starts paying, you receive a document with a long decimal on it — your exact share of every dollar the well earns. That number can look bafflingly small. Here's where it comes from, one honest multiplication at a time.</p>
     </div>
@@ -1930,7 +2150,7 @@
         <div class="ds-math">
           <p class="ds-formula">your minerals <b>1/4</b><br>× lease royalty <b>1/4</b><br>× tract share of unit <b>40/320</b></p>
           <p class="ds-dec">0.00781250<small>your decimal — stage 2</small></p>
-          <p class="ds-note">From Concept 06: pooled production is shared by acreage. One new fraction joins the multiplication — your tract's slice of the unit — and the decimal drops to an eighth of what it was. Nothing was taken; your share is just of a much bigger whole.</p>
+          <p class="ds-note">From Concept 07: pooled production is shared by acreage. One new fraction joins the multiplication — your tract's slice of the unit — and the decimal drops to an eighth of what it was. Nothing was taken; your share is just of a much bigger whole.</p>
         </div>
       </div>
     </div>
@@ -1956,7 +2176,7 @@
         <div class="ds-math">
           <p class="ds-formula">your minerals <b>1/4</b><br>× lease royalty <b>1/4</b><br>× tract share of unit <b>40/320</b><br>× lateral in your unit <b>7,500/12,000</b></p>
           <p class="ds-dec">0.00488281<small>your decimal — stage 3</small></p>
-          <p class="ds-note">Modern laterals don't stop at unit lines. When one wellbore crosses two units, production is commonly allocated by how many feet of the lateral lie in each — one more fraction in the chain. (Texas courts haven't fully settled allocation-well rules; this is the common industry approach — Concept 10 takes it apart in full.)</p>
+          <p class="ds-note">Modern laterals don't stop at unit lines. When one wellbore crosses two units, production is commonly allocated by how many feet of the lateral lie in each — one more fraction in the chain. (Texas courts haven't fully settled allocation-well rules; this is the common industry approach — Concept 11 takes it apart in full.)</p>
         </div>
       </div>
     </div>
@@ -1989,11 +2209,11 @@
     </div>
   </section>
 
-  <!-- ============ PANEL 08 — ROYALTY CHECK ============ -->
+  <!-- ============ PANEL 09 — ROYALTY CHECK ============ -->
   <section class="panel" id="p-check" role="tabpanel" aria-labelledby="t-check" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 08 — the royalty check</p>
+      <p class="eyebrow">Concept 09 — the royalty check</p>
       <h1>Anatomy of a <em>$1,000</em> royalty check.</h1>
       <p class="lede">A royalty check arrives with a statement full of codes, columns, and deductions. Strip the jargon away and it's simple: what the oil sold for, your slice of it, and a couple of subtractions on the way to your bank account. Let's walk one month's check.</p>
     </div>
@@ -2001,7 +2221,7 @@
     <div class="section" style="border-top:0;padding-top:1rem">
       <p class="kicker">Start here</p>
       <h2>First — what are you actually being paid for?</h2>
-      <p>Your well produced oil this month; the operator sold it. Your <strong>gross royalty</strong> is your decimal share of that sale money — before anything is taken out. From there, two kinds of subtractions can appear on the stub: <strong>severance tax</strong>, which the state charges on minerals when they're produced and sold (more on this in Concept 09), and <strong>post-production costs</strong> — the well's share of getting the product treated, moved, and to market, which many (not all) leases let the operator deduct (<a href="#top" data-goto-tab="t-ppc">Concept 11</a> takes these apart in full).</p>
+      <p>Your well produced oil this month; the operator sold it. Your <strong>gross royalty</strong> is your decimal share of that sale money — before anything is taken out. From there, two kinds of subtractions can appear on the stub: <strong>severance tax</strong>, which the state charges on minerals when they're produced and sold (more on this in Concept 10), and <strong>post-production costs</strong> — the well's share of getting the product treated, moved, and to market, which many (not all) leases let the operator deduct (<a href="#top" data-goto-tab="t-ppc">Concept 12</a> takes these apart in full).</p>
       <p>What's left is your <strong>net</strong> — the number that actually lands in your account.</p>
 
       <div class="glossary">
@@ -2029,7 +2249,7 @@
         </table>
       </div>
 
-      <p style="margin-top:1.2rem;font-size:.95rem;color:var(--muted)">Real stubs split this across products (oil, gas, liquids) and months, and often correct earlier months — but every line on them is one of these three things: gross, a subtraction, or net. <a href="#top" data-goto-tab="t-money">Concept 14</a> follows the same dollar the other way — from the purchaser’s payment, into the operator’s bank account, and out to you.</p>
+      <p style="margin-top:1.2rem;font-size:.95rem;color:var(--muted)">Real stubs split this across products (oil, gas, liquids) and months, and often correct earlier months — but every line on them is one of these three things: gross, a subtraction, or net. <a href="#top" data-goto-tab="t-money">Concept 15</a> follows the same dollar the other way — from the purchaser’s payment, into the operator’s bank account, and out to you.</p>
     </div>
 
     <div class="section">
@@ -2053,11 +2273,11 @@
     </div>
   </section>
 
-  <!-- ============ PANEL 09 — THE TWO TAXES ============ -->
+  <!-- ============ PANEL 10 — THE TWO TAXES ============ -->
   <section class="panel" id="p-tax" role="tabpanel" aria-labelledby="t-tax" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 09 — the two taxes</p>
+      <p class="eyebrow">Concept 10 — the two taxes</p>
       <h1>One tax on the <em>candy</em>, one tax on the <em>store</em>.</h1>
       <p class="lede">Mineral owners meet two very different taxes: severance tax and ad valorem (property) tax. They confuse everyone — until you picture a candy store. One tax is charged on each candy bar as it sells. The other is charged on the store itself, just for being valuable.</p>
     </div>
@@ -2096,7 +2316,7 @@
           </div>
           <div class="tc-body">
             <p>Charged on <strong>each candy bar as it sells</strong>. The slice comes off at the register — the store never touches that money. If no candy sells this month, this tax is zero.</p>
-            <p style="margin-top:.6rem"><strong>For your minerals:</strong> the state taxes each barrel as it's produced and sold (in Texas, 4.6% for oil). It's withheld from the revenue before your royalty is paid — that's the severance line on your check stub from Concept 08. You never owe it separately; it never reached you to begin with.</p>
+            <p style="margin-top:.6rem"><strong>For your minerals:</strong> the state taxes each barrel as it's produced and sold (in Texas, 4.6% for oil). It's withheld from the revenue before your royalty is paid — that's the severance line on your check stub from Concept 09. You never owe it separately; it never reached you to begin with.</p>
           </div>
         </div>
 
@@ -2142,13 +2362,13 @@
     </div>
   </section>
 
-  <!-- ============ PANEL 10 — ALLOCATION & PSA WELLS ============ -->
+  <!-- ============ PANEL 11 — ALLOCATION & PSA WELLS ============ -->
   <section class="panel" id="p-alloc" role="tabpanel" aria-labelledby="t-alloc" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 10 — allocation &amp; PSA wells</p>
+      <p class="eyebrow">Concept 11 — allocation &amp; PSA wells</p>
       <h1>Two miles of well, three leases — and no pooling <em>at all</em>.</h1>
-      <p class="lede">Concept 06 showed separate tracts combining into a pooled unit and sharing one well by acreage. But plenty of leases cap pooled units far below what a modern two-mile lateral needs — and some forbid pooling outright. Texas's answer: let the wellbore cross the lease lines anyway, and divide the production a different way. Here's how a well with no unit pays its owners.</p>
+      <p class="lede">Concept 07 showed separate tracts combining into a pooled unit and sharing one well by acreage. But plenty of leases cap pooled units far below what a modern two-mile lateral needs — and some forbid pooling outright. Texas's answer: let the wellbore cross the lease lines anyway, and divide the production a different way. Here's how a well with no unit pays its owners.</p>
     </div>
 
     <div class="section" style="border-top:0;padding-top:1rem">
@@ -2272,7 +2492,7 @@
       <div class="ds-head"><span class="n">Worked example</span><span class="t">When "Tract B" is itself a pooled unit</span></div>
       <div class="ds-body">
         <div class="ds-viz">
-          <svg viewBox="0 0 300 200" role="img" aria-label="A second allocation well crossing three areas, where the middle area — Tract B — is itself the 320-acre pooled unit from Concept 07. Half the productive lateral lies inside Tract B.">
+          <svg viewBox="0 0 300 200" role="img" aria-label="A second allocation well crossing three areas, where the middle area — Tract B — is itself the 320-acre pooled unit from Concept 08. Half the productive lateral lies inside Tract B.">
             <rect x="20" y="40" width="78" height="120" fill="#ECE9DF" stroke="#C7C1B2" stroke-width="1" stroke-dasharray="5 4"/>
             <rect x="98" y="40" width="130" height="120" fill="#E3E7DF" stroke="#2F7E86" stroke-width="2"/>
             <rect x="228" y="40" width="52" height="120" fill="#ECE9DF" stroke="#C7C1B2" stroke-width="1" stroke-dasharray="5 4"/>
@@ -2285,9 +2505,9 @@
           </svg>
         </div>
         <div class="ds-math">
-          <p class="ds-formula">your DOI inside the unit <b>0.00781250</b><br><span style="color:var(--muted)">(Concept 07, Stage 2)</span><br>× Tract B's participation factor <b>5,000/10,000</b></p>
+          <p class="ds-formula">your DOI inside the unit <b>0.00781250</b><br><span style="color:var(--muted)">(Concept 08, Stage 2)</span><br>× Tract B's participation factor <b>5,000/10,000</b></p>
           <p class="ds-dec">0.00390625<small>your decimal — this well</small></p>
-          <p class="ds-note">In the real Permian, the "tracts" an allocation well crosses are often whole pooled units. Production is split among the tracts first — the participation factor — and then your unit decimal divides your tract's slice. This is Concept 07's Stage 3 seen from the other side, on a second well with a different lateral.</p>
+          <p class="ds-note">In the real Permian, the "tracts" an allocation well crosses are often whole pooled units. Production is split among the tracts first — the participation factor — and then your unit decimal divides your tract's slice. This is Concept 08's Stage 3 seen from the other side, on a second well with a different lateral.</p>
         </div>
       </div>
     </div>
@@ -2302,7 +2522,7 @@
         <div>
           <p class="kicker">Check the formula</p>
           <h3>The split is a choice, not a law</h3>
-          <p>Footage-based allocation quietly assumes every foot of lateral produces equally — but frac stages aren't evenly spaced, rock isn't uniform, and some PSAs use acreage or a blend instead. Your division order shows the result as a single decimal, so ask what formula produced it. The operator's permit filings (the RRC's Form P-16 acreage designation and the plat) show the footage claimed for each tract — that's where you check the operator's math, just like Concept 07 taught.</p>
+          <p>Footage-based allocation quietly assumes every foot of lateral produces equally — but frac stages aren't evenly spaced, rock isn't uniform, and some PSAs use acreage or a blend instead. Your division order shows the result as a single decimal, so ask what formula produced it. The operator's permit filings (the RRC's Form P-16 acreage designation and the plat) show the footage claimed for each tract — that's where you check the operator's math, just like Concept 08 taught.</p>
         </div>
       </div>
     </div>
@@ -2318,13 +2538,13 @@
     </div>
   </section>
 
-  <!-- ============ PANEL 11 — POST-PRODUCTION COSTS ============ -->
+  <!-- ============ PANEL 12 — POST-PRODUCTION COSTS ============ -->
   <section class="panel" id="p-ppc" role="tabpanel" aria-labelledby="t-ppc" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 11 — post-production costs</p>
+      <p class="eyebrow">Concept 12 — post-production costs</p>
       <h1>The oil is sold 200 miles from your <em>well</em>. Who pays for the trip?</h1>
-      <p class="lede">The <a href="#top" data-goto-tab="t-check">check stub in Concept 08</a> had a line called "post-production." A line like that — sometimes labelled "deducts," "gathering," or "transp" — can quietly take 5%, 15%, sometimes more of your royalty. It isn't a tax and nobody is hiding it. It's the cost of moving raw oil and gas from your wellhead to the place it's actually worth something — and whether you help pay it was decided by a few words in your lease, long before the well was drilled.</p>
+      <p class="lede">The <a href="#top" data-goto-tab="t-check">check stub in Concept 09</a> had a line called "post-production." A line like that — sometimes labelled "deducts," "gathering," or "transp" — can quietly take 5%, 15%, sometimes more of your royalty. It isn't a tax and nobody is hiding it. It's the cost of moving raw oil and gas from your wellhead to the place it's actually worth something — and whether you help pay it was decided by a few words in your lease, long before the well was drilled.</p>
     </div>
 
     <div class="section" style="border-top:0;padding-top:1rem">
@@ -2506,7 +2726,7 @@
             </svg>
           </div>
           <div class="tc-body">
-            <p>A <strong>state tax</strong> on each barrel or Mcf as it's produced and sold. The rate is fixed by the Legislature (4.6% for oil, 7.5% for gas), it applies to everyone the same way, and it's withheld before your check is cut. You can't lease your way out of it. <a href="#top" data-goto-tab="t-tax">Concept 09</a> covers it in full.</p>
+            <p>A <strong>state tax</strong> on each barrel or Mcf as it's produced and sold. The rate is fixed by the Legislature (4.6% for oil, 7.5% for gas), it applies to everyone the same way, and it's withheld before your check is cut. You can't lease your way out of it. <a href="#top" data-goto-tab="t-tax">Concept 10</a> covers it in full.</p>
           </div>
         </div>
 
@@ -2658,13 +2878,13 @@
     </div>
   </section>
 
-  <!-- ============ PANEL 12 — HOLDING THE LEASE (SAVINGS CLAUSES) ============ -->
+  <!-- ============ PANEL 13 — HOLDING THE LEASE (SAVINGS CLAUSES) ============ -->
   <section class="panel" id="p-hold" role="tabpanel" aria-labelledby="t-hold" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 12 — savings clauses</p>
+      <p class="eyebrow">Concept 13 — savings clauses</p>
       <h1>A lease can stay alive for years without selling a single <em>barrel</em>.</h1>
-      <p class="lede"><a href="#top" data-goto-tab="t-lease">Concept 05</a> said a lease lasts "as long as oil or gas is produced." That sentence has fine print. A handful of clauses — the <strong>savings clauses</strong> — bridge the gaps when production isn't happening: while a finished well waits on a pipeline, after a well quits, between wells. They exist for good reasons. But one of them, the <strong>shut-in royalty</strong>, is written into most printed lease forms at a price set decades ago and with no time limit at all — and it is the single easiest thing on the page to fix before you sign.</p>
+      <p class="lede"><a href="#top" data-goto-tab="t-lease">Concept 06</a> said a lease lasts "as long as oil or gas is produced." That sentence has fine print. A handful of clauses — the <strong>savings clauses</strong> — bridge the gaps when production isn't happening: while a finished well waits on a pipeline, after a well quits, between wells. They exist for good reasons. But one of them, the <strong>shut-in royalty</strong>, is written into most printed lease forms at a price set decades ago and with no time limit at all — and it is the single easiest thing on the page to fix before you sign.</p>
     </div>
 
     <div class="section" style="border-top:0;padding-top:1rem">
@@ -2854,15 +3074,15 @@
 
     <div class="callout">
       <p class="kicker">The point that trips everyone up</p>
-      <p>"Nothing has been produced in four years, so my lease has to be dead by now." Not necessarily &mdash; and this is exactly what the savings clauses are for. A modest annual shut-in payment, or a cessation window that keeps getting restarted, can hold a lease through years of silence, perfectly lawfully. The mirror image is also true: an operator can <em>think</em> a lease is held and be wrong, because a shut-in payment went to the wrong person or arrived late, or because the well was never actually capable of producing in paying quantities. Neither side finds out automatically. <a href="#top" data-goto-tab="t-hbp">Concept 13</a> is about how you go and check.</p>
+      <p>"Nothing has been produced in four years, so my lease has to be dead by now." Not necessarily &mdash; and this is exactly what the savings clauses are for. A modest annual shut-in payment, or a cessation window that keeps getting restarted, can hold a lease through years of silence, perfectly lawfully. The mirror image is also true: an operator can <em>think</em> a lease is held and be wrong, because a shut-in payment went to the wrong person or arrived late, or because the well was never actually capable of producing in paying quantities. Neither side finds out automatically. <a href="#top" data-goto-tab="t-hbp">Concept 14</a> is about how you go and check.</p>
     </div>
   </section>
 
-  <!-- ============ PANEL 13 — HBP MONITORING & TERMINATION RISK ============ -->
+  <!-- ============ PANEL 14 — HBP MONITORING & TERMINATION RISK ============ -->
   <section class="panel" id="p-hbp" role="tabpanel" aria-labelledby="t-hbp" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 13 — HBP monitoring</p>
+      <p class="eyebrow">Concept 14 — HBP monitoring</p>
       <h1>The lease that's been quietly dead since <em>2022</em>.</h1>
       <p class="lede">A lease held by production doesn't end with a letter, a lawsuit, or a filing. It ends by itself — the moment production in paying quantities permanently stops and no savings clause catches it. Nobody is notified. The operator's map still shades your acreage as held. The county records still show the lease. The only person with any real incentive to notice is you, and the only way to notice is to read the public record on purpose.</p>
     </div>
@@ -2870,7 +3090,7 @@
     <div class="section" style="border-top:0;padding-top:1rem">
       <p class="kicker">Start here</p>
       <h2>First — why a lease can end without anyone doing anything</h2>
-      <p>This is the piece that surprises people, and it's the engine behind everything else on this page. A Texas oil and gas lease is not a contract that has to be cancelled. It is a conveyance of the minerals subject to a built-in expiry date — lawyers call it a <strong>fee simple determinable</strong> with a <strong>special limitation</strong>. The habendum clause from <a href="#top" data-goto-tab="t-hold">Concept 12</a> is that limitation: the lease lasts "as long as oil or gas is produced," and when that stops being true, the estate ends on its own.</p>
+      <p>This is the piece that surprises people, and it's the engine behind everything else on this page. A Texas oil and gas lease is not a contract that has to be cancelled. It is a conveyance of the minerals subject to a built-in expiry date — lawyers call it a <strong>fee simple determinable</strong> with a <strong>special limitation</strong>. The habendum clause from <a href="#top" data-goto-tab="t-hold">Concept 13</a> is that limitation: the lease lasts "as long as oil or gas is produced," and when that stops being true, the estate ends on its own.</p>
       <p>No notice. No forfeiture suit. No cure period unless the lease wrote one in. The minerals simply revert to you the instant the condition fails — a moment that may pass, entirely unremarked, while everyone involved carries on assuming the lease is fine.</p>
       <p>The catch is that "the condition failed" is easy to say and hard to prove, and there are more ways for a lease to survive than most owners expect. So the job isn't to declare leases dead. It's to build a file.</p>
 
@@ -3097,7 +3317,7 @@
         <div class="lt-item">
           <span class="when">Question 1</span>
           <h4>Is there other production holding the same lease?</h4>
-          <p>A lease is held by production <em>from the leased premises</em> — or, if your tract was pooled, by production anywhere in the unit. One well quitting on a lease with three wells changes nothing. And under <a href="#top" data-goto-tab="t-pooling">Concept 06</a>, a well a mile away on someone else's tract can be holding yours, provided the pooling was valid and your acreage is really in that unit. Check the unit designation of record, not just the well nearest you.</p>
+          <p>A lease is held by production <em>from the leased premises</em> — or, if your tract was pooled, by production anywhere in the unit. One well quitting on a lease with three wells changes nothing. And under <a href="#top" data-goto-tab="t-pooling">Concept 07</a>, a well a mile away on someone else's tract can be holding yours, provided the pooling was valid and your acreage is really in that unit. Check the unit designation of record, not just the well nearest you.</p>
         </div>
         <div class="lt-item">
           <span class="when">Question 2</span>
@@ -3107,7 +3327,7 @@
         <div class="lt-item">
           <span class="when">Question 3</span>
           <h4>Was a shut-in royalty tendered — properly?</h4>
-          <p>A shut-in payment can hold the lease through the whole quiet stretch. But it only works if the well was genuinely capable of producing in paying quantities as it sat, and if the payment was made on time, in the right amount, to the right party. Your own bank records are the primary source here, and a payment sent to a predecessor in title or to the wrong address is one of the most common failures. See <a href="#top" data-goto-tab="t-hold">Concept 12</a>.</p>
+          <p>A shut-in payment can hold the lease through the whole quiet stretch. But it only works if the well was genuinely capable of producing in paying quantities as it sat, and if the payment was made on time, in the right amount, to the right party. Your own bank records are the primary source here, and a payment sent to a predecessor in title or to the wrong address is one of the most common failures. See <a href="#top" data-goto-tab="t-hold">Concept 13</a>.</p>
         </div>
         <div class="lt-item">
           <span class="when">Question 4</span>
@@ -3183,7 +3403,7 @@
             <tr><td>Royalty</td><td class="r">1/8 &nbsp;(0.12500)</td><td class="r">1/4 &nbsp;(0.25000)</td></tr>
             <tr><td>Bonus per net acre</td><td class="r">&mdash; already paid</td><td class="r">$1,000</td></tr>
             <tr><td>Bonus on 160 net acres</td><td class="r">&mdash;</td><td class="r">$160,000</td></tr>
-            <tr><td>Post-production costs</td><td class="r">Deductible &mdash; "at the well"</td><td class="r">Negotiable &mdash; see <a href="#top" data-goto-tab="t-ppc">Concept 11</a></td></tr>
+            <tr><td>Post-production costs</td><td class="r">Deductible &mdash; "at the well"</td><td class="r">Negotiable &mdash; see <a href="#top" data-goto-tab="t-ppc">Concept 12</a></td></tr>
             <tr><td>Shut-in clause</td><td class="r">$1/acre, uncapped</td><td class="r">$50/acre, 2-year cap</td></tr>
             <tr class="tot"><td>Difference on the royalty alone</td><td class="r">&mdash;</td><td class="r">2&times; on every barrel, forever</td></tr>
           </tbody>
@@ -3221,13 +3441,13 @@
   </section>
 
   <!-- ============ SUPPORT TAB ============ -->
-  <!-- ============ PANEL 14 — THE MONEY TRAIL ============ -->
+  <!-- ============ PANEL 15 — THE MONEY TRAIL ============ -->
   <section class="panel" id="p-money" role="tabpanel" aria-labelledby="t-money" tabindex="0">
 
     <div class="hero">
-      <p class="eyebrow">Concept 14 — the money trail</p>
+      <p class="eyebrow">Concept 15 — the money trail</p>
       <h1>Your royalty is in the same bank account as their <em>payroll</em>.</h1>
-      <p class="lede"><a href="#top" data-goto-tab="t-check">Concept 08</a> read a check stub from the top down. This is the half nobody explains: what happens <em>before</em> the stub is printed. Somebody buys the oil. One payment lands in one ordinary company bank account. A computer splits it across thousands of owners. Things come off the top. A check goes out — or quietly doesn't. Almost every royalty dispute you will ever have is really an argument about one of those steps.</p>
+      <p class="lede"><a href="#top" data-goto-tab="t-check">Concept 09</a> read a check stub from the top down. This is the half nobody explains: what happens <em>before</em> the stub is printed. Somebody buys the oil. One payment lands in one ordinary company bank account. A computer splits it across thousands of owners. Things come off the top. A check goes out — or quietly doesn't. Almost every royalty dispute you will ever have is really an argument about one of those steps.</p>
     </div>
 
     <div class="section" style="border-top:0;padding-top:1rem">
@@ -3236,8 +3456,8 @@
       <p>This page sits at the end of the getting-paid chain, so it borrows from earlier concepts. You don't need to go back and re-read them; here they are in one line each.</p>
 
       <div class="glossary">
-        <div class="term"><span class="t">Royalty</span><span class="d">Your share of what the well produces, kept out of the lease. You pay none of the cost of drilling. <a href="#top" data-goto-tab="t-lease">Concept 05</a>.</span></div>
-        <div class="term"><span class="t">Decimal interest</span><span class="d">Your royalty fraction multiplied out against your acreage and the size of the unit — a long number like 0.00488281. It's what the computer actually uses. <a href="#top" data-goto-tab="t-doi">Concept 07</a>.</span></div>
+        <div class="term"><span class="t">Royalty</span><span class="d">Your share of what the well produces, kept out of the lease. You pay none of the cost of drilling. <a href="#top" data-goto-tab="t-lease">Concept 06</a>.</span></div>
+        <div class="term"><span class="t">Decimal interest</span><span class="d">Your royalty fraction multiplied out against your acreage and the size of the unit — a long number like 0.00488281. It's what the computer actually uses. <a href="#top" data-goto-tab="t-doi">Concept 08</a>.</span></div>
         <div class="term"><span class="t">Division order</span><span class="d">A form confirming your name, address, tax ID and that decimal. It tells a company where to send money. It does not change your lease.</span></div>
       </div>
 
@@ -3370,7 +3590,7 @@
       <p class="kicker">Step three — the split</p>
       <h2>The deck: one lump sum, exploded</h2>
       <p>Inside the operator's revenue accounting department is the <strong>division of interest</strong> — the deck. It lists every person and entity with a claim on that well and each one's decimal. Once a month the lump sum is exploded across it: volume × price × your decimal = your gross share. Simple arithmetic, run across sometimes thousands of owners.</p>
-      <p>Here is one month on a well with a 1/5 lease royalty, using the decimal built in <a href="#top" data-goto-tab="t-doi">Concept 07</a>:</p>
+      <p>Here is one month on a well with a 1/5 lease royalty, using the decimal built in <a href="#top" data-goto-tab="t-doi">Concept 08</a>:</p>
 
       <div class="table-scroll" style="margin-top:1.2rem">
         <table class="ledger">
@@ -3395,7 +3615,7 @@
     <div class="section">
       <p class="kicker">Step four — off the top</p>
       <h2>What comes out before anyone gets paid</h2>
-      <p>Texas taxes production at the wellhead. The operator remits the tax and charges every interest owner, including you, a proportionate share. This part is not controversial — practically every Texas lease has the royalty owner bearing a share of production taxes, and even strongly owner-favourable clauses carve taxes out as an allowed charge. <a href="#top" data-goto-tab="t-tax">Concept 09</a> takes the two taxes apart in full.</p>
+      <p>Texas taxes production at the wellhead. The operator remits the tax and charges every interest owner, including you, a proportionate share. This part is not controversial — practically every Texas lease has the royalty owner bearing a share of production taxes, and even strongly owner-favourable clauses carve taxes out as an allowed charge. <a href="#top" data-goto-tab="t-tax">Concept 10</a> takes the two taxes apart in full.</p>
 
       <div class="table-scroll" style="margin-top:1.2rem">
         <table class="ledger">
@@ -3404,7 +3624,7 @@
             <tr><td>Severance tax — oil</td><td>4.6% of market value</td><td>No. Reduced rates exist for some wells</td></tr>
             <tr><td>Severance tax — natural gas</td><td>7.5% of market value</td><td>No. Reduced rates exist for some wells</td></tr>
             <tr><td>Federal backup withholding</td><td>24%, when the payor has no valid W-9</td><td>Yes — return the W-9</td></tr>
-            <tr><td>Post-production costs</td><td>Set by your lease, not by law</td><td>Sometimes — see <a href="#top" data-goto-tab="t-ppc">Concept 11</a></td></tr>
+            <tr><td>Post-production costs</td><td>Set by your lease, not by law</td><td>Sometimes — see <a href="#top" data-goto-tab="t-ppc">Concept 12</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -3853,7 +4073,7 @@
     <div class="roadmap">
       <p class="eyebrow">The build</p>
       <h2 style="font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,1.4rem+2.4vw,3rem);letter-spacing:-.025em;line-height:1.05">From the simplest idea to the deep end.</h2>
-      <p class="lede">Each concept builds on the one before it. We ship the foundations first — the things every owner and every new hire has to understand — then layer in the machinery, then the edge cases and other jurisdictions. Fourteen concepts are live today, carrying you from what you own all the way through leasing, pooling, and getting paid — with more on the way.</p>
+      <p class="lede">Each concept builds on the one before it. We ship the foundations first — the things every owner and every new hire has to understand — then layer in the machinery, then the edge cases and other jurisdictions. Fifteen concepts are live today, carrying you from what you own all the way through leasing, pooling, and getting paid — with more on the way.</p>
 
       <div class="tier">
         <div class="tier-head"><span class="tier-num">TIER 1</span><h3>The estate</h3><span class="tier-sub">What ownership even means underground.</span></div>
@@ -3862,7 +4082,7 @@
           <div class="step"><span class="chip live">Live</span><span class="t">Separate tracts &amp; common ownership<small>Why differing fractions create separate tracts</small></span></div>
           <div class="step"><span class="chip live">Live</span><span class="t">Fractional &amp; undivided interests<small>Co-tenancy, net mineral acres, partition</small></span></div>
           <div class="step"><span class="chip live">Live</span><span class="t">Measuring ownership<small>Gross acres, net mineral acres, net royalty acres, and the 1/8 yardstick</small></span></div>
-          <div class="step"><span class="chip next">Next</span><span class="t">Accommodation doctrine &amp; surface use<small>How the dominant estate must treat the surface owner</small></span></div>
+          <div class="step"><span class="chip live">Live</span><span class="t">Accommodation doctrine &amp; surface use<small>The three-part test on a center-pivot field; why reasonable use is unpaid in Texas</small></span></div>
         </div>
       </div>
 
@@ -3933,7 +4153,7 @@
     <p class="disc support-foot">Own minerals outside Texas? <a href="regulators/index.html">Where to look it up</a>
       — the Railroad Commission's equivalent in the ten biggest producing states, and the one document to pull in each.</p>
     <p class="disc support-foot">Free to use, always. If it helped you, you can <a href="#top" data-goto-tab="t-support">support the site</a> — thank you.</p>
-    <p class="disc foot-ver">v1.8.2 · updated November 25, 2026</p>
+    <p class="disc foot-ver">v1.9.0 · updated November 25, 2026</p>
   </div>
 </footer>
 

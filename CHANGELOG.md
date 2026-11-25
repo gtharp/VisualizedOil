@@ -16,8 +16,8 @@ because they ship independently:
 
 | Stream | Versioned in | Footer stamp reads |
 |---|---|---|
-| `index.html` | header comment + `<meta name="version">` + footer line | `v1.8.2 · updated …` |
-| `glossary.html` | same three places | `Dictionary v1.3.1 · updated …` |
+| `index.html` | header comment + `<meta name="version">` + footer line | `v1.9.0 · updated …` |
+| `glossary.html` | same three places | `Dictionary v1.3.2 · updated …` |
 | `regulators/*.html` | same three places; the pages move together on a minor, and a single page can take its own patches (Montana is at 1.2.4 while the rest sit at 1.2.0) | `Where to look it up v1.2.0 · updated …` |
 
 So entries are grouped by **date**, and each names the page versions it moved and
@@ -39,6 +39,74 @@ differently, Changed.
 ## Unreleased
 
 Nothing staged.
+
+---
+
+## 2026-11-25 — Surface use: a new Concept 05, and Tier 1 is complete
+
+`index.html` 1.8.2 → **1.9.0** (minor)
+`glossary.html` 1.3.1 → **1.3.2** (patch)
+Files: `index.html` · `css/concepts.css` · `js/app.js` · `glossary.html` ·
+`js/glossary.js` · `sitemap.xml` · `ROADMAP.md` · `README.md` · `CHANGELOG.md`
+
+**Added**
+
+- **Concept 05, "Surface use."** The last Tier 1 tab, on the accommodation
+  doctrine: the dominant estate may use the surface as reasonably necessary, but
+  must use a reasonable alternative when its chosen method would wreck an
+  existing surface use the owner can't work around. It sits after Measuring
+  ownership and before The lease, so the operator is introduced lightly with a
+  pointer forward to Concept 06.
+
+  The example reuses Bob's 160 acres from Concept 01, now farmed under a
+  center pivot. A four-step stepper on one plan view: the operator stakes a well
+  inside the circle; Test 1 (an existing use is substantially impaired — the arm
+  can't pass); Test 2 (the surface owner has no reasonable alternative); Test 3
+  (the operator has a customary alternative on the lease — a corner pad, which a
+  pivot never reaches). A three-line checklist beside the plat fills in as the
+  steps advance and ends on "the operator must accommodate."
+
+  A two-column ledger runs the same test on cattle pens, which fail at Test 2
+  because they can be rebuilt elsewhere. A case table names *Getty Oil Co. v.
+  Jones* (1971), *Merriman v. XTO Energy* (2013) and *Coyote Lake Ranch v. City
+  of Lubbock* (2016), years only. The callout: reasonable surface use is unpaid
+  in Texas by default, and Texas has no general surface damage statute, unlike
+  Oklahoma and North Dakota.
+
+- **`initAccommodation()` in `js/app.js`,** a guarded module like the others.
+- **The `.ac-*` block in `css/concepts.css`.** The tab reuses the `.dil` shell
+  and the `.tl-*` stepper chrome from Concepts 06 and 14; new are the plat
+  layout, the test checklist and the verdict chip.
+- **Dictionary see-links to Concept 05** on clauses 75 (surface use
+  restrictions, which pointed at Concept 01), 78 (surface damages), 79 (damage
+  schedule), 81 (water consent) and 82 (off-lease use).
+
+**Changed**
+
+- **The concept ladder renumbered, 14 tabs to 15.** Concepts 01–04 hold; The
+  lease and everything below shift one, 05–14 → 06–15. Tab and panel IDs are
+  semantic and did not move, so every deep link still resolves. Moved: tab
+  numerals, panel eyebrows, numbered cross-references in prose, panel banner
+  comments, the `see:` labels in `js/glossary.js`, section comments in
+  `css/concepts.css`, the JSON-LD `ItemList` (now fifteen items), and the tier
+  tables in `ROADMAP.md` and `README.md`. Build-history comments at the top of
+  `index.html` keep the numbers they were written with.
+- **Concept 01's dominant-estate paragraph** now points forward to Concept 05.
+- **The Roadmap tab** marks accommodation doctrine Live and says fifteen
+  concepts.
+
+**Fixed**
+
+- The allocation-well readout in Concept 11 said the pooled unit "is Concept
+  05." Pooling had been Concept 06 since 1.8.0 and the 1.8.0 renumber missed
+  this string in `js/app.js`. Now reads Concept 07.
+
+**Notes**
+
+The three cases were written from working knowledge without the opinions
+open; `ROADMAP.md`'s case-law note flags them for a read-through. Separately,
+the regulator ad valorem check was started but changed no page copy. Findings
+so far are under the follow-ups in `ROADMAP.md`.
 
 ---
 
